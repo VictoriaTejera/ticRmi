@@ -1,4 +1,4 @@
-package cliente;
+package interfaz.cliente;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -6,7 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 
-public class ControladorInicioSesion {
+public class ControladorRegistro {
 
     @FXML
     private ResourceBundle resources;
@@ -21,5 +21,8 @@ public class ControladorInicioSesion {
 
     @FXML
     void initialize() {
+
+
     }
+
 }

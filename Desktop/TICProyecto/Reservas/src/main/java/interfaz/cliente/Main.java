@@ -1,4 +1,4 @@
-package cliente;
+package interfaz.cliente;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;

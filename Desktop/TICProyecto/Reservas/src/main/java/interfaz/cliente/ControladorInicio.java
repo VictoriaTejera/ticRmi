@@ -1,4 +1,4 @@
-package cliente;
+package interfaz.cliente;
 
 import java.io.IOException;
 import java.net.URL;
