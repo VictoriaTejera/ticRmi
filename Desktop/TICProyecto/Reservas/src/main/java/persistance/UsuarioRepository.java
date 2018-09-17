@@ -4,20 +4,15 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import persistance.entidades.Usuario;
 
+@Repository
 public class UsuarioRepository {
 
-	
+	@Autowired
 	JDBCTemplate template;
-	
-	
-	public UsuarioRepository(JDBCTemplate template) {
-		super();
-		this.template = template;
-	}
-
 
 	public void Save(Usuario us) throws SQLException {
 		

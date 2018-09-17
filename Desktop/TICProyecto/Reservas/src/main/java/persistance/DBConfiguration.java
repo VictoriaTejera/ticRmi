@@ -14,6 +14,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 
+import persistance.entidades.Comida;
+import persistance.entidades.Reserva;
+import persistance.entidades.Restaurante;
 import persistance.entidades.Usuario;
 
 @Configuration
@@ -35,6 +38,9 @@ public class DBConfiguration {
         org.hibernate.cfg.Configuration configuration = new org.hibernate.cfg.Configuration();
         configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL57Dialect");
         configuration.addAnnotatedClass(Usuario.class);
+//        configuration.addAnnotatedClass(Comida.class);
+        configuration.addAnnotatedClass(Restaurante.class);
+//        configuration.addAnnotatedClass(Reserva.class);
         configuration.setProperty("hibernate.schema_update", "true");
         configuration.setProperty("hibernate.hbm2ddl.auto", "update");
         configuration.setProperty("hibernate.show_sql", "true");
@@ -52,10 +58,10 @@ public class DBConfiguration {
 		return new JDBCTemplate(ds);
 	}
 	
-	@Bean
-	UsuarioRepository interaccion(@Autowired @Qualifier("template") JDBCTemplate template) {
-		return new UsuarioRepository(template);
-	}
+//	@Bean
+//	UsuarioRepository interaccion(@Autowired @Qualifier("template") JDBCTemplate template) {
+//		return new UsuarioRepository(template);
+//	}
 	
 		
 }
