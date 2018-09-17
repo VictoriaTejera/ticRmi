@@ -32,7 +32,7 @@ public class ControladorRegistro {
 
 	@FXML
 	void handleSubmitButtonAction(ActionEvent event) {
-		Usuario u1 = new Usuario(txtNombre.getText(), txtContrasena.getText(), Integer.parseInt(txtCelular.getText()));
+		Usuario u1 = new Usuario(txtNombre.getText(), txtContrasena.getText(), Long.parseLong(txtCelular.getText()));
 	}
 
 	@FXML
