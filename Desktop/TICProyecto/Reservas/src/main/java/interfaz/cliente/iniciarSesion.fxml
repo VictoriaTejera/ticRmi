@@ -33,7 +33,7 @@
       <!-- Add Password Field -->
       <PasswordField id="passwordField" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <!-- Add Submit Button -->
-      <Button id="submitButton" contentDisplay="CENTER" defaultButton="true" onAction="#handleSubmitButtonAction" prefHeight="21.0" prefWidth="100.0" text="Iniciar Sesión" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="1">
+      <Button id="submitButton" fx:id="btnConfirmarInicioSesion" contentDisplay="CENTER" defaultButton="true" onAction="#handleSubmitButtonAction" prefHeight="21.0" prefWidth="100.0" text="Iniciar Sesión" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="1">
         <GridPane.margin>
           <Insets bottom="20.0" top="20.0" />
         </GridPane.margin>
