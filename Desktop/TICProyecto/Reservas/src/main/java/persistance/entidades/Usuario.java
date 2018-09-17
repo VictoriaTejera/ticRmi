@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class Usuario {
 
 	@Id
-	private Long celular;
+	private Integer celular;
 	private String Nombre;
 	
 	@Column(unique=true)
@@ -19,10 +19,10 @@ public class Usuario {
 	private Float rating;
 	private Integer cantRatings;
 
-	public Usuario(String nombre, String contrasena, Long celular) {
+	public Usuario(String nombre, String contrasena, Integer tel) {
 		Nombre = nombre;
 		this.contrasena = contrasena;
-		this.celular = celular;
+		this.celular = tel;
 	}
 
 	public String getNombre() {
@@ -49,11 +49,11 @@ public class Usuario {
 		this.rating = rating;
 	}
 
-	public Long getCelular() {
+	public Integer getCelular() {
 		return celular;
 	}
 
-	public void setCelular(Long celular) {
+	public void setCelular(Integer celular) {
 		this.celular = celular;
 	}
 

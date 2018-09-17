@@ -37,24 +37,25 @@ public class UsuarioRepository {
 		});
 	}
 
-	public void VerificUsuario(Usuario us) {
-
+	public boolean VerificUsuario(Usuario us) {
+		boolean correcto = false;
 		try {
-			template.execute(con -> {
+			correcto= (boolean)template.execute(con -> {
 				PreparedStatement preparedStatement = con.prepareStatement(
 						"SELECT * FROM usuarios WHERE Nombre=us.getNombre() Contrasena=us.getContrasena()");
 				ResultSet resultSet = preparedStatement.executeQuery();
-				boolean correcto = false;
+				boolean correcto1=false;
 				if (resultSet.getString("nombre") == us.getNombre()
 						&& resultSet.getString("contrasena") == us.getContrasena()) {
-					correcto = true;
+					correcto1 = true;
 				}
 
-				return correcto;
+				return correcto1;
 			});
 		} catch (SQLException e) {
 			System.out.println("ERROR");
 		}
+		return correcto;
 
 	}
 

@@ -13,8 +13,8 @@ public class Ejemplo {
 		
 		ApplicationContext ctx= new AnnotationConfigApplicationContext(DBConfiguration.class);
 		
-		Long tel=(long) 8987989;
-		Usuario us=new Usuario("Victoria", "hola", tel);
+		
+		Usuario us=new Usuario("Victoria", "hola", 8);
 		
 		UsuarioRepository usR= ctx.getBean(UsuarioRepository.class);
 		
