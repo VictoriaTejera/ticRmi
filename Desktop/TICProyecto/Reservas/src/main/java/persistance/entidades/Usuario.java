@@ -8,13 +8,6 @@ import javax.persistence.Id;
 @Entity
 @Table
 public class Usuario {
-	public String getNombreUsuario() {
-		return NombreUsuario;
-	}
-
-	public void setNombreUsuario(String nombreUsuario) {
-		NombreUsuario = nombreUsuario;
-	}
 
 	@Id
 	private Long celular;
@@ -70,6 +63,14 @@ public class Usuario {
 
 	public void setCantRatings(Integer cantRatings) {
 		this.cantRatings = cantRatings;
+	}
+	
+	public String getNombreUsuario() {
+		return NombreUsuario;
+	}
+
+	public void setNombreUsuario(String nombreUsuario) {
+		NombreUsuario = nombreUsuario;
 	}
 
 }
