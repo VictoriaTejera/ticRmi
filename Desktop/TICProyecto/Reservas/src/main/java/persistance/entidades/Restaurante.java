@@ -1,5 +1,6 @@
 package persistance.entidades;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -9,7 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table
 @SuppressWarnings("unused")
-public class Restaurante {
+public class Restaurante implements Serializable{
 
 	@Id
 	private String nombre;
@@ -28,6 +29,38 @@ public class Restaurante {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getBarrio() {
+		return barrio;
+	}
+
+	public String getHorario() {
+		return horario;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public Integer getTelefono() {
+		return telefono;
+	}
+
+	public Float getRating() {
+		return rating;
+	}
+
+	public Integer getCantRatings() {
+		return cantRatings;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
 	}
 
 	public Restaurante(String nombre, String barrio, String horario, String direccion, Integer telefono, Float rating,
