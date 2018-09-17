@@ -25,7 +25,7 @@ public class DBConfiguration {
 		BasicDataSource ds = new BasicDataSource();
         ds.setUrl("jdbc:mysql://localhost:3306/ticdb?useSSL=false");
         ds.setUsername("root");
-        ds.setPassword("victoria15");
+        ds.setPassword("1997");
         ds.setDefaultAutoCommit(true);
         return ds;
 	}

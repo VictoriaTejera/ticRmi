@@ -6,6 +6,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
+@SuppressWarnings("unused")
 public class Comida {
 	@Id
 	private String nombre;

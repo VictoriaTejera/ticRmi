@@ -10,6 +10,7 @@ import javax.persistence.Id;
 
 @Entity
 @Table
+@SuppressWarnings("unused")
 public class Reserva {
 
 	@Id
