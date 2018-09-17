@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="397.0" prefWidth="379.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="cliente.ControladorRegistro">
+<AnchorPane prefHeight="397.0" prefWidth="379.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="interfaz.cliente.ControladorRegistro">
   <!-- TODO Add Nodes -->
   <children>
     <GridPane alignment="CENTER" hgap="10.0" layoutX="-22.0" layoutY="0.0" prefWidth="408.0" vgap="10.0">
@@ -27,13 +27,13 @@
       <!-- Add Name Label -->
       <Label prefWidth="100.0" text="Nombre completo:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
       <!-- Add Name Text Field -->
-      <TextField id="nameField" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField id="nameField" fx:id="txtNombre" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <!-- Add Password Label -->
       <Label text="Contraseña: " GridPane.columnIndex="0" GridPane.rowIndex="3" />
       <!-- Add Password Field -->
-      <PasswordField id="passwordField" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <PasswordField id="passwordField" fx:id="txtContrasena" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <!-- Add Submit Button -->
-      <Button id="submitButton" defaultButton="true" onAction="#handleSubmitButtonAction" prefHeight="21.0" prefWidth="81.0" text="Registrarse" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="1">
+      <Button id="submitButton" fx:id="btnRegistrarse" defaultButton="true" onAction="#handleSubmitButtonAction" prefHeight="21.0" prefWidth="81.0" text="Registrarse" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="1">
         <GridPane.margin>
           <Insets bottom="20.0" top="20.0" />
         </GridPane.margin>
@@ -42,7 +42,7 @@
         <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
       </padding>
       <!-- Add Name Text Field -->
-      <TextField id="nameField" prefHeight="49.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField id="nameField" fx:id="txtCelular" prefHeight="49.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <!-- Add Name Label -->
       <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Celular:" textAlignment="JUSTIFY" GridPane.columnIndex="0" GridPane.rowIndex="2" />
       <rowConstraints>

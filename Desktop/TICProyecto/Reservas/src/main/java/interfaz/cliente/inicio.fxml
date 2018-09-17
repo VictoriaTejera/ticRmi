@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="336.9609375" prefWidth="439.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="cliente.ControladorInicio">
+<AnchorPane prefHeight="336.9609375" prefWidth="439.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="interfaz.cliente.ControladorInicio">
   <!-- TODO Add Nodes -->
   <children>
     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="103.0" layoutY="0.0" prefHeight="77.0" prefWidth="234.0" text="Bienvenido a Reservas" textAlignment="CENTER">
