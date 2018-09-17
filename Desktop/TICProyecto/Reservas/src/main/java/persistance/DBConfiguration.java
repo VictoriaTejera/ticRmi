@@ -14,6 +14,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 
+import persistance.entidades.Usuario;
+
 @Configuration
 @ComponentScan
 public class DBConfiguration {
@@ -21,9 +23,9 @@ public class DBConfiguration {
 	@Bean(name="pool")
 	DataSource pool() {
 		BasicDataSource ds = new BasicDataSource();
-        ds.setUrl("jdbc:mysql://localhost:3306/prueba?useSSL=false");
+        ds.setUrl("jdbc:mysql://localhost:3306/ticdb?useSSL=false");
         ds.setUsername("root");
-        ds.setPassword("1997");
+        ds.setPassword("victoria15");
         ds.setDefaultAutoCommit(true);
         return ds;
 	}
@@ -32,7 +34,7 @@ public class DBConfiguration {
 	SessionFactory sessionFactory(@Autowired @Qualifier("pool") DataSource ds) {
         org.hibernate.cfg.Configuration configuration = new org.hibernate.cfg.Configuration();
         configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL57Dialect");
-//      configuration.addAnnotatedClass(Persona.class);
+        configuration.addAnnotatedClass(Usuario.class);
         configuration.setProperty("hibernate.schema_update", "true");
         configuration.setProperty("hibernate.hbm2ddl.auto", "update");
         configuration.setProperty("hibernate.show_sql", "true");
@@ -50,10 +52,10 @@ public class DBConfiguration {
 		return new JDBCTemplate(ds);
 	}
 	
-//	@Bean
-//	PersonaInteraccionBDDImpl interaccion(@Autowired @Qualifier("template") JDBCTemplate template) {
-//		return new PersonaInteraccionBDDImpl(template);
-//	}
+	@Bean
+	UsuarioRepository interaccion(@Autowired @Qualifier("template") JDBCTemplate template) {
+		return new UsuarioRepository(template);
+	}
 	
 		
 }

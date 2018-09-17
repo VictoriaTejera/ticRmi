@@ -8,8 +8,16 @@ import javax.persistence.Id;
 @Entity
 @Table
 public class Usuario {
+	public String getNombreUsuario() {
+		return NombreUsuario;
+	}
+
+	public void setNombreUsuario(String nombreUsuario) {
+		NombreUsuario = nombreUsuario;
+	}
+
 	@Id
-	private Integer celular;
+	private Long celular;
 	private String Nombre;
 	
 	@Column(unique=true)
@@ -18,7 +26,7 @@ public class Usuario {
 	private Float rating;
 	private Integer cantRatings;
 
-	public Usuario(String nombre, String contrasena, Integer celular) {
+	public Usuario(String nombre, String contrasena, Long celular) {
 		Nombre = nombre;
 		this.contrasena = contrasena;
 		this.celular = celular;
@@ -48,11 +56,11 @@ public class Usuario {
 		this.rating = rating;
 	}
 
-	public Integer getCelular() {
+	public Long getCelular() {
 		return celular;
 	}
 
-	public void setCelular(Integer celular) {
+	public void setCelular(Long celular) {
 		this.celular = celular;
 	}
 
