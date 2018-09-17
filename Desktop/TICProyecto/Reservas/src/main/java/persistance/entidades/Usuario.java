@@ -1,7 +1,7 @@
 package persistance.entidades;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.persistence.Id;
 
@@ -11,6 +11,9 @@ public class Usuario {
 	@Id
 	private Integer celular;
 	private String Nombre;
+	
+	@Column(unique=true)
+	private String NombreUsuario;
 	private String contrasena;
 	private Float rating;
 	private Integer cantRatings;
