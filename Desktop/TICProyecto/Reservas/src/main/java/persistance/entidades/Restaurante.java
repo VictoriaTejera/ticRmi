@@ -16,4 +16,13 @@ public class Restaurante {
 	
 	//foto que tipo de datos es??
 	
+	public Restaurante(String nombre, String direccion, Integer telefono) {
+		this.nombre = nombre;
+		this.direccion = direccion;
+		this.telefono = telefono;
+	}
+	
+	
+	
+	
 }
