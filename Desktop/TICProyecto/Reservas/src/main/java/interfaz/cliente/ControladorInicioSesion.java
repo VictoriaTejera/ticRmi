@@ -11,30 +11,31 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-
 public class ControladorInicioSesion {
 
-    @FXML
-    private ResourceBundle resources;
+	@FXML
+	private ResourceBundle resources;
 
-    @FXML
-    private URL location;
-    
-    @FXML
-    private Button btnConfirmarInicioSesion;
+	@FXML
+	private URL location;
 
-    @FXML
-    void handleSubmitButtonAction(ActionEvent event) throws IOException {
-    	Stage stage = null;
+	@FXML
+	private Button btnConfirmarInicioSesion;
+
+	@FXML
+	void handleSubmitButtonAction(ActionEvent event) throws IOException {
+		Stage stage = null;
+		Parent root = null;
 		if (event.getSource() == btnConfirmarInicioSesion) {
 			stage = (Stage) btnConfirmarInicioSesion.getScene().getWindow();
-		} 
-		
-		stage.setScene(Main.getSceneTable());
+			root = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
+		}
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
 		stage.show();
-    }
+	}
 
-    @FXML
-    void initialize() {
-    }
+	@FXML
+	void initialize() {
+	}
 }
