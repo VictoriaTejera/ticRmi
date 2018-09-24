@@ -9,6 +9,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
+import um.edu.uy.persistance.entidades.Restaurante;
+
 public class RestauranteMgr{
 	
 	@Autowired
