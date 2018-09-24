@@ -1,4 +1,4 @@
-package persistance;
+package um.edu.uy.persistance;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import persistance.entidades.Usuario;
+import um.edu.uy.persistance.entidades.Usuario;
 
 @Repository
 public class UsuarioRepository {

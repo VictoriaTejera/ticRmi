@@ -1,4 +1,4 @@
-package interfaz.cliente;
+package um.edu.uy.interfaz.cliente;
 
 import java.io.IOException;
 import javafx.application.Application;

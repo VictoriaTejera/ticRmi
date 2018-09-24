@@ -1,4 +1,4 @@
-package persistance.entidades;
+package um.edu.uy.persistance.entidades;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

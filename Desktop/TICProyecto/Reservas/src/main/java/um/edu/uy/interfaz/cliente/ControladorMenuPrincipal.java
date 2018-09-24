@@ -1,4 +1,4 @@
-package interfaz.cliente;
+package um.edu.uy.interfaz.cliente;
 
 import java.net.URL;
 import java.util.ResourceBundle;

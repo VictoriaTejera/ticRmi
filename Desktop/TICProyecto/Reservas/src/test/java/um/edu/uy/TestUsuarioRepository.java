@@ -9,11 +9,11 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import persistance.DBConfiguration;
-import persistance.RestauranteRepository;
-import persistance.UsuarioRepository;
-import persistance.entidades.Restaurante;
-import persistance.entidades.Usuario;
+import um.edu.uy.persistance.DBConfiguration;
+import um.edu.uy.persistance.RestauranteRepository;
+import um.edu.uy.persistance.UsuarioRepository;
+import um.edu.uy.persistance.entidades.Restaurante;
+import um.edu.uy.persistance.entidades.Usuario;
 
 public class TestUsuarioRepository {
 
