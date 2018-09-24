@@ -11,25 +11,31 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import persistance.DBConfiguration;
 import persistance.RestauranteRepository;
+import persistance.RestauranteRepositoryInterno;
 import persistance.entidades.Restaurante;
 
 @SuppressWarnings("unused")
 public class TestRestauranteRepository {
 
 	@Test
-	public void testGetRestaurantes() {
+	public void testGetRestaurantesInterno() throws SQLException {
 		@SuppressWarnings("resource")
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(DBConfiguration.class);
-	
-		RestauranteRepository repo = ctx.getBean(RestauranteRepository.class);
-		List<Restaurante> lista=null;
-		try {
-			lista = repo.getRestaurants();
-		} catch (SQLException e) {
-			fail();
+
+		RestauranteRepositoryInterno repo = ctx.getBean(RestauranteRepositoryInterno.class);
+		List<Restaurante> lista = repo.getRestaurants();
+		for (int i = 0; i < lista.size(); i++) {
+			System.out.println(lista.get(i).getNombre());
 		}
-		
-		for(int i=0; i<lista.size();i++) {
+		System.exit(0);
+	}
+
+	@Test
+	public void testGetRestaurantes() throws SQLException {
+		ApplicationContext ctx = new AnnotationConfigApplicationContext(DBConfiguration.class);
+		RestauranteRepository repo = new RestauranteRepository(ctx);
+		List<Restaurante> lista = repo.getRestaurants();
+		for (int i = 0; i < lista.size(); i++) {
 			System.out.println(lista.get(i).getNombre());
 		}
 		System.exit(0);
