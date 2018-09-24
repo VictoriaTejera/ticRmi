@@ -31,7 +31,6 @@ public class TestRestauranteRepository {
 		for (int i = 0; i < lista.size(); i++) {
 			System.out.println(lista.get(i).getNombre());
 		}
-		System.exit(0);
 	}
 
 //	@Test
