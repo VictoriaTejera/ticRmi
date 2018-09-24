@@ -13,9 +13,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import persistance.RestauranteMgr;
-import persistance.entidades.Restaurante;
-
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @SuppressWarnings("unused")

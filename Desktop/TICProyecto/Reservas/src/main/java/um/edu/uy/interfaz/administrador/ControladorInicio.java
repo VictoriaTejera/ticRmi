@@ -1,4 +1,4 @@
-package interfaz.administrador;
+package um.edu.uy.interfaz.administrador;
 
 import java.io.IOException;
 import java.net.URL;

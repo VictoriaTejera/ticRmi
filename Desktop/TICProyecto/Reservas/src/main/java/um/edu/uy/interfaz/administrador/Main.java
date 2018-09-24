@@ -1,4 +1,4 @@
-package interfaz.administrador;
+package um.edu.uy.interfaz.administrador;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;

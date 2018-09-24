@@ -1,14 +1,14 @@
-package interfaz.cliente;
+package um.edu.uy.interfaz.cliente;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import persistance.entidades.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import um.edu.uy.persistance.entidades.Usuario;
 
 public class ControladorRegistro {
 

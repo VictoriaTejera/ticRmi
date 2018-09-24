@@ -1,4 +1,4 @@
-package persistance.entidades;
+package um.edu.uy.persistance.entidades;
 
 import java.sql.Date;
 

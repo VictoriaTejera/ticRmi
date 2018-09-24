@@ -1,4 +1,4 @@
-package persistance;
+package um.edu.uy.persistance;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,7 +9,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import persistance.entidades.Restaurante;
+import um.edu.uy.persistance.entidades.Restaurante;
 
 @Repository
 @SuppressWarnings("unchecked")

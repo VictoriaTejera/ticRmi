@@ -1,4 +1,4 @@
-package interfaz.cliente;
+package um.edu.uy.interfaz.cliente;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -7,7 +7,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
-import persistance.entidades.Restaurante;
+import um.edu.uy.persistance.entidades.Restaurante;
 
 public class Tabla {
 	public static Scene getSceneTable() {
