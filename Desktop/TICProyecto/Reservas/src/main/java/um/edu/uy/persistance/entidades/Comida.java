@@ -4,11 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table
-@SuppressWarnings("unused")
+//@Entity
+//@Table
+//@SuppressWarnings("unused")
 public class Comida {
-	@Id
+//	@Id
 	private String nombre;
 	private String tipo;
 	private Float precio;

@@ -13,6 +13,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import um.edu.uy.persistance.RestauranteMgr;
+import um.edu.uy.persistance.entidades.Restaurante;
+
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @SuppressWarnings("unused")
@@ -28,7 +31,6 @@ public class TestRestauranteRepository {
 		for (int i = 0; i < lista.size(); i++) {
 			System.out.println(lista.get(i).getNombre());
 		}
-		System.exit(0);
 	}
 
 //	@Test

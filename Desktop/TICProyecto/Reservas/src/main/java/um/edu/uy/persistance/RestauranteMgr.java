@@ -1,16 +1,14 @@
-package persistance;
+package um.edu.uy.persistance;
 
-import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Observable;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Service;
 
-import persistance.entidades.Restaurante;
+import um.edu.uy.persistance.entidades.Restaurante;
 
+@Service
 public class RestauranteMgr{
 	
 	@Autowired

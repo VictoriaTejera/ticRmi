@@ -30,6 +30,8 @@ public class Restaurante implements Serializable{
 		this.direccion = direccion;
 		this.telefono = telefono;
 	}
+	
+	public Restaurante() {}
 
 	public String getNombre() {
 		return nombre;
