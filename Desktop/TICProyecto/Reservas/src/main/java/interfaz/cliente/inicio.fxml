@@ -6,16 +6,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="336.9609375" prefWidth="439.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="interfaz.cliente.ControladorInicio">
+<AnchorPane prefHeight="336.9609375" prefWidth="378.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="interfaz.cliente.ControladorInicio">
   <!-- TODO Add Nodes -->
   <children>
-    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="103.0" layoutY="14.0" prefHeight="77.0" prefWidth="234.0" text="Bienvenido a Reservas" textAlignment="CENTER">
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="14.0" prefHeight="87.0" prefWidth="262.0" text="Bienvenido a Reservas" textAlignment="CENTER">
       <font>
-        <Font name="System Bold" size="20.0" />
+        <Font size="20.0" />
       </font>
     </Label>
-    <Button fx:id="btnIniciarSesion" layoutX="65.0" layoutY="108.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="131.0" text="Iniciar Sesión" textAlignment="LEFT" />
-    <Button fx:id="btnRegistrarse" layoutX="65.0" layoutY="193.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="131.0" text="Regístrate" />
-    <Label layoutX="65.0" layoutY="155.0" prefHeight="38.0" prefWidth="163.0" text="¿No tienes una cuenta? " />
+    <Button fx:id="btnIniciarSesion" layoutX="124.0" layoutY="122.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="131.0" text="Iniciar Sesión" textAlignment="LEFT" />
+    <Button fx:id="btnRegistrarse" layoutX="121.0" layoutY="220.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="131.0" text="Regístrate" />
+    <Label layoutX="122.0" layoutY="182.0" prefHeight="38.0" prefWidth="163.0" text="¿No tienes una cuenta? " />
   </children>
 </AnchorPane>

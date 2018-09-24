@@ -17,7 +17,7 @@
       </font>
     </Label>
     <!-- Add Submit Button -->
-    <Button id="submitButton" fx:id="btnConfirmarInicioSesion" contentDisplay="CENTER" defaultButton="true" layoutX="203.0" layoutY="255.0" onAction="#handleSubmitButtonAction" prefHeight="27.0" prefWidth="104.0" text="Iniciar Sesión" textAlignment="CENTER" />
+    <Button id="submitButton" fx:id="btnConfirmarInicioSesion" contentDisplay="CENTER" defaultButton="true" layoutX="179.0" layoutY="255.0" onAction="#handleSubmitButtonAction" prefHeight="27.0" prefWidth="104.0" text="Iniciar Sesión" textAlignment="CENTER" />
     <!-- Add Password Field -->
     <PasswordField id="passwordField" layoutX="158.0" layoutY="173.0" prefHeight="40.0" />
     <!-- Add Email Text Field -->

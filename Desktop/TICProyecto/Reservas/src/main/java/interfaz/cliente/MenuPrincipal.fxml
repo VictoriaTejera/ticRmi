@@ -15,6 +15,6 @@
       </font>
     </Label>
     <Button fx:id="btnListarRestaurantes" layoutX="133.0" layoutY="103.0" mnemonicParsing="false" onAction="#ListarRestaurantes" prefHeight="42.0" prefWidth="132.0" text="Ver Restaurantes" />
-    <Button fx:id="btnSalir" layoutX="133.0" layoutY="187.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="132.0" text="Salir" />
+    <Button id="btnSalir" fx:id="btnCloseButton" layoutX="133.0" layoutY="187.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="42.0" prefWidth="132.0" text="Salir" />
   </children>
 </AnchorPane>

@@ -20,7 +20,7 @@ public class ControladorMenuPrincipal {
     private Button btnListarRestaurantes;
 
     @FXML
-    private Button btnSalir;
+    private Button btnCloseButton;
 
 
     @FXML
@@ -32,13 +32,18 @@ public class ControladorMenuPrincipal {
 		
 		stage.setScene(Tabla.getSceneTable());
 		stage.show();
-    	
+    }
+    
+    @FXML
+    void closeButtonAction(ActionEvent event) {
+        Stage stage = (Stage) btnCloseButton.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
     void initialize() {
         assert btnListarRestaurantes != null : "fx:id=\"btnListarRestaurantes\" was not injected: check your FXML file 'MenuPrincipal.fxml'.";
-        assert btnSalir != null : "fx:id=\"btnSalir\" was not injected: check your FXML file 'MenuPrincipal.fxml'.";
+        assert btnCloseButton != null : "fx:id=\"btnSalir\" was not injected: check your FXML file 'MenuPrincipal.fxml'.";
 
 
     }
