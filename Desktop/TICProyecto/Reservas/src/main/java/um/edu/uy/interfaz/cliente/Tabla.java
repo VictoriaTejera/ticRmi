@@ -28,7 +28,7 @@ public class Tabla {
 		columnaTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
 		
 		table = new TableView<>();
-        table.setItems(getRestaurante());
+        table.setItems(getRestaurante()); //le paso la lista de restaurantes
         table.getColumns().addAll(columnaNombre, columnaDireccion, columnaTelefono);
 		VBox vBox = new VBox();
 
@@ -41,8 +41,12 @@ public class Tabla {
 	//Obtener todos los restaurantes
     public static ObservableList<Restaurante> getRestaurante(){
         ObservableList<Restaurante> restaurantes = FXCollections.observableArrayList();
-        restaurantes.add(new Restaurante("Burger King", "calle1, 102", 23445678));
-        restaurantes.add(new Restaurante("One Love", "calle2, 200", 23446655));
+        restaurantes.add(new Restaurante("Burger King", "calle1, 100", 11111));
+        restaurantes.add(new Restaurante("One Love", "calle2, 200", 22222));
+        restaurantes.add(new Restaurante("Magnum", "calle3, 300", 33333));
+        restaurantes.add(new Restaurante("Rudy", "calle4, 400", 44444));
+        restaurantes.add(new Restaurante("Tandory", "calle5, 500", 55555));	
+        
         return restaurantes;
     }
 }
