@@ -1,4 +1,4 @@
-package test.persistance;
+package um.edu.uy;
 
 import static org.junit.Assert.fail;
 
