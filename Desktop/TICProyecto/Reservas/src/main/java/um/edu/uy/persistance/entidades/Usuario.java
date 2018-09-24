@@ -1,13 +1,15 @@
 package um.edu.uy.persistance.entidades;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
 
 @Entity
-@Table
-public class Usuario {
+@Table (name="usuario")
+public class Usuario  implements Serializable{
 
 	@Id
 	private Integer celular;
@@ -19,11 +21,13 @@ public class Usuario {
 	private Float rating;
 	private Integer cantRatings;
 
-	public Usuario(String nombre, String contrasena, Integer tel) {
+	public Usuario(String nombre, String contrasena, Integer cel) {
 		Nombre = nombre;
 		this.contrasena = contrasena;
-		this.celular = tel;
+		this.celular = cel;
 	}
+	
+	public Usuario() {}
 
 	public String getNombre() {
 		return Nombre;
