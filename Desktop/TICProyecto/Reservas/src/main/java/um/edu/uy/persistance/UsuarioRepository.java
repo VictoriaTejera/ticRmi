@@ -14,7 +14,7 @@ import um.edu.uy.persistance.entidades.Usuario;
 
 public interface UsuarioRepository extends CrudRepository<Usuario, Integer>{
 
-	@Query("SELECT u FROM Usuario u WHERE u.Nombre= :nombre")
+	@Query("SELECT u FROM usuario u WHERE u.nombre= :nombre")
 	boolean verificarUsuario(@Param("nombre") String nombre);
 	
 	
