@@ -10,6 +10,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import um.edu.uy.persistance.UsuarioMgr;
+import um.edu.uy.persistance.entidades.Usuario;
 @Component
 public class ControladorRegistro {
 
@@ -33,7 +35,10 @@ public class ControladorRegistro {
 
 	@FXML
 	void handleSubmitButtonAction(ActionEvent event) {
-		//Usuario u1 = new Usuario(txtNombre.getText(), txtContrasena.getText(), Long.parseLong(txtCelular.getText()));
+		Usuario user = new Usuario(txtNombre.getText(), txtContrasena.getText(), Integer.parseInt(txtCelular.getText()));
+		UsuarioMgr u1= new UsuarioMgr();
+		System.out.println(user.getNombre()+user.getContrasena()+user.getCelular());
+		u1.save(user);
 	}
 
 	@FXML
