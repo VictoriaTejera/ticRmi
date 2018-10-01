@@ -45,17 +45,17 @@ public class Main extends Application {
 		root1 = fxmlLoader.load();
 		primaryStage.setScene(new Scene(root1));
 
-		Parent root = FXMLLoader.load(getClass().getResource("inicio.fxml"));
+		Parent root = FXMLLoader.load(ControladorRegistro.class.getResource("inicio.fxml"));
 		//Parent root1 = FXMLLoader.load(getClass().getResource("registrarse.fxml"));
-		Parent root2 = FXMLLoader.load(getClass().getResource("iniciarSesion.fxml"));
-		Parent root3 = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
+		Parent root2 = FXMLLoader.load(ControladorRegistro.class.getResource("iniciarSesion.fxml"));
+		Parent root3 = FXMLLoader.load(ControladorRegistro.class.getResource("MenuPrincipal.fxml"));
 
 		Scene scene = new Scene(root, 400, 400);
 		//Scene scene1 = new Scene(root1, 400, 400);
 		Scene scene2 = new Scene(root2, 400, 400);
 		Scene scene4 = new Scene(root3, 400, 400);
 
-		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		scene.getStylesheets().add(ControladorRegistro.class.getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
