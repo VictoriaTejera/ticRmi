@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="324.0" prefWidth="398.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="interfaz.cliente.ControladorMenuPrincipal">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Label alignment="CENTER" layoutX="53.0" layoutY="21.0" prefHeight="42.0" prefWidth="292.0" text="Seleccione la operación que desea realizar" textAlignment="CENTER">
+      <font>
+        <Font size="15.0" />
+      </font>
+    </Label>
+    <Button fx:id="btnListarRestaurantes" layoutX="133.0" layoutY="103.0" mnemonicParsing="false" onAction="#ListarRestaurantes" prefHeight="42.0" prefWidth="132.0" text="Ver Restaurantes" />
+    <Button id="btnSalir" fx:id="btnCloseButton" layoutX="133.0" layoutY="187.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="42.0" prefWidth="132.0" text="Salir" />
+  </children>
+</AnchorPane>

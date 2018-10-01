@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="397.0" prefWidth="379.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="interfaz.cliente.ControladorRegistro">
+  <!-- TODO Add Nodes -->
+  <children>
+    <GridPane alignment="CENTER" hgap="10.0" layoutX="-22.0" layoutY="11.0" prefWidth="408.0" vgap="10.0">
+      <columnConstraints>
+        <ColumnConstraints halignment="RIGHT" maxWidth="+Infinity" minWidth="100.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="ALWAYS" maxWidth="+Infinity" minWidth="200.0" prefWidth="200.0" />
+      </columnConstraints>
+      <!-- Add Header Label -->
+      <Label alignment="CENTER" contentDisplay="CENTER" text="Ingrese sus datos" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
+        <font>
+          <Font name="Arial" size="24.0" />
+        </font>
+        <GridPane.margin>
+          <Insets bottom="20.0" top="20.0" />
+        </GridPane.margin>
+      </Label>
+      <!-- Add Name Label -->
+      <Label prefWidth="100.0" text="Nombre completo:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+      <!-- Add Name Text Field -->
+      <TextField id="nameField" fx:id="txtNombre" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <!-- Add Password Label -->
+      <Label text="Contraseña: " GridPane.columnIndex="0" GridPane.rowIndex="3" />
+      <!-- Add Password Field -->
+      <PasswordField id="passwordField" fx:id="txtContrasena" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <padding>
+        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+      </padding>
+      <!-- Add Name Text Field -->
+      <TextField id="nameField" fx:id="txtCelular" prefHeight="49.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <rowConstraints>
+        <RowConstraints maxHeight="68.0" minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="47.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="50.0" prefHeight="42.0" />
+        <RowConstraints maxHeight="80.0" prefHeight="61.0" />
+      </rowConstraints>
+      <!-- Add Name Label -->
+      <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Celular:" textAlignment="JUSTIFY" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+      <!-- Add Submit Button -->
+      <Button id="submitButton" fx:id="btnRegistrarse" defaultButton="true" onAction="#handleSubmitButtonAction" prefHeight="21.0" prefWidth="90.0" text="Registrarse" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="1">
+        <GridPane.margin>
+          <Insets bottom="20.0" top="20.0" />
+        </GridPane.margin>
+      </Button>
+    </GridPane>
+  </children>
+</AnchorPane>
