@@ -10,7 +10,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import um.edu.uy.persistance.entidades.Usuario;
 @Component
 public class ControladorRegistro {
 
