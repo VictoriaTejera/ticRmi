@@ -18,7 +18,6 @@ import um.edu.uy.persistance.entidades.Restaurante;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-@SuppressWarnings("unused")
 public class TestRestauranteRepository {
 	
 	@Autowired

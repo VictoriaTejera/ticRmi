@@ -9,7 +9,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-@SuppressWarnings("unused")
 public class Restaurante implements Serializable{
 
 	@Id
