@@ -3,10 +3,9 @@ package um.edu.uy;
 import static org.junit.Assert.fail;
 
 import java.sql.SQLException;
-<<<<<<< HEAD
+
 import java.util.LinkedList;
-=======
->>>>>>> branch 'master' of https://github.com/VictoriaTejera/TIC.git
+
 import java.util.List;
 
 import org.junit.Test;
