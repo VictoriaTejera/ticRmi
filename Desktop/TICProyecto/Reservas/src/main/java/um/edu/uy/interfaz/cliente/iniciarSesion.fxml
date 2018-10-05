@@ -19,9 +19,9 @@
     <!-- Add Submit Button -->
     <Button id="submitButton" fx:id="btnConfirmarInicioSesion" contentDisplay="CENTER" defaultButton="true" layoutX="179.0" layoutY="255.0" onAction="#handleSubmitButtonAction" prefHeight="27.0" prefWidth="104.0" text="Iniciar Sesión" textAlignment="CENTER" />
     <!-- Add Password Field -->
-    <PasswordField id="passwordField" layoutX="158.0" layoutY="173.0" prefHeight="40.0" />
+    <PasswordField id="passwordField" fx:id="txtContrasena" layoutX="158.0" layoutY="173.0" prefHeight="40.0" />
     <!-- Add Email Text Field -->
-    <TextField id="emailField" layoutX="158.0" layoutY="100.0" prefHeight="40.0" />
+    <TextField id="emailField" fx:id="txtUsuario" layoutX="159.0" layoutY="100.0" prefHeight="40.0" />
     <!-- Add Email Label -->
     <Label layoutX="63.0" layoutY="112.0" prefWidth="65.99990000000253" text="Usuario:" textAlignment="RIGHT" />
     <!-- Add Password Label -->

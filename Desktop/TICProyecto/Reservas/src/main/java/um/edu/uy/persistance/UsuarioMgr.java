@@ -11,18 +11,19 @@ import um.edu.uy.persistance.entidades.Usuario;
 public class UsuarioMgr {
 	
 	@Autowired
-	private UsuarioRepository repository;
+	private static UsuarioRepository repository;
 	
 	public void save(Usuario usuario) {
 		repository.save(usuario);
 	}
 	
-	public boolean VerificarUsuario(Usuario us) {
+	public static boolean verificarUsuario(Usuario us) {
 		boolean verifico=true;
 		if(repository.verificarUsuario(us.getNombre())==null) {
 			verifico=false;
 		}
 		return verifico;
 	}
+
 
 }

@@ -12,7 +12,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import um.edu.uy.persistance.UsuarioMgr;
+import um.edu.uy.persistance.entidades.Usuario;
 @Component
 public class ControladorInicioSesion {
 
@@ -24,12 +28,19 @@ public class ControladorInicioSesion {
 
 	@FXML
 	private Button btnConfirmarInicioSesion;
+	
+	@FXML
+	private PasswordField txtContrasena;
+
+	@FXML
+	private TextField txtNombre;
 
 	@FXML
 	void handleSubmitButtonAction(ActionEvent event) throws IOException {
 		Stage stage = null;
 		Parent root = null;
-		if (event.getSource() == btnConfirmarInicioSesion) {
+		Usuario user = new Usuario(txtNombre.getText(), txtContrasena.getText());
+		if (event.getSource() == btnConfirmarInicioSesion && UsuarioMgr.verificarUsuario(user)==true) {
 			stage = (Stage) btnConfirmarInicioSesion.getScene().getWindow();
 			root = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
 		}
