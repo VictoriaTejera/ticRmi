@@ -15,9 +15,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import um.edu.uy.Main;
+
 @Component
 public class ControladorInicio {
-	
+
 	@Autowired
 	private Main main;
 
@@ -44,25 +45,18 @@ public class ControladorInicio {
 	void handleButtonAction(ActionEvent event) throws IOException {
 		Stage stage;
 		Parent root = null;
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		stage = new Stage();
+
 		if (event.getSource() == btnRegistrarse) {
-			// Obtener referencia a la Escena del botón
+			fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+			root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("registrarse.fxml"));
 			stage = (Stage) btnRegistrarse.getScene().getWindow();
-			// cargar el otro documento, en este caso la segundo pantalla
-			
-			FXMLLoader fxmlLoader2 = new FXMLLoader();
-			fxmlLoader2.setControllerFactory(main.getContext()::getBean);
-			fxmlLoader2.setLocation(getClass().getResource("registrarse.fxml"));
-			
-			root =  fxmlLoader2.load();
 		} else {
+			root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("iniciarSesion.fxml"));
 			stage = (Stage) btnIniciarSesion.getScene().getWindow();
-
-			root = FXMLLoader.load(getClass().getResource("iniciarSesion.fxml"));
-
 		}
-		// Crear una nueva escena con raíz y establecer el escenario
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
+		stage.setScene(new Scene(root));
 		stage.show();
 	}
 

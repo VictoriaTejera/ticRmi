@@ -49,15 +49,7 @@ public class ControladorRegistro {
 	
 	@FXML
 	void handleSubmitButtonAction(ActionEvent event) throws Exception {
-		FXMLLoader fxmlLoader = new FXMLLoader();
-		fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-		Parent root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("registro.fxml"));
-		Stage stage = new Stage();
-		stage.setScene(new Scene(root));
-		stage.show();
-		
 		Usuario user = new Usuario(txtNombre.getText(), txtContrasena.getText(), Integer.parseInt(txtCelular.getText()));
-		//System.out.println(user.getNombre()+user.getContrasena()+user.getCelular());
 		usuMgr.save(user);
 	}
 
