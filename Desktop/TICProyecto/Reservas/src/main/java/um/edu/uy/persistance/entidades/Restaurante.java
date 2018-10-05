@@ -35,7 +35,6 @@ public class Restaurante implements Serializable{
 	private Barrio barrio;
 	
 	@OneToMany
-	@JoinTable(name="RESTAURANTE_COMIDA", joinColumns = @JoinColumn(name="nombre"))
 	@Cascade(CascadeType.ALL)
 	private List<Comida> menu;
 	

@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import um.edu.uy.persistance.BarrioMgr;
+import um.edu.uy.persistance.BarrioRepository;
 import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Barrio;
 import um.edu.uy.persistance.entidades.Comida;
@@ -24,6 +26,9 @@ public class TestRestauranteRepository {
 	@Autowired
 	RestauranteMgr resMgr;
 
+	@Autowired
+	BarrioMgr barrioMgr; //TODO cambiar a manager
+	
 	@Test
 	public void testSaveRestaurante() throws SQLException {
 		Comida com1=new Comida("nombre", "tipo", (float)13.55);
@@ -38,6 +43,7 @@ public class TestRestauranteRepository {
 	@Test
 	public void testSaveRestauranteConBarrio() throws SQLException {
 		Barrio b1=new Barrio("nombre", "barrio1");
+		barrioMgr.save(b1);
 		Restaurante res=new Restaurante("nombre1", b1);
 		resMgr.save(res);
 	}
