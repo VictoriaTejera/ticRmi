@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import um.edu.uy.Main;
 import um.edu.uy.persistance.UsuarioMgr;
 import um.edu.uy.persistance.entidades.Usuario;
 @Component
@@ -39,10 +40,16 @@ public class ControladorInicioSesion {
 	void handleSubmitButtonAction(ActionEvent event) throws IOException {
 		Stage stage = null;
 		Parent root = null;
+		FXMLLoader fxmlLoader = new FXMLLoader();
 		Usuario user = new Usuario(txtNombre.getText(), txtContrasena.getText());
+		stage = new Stage();
+		
 		if (event.getSource() == btnConfirmarInicioSesion && UsuarioMgr.verificarUsuario(user)==true) {
+			fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 			stage = (Stage) btnConfirmarInicioSesion.getScene().getWindow();
-			root = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
+			root = FXMLLoader.load(ControladorInicioSesion.class.getResource("MenuPrincipal.fxml"));
+		}else {
+			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("Warning.fxml"));
 		}
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
