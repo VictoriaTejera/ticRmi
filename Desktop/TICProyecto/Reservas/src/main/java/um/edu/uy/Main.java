@@ -20,15 +20,13 @@ public class Main extends Application {
 	Button btnRegistrarse, btnIniciarSesion, btnConfirmarInicioSesion, btnListarRestaurantes;
 	Scene scene, scene2, scene1, scene3, scene4;
 	Stage thestage;
-	private ConfigurableApplicationContext context;
+	private static ConfigurableApplicationContext context;
 	private FXMLLoader fxmlLoader;
 	private Parent root1;
 	
 	@Override
 	public void init() throws Exception{
-		context = SpringApplication.run(Main.class);
-		fxmlLoader = new FXMLLoader();
-		fxmlLoader.setControllerFactory(context::getBean);
+		Main.context = SpringApplication.run(Main.class);
 	}
 	@Override
 	public void start(Stage primaryStage) throws IOException {
@@ -41,8 +39,11 @@ public class Main extends Application {
 		btnIniciarSesion.setOnAction(e -> ButtonClicked(e));
 		btnConfirmarInicioSesion.setOnAction(e -> ButtonClicked(e));
 		
-		fxmlLoader.setLocation(ControladorRegistro.class.getResource("registrarse.fxml"));
-		root1 = fxmlLoader.load();
+		fxmlLoader = new FXMLLoader();
+		fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+		//fxmlLoader.setLocation(ControladorRegistro.class.getResource("registrarse.fxml"));
+		
+		root1 = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("registrarse.fxml"));
 		primaryStage.setScene(new Scene(root1));
 
 		FXMLLoader fxmlLoader2 = new FXMLLoader();
@@ -92,7 +93,7 @@ public class Main extends Application {
 	public void stop() {
 		context.close();
 	}
-	public ConfigurableApplicationContext getContext() {
+	public static ConfigurableApplicationContext getContext() {
 		return context;
 	}
 	
