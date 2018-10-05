@@ -17,8 +17,12 @@ public class UsuarioMgr {
 		repository.save(usuario);
 	}
 	
-//	public boolean VerificUsuario(Usuario us) {
-//		return repository.verificarUsuario(us.getNombre());
-//	}
+	public boolean VerificarUsuario(Usuario us) {
+		boolean verifico=true;
+		if(repository.verificarUsuario(us.getNombre())==null) {
+			verifico=false;
+		}
+		return verifico;
+	}
 
 }

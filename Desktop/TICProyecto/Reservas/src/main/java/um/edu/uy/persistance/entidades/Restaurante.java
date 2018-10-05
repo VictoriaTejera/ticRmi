@@ -5,7 +5,15 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
+import javax.persistence.JoinColumn;
 
 @Entity
 @Table
@@ -13,6 +21,8 @@ public class Restaurante implements Serializable{
 
 	@Id
 	private String nombre;
+	
+	@OneToOne
 	private String barrio;
 	private String horario;
 	private String direccion;
@@ -20,14 +30,19 @@ public class Restaurante implements Serializable{
 	private Float rating;
 	private Integer cantRatings;
 	private String descripcion;
-//	private List<Comida> menu;
+	
+	@OneToMany
+	@JoinTable(name="RESTAURANTE_COMIDA", joinColumns = @JoinColumn(name="nombre"))
+	@Cascade(CascadeType.ALL)
+	private List<Comida> menu;
 	
 	//foto que tipo de datos es??
 	
-	public Restaurante(String nombre, String direccion, Integer telefono) {
+	public Restaurante(String nombre, String direccion, Integer telefono, List<Comida> menu) {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
+		this.menu=menu;
 	}
 	
 	public Restaurante() {}

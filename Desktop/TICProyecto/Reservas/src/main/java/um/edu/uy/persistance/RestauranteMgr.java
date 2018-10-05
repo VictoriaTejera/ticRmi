@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import um.edu.uy.persistance.entidades.Restaurante;
+import um.edu.uy.persistance.entidades.Usuario;
 
 @Service
 public class RestauranteMgr{
@@ -21,6 +22,14 @@ public class RestauranteMgr{
 			lista.add(r);
 		}
 		return lista;
+	}
+	
+	public void save(Restaurante res) {
+		repository.save(res);
+	}
+	
+	public void filtrarPorBarrio(String Barrio) {
+		
 	}
 
 }
