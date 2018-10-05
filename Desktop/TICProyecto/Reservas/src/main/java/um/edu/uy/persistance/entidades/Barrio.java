@@ -19,16 +19,16 @@ public class Barrio {
 	private String idBarrio;
 	private String nombreBarrio;
 	
-	@OneToMany
-	@JoinTable(name="BARRIO_RESTAURANTE", joinColumns = @JoinColumn(name="nombre"))
-	@Cascade(CascadeType.ALL)
-	private List<Restaurante> restaurantes;
-
-	public Barrio(String idBarrio, String nombreBarrio) {
-		super();
-		this.idBarrio = idBarrio;
-		this.nombreBarrio = nombreBarrio;
-	}
-	
+//	@OneToMany
+//	@JoinTable(name="BARRIO_RESTAURANTE", joinColumns = @JoinColumn(name="nombre"))
+//	@Cascade(CascadeType.ALL)
+//	private List<Restaurante> restaurantes;
+//
+//	public Barrio(String idBarrio, String nombreBarrio) {
+//		super();
+//		this.idBarrio = idBarrio;
+//		this.nombreBarrio = nombreBarrio;
+//	}
+//	
 	
 }
