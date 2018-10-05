@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 import javafx.event.ActionEvent;
@@ -14,13 +16,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import um.edu.uy.Main;
 
 @Component
-public class ControladorInicio {
-
-	@Autowired
-	private Main main;
+public class ControladorInicio implements ApplicationContextAware {
 
 	@FXML
 	private ResourceBundle resources;
@@ -33,6 +31,8 @@ public class ControladorInicio {
 
 	@FXML
 	private Button btnRegistrarse;
+	
+	ApplicationContext applicationContext;
 
 	@FXML
 	void initialize() {
@@ -46,10 +46,10 @@ public class ControladorInicio {
 		Stage stage;
 		Parent root = null;
 		FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setControllerFactory(applicationContext::getBean);
 		stage = new Stage();
 
 		if (event.getSource() == btnRegistrarse) {
-			fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 			root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("registrarse.fxml"));
 			stage = (Stage) btnRegistrarse.getScene().getWindow();
 		} else {
@@ -58,6 +58,12 @@ public class ControladorInicio {
 		}
 		stage.setScene(new Scene(root));
 		stage.show();
+	}
+
+	@Override
+	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+		this.applicationContext = applicationContext;
+		
 	}
 
 }
