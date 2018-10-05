@@ -45,10 +45,23 @@ public class Main extends Application {
 		root1 = fxmlLoader.load();
 		primaryStage.setScene(new Scene(root1));
 
-		Parent root = FXMLLoader.load(ControladorRegistro.class.getResource("inicio.fxml"));
+		FXMLLoader fxmlLoader2 = new FXMLLoader();
+		fxmlLoader2.setControllerFactory(context::getBean);
+		fxmlLoader2.setLocation(ControladorRegistro.class.getResource("inicio.fxml"));
+		
+		Parent root = fxmlLoader2.load();
 		//Parent root1 = FXMLLoader.load(getClass().getResource("registrarse.fxml"));
-		Parent root2 = FXMLLoader.load(ControladorRegistro.class.getResource("iniciarSesion.fxml"));
-		Parent root3 = FXMLLoader.load(ControladorRegistro.class.getResource("MenuPrincipal.fxml"));
+		
+		fxmlLoader2 = new FXMLLoader();
+		fxmlLoader2.setControllerFactory(context::getBean);
+		
+		fxmlLoader2.setLocation(ControladorRegistro.class.getResource("iniciarSesion.fxml"));
+		Parent root2 = fxmlLoader2.load();
+		
+		fxmlLoader2 = new FXMLLoader();
+		fxmlLoader2.setControllerFactory(context::getBean);
+		fxmlLoader2.setLocation(ControladorRegistro.class.getResource("MenuPrincipal.fxml"));
+		Parent root3 = fxmlLoader2.load();
 
 		Scene scene = new Scene(root, 400, 400);
 		//Scene scene1 = new Scene(root1, 400, 400);
@@ -79,4 +92,9 @@ public class Main extends Application {
 	public void stop() {
 		context.close();
 	}
+	public ConfigurableApplicationContext getContext() {
+		return context;
+	}
+	
+	
 }

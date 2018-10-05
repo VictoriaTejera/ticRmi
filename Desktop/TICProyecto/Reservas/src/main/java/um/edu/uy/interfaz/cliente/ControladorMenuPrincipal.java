@@ -2,12 +2,15 @@ package um.edu.uy.interfaz.cliente;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import org.springframework.stereotype.Component;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-
+@Component
 public class ControladorMenuPrincipal {
 
     @FXML
