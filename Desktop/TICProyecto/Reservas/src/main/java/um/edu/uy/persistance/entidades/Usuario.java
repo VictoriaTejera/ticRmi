@@ -27,6 +27,11 @@ public class Usuario  implements Serializable{
 		this.celular = cel;
 	}
 	
+	public Usuario(String nombre, String contrasena) {
+		Nombre = nombre;
+		this.contrasena = contrasena;
+	}
+	
 	public Usuario() {}
 
 	public String getNombre() {
