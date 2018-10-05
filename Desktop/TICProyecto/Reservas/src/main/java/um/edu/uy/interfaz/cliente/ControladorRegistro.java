@@ -3,6 +3,7 @@ package um.edu.uy.interfaz.cliente;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javafx.event.ActionEvent;
@@ -10,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import um.edu.uy.persistance.UsuarioMgr;
+import um.edu.uy.persistance.entidades.Usuario;
 @Component
 public class ControladorRegistro {
 
@@ -30,10 +33,20 @@ public class ControladorRegistro {
 
 	@FXML
 	private TextField txtNombre;
-
+	
+	@Autowired
+	UsuarioMgr usuMgr;
+	
+	public ControladorRegistro() {
+		
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+	}
+	
 	@FXML
 	void handleSubmitButtonAction(ActionEvent event) {
-		//Usuario u1 = new Usuario(txtNombre.getText(), txtContrasena.getText(), Long.parseLong(txtCelular.getText()));
+		Usuario user = new Usuario(txtNombre.getText(), txtContrasena.getText(), Integer.parseInt(txtCelular.getText()));
+		//System.out.println(user.getNombre()+user.getContrasena()+user.getCelular());
+		usuMgr.save(user);
 	}
 
 	@FXML

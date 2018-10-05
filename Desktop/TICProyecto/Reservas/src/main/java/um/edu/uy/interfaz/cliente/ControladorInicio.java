@@ -11,8 +11,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-
+import um.edu.uy.Main;
+@Component
 public class ControladorInicio {
+	
+	@Autowired
+	private Main main;
 
 	@FXML
 	private ResourceBundle resources;
@@ -41,7 +45,12 @@ public class ControladorInicio {
 			// Obtener referencia a la Escena del botón
 			stage = (Stage) btnRegistrarse.getScene().getWindow();
 			// cargar el otro documento, en este caso la segundo pantalla
-			root = FXMLLoader.load(getClass().getResource("registrarse.fxml"));
+			
+			FXMLLoader fxmlLoader2 = new FXMLLoader();
+			fxmlLoader2.setControllerFactory(main.getContext()::getBean);
+			fxmlLoader2.setLocation(getClass().getResource("registrarse.fxml"));
+			
+			root =  fxmlLoader2.load();
 		} else {
 			stage = (Stage) btnIniciarSesion.getScene().getWindow();
 

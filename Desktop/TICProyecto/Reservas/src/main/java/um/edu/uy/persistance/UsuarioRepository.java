@@ -14,13 +14,10 @@ import um.edu.uy.persistance.entidades.Usuario;
 
 public interface UsuarioRepository extends CrudRepository<Usuario, Integer>{
 
+
 //	@Query("SELECT u FROM Usuario u WHERE u.Nombre= :nombre")
 //	boolean verificarUsuario(@Param("nombre") String nombre);
-	
-	
-//	@Query("SELECT u FROM usuario u WHERE u.nombre= :nombre and u.contrasena= :contrasena")
-//	boolean verificarUsuario(@Param("nombre") String nombre, @Param("contrasena") String contrasena);
-////
+
 //	@Autowired
 //	JDBCTemplate template;
 //
