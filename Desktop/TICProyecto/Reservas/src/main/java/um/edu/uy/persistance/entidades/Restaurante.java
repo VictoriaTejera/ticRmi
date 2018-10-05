@@ -31,7 +31,6 @@ public class Restaurante implements Serializable{
 	private String descripcion;
 	
 	@ManyToOne
-	@JoinColumn
 	private Barrio barrio;
 	
 	@OneToMany
