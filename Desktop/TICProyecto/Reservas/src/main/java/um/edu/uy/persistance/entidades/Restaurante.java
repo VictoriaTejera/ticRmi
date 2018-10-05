@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
@@ -22,14 +23,16 @@ public class Restaurante implements Serializable{
 	@Id
 	private String nombre;
 	
-	@OneToOne
-	private String barrio;
 	private String horario;
 	private String direccion;
 	private Integer telefono;
 	private Float rating;
 	private Integer cantRatings;
 	private String descripcion;
+	
+	@ManyToOne
+	@JoinColumn
+	private Barrio barrio;
 	
 	@OneToMany
 	@JoinTable(name="RESTAURANTE_COMIDA", joinColumns = @JoinColumn(name="nombre"))
@@ -45,13 +48,37 @@ public class Restaurante implements Serializable{
 		this.menu=menu;
 	}
 	
+	
+	
+	public Restaurante(String nombre, Barrio barrio) {
+		super();
+		this.nombre = nombre;
+		this.barrio = barrio;
+	}
+
+
+
+	public Restaurante(String nombre, Barrio barrio, String horario, String direccion, Integer telefono, Float rating,
+			Integer cantRatings, String descripcion, List<Comida> menu) {
+		super();
+		this.nombre = nombre;
+		this.barrio = barrio;
+		this.horario = horario;
+		this.direccion = direccion;
+		this.telefono = telefono;
+		this.rating = rating;
+		this.cantRatings = cantRatings;
+		this.descripcion = descripcion;
+		this.menu = menu;
+	}
+	
 	public Restaurante() {}
 
 	public String getNombre() {
 		return nombre;
 	}
 
-	public String getBarrio() {
+	public Barrio getBarrio() {
 		return barrio;
 	}
 
@@ -79,19 +106,7 @@ public class Restaurante implements Serializable{
 		return descripcion;
 	}
 
-	public Restaurante(String nombre, String barrio, String horario, String direccion, Integer telefono, Float rating,
-			Integer cantRatings, String descripcion, List<Comida> menu) {
-		super();
-		this.nombre = nombre;
-		this.barrio = barrio;
-		this.horario = horario;
-		this.direccion = direccion;
-		this.telefono = telefono;
-		this.rating = rating;
-		this.cantRatings = cantRatings;
-		this.descripcion = descripcion;
-//		this.menu = menu;
-	}
+	
 	
 	
 	

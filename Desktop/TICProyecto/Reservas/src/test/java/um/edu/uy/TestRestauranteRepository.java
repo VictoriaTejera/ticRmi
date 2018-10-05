@@ -3,10 +3,7 @@ package um.edu.uy;
 import static org.junit.Assert.fail;
 
 import java.sql.SQLException;
-<<<<<<< HEAD
 import java.util.LinkedList;
-=======
->>>>>>> branch 'master' of https://github.com/VictoriaTejera/TIC.git
 import java.util.List;
 
 import org.junit.Test;
@@ -18,9 +15,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.test.context.junit4.SpringRunner;
 
 import um.edu.uy.persistance.RestauranteMgr;
+import um.edu.uy.persistance.entidades.Barrio;
 import um.edu.uy.persistance.entidades.Comida;
 import um.edu.uy.persistance.entidades.Restaurante;
-import um.edu.uy.persistance.entidades.Usuario;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -38,13 +35,21 @@ public class TestRestauranteRepository {
 		menu.add(com2);
 		Restaurante res=new Restaurante("nombre1", "direccion1", 65765, menu);
 		resMgr.save(res);
-	
 	}
 	
 	@Test
-	public void testFiltrarPorBarrio() {
-		
+	public void testSaveRestauranteConBarrio() throws SQLException {
+		Barrio b1=new Barrio("nombre", "barrio1");
+		Restaurante res=new Restaurante("nombre1", b1);
+		resMgr.save(res);
 	}
+	
+	
+	
+//	@Test
+//	public void testFiltrarPorBarrio() {
+//		
+//	}
 
 	// @Test
 	// public void testGetRestaurantesInterno() throws SQLException {
