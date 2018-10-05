@@ -8,9 +8,14 @@ import org.springframework.stereotype.Component;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import um.edu.uy.Main;
 import um.edu.uy.persistance.UsuarioMgr;
 import um.edu.uy.persistance.entidades.Usuario;
 @Component
@@ -43,9 +48,8 @@ public class ControladorRegistro {
 	}
 	
 	@FXML
-	void handleSubmitButtonAction(ActionEvent event) {
+	void handleSubmitButtonAction(ActionEvent event) throws Exception {
 		Usuario user = new Usuario(txtNombre.getText(), txtContrasena.getText(), Integer.parseInt(txtCelular.getText()));
-		//System.out.println(user.getNombre()+user.getContrasena()+user.getCelular());
 		usuMgr.save(user);
 	}
 
