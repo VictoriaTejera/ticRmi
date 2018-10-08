@@ -3,7 +3,10 @@ package um.edu.uy.persistance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import um.edu.uy.persistance.entidades.Barrio;
+import um.edu.uy.persistance.entidades.Restaurante;
 
 @Service
 public class BarrioMgr {
@@ -13,6 +16,15 @@ public class BarrioMgr {
 	
 	public void save(Barrio barrio) {
 		repository.save(barrio);
+	}
+	
+	public ObservableList<Barrio> getBarrios() {
+		Iterable<Barrio> it = repository.findAll();
+		ObservableList<Barrio> lista = FXCollections.observableArrayList();
+		for (Barrio r : it) {
+			lista.add(r);
+		}
+		return lista;
 	}
 	
 	
