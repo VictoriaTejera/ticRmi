@@ -5,18 +5,21 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 @Component
-public class ControladorMenuPrincipal {
+public class ControladorMenuPrincipal implements ApplicationContextAware {
 
     @FXML
     private ResourceBundle resources;
@@ -34,10 +37,13 @@ public class ControladorMenuPrincipal {
     private Button btnFiltrarRestaurantes;
     
     ApplicationContext applicationContext;
-
+    
+    @Autowired
+    private Tabla tabla;
+    
     @FXML
     void ListarRestaurantes(ActionEvent event) throws IOException {
-    	Stage stage = null;
+    	Stage stage;
 		Parent root = null;
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
@@ -45,13 +51,13 @@ public class ControladorMenuPrincipal {
     	
     	if (event.getSource() == btnListarRestaurantes) {
 			stage = (Stage) btnListarRestaurantes.getScene().getWindow();
-			stage.setScene(Tabla.getSceneTable());
+			stage.setScene(tabla.getSceneTable());
 		}
     	if (event.getSource() == btnFiltrarRestaurantes) {
     		root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("ElegirFiltro.fxml"));
 			stage = (Stage) btnFiltrarRestaurantes.getScene().getWindow();
 		} 
-	
+    	stage.setScene(new Scene(root));
 		stage.show();
     }
     

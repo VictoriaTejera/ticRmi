@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import um.edu.uy.persistance.entidades.Barrio;
 import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 @Service
 public class RestauranteMgr{
@@ -16,9 +18,9 @@ public class RestauranteMgr{
 	@Autowired
 	private RestauranteRepository repository;
 	
-	public List<Restaurante> getRestaurants(){
+	public ObservableList<Restaurante> getRestaurants(){
 		Iterable<Restaurante> it=repository.findAll();
-		List<Restaurante> lista=new LinkedList<>();
+		ObservableList<Restaurante> lista=FXCollections.observableArrayList();
 		for(Restaurante r:it) {
 			lista.add(r);
 		}
@@ -29,13 +31,13 @@ public class RestauranteMgr{
 		repository.save(res);
 	}
 	
-	public List<Restaurante> filtrarPorBarrio(String nombreBarrio) {
-		List<Restaurante> restaurantes = repository.filtrarPorBarrio(nombreBarrio);
+	public ObservableList<Restaurante> filtrarPorBarrio(String nombreBarrio) {
+		ObservableList<Restaurante> restaurantes = repository.filtrarPorBarrio(nombreBarrio);
 		return restaurantes;
 	}
 	
-	public List<Restaurante> filtrarPorComida(String tipoComida){
-		List<Restaurante> restaurantes = repository.filtrarPorComida(tipoComida);
+	public ObservableList<Restaurante> filtrarPorComida(String tipoComida){
+		ObservableList<Restaurante> restaurantes = repository.filtrarPorComida(tipoComida);
 		return restaurantes;
 	}
 
