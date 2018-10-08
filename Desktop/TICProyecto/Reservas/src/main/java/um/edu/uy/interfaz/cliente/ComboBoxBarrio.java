@@ -14,6 +14,7 @@ import um.edu.uy.persistance.BarrioMgr;
 public class ComboBoxBarrio {
 	  @Autowired
 	  BarrioMgr barrioMgr;
+	  
 	  ComboBox<String> cbx;
    
 	  public Scene getScene(){
