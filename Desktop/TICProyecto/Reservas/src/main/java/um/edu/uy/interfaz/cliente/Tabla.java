@@ -14,7 +14,6 @@ import um.edu.uy.persistance.entidades.Restaurante;
 
 @Component
 public class Tabla {
-	
 	@Autowired
 	private RestauranteMgr restaurante;
 
