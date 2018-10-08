@@ -31,13 +31,13 @@ public class RestauranteMgr{
 		repository.save(res);
 	}
 	
-	public List<Restaurante> filtrarPorBarrio(String nombreBarrio) {
-		List<Restaurante> restaurantes = repository.filtrarPorBarrio(nombreBarrio);
+	public ObservableList<Restaurante> filtrarPorBarrio(String nombreBarrio) {
+		ObservableList<Restaurante> restaurantes = repository.filtrarPorBarrio(nombreBarrio);
 		return restaurantes;
 	}
 	
-	public List<Restaurante> filtrarPorComida(String tipoComida){
-		List<Restaurante> restaurantes = repository.filtrarPorComida(tipoComida);
+	public ObservableList<Restaurante> filtrarPorComida(String tipoComida){
+		ObservableList<Restaurante> restaurantes = repository.filtrarPorComida(tipoComida);
 		return restaurantes;
 	}
 
