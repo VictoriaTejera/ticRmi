@@ -17,14 +17,11 @@ public interface UsuarioRepository extends CrudRepository<Usuario, Integer>{
 
 	@Query("SELECT u FROM Usuario u WHERE u.Nombre= :nombre and u.contrasena= :contrasena")
 	Usuario verificarUsuario(@Param("nombre") String nombre, @Param("contrasena") String contrasena);
-
-//	@Autowired
-//	JdbcTemplate template;
-
-//	public UsuarioRepository(JDBCTemplate template) {
-//		super();
-//		this.template = template;
-//	}
+	
+	@Query("SELECT u FROM Usuario u WHERE u.Nombre= :nombre")
+	Usuario verificarNombreUsuario(@Param("nombre") String nombre);
+	
+	
 
 
 	
