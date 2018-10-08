@@ -17,6 +17,9 @@ public class TablaPorBarrio {
 	@Autowired
 	private RestauranteMgr restaurante;
 	
+	@Autowired
+    private ComboBoxBarrio cboxBarrio;
+	
 	@Autowired 
 	private ControladorElegirFiltro conElegirFiltro;
 	
@@ -39,7 +42,7 @@ public class TablaPorBarrio {
 		columnaTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
 
 		table = new TableView<>();
-		table.setItems(restaurante.filtrarPorBarrio(conElegirFiltro.ComboBoxBarrio().getNombreBarrio())); // le paso la lista de restaurantes
+		table.setItems(restaurante.filtrarPorBarrio(cboxBarrio.getBarrio())); // le paso la lista de restaurantes
 		table.getColumns().addAll(columnaNombre, columnaDireccion, columnaTelefono);
 		VBox vBox = new VBox();
 
