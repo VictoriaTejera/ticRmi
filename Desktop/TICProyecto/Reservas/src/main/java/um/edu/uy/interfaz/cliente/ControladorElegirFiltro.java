@@ -35,10 +35,10 @@ public class ControladorElegirFiltro implements ApplicationContextAware {
     private Button btnComida;
     
     @FXML
-	static TextField txtComida;
+	TextField txtComida;
     
     @FXML 
-    static TextField txtBarrio;
+    TextField txtBarrio;
     
     ApplicationContext applicationContext;
     
