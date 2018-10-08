@@ -49,10 +49,10 @@ public class RestauranteMgr {
 		return observ;
 	}
 	
-	public List<Restaurante> filtrarPorPrecio(Float precioMenor, Float precioMayor){
-		List<Restaurante> restaurantes= repository.filtrarPorPrecio(precioMenor, precioMayor);
-		return restaurantes;
-		
-	}
+//	public List<Restaurante> filtrarPorPrecio(Float precioMenor, Float precioMayor){
+//		List<Restaurante> restaurantes= repository.filtrarPorPrecio(precioMenor, precioMayor);
+//		return restaurantes;
+//		
+//	}
 
 }
