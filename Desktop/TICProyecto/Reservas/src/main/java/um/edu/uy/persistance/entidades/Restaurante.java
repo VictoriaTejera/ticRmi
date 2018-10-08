@@ -30,9 +30,9 @@ public class Restaurante implements Serializable{
 	private Integer cantRatings;
 	private String descripcion;
 	
-	@ManyToOne
-	@JoinColumn
-	private Barrio barrio;
+//	@ManyToOne
+//	@JoinColumn(name="idBarrio")
+//	private Barrio barrio;
 	
 	@OneToMany
 	@JoinTable(name="RESTAURANTE_COMIDA", joinColumns = @JoinColumn(name="nombre"))

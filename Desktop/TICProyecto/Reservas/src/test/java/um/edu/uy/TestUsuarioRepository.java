@@ -35,7 +35,7 @@ public class TestUsuarioRepository {
 		usuMgr.save(new Usuario("nombre3", "con3", 1233));
 		Usuario u3=new Usuario("nombre4", "con4", 1235);
 		
-		assertTrue(usuMgr.VerificarUsuario(u1));
-		assertFalse(usuMgr.VerificarUsuario(u3));
+		assertTrue(usuMgr.verificarUsuario(u1));
+		assertFalse(usuMgr.verificarUsuario(u3));
 	}
 }
