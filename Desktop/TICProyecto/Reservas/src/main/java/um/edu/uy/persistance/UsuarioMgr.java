@@ -19,7 +19,7 @@ public class UsuarioMgr {
 	
 	public boolean verificarUsuario(Usuario us) {
 		boolean verifico=true;
-		if(repository.verificarUsuario(us.getNombre())==null) {
+		if(repository.verificarUsuario(us.getNombre(),us.getContrasena())==null) {
 			verifico=false;
 		}
 		return verifico;
