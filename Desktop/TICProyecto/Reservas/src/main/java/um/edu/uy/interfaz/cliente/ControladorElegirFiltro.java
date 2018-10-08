@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
@@ -40,6 +41,12 @@ public class ControladorElegirFiltro implements ApplicationContextAware {
     static TextField txtBarrio;
     
     ApplicationContext applicationContext;
+    
+    @Autowired
+    private TablaPorComida tablaPorComida;
+    
+    @Autowired
+    private TablaPorBarrio tablaPorBarrio;
 
 
     @FXML
