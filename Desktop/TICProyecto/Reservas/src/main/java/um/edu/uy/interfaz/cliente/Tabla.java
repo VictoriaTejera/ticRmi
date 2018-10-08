@@ -37,7 +37,7 @@ public class Tabla {
 		columnaTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
 
 		table = new TableView<>();
-		table.setItems((ObservableList<Restaurante>) restaurante.getRestaurants()); // le paso la lista de restaurantes
+		table.setItems(restaurante.getRestaurants()); // le paso la lista de restaurantes
 		table.getColumns().addAll(columnaNombre, columnaDireccion, columnaTelefono);
 		VBox vBox = new VBox();
 
