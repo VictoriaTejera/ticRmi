@@ -32,7 +32,22 @@ public class Comida {
 		this.tipo = tipo;
 		this.precio = precio;
 		this.restaurante = restaurante;
+		
+		
+		Float precioMayor = restaurante.getPrecioMayor();
+		Float precioMenor=restaurante.getPrecioMenor();
+		
+		if(precio<precioMenor) {
+			restaurante.setPrecioMenor(precio);
+		}
+		if(precio>precioMayor) {
+			restaurante.setPrecioMayor(precio);
+		}
+		
+			
+		
 	}
+	
 
 	public Restaurante getRestaurante() {
 		return restaurante;

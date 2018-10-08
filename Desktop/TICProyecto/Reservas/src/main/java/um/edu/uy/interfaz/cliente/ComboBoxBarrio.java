@@ -9,16 +9,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.StackPane;
 import um.edu.uy.persistance.BarrioMgr;
-import um.edu.uy.persistance.entidades.Barrio;
 
 @Component
 public class ComboBoxBarrio {
 	  @Autowired
 	  BarrioMgr barrioMgr;
-	  ComboBox<Barrio> cbx;
+	  ComboBox<String> cbx;
    
 	  public Scene getScene(){
-    	ObservableList<Barrio> items = FXCollections.observableArrayList();
+    	ObservableList<String> items = FXCollections.observableArrayList();
     	items.addAll(barrioMgr.getBarrios());
     	cbx = new ComboBox<>(items);
     	StackPane pane = new StackPane(cbx);
@@ -26,8 +25,8 @@ public class ComboBoxBarrio {
     	return scene;
     }
 	  
-	public Barrio getBarrio() {
-		Barrio barrio = cbx.getValue();
+	public String getBarrio() {
+		String barrio = cbx.getValue();
 		return barrio;
 	}
 }
