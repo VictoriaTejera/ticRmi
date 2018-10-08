@@ -1,8 +1,8 @@
 package um.edu.uy.interfaz.cliente;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
@@ -12,12 +12,13 @@ import javafx.scene.layout.VBox;
 import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
 
+@Component
 public class Tabla {
 	
 	@Autowired
-	private static RestauranteMgr restaurante;
-	
-	public static Scene getSceneTable() {
+	private RestauranteMgr restaurante;
+
+	public Scene getSceneTable() {
 		TableView<Restaurante> table;
 	
 		// Columna Nombre

@@ -13,7 +13,7 @@ import um.edu.uy.persistance.entidades.Restaurante;
 
 public class TablaPorComida {
 	@Autowired
-	private static RestauranteMgr restaurante;
+	private RestauranteMgr restaurante;
 
 	public static Scene getSceneTable() {
 		TableView<Restaurante> table;
