@@ -14,7 +14,8 @@
         <Font size="15.0" />
       </font>
     </Label>
-    <Button fx:id="btnListarRestaurantes" layoutX="133.0" layoutY="103.0" mnemonicParsing="false" onAction="#ListarRestaurantes" prefHeight="42.0" prefWidth="132.0" text="Ver Restaurantes" />
-    <Button id="btnSalir" fx:id="btnCloseButton" layoutX="133.0" layoutY="187.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="42.0" prefWidth="132.0" text="Salir" />
+    <Button fx:id="btnListarRestaurantes" layoutX="119.0" layoutY="87.0" mnemonicParsing="false" onAction="#ListarRestaurantes" prefHeight="53.0" prefWidth="161.0" text="Ver todos los restaurantes" />
+    <Button id="btnSalir" fx:id="btnCloseButton" layoutX="251.0" layoutY="259.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="42.0" prefWidth="94.0" text="Salir" />
+    <Button id="btnListarRestaurantes" fx:id="btnFiltrarRestaurantes" layoutX="119.0" layoutY="173.0" mnemonicParsing="false" onAction="#ListarRestaurantes" prefHeight="53.0" prefWidth="161.0" text="Filtrar Restaurantes" />
   </children>
 </AnchorPane>

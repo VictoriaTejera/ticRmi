@@ -1,0 +1,73 @@
+package um.edu.uy.interfaz.cliente;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+
+public class ControladorElegirFiltro {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private Button btnBarrio;
+
+    @FXML
+    private Button btnComida;
+    
+    @FXML
+	static TextField txtComida;
+    
+    @FXML
+	static TextField txtBarrio;
+    
+    ApplicationContext applicationContext;
+
+
+    @FXML
+    void filtrarRestaurantes(ActionEvent event) {
+    	Stage stage = null;
+		Parent root = null;
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setControllerFactory(applicationContext::getBean);
+		stage = new Stage();
+    	
+    	if (event.getSource() == btnComida) {
+			stage = (Stage) btnComida.getScene().getWindow();
+			stage.setScene(TablaPorComida.getSceneTable());
+		}
+    	if (event.getSource() == btnBarrio) {
+			stage = (Stage) btnBarrio.getScene().getWindow();
+			stage.setScene(TablaPorBarrio.getSceneTable());
+		}
+	
+		stage.show();
+    }
+
+    @FXML
+    void initialize() {
+        assert btnBarrio != null : "fx:id=\"btnBarrio\" was not injected: check your FXML file 'ElegirFiltro.fxml'.";
+        assert btnComida != null : "fx:id=\"btnComida\" was not injected: check your FXML file 'ElegirFiltro.fxml'.";
+    }
+    
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+		this.applicationContext = applicationContext;
+		
+	}
+
+
+}
