@@ -38,5 +38,11 @@ public class RestauranteMgr{
 		List<Restaurante> restaurantes = repository.filtrarPorComida(tipoComida);
 		return restaurantes;
 	}
+	
+	public List<Restaurante> filtrarPorPrecio(Float precioMenor, Float precioMayor){
+		List<Restaurante> restaurantes= repository.filtrarPorPrecio(precioMenor, precioMayor);
+		return restaurantes;
+		
+	}
 
 }
