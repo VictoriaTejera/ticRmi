@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 import javafx.event.ActionEvent;
@@ -17,8 +21,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import um.edu.uy.persistance.UsuarioMgr;
 import um.edu.uy.persistance.entidades.Usuario;
+
 @Component
-public class ControladorInicioSesion {
+public class ControladorInicioSesion implements ApplicationContextAware {
 
 	@FXML
 	private ResourceBundle resources;
@@ -28,21 +33,41 @@ public class ControladorInicioSesion {
 
 	@FXML
 	private Button btnConfirmarInicioSesion;
-	
+
 	@FXML
 	private PasswordField txtContrasena;
 
 	@FXML
-	private TextField txtNombre;
+	private TextField txtUsuario;
+	
+	@Autowired
+	private UsuarioMgr usuarioMgr;
+	
+	private ApplicationContext applicationContext;
+
+	public ControladorInicioSesion() {
+		super();
+	}
 
 	@FXML
 	void handleSubmitButtonAction(ActionEvent event) throws IOException {
 		Stage stage = null;
 		Parent root = null;
-		Usuario user = new Usuario(txtNombre.getText(), txtContrasena.getText());
-		if (event.getSource() == btnConfirmarInicioSesion && UsuarioMgr.verificarUsuario(user)==true) {
-			stage = (Stage) btnConfirmarInicioSesion.getScene().getWindow();
-			root = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		stage = new Stage();
+		fxmlLoader.setControllerFactory(applicationContext::getBean);
+
+		if (event.getSource() == btnConfirmarInicioSesion) {
+			Usuario user = new Usuario(txtUsuario.getText(), txtContrasena.getText());
+			System.out.println(user.getNombre());
+			
+			if (usuarioMgr.verificarUsuario(user) == true) {
+				stage = (Stage) btnConfirmarInicioSesion.getScene().getWindow();
+				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
+			} else {
+				stage = (Stage) btnConfirmarInicioSesion.getScene().getWindow();
+				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("Warning.fxml"));
+			}
 		}
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
@@ -51,5 +76,11 @@ public class ControladorInicioSesion {
 
 	@FXML
 	void initialize() {
+	}
+
+	@Override
+	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+		this.applicationContext = applicationContext;
+		
 	}
 }

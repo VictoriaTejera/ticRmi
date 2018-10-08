@@ -22,55 +22,66 @@ public class Restaurante implements Serializable{
 
 	@Id
 	private String nombre;
-	
 	private String horario;
 	private String direccion;
 	private Integer telefono;
 	private Float rating;
 	private Integer cantRatings;
 	private String descripcion;
-	
-//	@ManyToOne
-//	@JoinColumn(name="idBarrio")
-//	private Barrio barrio;
-	
+
+	@ManyToOne
+	private Barrio barrio;
+
 	@OneToMany
-	@JoinTable(name="RESTAURANTE_COMIDA", joinColumns = @JoinColumn(name="nombre"))
 	@Cascade(CascadeType.ALL)
 	private List<Comida> menu;
 	
 	//foto que tipo de datos es??
 	
-	public Restaurante(String nombre, String direccion, Integer telefono, List<Comida> menu) {
+	public Restaurante(String nombre, String direccion, Integer telefono) {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
-		this.menu=menu;
+		//this.menu=menu;
 	}
 	
-	
-	
-	public Restaurante(String nombre, Barrio barrio) {
+	public Restaurante(String nombre, String barrio, String horario, String direccion, Integer telefono, Float rating,
+			Integer cantRatings, String descripcion) {
 		super();
 		this.nombre = nombre;
-		this.barrio = barrio;
-	}
-
-
-
-	public Restaurante(String nombre, Barrio barrio, String horario, String direccion, Integer telefono, Float rating,
-			Integer cantRatings, String descripcion, List<Comida> menu) {
-		super();
-		this.nombre = nombre;
-		this.barrio = barrio;
 		this.horario = horario;
 		this.direccion = direccion;
 		this.telefono = telefono;
 		this.rating = rating;
 		this.cantRatings = cantRatings;
 		this.descripcion = descripcion;
-		this.menu = menu;
 	}
+
+
+
+
+
+//	public Restaurante(String nombre, Barrio barrio) {
+//		super();
+//		this.nombre = nombre;
+//		this.barrio = barrio;
+//	}
+
+
+
+//	public Restaurante(String nombre, Barrio barrio, String horario, String direccion, Integer telefono, Float rating,
+//			Integer cantRatings, String descripcion, List<Comida> menu) {
+//		super();
+//		this.nombre = nombre;
+//		this.barrio = barrio;
+//		this.horario = horario;
+//		this.direccion = direccion;
+//		this.telefono = telefono;
+//		this.rating = rating;
+//		this.cantRatings = cantRatings;
+//		this.descripcion = descripcion;
+//		this.menu = menu;
+//	}
 	
 	public Restaurante() {}
 
