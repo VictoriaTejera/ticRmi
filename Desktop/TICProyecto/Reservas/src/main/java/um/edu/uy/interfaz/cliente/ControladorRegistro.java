@@ -22,7 +22,7 @@ import um.edu.uy.persistance.UsuarioMgr;
 import um.edu.uy.persistance.entidades.Usuario;
 
 @Component
-public class ControladorRegistro implements ApplicationContextAware{
+public class ControladorRegistro implements ApplicationContextAware {
 
 	@FXML
 	private ResourceBundle resources;
@@ -41,15 +41,15 @@ public class ControladorRegistro implements ApplicationContextAware{
 
 	@FXML
 	private TextField txtNombre;
-	
+
 	@Autowired
 	UsuarioMgr usuMgr;
-	
+
 	private ApplicationContext applicationContext;
-	
+
 	public ControladorRegistro() {
 	}
-	
+
 	@FXML
 	void handleSubmitButtonAction(ActionEvent event) throws Exception {
 		Stage stage = null;
@@ -57,12 +57,17 @@ public class ControladorRegistro implements ApplicationContextAware{
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 		stage = new Stage();
-		
+
 		if (event.getSource() == btnConfirmarRegistro) {
-			Usuario user = new Usuario(txtNombre.getText(), txtContrasena.getText(), Integer.parseInt(txtCelular.getText()));
-			usuMgr.save(user);
-			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("iniciarSesion.fxml"));
-			stage = (Stage) btnConfirmarRegistro.getScene().getWindow();
+			Usuario user = new Usuario(txtNombre.getText(), txtContrasena.getText(),
+					Integer.parseInt(txtCelular.getText()));
+			if (usuMgr.usuarioYaFueCreado(user) == false) {
+				usuMgr.save(user);
+				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("iniciarSesion.fxml"));
+				stage = (Stage) btnConfirmarRegistro.getScene().getWindow();
+			} else {
+				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("UsuarioYaExiste.fxml"));
+			}
 		}
 		stage.setScene(new Scene(root));
 		stage.show();
@@ -76,10 +81,10 @@ public class ControladorRegistro implements ApplicationContextAware{
 		assert txtNombre != null : "fx:id=\"txtNombre\" was not injected: check your FXML file 'registrarse.fxml'.";
 
 	}
-	
+
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
-		
+
 	}
 
 }
