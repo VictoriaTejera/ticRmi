@@ -1,5 +1,7 @@
 package um.edu.uy.interfaz.cliente;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
@@ -7,9 +9,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
+import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
 
 public class Tabla {
+	
+	@Autowired
+	private static RestauranteMgr restaurante;
+	
 	public static Scene getSceneTable() {
 		TableView<Restaurante> table;
 		// Columna Nombre
@@ -28,7 +35,7 @@ public class Tabla {
 		columnaTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
 
 		table = new TableView<>();
-		table.setItems(getRestaurante()); // le paso la lista de restaurantes
+		table.setItems((ObservableList<Restaurante>) restaurante.getRestaurants()); // le paso la lista de restaurantes
 		table.getColumns().addAll(columnaNombre, columnaDireccion, columnaTelefono);
 		VBox vBox = new VBox();
 
@@ -39,15 +46,15 @@ public class Tabla {
 	}
 
 	 //Obtener todos los restaurantes
-	 public static ObservableList<Restaurante> getRestaurante(){
-	 ObservableList<Restaurante> restaurantes =
-	 FXCollections.observableArrayList();
-	 restaurantes.add(new Restaurante("Burger King", "calle1, 100", 11111));
-	 restaurantes.add(new Restaurante("One Love", "calle2, 200", 22222));
-	 restaurantes.add(new Restaurante("Magnum", "calle3, 300", 33333));
-	 restaurantes.add(new Restaurante("Rudy", "calle4, 400", 44444));
-	 restaurantes.add(new Restaurante("Tandory", "calle5, 500", 55555));
-	
-	 return restaurantes;
-	 }
+//	 public static ObservableList<Restaurante> getRestaurante(){
+//	 ObservableList<Restaurante> restaurantes =
+//	 FXCollections.observableArrayList();
+//	 restaurantes.add(new Restaurante("Burger King", "calle1, 100", 11111));
+//	 restaurantes.add(new Restaurante("One Love", "calle2, 200", 22222));
+//	 restaurantes.add(new Restaurante("Magnum", "calle3, 300", 33333));
+//	 restaurantes.add(new Restaurante("Rudy", "calle4, 400", 44444));
+//	 restaurantes.add(new Restaurante("Tandory", "calle5, 500", 55555));
+//	
+//	 return restaurantes;
+//	 }
 }
