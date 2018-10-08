@@ -54,14 +54,12 @@ public class ControladorElegirFiltro implements ApplicationContextAware {
     @Autowired
     private TablaPorBarrio tablaPorBarrio;
     
-    @Autowired
-    BarrioMgr barrio;
-
+    @Autowired 
+    ComboBoxBarrio cboxBarrio;
 
     @FXML
     void filtrarRestaurantes(ActionEvent event) throws IOException {
     	Stage stage = null;
-		Parent root = null;
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 		stage = new Stage();
@@ -69,13 +67,16 @@ public class ControladorElegirFiltro implements ApplicationContextAware {
     	if (event.getSource() == btnComida) {
 			stage = (Stage) btnComida.getScene().getWindow();
 			stage.setScene(tablaPorComida.getSceneTable());
+			stage.show();
 		}
     	if (event.getSource() == btnBarrio) {
 			stage = (Stage) btnBarrio.getScene().getWindow();
+			stage.setScene(cboxBarrio.getScene());
+			stage.show();
 			stage.setScene(tablaPorBarrio.getSceneTable());
+			stage.show();
 		}
-    	stage.setScene(new Scene(root));
-		stage.show();
+ 
     }
 
     @FXML
@@ -88,22 +89,5 @@ public class ControladorElegirFiltro implements ApplicationContextAware {
 		this.applicationContext = applicationContext;
 		
 	}
-    
-    public Barrio ComboBoxBarrio(){
-    	ObservableList<Barrio> items = FXCollections.observableArrayList();
-    	items.addAll(barrio.getBarrios());
-    	
-    	ComboBox<Barrio> cbx = new ComboBox<>(items);
-    	StackPane pane = new StackPane(cbx);
-    	
-    	Stage stage = null;
-    	Scene scene = new Scene(pane, 250, 150);
-    	stage.setTitle("Barrios");
-    	stage.setScene(scene);
-    	stage.show();
-    	
-    	return cbx.getValue();
-    }
-
 
 }
