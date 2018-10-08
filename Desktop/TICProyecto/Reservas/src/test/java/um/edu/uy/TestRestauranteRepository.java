@@ -46,7 +46,7 @@ public class TestRestauranteRepository {
 	// resMgr.save(res);
 	// }
 
-	@Test
+	//@Test
 	public void testGetRestaurantes() {
 		Restaurante res1 = new Restaurante("nombre1", null, null, null, null, null, null, null);
 		resMgr.save(res1);
@@ -60,7 +60,7 @@ public class TestRestauranteRepository {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testGetRestaurantesII() {
 		resMgr.getRestaurants();
 	}
@@ -74,8 +74,7 @@ public class TestRestauranteRepository {
 	}
 
 
-	//@Test
-
+	@Test
 	public void testFiltroPorBarrio() {
 		Barrio b1 = new Barrio("id", "nombreBarrio1");
 		barrioMgr.save(b1);
@@ -100,7 +99,7 @@ public class TestRestauranteRepository {
 
 	}
 
-//	@Test
+	@Test
 	public void testFiltroPorComida() {
 		Restaurante res1 = new Restaurante("nombreRes1", null, null, null, null, null, null, null);
 		resMgr.save(res1);
