@@ -72,7 +72,7 @@ public class ControladorElegirFiltro implements ApplicationContextAware {
 			stage = (Stage) btnBarrio.getScene().getWindow();
 			stage.setScene(cboxBarrio.getScene());
 			stage.show();
-			if(cboxBarrio.getBarrio()!=null) {
+			if(cboxBarrio.getEventButton(event) == true) {
 			stage.setScene(tablaPorBarrio.getSceneTable());
 			}
 		}
