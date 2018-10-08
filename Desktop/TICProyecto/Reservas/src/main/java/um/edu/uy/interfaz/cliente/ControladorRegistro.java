@@ -3,7 +3,9 @@ package um.edu.uy.interfaz.cliente;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import javafx.event.ActionEvent;
@@ -42,6 +44,8 @@ public class ControladorRegistro {
 	@Autowired
 	UsuarioMgr usuMgr;
 	
+	private ApplicationContext applicationContext;
+	
 	public ControladorRegistro() {
 		
 		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
@@ -49,8 +53,18 @@ public class ControladorRegistro {
 	
 	@FXML
 	void handleSubmitButtonAction(ActionEvent event) throws Exception {
-		Usuario user = new Usuario(txtNombre.getText(), txtContrasena.getText(), Integer.parseInt(txtCelular.getText()));
-		usuMgr.save(user);
+		Stage stage = null;
+		Parent root = null;
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		stage = new Stage();
+		fxmlLoader.setControllerFactory(applicationContext::getBean);
+		
+		if (event.getSource() == btnRegistrarse) {
+			Usuario user = new Usuario(txtNombre.getText(), txtContrasena.getText(), Integer.parseInt(txtCelular.getText()));
+			usuMgr.save(user);	
+			stage = (Stage) btnRegistrarse.getScene().getWindow();
+			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("iniciarSesion.fxml"));
+		}
 	}
 
 	@FXML
@@ -60,6 +74,11 @@ public class ControladorRegistro {
 		assert txtContrasena != null : "fx:id=\"txtContrasena\" was not injected: check your FXML file 'registrarse.fxml'.";
 		assert txtNombre != null : "fx:id=\"txtNombre\" was not injected: check your FXML file 'registrarse.fxml'.";
 
+	}
+	
+	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+		this.applicationContext = applicationContext;
+		
 	}
 
 }
