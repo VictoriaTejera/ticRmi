@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="317.0" prefWidth="340.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorElegirFiltro">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="34.0" layoutY="-12.0" prefHeight="79.0" prefWidth="272.0" text="¿Desea mejorar su búsqueda?" textAlignment="CENTER">
+      <font>
+        <Font size="15.0" fx:id="x3" />
+      </font>
+      <textFill>
+        <Color blue="0.000" green="0.000" red="0.600" fx:id="x4" />
+      </textFill>
+    </Label>
+    <Button fx:id="btnComida" layoutX="179.0" layoutY="127.0" minHeight="17.0" mnemonicParsing="false" onAction="#filtrarRestaurantes" prefHeight="27.999900000002526" prefWidth="80.9998779296875" text="Aceptar">
+      <font>
+        <Font size="11.0" fx:id="x1" />
+      </font>
+    </Button>
+    <TextField fx:id="txtComida" layoutX="160.0" layoutY="94.0" prefHeight="26.0" prefWidth="115.0" />
+    <Label layoutX="19.0" layoutY="94.0" prefHeight="28.0" prefWidth="132.0" text="¿Qué quiere comer?">
+      <font>
+        <Font name="System Bold" size="13.0" fx:id="x2" />
+      </font>
+    </Label>
+    <Button id="btnComida" fx:id="btnBarrio" font="$x1" layoutX="151.0" layoutY="191.0" minHeight="17.0" mnemonicParsing="false" onAction="#filtrarRestaurantes" prefHeight="28.0" prefWidth="109.0" text="Seleccionar Barrio" />
+    <Label font="$x2" layoutX="34.0" layoutY="190.0" prefHeight="28.0" prefWidth="73.0" text="¿Dónde?" />
+    <Label alignment="CENTER" contentDisplay="CENTER" font="$x3" layoutX="50.0" layoutY="39.0" prefHeight="28.0" prefWidth="241.0" text="¡Filtre por barrio o por comida!" textAlignment="CENTER" textFill="$x4" />
+  </children>
+</AnchorPane>

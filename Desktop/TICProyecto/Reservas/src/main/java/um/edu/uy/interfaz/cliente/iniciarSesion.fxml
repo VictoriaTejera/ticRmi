@@ -5,6 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="346.0" prefWidth="381.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorInicioSesion">
@@ -13,18 +14,21 @@
     <!-- Add Header Label -->
     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="96.0" layoutY="41.0" text="Ingrese sus datos" textAlignment="CENTER">
       <font>
-        <Font name="Arial" size="24.0" />
+        <Font name="Calisto MT" size="24.0" />
       </font>
+      <textFill>
+        <Color blue="0.000" green="0.000" red="0.600" fx:id="x1" />
+      </textFill>
     </Label>
     <!-- Add Submit Button -->
-    <Button id="submitButton" fx:id="btnConfirmarInicioSesion" contentDisplay="CENTER" defaultButton="true" layoutX="179.0" layoutY="255.0" onAction="#handleSubmitButtonAction" prefHeight="27.0" prefWidth="104.0" text="Iniciar Sesión" textAlignment="CENTER" />
+    <Button id="submitButton" fx:id="btnConfirmarInicioSesion" cache="false" cacheHint="DEFAULT" contentDisplay="CENTER" defaultButton="true" depthTest="INHERIT" layoutX="179.0" layoutY="255.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="27.0" prefWidth="104.0" text="Iniciar Sesión" textAlignment="LEFT" textFill="$x1" underline="false" visible="true" />
     <!-- Add Password Field -->
     <PasswordField id="passwordField" fx:id="txtContrasena" layoutX="158.0" layoutY="173.0" prefHeight="40.0" />
     <!-- Add Email Text Field -->
     <TextField id="emailField" fx:id="txtUsuario" layoutX="159.0" layoutY="100.0" prefHeight="40.0" />
     <!-- Add Email Label -->
-    <Label layoutX="63.0" layoutY="112.0" prefWidth="65.99990000000253" text="Usuario:" textAlignment="RIGHT" />
+    <Label layoutX="63.0" layoutY="112.0" prefWidth="65.99990000000253" text="Usuario:" textAlignment="RIGHT" textFill="$x1" />
     <!-- Add Password Label -->
-    <Label layoutX="63.0" layoutY="185.0" text="Contraseña: " />
+    <Label layoutX="63.0" layoutY="185.0" text="Contraseña: " textFill="$x1" />
   </children>
 </AnchorPane>

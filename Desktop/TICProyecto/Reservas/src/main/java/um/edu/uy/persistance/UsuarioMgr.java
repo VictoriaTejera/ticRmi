@@ -7,23 +7,28 @@ import um.edu.uy.persistance.entidades.Usuario;
 
 @Service
 public class UsuarioMgr {
-	
+
 	@Autowired
 	private UsuarioRepository repository;
-	
-	
-	
+
 	public void save(Usuario usuario) {
 		repository.save(usuario);
 	}
-	
+
 	public boolean verificarUsuario(Usuario us) {
-		boolean verifico=true;
-		if(repository.verificarUsuario(us.getNombre())==null) {
-			verifico=false;
+		boolean verifico = true;
+		if (repository.verificarUsuario(us.getNombre(), us.getContrasena()) == null) {
+			verifico = false;
 		}
 		return verifico;
 	}
 
+	public boolean usuarioYaFueCreado(Usuario us) {
+		boolean creado = true;
+		if (repository.verificarNombreUsuario(us.getNombre()) == null) {
+			creado = false;
+		}
+		return creado;
+	}
 
 }

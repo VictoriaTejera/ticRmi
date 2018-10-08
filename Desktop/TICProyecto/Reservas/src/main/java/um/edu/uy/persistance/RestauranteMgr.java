@@ -9,34 +9,44 @@ import org.springframework.stereotype.Service;
 import um.edu.uy.persistance.entidades.Barrio;
 import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 @Service
-public class RestauranteMgr{
-	
+public class RestauranteMgr {
+
 	@Autowired
 	private RestauranteRepository repository;
-	
-	public List<Restaurante> getRestaurants(){
-		Iterable<Restaurante> it=repository.findAll();
-		List<Restaurante> lista=new LinkedList<>();
-		for(Restaurante r:it) {
+
+	public ObservableList<Restaurante> getRestaurants() {
+		Iterable<Restaurante> it = repository.findAll();
+		ObservableList<Restaurante> lista = FXCollections.observableArrayList();
+		for (Restaurante r : it) {
 			lista.add(r);
 		}
 		return lista;
 	}
-	
+
 	public void save(Restaurante res) {
 		repository.save(res);
 	}
-	
-	public List<Restaurante> filtrarPorBarrio(String nombreBarrio) {
+
+	public ObservableList<Restaurante> filtrarPorBarrio(String nombreBarrio) {
 		List<Restaurante> restaurantes = repository.filtrarPorBarrio(nombreBarrio);
-		return restaurantes;
+		ObservableList<Restaurante> observ = FXCollections.observableArrayList();
+		for (int i = 0; i < restaurantes.size(); i++) {
+			observ.add(restaurantes.get(i));
+		}
+		return observ;
 	}
-	
-	public List<Restaurante> filtrarPorComida(String tipoComida){
+
+	public ObservableList<Restaurante> filtrarPorComida(String tipoComida) {
 		List<Restaurante> restaurantes = repository.filtrarPorComida(tipoComida);
-		return restaurantes;
+		ObservableList<Restaurante> observ = FXCollections.observableArrayList();
+		for (int i = 0; i < restaurantes.size(); i++) {
+			observ.add(restaurantes.get(i));
+		}
+		return observ;
 	}
 	
 	public List<Restaurante> filtrarPorPrecio(Float precioMenor, Float precioMayor){

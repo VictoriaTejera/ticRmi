@@ -69,7 +69,6 @@ public class ControladorInicioSesion implements ApplicationContextAware {
 				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
 			} else {
 				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("Warning.fxml"));
-				
 			}
 		}
 		Scene scene = new Scene(root);

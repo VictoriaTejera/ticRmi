@@ -38,4 +38,14 @@ public class TestUsuarioRepository {
 		assertTrue(usuMgr.verificarUsuario(u1));
 		assertFalse(usuMgr.verificarUsuario(u3));
 	}
+	
+	@Test
+	public void testUsuarioRegistrado() {
+		Usuario u1=new Usuario("nombre1", "con1", 1234);
+		usuMgr.save(u1);
+		Usuario u2=new Usuario("nombre2", "con1", 1234);
+		assertTrue(usuMgr.usuarioYaFueCreado(u1));
+		assertFalse(usuMgr.usuarioYaFueCreado(u2));
+		
+	}
 }

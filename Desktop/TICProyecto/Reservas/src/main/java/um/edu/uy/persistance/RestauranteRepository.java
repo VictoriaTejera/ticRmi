@@ -9,6 +9,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
+import javafx.collections.ObservableList;
+
 public interface RestauranteRepository extends CrudRepository<Restaurante, Integer>{
 	
 	@Query("SELECT r FROM Restaurante r WHERE r.barrio.nombreBarrio= :barrio")

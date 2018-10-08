@@ -15,16 +15,13 @@ import um.edu.uy.persistance.entidades.Usuario;
 
 public interface UsuarioRepository extends CrudRepository<Usuario, Integer>{
 
+	@Query("SELECT u FROM Usuario u WHERE u.Nombre= :nombre and u.contrasena= :contrasena")
+	Usuario verificarUsuario(@Param("nombre") String nombre, @Param("contrasena") String contrasena);
+	
 	@Query("SELECT u FROM Usuario u WHERE u.Nombre= :nombre")
-	Usuario verificarUsuario(@Param("nombre") String nombre);
-
-//	@Autowired
-//	JdbcTemplate template;
-
-//	public UsuarioRepository(JDBCTemplate template) {
-//		super();
-//		this.template = template;
-//	}
+	Usuario verificarNombreUsuario(@Param("nombre") String nombre);
+	
+	
 
 
 	

@@ -10,7 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
 public class Main extends Application {
-	Button btnRegistrarse, btnIniciarSesion, btnConfirmarInicioSesion, btnListarRestaurantes; // botones que mandaran a
+	Button btnRegistrarse, btnIniciarSesion, btnConfirmarInicioSesion, btnFiltrarRestaurantes; // botones que mandaran a
 																								// llamar a la ventana
 																								// que deseamos abrir
 	Scene scene, scene2, scene1, scene3, scene4;// con esto cargaremos el contenido de cada ventana un scene por cada
@@ -24,26 +24,28 @@ public class Main extends Application {
 		btnRegistrarse = new Button();
 		btnIniciarSesion = new Button();
 		btnConfirmarInicioSesion = new Button();
+		btnFiltrarRestaurantes = new Button();
 		
 		btnRegistrarse.setOnAction(e -> ButtonClicked(e)); // Indicamos que hará una acción cuando se dé clic en el botón
 		btnIniciarSesion.setOnAction(e -> ButtonClicked(e));
 		btnConfirmarInicioSesion.setOnAction(e -> ButtonClicked(e));
+		btnFiltrarRestaurantes.setOnAction(e -> ButtonClicked(e));
 
 		Parent root = FXMLLoader.load(getClass().getResource("inicio.fxml"));
 		Parent root1 = FXMLLoader.load(getClass().getResource("registrarse.fxml"));
 		Parent root2 = FXMLLoader.load(getClass().getResource("iniciarSesion.fxml"));
 		Parent root3 = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
+		Parent root4 = FXMLLoader.load(getClass().getResource("ElegirFiltro.fxml"));
 		
 		Scene scene = new Scene(root, 400, 400);
 		Scene scene1 = new Scene(root1, 400, 400);
 		Scene scene2 = new Scene(root2, 400, 400);
+		Scene scene3 = new Scene(root4, 400, 400);
 		Scene scene4 = new Scene(root3, 400, 400);
 
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
-
-		//thestage.setTitle("Restaurantes");
 	}
 
 	public static void main(String[] args) {
@@ -59,7 +61,7 @@ public class Main extends Application {
 			thestage.setScene(scene2);
 		if (e.getSource() == btnConfirmarInicioSesion)
 			thestage.setScene(scene4);
-		if (e.getSource() == btnListarRestaurantes)
+		if (e.getSource() == btnFiltrarRestaurantes)
 			thestage.setScene(scene3);
 	}
 }
