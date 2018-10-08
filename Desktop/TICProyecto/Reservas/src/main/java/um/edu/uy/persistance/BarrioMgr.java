@@ -18,11 +18,11 @@ public class BarrioMgr {
 		repository.save(barrio);
 	}
 	
-	public ObservableList<Barrio> getBarrios() {
+	public ObservableList<String> getBarrios() {
 		Iterable<Barrio> it = repository.findAll();
-		ObservableList<Barrio> lista = FXCollections.observableArrayList();
+		ObservableList<String> lista = FXCollections.observableArrayList();
 		for (Barrio r : it) {
-			lista.add(r);
+			lista.add(r.getNombreBarrio());
 		}
 		return lista;
 	}
