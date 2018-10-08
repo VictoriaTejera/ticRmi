@@ -32,57 +32,26 @@ public class Restaurante implements Serializable{
 	@ManyToOne
 	private Barrio barrio;
 
-	@OneToMany
-	@Cascade(CascadeType.ALL)
-	private List<Comida> menu;
+//	@OneToMany
+//	@JoinTable(name="RESTAURANTE_COMIDA", joinColumns = @JoinColumn(name="nombre"))
+//	@Cascade(CascadeType.ALL)
+//	private List<Comida> menu;
 	
 	//foto que tipo de datos es??
 	
-	public Restaurante(String nombre, String direccion, Integer telefono) {
-		this.nombre = nombre;
-		this.direccion = direccion;
-		this.telefono = telefono;
-		//this.menu=menu;
-	}
-	
-	public Restaurante(String nombre, String barrio, String horario, String direccion, Integer telefono, Float rating,
-			Integer cantRatings, String descripcion) {
-		super();
-		this.nombre = nombre;
-		this.horario = horario;
-		this.direccion = direccion;
-		this.telefono = telefono;
-		this.rating = rating;
-		this.cantRatings = cantRatings;
-		this.descripcion = descripcion;
-	}
+	public Restaurante(String nombre, String horario, String direccion, Integer telefono, Float rating, Integer cantRatings,
+		String descripcion, Barrio barrio) {
+	super();
+	this.nombre = nombre;
+	this.horario = horario;
+	this.direccion = direccion;
+	this.telefono = telefono;
+	this.rating = rating;
+	this.cantRatings = cantRatings;
+	this.descripcion = descripcion;
+	this.barrio = barrio;
+}
 
-
-
-
-
-//	public Restaurante(String nombre, Barrio barrio) {
-//		super();
-//		this.nombre = nombre;
-//		this.barrio = barrio;
-//	}
-
-
-
-//	public Restaurante(String nombre, Barrio barrio, String horario, String direccion, Integer telefono, Float rating,
-//			Integer cantRatings, String descripcion, List<Comida> menu) {
-//		super();
-//		this.nombre = nombre;
-//		this.barrio = barrio;
-//		this.horario = horario;
-//		this.direccion = direccion;
-//		this.telefono = telefono;
-//		this.rating = rating;
-//		this.cantRatings = cantRatings;
-//		this.descripcion = descripcion;
-//		this.menu = menu;
-//	}
-	
 	public Restaurante() {}
 
 	public String getNombre() {
@@ -117,7 +86,20 @@ public class Restaurante implements Serializable{
 		return descripcion;
 	}
 
-	
+//	public List<Comida> getMenu() {
+//		return menu;
+//	}
+//
+//	public void setMenu(List<Comida> menu) {
+//		this.menu = menu;
+//	}
+
+	@Override
+	public String toString() {
+		return "Restaurante [nombre=" + nombre + ", horario=" + horario + ", direccion=" + direccion + ", telefono="
+				+ telefono + ", rating=" + rating + ", cantRatings=" + cantRatings + ", descripcion=" + descripcion
+				+ ", barrio=" + barrio + "]";
+	}
 	
 	
 	

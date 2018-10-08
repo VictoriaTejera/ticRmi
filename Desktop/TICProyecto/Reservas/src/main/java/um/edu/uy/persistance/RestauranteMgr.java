@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import um.edu.uy.persistance.entidades.Barrio;
 import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
 
@@ -28,8 +29,14 @@ public class RestauranteMgr{
 		repository.save(res);
 	}
 	
-	public void filtrarPorBarrio(String Barrio) {
-		
+	public List<Restaurante> filtrarPorBarrio(String nombreBarrio) {
+		List<Restaurante> restaurantes = repository.filtrarPorBarrio(nombreBarrio);
+		return restaurantes;
+	}
+	
+	public List<Restaurante> filtrarPorComida(String tipoComida){
+		List<Restaurante> restaurantes = repository.filtrarPorComida(tipoComida);
+		return restaurantes;
 	}
 
 }

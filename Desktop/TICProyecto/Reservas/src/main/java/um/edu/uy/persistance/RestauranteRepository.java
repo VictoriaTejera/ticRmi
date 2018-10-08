@@ -11,12 +11,11 @@ import org.springframework.data.repository.query.Param;
 
 public interface RestauranteRepository extends CrudRepository<Restaurante, Integer>{
 	
-//	@Query("SELECT r FROM Restaurante r WHERE r.Barrio= :barrio")
-//	List<Restaurante> filtrarPorBarrio(@Param("barrio") String barrio);
-//
-//	@Query("SELECT r FROM Restaurante r JOIN Comida c WHERE c.tipo= :tipoComida")
-//	List<Restaurante> filtrarPorComida(@Param("tipoComida") String tipoComida);
+	@Query("SELECT r FROM Restaurante r WHERE r.barrio.nombreBarrio= :barrio")
+	List<Restaurante> filtrarPorBarrio(@Param("barrio") String nombreBarrio);
 
-	
+	@Query("SELECT r FROM Comida c, Restaurante r WHERE r=c.restaurante and c.tipo= :tipoComida")
+	List<Restaurante> filtrarPorComida(@Param("tipoComida") String tipoComida);
+
 	
 }

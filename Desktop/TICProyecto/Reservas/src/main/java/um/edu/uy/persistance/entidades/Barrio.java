@@ -24,11 +24,20 @@ public class Barrio {
 //	@Cascade(CascadeType.ALL)
 //	private List<Restaurante> restaurantes;
 //
-//	public Barrio(String idBarrio, String nombreBarrio) {
-//		super();
-//		this.idBarrio = idBarrio;
-//		this.nombreBarrio = nombreBarrio;
-//	}
-//	
+	public Barrio(String idBarrio, String nombreBarrio) {
+		super();
+		this.idBarrio = idBarrio;
+		this.nombreBarrio = nombreBarrio;
+	}
+	
+	public Barrio() {}
+
+	public String getNombreBarrio() {
+		return nombreBarrio;
+	}
+
+	public void setNombreBarrio(String nombreBarrio) {
+		this.nombreBarrio = nombreBarrio;
+	}
 	
 }
