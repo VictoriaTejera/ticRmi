@@ -10,14 +10,20 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import um.edu.uy.persistance.BarrioMgr;
+import um.edu.uy.persistance.entidades.Barrio;
 
 @Component
 public class ControladorElegirFiltro implements ApplicationContextAware {
@@ -47,6 +53,9 @@ public class ControladorElegirFiltro implements ApplicationContextAware {
     
     @Autowired
     private TablaPorBarrio tablaPorBarrio;
+    
+    @Autowired
+    BarrioMgr barrio;
 
 
     @FXML
@@ -79,6 +88,22 @@ public class ControladorElegirFiltro implements ApplicationContextAware {
 		this.applicationContext = applicationContext;
 		
 	}
+    
+    public Barrio ComboBoxBarrio(){
+    	ObservableList<Barrio> items = FXCollections.observableArrayList();
+    	items.addAll(barrio.getBarrios());
+    	
+    	ComboBox<Barrio> cbx = new ComboBox<>(items);
+    	StackPane pane = new StackPane(cbx);
+    	
+    	Stage stage = null;
+    	Scene scene = new Scene(pane, 250, 150);
+    	stage.setTitle("Barrios");
+    	stage.setScene(scene);
+    	stage.show();
+    	
+    	return cbx.getValue();
+    }
 
 
 }
