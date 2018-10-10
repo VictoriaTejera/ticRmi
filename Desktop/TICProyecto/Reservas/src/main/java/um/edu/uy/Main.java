@@ -16,7 +16,7 @@ import um.edu.uy.interfaz.cliente.ControladorRegistro;
 
 @SpringBootApplication
 public class Main extends Application {
-	Button btnRegistrarse, btnIniciarSesion, btnConfirmarInicioSesion, btnListarRestaurantes, btnConfirmarRegistro;
+	Button btnRegistrarse, btnIniciarSesion, btnConfirmarInicioSesion, btnListarRestaurantes, btnConfirmarRegistro, btnVolver;
 	Scene scene, scene2, scene1, scene3, scene4;
 	Stage thestage;
 	private static ConfigurableApplicationContext context;
@@ -35,11 +35,13 @@ public class Main extends Application {
 		btnIniciarSesion = new Button();
 		btnConfirmarInicioSesion = new Button();
 		btnConfirmarRegistro = new Button();
+		btnVolver = new Button();
 
 		btnRegistrarse.setOnAction(e -> ButtonClicked(e));
 		btnIniciarSesion.setOnAction(e -> ButtonClicked(e));
 		btnConfirmarInicioSesion.setOnAction(e -> ButtonClicked(e));
 		btnConfirmarRegistro.setOnAction(e -> ButtonClicked(e));
+		btnVolver.setOnAction(e -> ButtonClicked(e));
 
 		fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(Main.getContext()::getBean);
@@ -85,6 +87,8 @@ public class Main extends Application {
 			thestage.setScene(scene3);
 		if (e.getSource() == btnConfirmarRegistro)
 			thestage.setScene(scene2);
+		if (e.getSource() == btnVolver)
+			thestage.setScene(scene);
 	}
 
 	public void stop() {
