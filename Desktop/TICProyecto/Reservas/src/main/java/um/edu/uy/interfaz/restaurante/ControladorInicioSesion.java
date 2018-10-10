@@ -1,29 +1,25 @@
-package um.edu.uy.interfaz.cliente;
+package um.edu.uy.interfaz.restaurante;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-import org.springframework.stereotype.Component;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import um.edu.uy.persistance.UsuarioMgr;
+import um.edu.uy.persistance.RestauranteMgr;
+import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
 
-@Component
-public class ControladorInicioSesion implements ApplicationContextAware {
+public class ControladorInicioSesion {
 
 	@FXML
 	private ResourceBundle resources;
@@ -32,62 +28,48 @@ public class ControladorInicioSesion implements ApplicationContextAware {
 	private URL location;
 
 	@FXML
-	private Button btnConfirmarInicioSesion;
-	
-	@FXML
-	private Button btnAceptar;
-	
-	@FXML
-	private Button btnVolver;
-	
+	private Button btnIniciarSesion;
+
 	@FXML
 	private PasswordField txtContrasena;
 
 	@FXML
 	private TextField txtUsuario;
-	
+
 	@Autowired
-	private UsuarioMgr usuarioMgr;
-	
+	private RestauranteMgr restauranteMgr;
+
 	private ApplicationContext applicationContext;
 
-	public ControladorInicioSesion() {
-		super();
-	}
-
 	@FXML
-	void handleSubmitButtonAction(ActionEvent event) throws IOException {
-		Stage stage = null;
+    void handleSubmitButtonAction(ActionEvent event) {
+    	Stage stage = null;
 		Parent root = null;
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		stage = new Stage();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 
-		if (event.getSource() == btnConfirmarInicioSesion) {
-			Usuario user = new Usuario(txtUsuario.getText(), txtContrasena.getText());
-			if (usuarioMgr.verificarUsuario(user) == true) {
-				stage = (Stage) btnConfirmarInicioSesion.getScene().getWindow();
+		if (event.getSource() == btnIniciarSesion) {
+			Restaurante restaurante = new Restaurante(txtUsuario.getText(), txtContrasena.getText());
+			if (restauranteMgr.verificarUsuario(restaurante) == true) {
+				stage = (Stage) btnIniciarSesion.getScene().getWindow();
 				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
-			} else {
+			}else {
 				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("Warning.fxml"));
 			}
 		}
-		if (event.getSource() == btnVolver) {
-			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("inicio.fxml"));
-			stage = (Stage) btnVolver.getScene().getWindow();
-		}
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
 	}
 
 	@FXML
 	void initialize() {
+		assert btnIniciarSesion != null : "fx:id=\"btnIniciarSesion\" was not injected: check your FXML file 'inicio.fxml'.";
+		assert txtContrasena != null : "fx:id=\"txtContrasena\" was not injected: check your FXML file 'inicio.fxml'.";
+		assert txtUsuario != null : "fx:id=\"txtUsuario\" was not injected: check your FXML file 'inicio.fxml'.";
 	}
 
-	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
-		
+
 	}
+
 }

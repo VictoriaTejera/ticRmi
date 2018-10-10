@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane prefHeight="349.0" prefWidth="378.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.restaurante.ControladorInicioSesion">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="46.0" layoutY="14.0" prefHeight="107.0" prefWidth="287.0" text="¡Bienvenido a Reservas!" textAlignment="CENTER" wrapText="false">
+      <font>
+        <Font name="System Bold Italic" size="25.0" />
+      </font>
+      <textFill>
+        <Color blue="0.000" green="0.000" red="0.600" fx:id="x1" />
+      </textFill>
+    </Label>
+    <!-- Add Email Label -->
+    <Label layoutX="46.0" layoutY="135.0" prefHeight="20.0" prefWidth="72.0" text="Usuario:" textAlignment="RIGHT" textFill="$x1" />
+    <!-- Add Password Label -->
+    <Label layoutX="46.0" layoutY="217.0" text="Contraseña: " textFill="$x1" />
+    <!-- Add Email Text Field -->
+    <TextField id="emailField" fx:id="txtUsuario" layoutX="141.0" layoutY="125.0" prefHeight="40.0" />
+    <!-- Add Password Field -->
+    <PasswordField id="passwordField" fx:id="txtContrasena" layoutX="141.0" layoutY="205.0" prefHeight="40.0" />
+    <!-- Add Submit Button -->
+    <Button id="submitButton" fx:id="btnIniciarSesion" cache="false" cacheHint="DEFAULT" contentDisplay="CENTER" defaultButton="true" depthTest="INHERIT" layoutX="162.0" layoutY="272.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="27.0" prefWidth="104.0" text="Iniciar Sesión" textAlignment="LEFT" textFill="WHITE" underline="false" visible="true" />
+  </children>
 </AnchorPane>
-
