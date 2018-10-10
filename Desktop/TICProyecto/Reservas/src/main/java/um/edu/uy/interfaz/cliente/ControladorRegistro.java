@@ -34,6 +34,9 @@ public class ControladorRegistro implements ApplicationContextAware {
 	private Button btnConfirmarRegistro;
 
 	@FXML
+	private Button btnVolver;
+
+	@FXML
 	private TextField txtCelular;
 
 	@FXML
@@ -68,6 +71,10 @@ public class ControladorRegistro implements ApplicationContextAware {
 			} else {
 				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("UsuarioYaExiste.fxml"));
 			}
+		}
+		if (event.getSource() == btnVolver) {
+			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("inicio.fxml"));
+			stage = (Stage) btnVolver.getScene().getWindow();
 		}
 		stage.setScene(new Scene(root));
 		stage.show();
