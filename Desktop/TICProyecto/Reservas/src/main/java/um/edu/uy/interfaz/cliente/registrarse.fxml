@@ -11,52 +11,31 @@
 <AnchorPane prefHeight="397.0" prefWidth="379.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorRegistro">
   <!-- TODO Add Nodes -->
   <children>
-    <GridPane alignment="CENTER" hgap="10.0" layoutX="-22.0" layoutY="11.0" prefWidth="408.0" vgap="10.0">
-      <columnConstraints>
-        <ColumnConstraints halignment="RIGHT" maxWidth="+Infinity" minWidth="100.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="ALWAYS" maxWidth="+Infinity" minWidth="200.0" prefWidth="200.0" />
-      </columnConstraints>
-      <!-- Add Name Label -->
-      <Label prefWidth="100.0" text="Nombre completo:" GridPane.columnIndex="0" GridPane.rowIndex="1">
-        <textFill>
-          <Color blue="0.000" green="0.000" red="0.600" fx:id="x1" />
-        </textFill>
-      </Label>
-      <!-- Add Name Text Field -->
-      <TextField id="nameField" fx:id="txtNombre" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <!-- Add Password Label -->
-      <Label text="Contraseña: " textFill="$x1" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-      <!-- Add Password Field -->
-      <PasswordField id="passwordField" fx:id="txtContrasena" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <padding>
-        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
-      </padding>
-      <!-- Add Name Text Field -->
-      <TextField id="nameField" fx:id="txtCelular" prefHeight="49.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <rowConstraints>
-        <RowConstraints maxHeight="68.0" minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="47.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="50.0" prefHeight="42.0" />
-        <RowConstraints maxHeight="80.0" prefHeight="61.0" />
-      </rowConstraints>
-      <!-- Add Name Label -->
-      <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Celular:" textAlignment="JUSTIFY" textFill="$x1" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-      <!-- Add Submit Button -->
-      <Button id="submitButton" fx:id="btnConfirmarRegistro" defaultButton="true" onAction="#handleSubmitButtonAction" prefHeight="21.0" prefWidth="90.0" text="Registrarse" textFill="#fefefe" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="1">
-        <GridPane.margin>
-          <Insets bottom="20.0" top="20.0" />
-        </GridPane.margin>
-      </Button>
-      <!-- Add Header Label -->
-      <Label alignment="CENTER" contentDisplay="CENTER" text="Ingrese sus datos" textAlignment="CENTER" textFill="$x1" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
-        <font>
-          <Font name="Calisto MT" size="24.0" />
-        </font>
-        <GridPane.margin>
-          <Insets bottom="20.0" top="20.0" />
-        </GridPane.margin>
-      </Label>
-    </GridPane>
+    <!-- Add Name Label -->
+    <Label layoutX="45.0" layoutY="113.0" prefWidth="100.0" text="Nombre completo:">
+      <textFill>
+        <Color blue="0.000" green="0.000" red="0.600" fx:id="x1" />
+      </textFill>
+    </Label>
+    <!-- Add Name Text Field -->
+    <TextField id="nameField" fx:id="txtNombre" layoutX="178.0" layoutY="101.0" prefHeight="40.0" />
+    <!-- Add Password Label -->
+    <Label layoutX="62.0" layoutY="249.0" text="Contraseña: " textFill="$x1" />
+    <!-- Add Password Field -->
+    <PasswordField id="passwordField" fx:id="txtContrasena" layoutX="178.0" layoutY="237.0" prefHeight="40.0" />
+    <!-- Add Name Text Field -->
+    <TextField id="nameField" fx:id="txtCelular" layoutX="178.0" layoutY="171.0" prefHeight="40.0" prefWidth="145.0" />
+    <!-- Add Name Label -->
+    <Label alignment="CENTER_RIGHT" layoutX="12.0" layoutY="183.0" prefWidth="100.0" text="Celular:" textAlignment="JUSTIFY" textFill="$x1" />
+    <!-- Add Submit Button -->
+    <Button id="submitButton" fx:id="btnConfirmarRegistro" defaultButton="true" layoutX="210.0" layoutY="295.0" onAction="#handleSubmitButtonAction" prefHeight="28.0" prefWidth="81.0" text="Registrarse" textFill="#fefefe" />
+    <!-- Add Header Label -->
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="104.0" layoutY="40.0" text="Ingrese sus datos" textAlignment="CENTER" textFill="$x1">
+      <font>
+        <Font name="Calisto MT" size="24.0" />
+      </font>
+    </Label>
+    <!-- Add Submit Button -->
+    <Button id="submitButton" fx:id="btnVolver" cache="false" cacheHint="DEFAULT" contentDisplay="CENTER" defaultButton="true" depthTest="INHERIT" layoutX="276.0" layoutY="358.0" minHeight="16.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="25.0" prefWidth="81.0" text="Volver" textAlignment="LEFT" textFill="WHITE" underline="false" visible="true" />
   </children>
 </AnchorPane>

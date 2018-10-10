@@ -28,8 +28,9 @@ public class Restaurante implements Serializable{
 	private Float rating;
 	private Integer cantRatings;
 	private String descripcion;
-	private Float precioMenor=(float)0.0;
-	private Float precioMayor=(float)0.0;
+	private Float precioPromedio;
+//	private Float precioMenor=(float)1000000.0;
+//	private Float precioMayor=(float)0.0;
 
 	@ManyToOne
 	private Barrio barrio;
@@ -90,20 +91,20 @@ public class Restaurante implements Serializable{
 	}
 
 	
-	public void setPrecioMenor(Float precioMenor) {
-		this.precioMenor = precioMenor;
-	}
-
-	public Float getPrecioMayor() {
-		return precioMayor;
-	}
-	public Float getPrecioMenor() {
-		return precioMenor;
-	}
-	
-	public void setPrecioMayor(Float precioMayor) {
-		this.precioMayor = precioMayor;
-	}
+//	public void setPrecioMenor(Float precioMenor) {
+//		this.precioMenor = precioMenor;
+//	}
+//
+//	public Float getPrecioMayor() {
+//		return precioMayor;
+//	}
+//	public Float getPrecioMenor() {
+//		return precioMenor;
+//	}
+//	
+//	public void setPrecioMayor(Float precioMayor) {
+//		this.precioMayor = precioMayor;
+//	}
 //	public List<Comida> getMenu() {
 //		return menu;
 //	}
