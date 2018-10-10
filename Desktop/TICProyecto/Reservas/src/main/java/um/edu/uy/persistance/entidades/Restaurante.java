@@ -21,6 +21,7 @@ import javax.persistence.JoinColumn;
 public class Restaurante implements Serializable{
 
 	@Id
+	private String RUT;
 	private String nombre;
 	private String horario;
 	private String direccion;
@@ -29,6 +30,8 @@ public class Restaurante implements Serializable{
 	private Integer cantRatings;
 	private String descripcion;
 	private Float precioPromedio;
+	private String email;
+	private String password;
 //	private Float precioMenor=(float)1000000.0;
 //	private Float precioMayor=(float)0.0;
 
@@ -54,6 +57,17 @@ public class Restaurante implements Serializable{
 	this.descripcion = descripcion;
 	this.barrio = barrio;
 }
+
+	
+
+	public Restaurante(String rUT, String nombre, String email, String password) {
+		super();
+		RUT = rUT;
+		this.nombre = nombre;
+		this.email = email;
+		this.password = password;
+	}
+
 
 
 	public Restaurante() {}
