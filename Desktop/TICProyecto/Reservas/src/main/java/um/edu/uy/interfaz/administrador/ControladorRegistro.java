@@ -60,13 +60,14 @@ public class ControladorRegistro implements ApplicationContextAware {
 		if (event.getSource() == btnConfirmarRegistro) {
 			Usuario user = new Usuario(txtNombre.getText(), txtContrasena.getText(),
 					Integer.parseInt(txtCelular.getText()));
-			if (usuMgr.usuarioYaFueCreado(user) == false) {
-				usuMgr.save(user);
-				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("iniciarSesion.fxml"));
-				stage = (Stage) btnConfirmarRegistro.getScene().getWindow();
-			} else {
-				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("UsuarioYaExiste.fxml"));
-			}
+			
+//			if (usuMgr.usuarioYaFueCreado(user) == false) {
+//				usuMgr.save(user);
+//				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("iniciarSesion.fxml"));
+//				stage = (Stage) btnConfirmarRegistro.getScene().getWindow();
+//			} else {
+//				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("UsuarioYaExiste.fxml"));
+//			}
 		}
 		stage.setScene(new Scene(root));
 		stage.show();
