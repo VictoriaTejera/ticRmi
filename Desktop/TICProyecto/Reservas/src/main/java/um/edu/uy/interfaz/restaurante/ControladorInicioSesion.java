@@ -1,5 +1,6 @@
 package um.edu.uy.interfaz.restaurante;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -17,7 +18,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
-import um.edu.uy.persistance.entidades.Usuario;
 
 public class ControladorInicioSesion {
 
@@ -42,7 +42,7 @@ public class ControladorInicioSesion {
 	private ApplicationContext applicationContext;
 
 	@FXML
-    void handleSubmitButtonAction(ActionEvent event) {
+    void handleSubmitButtonAction(ActionEvent event) throws IOException {
     	Stage stage = null;
 		Parent root = null;
 		FXMLLoader fxmlLoader = new FXMLLoader();

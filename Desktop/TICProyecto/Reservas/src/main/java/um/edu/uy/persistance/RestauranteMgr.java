@@ -52,9 +52,9 @@ public class RestauranteMgr {
 		return restaurantes;
 		
 	}
-	public boolean verificarUsuario(Usuario us) {
+	public boolean verificarUsuario(Restaurante res) {
 		boolean verifico = true;
-		if (repository.verificarUsuario(us.getNombre(), us.getContrasena()) == null) {
+		if (repository.verificarUsuario(res.getNombre(), res.getContrasena()) == null) {
 			verifico = false;
 		}
 		return verifico;
