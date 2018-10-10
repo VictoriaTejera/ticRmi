@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import um.edu.uy.persistance.entidades.Restaurante;
+import um.edu.uy.persistance.entidades.Usuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -46,15 +47,22 @@ public class RestauranteMgr {
 		return observ;
 	}
 	
-//	public List<Restaurante> filtrarPorPrecio(Float precioMenor, Float precioMayor){
-//		List<Restaurante> restaurantes= repository.filtrarPorPrecio(precioMenor, precioMayor);
-//		return restaurantes;
-//		
-//	}
-
-	public List<Restaurante> filtrarPorPrecio(Float precioMayor){
-		List<Restaurante> restaurantes= repository.filtrarPorPrecio(precioMayor);
+	public List<Restaurante> filtrarPorPrecio(Float precioMenor, Float precioMayor){
+		List<Restaurante> restaurantes= repository.filtrarPorPrecio(precioMenor, precioMayor);
 		return restaurantes;
 		
 	}
+	public boolean verificarUsuario(Usuario us) {
+		boolean verifico = true;
+		if (repository.verificarUsuario(us.getNombre(), us.getContrasena()) == null) {
+			verifico = false;
+		}
+		return verifico;
+	}
+
+//	public List<Restaurante> filtrarPorPrecio(Float precioMayor){
+//		List<Restaurante> restaurantes= repository.filtrarPorPrecio(precioMayor);
+//		return restaurantes;
+//		
+//	}
 }
