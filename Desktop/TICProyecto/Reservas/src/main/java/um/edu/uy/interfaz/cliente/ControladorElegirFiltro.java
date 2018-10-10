@@ -9,21 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import um.edu.uy.persistance.BarrioMgr;
-import um.edu.uy.persistance.entidades.Barrio;
 
 @Component
 public class ControladorElegirFiltro implements ApplicationContextAware {
@@ -53,13 +46,11 @@ public class ControladorElegirFiltro implements ApplicationContextAware {
     
     @Autowired
     private TablaPorBarrio tablaPorBarrio;
-    
-    @Autowired 
-    ComboBoxBarrio cboxBarrio;
 
     @FXML
     void filtrarRestaurantes(ActionEvent event) throws IOException {
     	Stage stage = null;
+    	Parent root = null;
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 		stage = new Stage();
@@ -69,15 +60,11 @@ public class ControladorElegirFiltro implements ApplicationContextAware {
 			stage.setScene(tablaPorComida.getSceneTable());
 		}
     	if (event.getSource() == btnBarrio) {
-			stage = (Stage) btnBarrio.getScene().getWindow();
-			stage.setScene(cboxBarrio.getScene());
-			stage.show();
-			if(cboxBarrio.getBarrio()!=null) {
-			stage.setScene(tablaPorBarrio.getSceneTable());
-			}
-		}
+    		stage = (Stage) btnBarrio.getScene().getWindow();
+			stage.setScene(tablaPorBarrio.getSceneTable());	
+    	}
+    	stage.setScene(new Scene(root));
     	stage.show();
- 
     }
 
     @FXML

@@ -2,8 +2,6 @@ package um.edu.uy.interfaz.cliente;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -17,8 +15,8 @@ public class TablaPorBarrio {
 	@Autowired
 	private RestauranteMgr restaurante;
 	
-	@Autowired
-    private ComboBoxBarrio cboxBarrio;
+//	@Autowired
+//    private ComboBoxBarrio cboxBarrio;
 	
 	@Autowired 
 	private ControladorElegirFiltro conElegirFiltro;
@@ -42,7 +40,7 @@ public class TablaPorBarrio {
 		columnaTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
 
 		table = new TableView<>();
-		table.setItems(restaurante.filtrarPorBarrio(cboxBarrio.getBarrio())); // le paso la lista de restaurantes
+		table.setItems(restaurante.filtrarPorBarrio(conElegirFiltro.txtBarrio.getText())); // le paso la lista de restaurantes
 		table.getColumns().addAll(columnaNombre, columnaDireccion, columnaTelefono);
 		VBox vBox = new VBox();
 

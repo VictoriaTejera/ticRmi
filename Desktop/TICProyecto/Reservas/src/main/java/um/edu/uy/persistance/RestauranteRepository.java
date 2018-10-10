@@ -19,7 +19,9 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Integ
 	@Query("SELECT r FROM Comida c, Restaurante r WHERE r=c.restaurante and c.tipo= :tipoComida")
 	List<Restaurante> filtrarPorComida(@Param("tipoComida") String tipoComida);
 
+
 //	@Query ("SELECT r FROM Restaurante r WHERE r.precioMayor<= :precioMayor and r.precioMenor>= :precioMenor")
+
 //	List<Restaurante> filtrarPorPrecio(@Param ("precioMenor") Float precioMenor, @Param ("precioMayor") Float precioMayor);
 	
 	@Query ("SELECT r FROM Restaurante r WHERE r.precioMayor<= :precioMayor")
