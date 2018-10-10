@@ -28,8 +28,8 @@ public class Restaurante implements Serializable{
 	private Float rating;
 	private Integer cantRatings;
 	private String descripcion;
-	private Float precioMenor;
-	private Float precioMayor;
+	private Float precioMenor=(float)0.0;
+	private Float precioMayor=(float)0.0;
 
 	@ManyToOne
 	private Barrio barrio;

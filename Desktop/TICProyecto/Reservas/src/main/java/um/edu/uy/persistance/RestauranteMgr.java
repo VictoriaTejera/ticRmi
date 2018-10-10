@@ -55,4 +55,9 @@ public class RestauranteMgr {
 //		
 //	}
 
+	public List<Restaurante> filtrarPorPrecio(Float precioMayor){
+		List<Restaurante> restaurantes= repository.filtrarPorPrecio(precioMayor);
+		return restaurantes;
+		
+	}
 }
