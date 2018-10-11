@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import um.edu.uy.interfaz.cliente.ControladorRegistro;
 
 @SpringBootApplication
-public class Main extends Application {
+public class MainCliente extends Application {
 	Button btnRegistrarse, btnIniciarSesion, btnConfirmarInicioSesion, btnListarRestaurantes, btnConfirmarRegistro;
 	Scene scene, scene2, scene1, scene3, scene4;
 	Stage thestage;
@@ -25,7 +25,7 @@ public class Main extends Application {
 
 	@Override
 	public void init() throws Exception {
-		Main.context = SpringApplication.run(Main.class);
+		MainCliente.context = SpringApplication.run(MainCliente.class);
 	}
 
 	@Override
@@ -42,25 +42,25 @@ public class Main extends Application {
 		btnConfirmarRegistro.setOnAction(e -> ButtonClicked(e));
 
 		fxmlLoader = new FXMLLoader();
-		fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+		fxmlLoader.setControllerFactory(MainCliente.getContext()::getBean);
 
 		root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("inicio.fxml"));
 		scene = new Scene(root);
 		
 		fxmlLoader1 = new FXMLLoader();
-		fxmlLoader1.setControllerFactory(Main.getContext()::getBean);
+		fxmlLoader1.setControllerFactory(MainCliente.getContext()::getBean);
 
 		root1 = fxmlLoader1.load(ControladorRegistro.class.getResourceAsStream("registrarse.fxml"));
 		scene1 = new Scene(root1);
 		
 		fxmlLoader2 = new FXMLLoader();
-		fxmlLoader2.setControllerFactory(Main.getContext()::getBean);
+		fxmlLoader2.setControllerFactory(MainCliente.getContext()::getBean);
 
 		root2 = fxmlLoader2.load(ControladorRegistro.class.getResourceAsStream("iniciarSesion.fxml"));
 		scene2 = new Scene(root2);
 
 		fxmlLoader3 = new FXMLLoader();
-		fxmlLoader3.setControllerFactory(Main.getContext()::getBean);
+		fxmlLoader3.setControllerFactory(MainCliente.getContext()::getBean);
 
 		root3 = fxmlLoader3.load(ControladorRegistro.class.getResourceAsStream("MenuPrincipal.fxml"));
 		scene3 = new Scene(root3);
