@@ -27,10 +27,9 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Integ
 	Usuario verificarUsuario(@Param("nombre") String nombre, @Param("contrasena") String contrasena);
 	
 	@Modifying
-	//@Query("update Restaurante r set r.descripcion=?1, r.direccion=?2, r.horario=?3, r.precio_romedio=?4, r.telefono=?5 where r.rut= :rut")
-	@Query("update Restaurante r set r.descripcion= :descripcion, r.direccion= :direccion, r.horario=?3, r.precio_romedio= :precio_promedio, r.telefono= :telefono where r.rut= :rut")
-	public void cargarDatosRes(@Param("rut") String rut ,@Param("descripcion")String descripcion, @Param("direccion")String direccion, @Param("precio_promedio")Float precio_promedio, @Param("telefono")Integer telefono, String rut2);
+	@Query("update Restaurante r set r.descripcion= :descripcion, r.direccion= :direccion, r.horario= :horario, r.precio_romedio= :precio_promedio, r.telefono= :telefono where r.RUT= :rut")
+	public void cargarDatosRes(@Param("rut") String rut ,@Param("descripcion")String descripcion, @Param("direccion")String direccion, @Param("horario") Integer horario, @Param("precio_promedio")Float precio_promedio, @Param("telefono")Integer telefono, String rut2);
 
-	@Query("SELECT res FROM Restaurante res WHERE u.rut= :rut")
+	@Query("SELECT res FROM Restaurante res WHERE res.rut= :rut")
 	Usuario verificarRutRestaurante(@Param("rut") String nombre);
 }

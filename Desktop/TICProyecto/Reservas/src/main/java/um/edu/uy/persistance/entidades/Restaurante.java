@@ -21,7 +21,7 @@ import javax.persistence.JoinColumn;
 public class Restaurante implements Serializable {
 
 	@Id
-	private String RUT;
+	private String rut;
 	private String nombre;
 	private String contrasena;
 	private String horario;
@@ -62,7 +62,7 @@ public class Restaurante implements Serializable {
 
 	public Restaurante(String RUT, String nombre, String email, String password) {
 		super();
-		this.RUT = RUT;
+		this.rut = RUT;
 		this.nombre = nombre;
 		this.email = email;
 		this.password = password;
@@ -73,12 +73,12 @@ public class Restaurante implements Serializable {
 
 
 	public String getRUT() {
-		return RUT;
+		return rut;
 	}
 
 
 	public void setRUT(String rUT) {
-		RUT = rUT;
+		rut = rUT;
 	}
 
 
