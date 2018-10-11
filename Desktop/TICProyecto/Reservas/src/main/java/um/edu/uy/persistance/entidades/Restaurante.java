@@ -60,21 +60,14 @@ public class Restaurante implements Serializable {
 		this.barrio = barrio;
 	}
 
-
-	public Restaurante(String nombre, String contrasena) {
-		this.nombre = nombre;
-		this.contrasena = contrasena;
-	}
-
-	
-
-	public Restaurante(String rUT, String nombre, String email, String password) {
+	public Restaurante(String RUT, String nombre, String email, String password) {
 		super();
-		RUT = rUT;
+		this.RUT = RUT;
 		this.nombre = nombre;
 		this.email = email;
 		this.password = password;
 	}
+
 
 
 
@@ -87,6 +80,7 @@ public class Restaurante implements Serializable {
 	public void setRUT(String rUT) {
 		RUT = rUT;
 	}
+
 
 
 	public Restaurante() {
@@ -123,16 +117,6 @@ public class Restaurante implements Serializable {
 	public String getDescripcion() {
 		return descripcion;
 	}
-
-
-	// public List<Comida> getMenu() {
-	// return menu;
-	// }
-	//
-	// public void setMenu(List<Comida> menu) {
-	// this.menu = menu;
-	// }
-
 	
 //	public void setPrecioMenor(Float precioMenor) {
 //		this.precioMenor = precioMenor;
