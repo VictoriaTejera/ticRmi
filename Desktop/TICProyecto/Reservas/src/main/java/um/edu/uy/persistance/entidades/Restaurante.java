@@ -18,45 +18,75 @@ import javax.persistence.JoinColumn;
 
 @Entity
 @Table
-public class Restaurante implements Serializable{
+public class Restaurante implements Serializable {
 
 	@Id
+	private String RUT;
 	private String nombre;
+	private String contrasena;
 	private String horario;
 	private String direccion;
 	private Integer telefono;
 	private Float rating;
 	private Integer cantRatings;
 	private String descripcion;
+<<<<<<< HEAD
+	private Float precioMenor = (float) 0.0;
+	private Float precioMayor = (float) 0.0;
+
+=======
 	private Float precioPromedio;
+	private String email;
+	private String password;
 //	private Float precioMenor=(float)1000000.0;
 //	private Float precioMayor=(float)0.0;
 
+>>>>>>> dafa15842c9e9dff1d3328c67e57f6d87d53b087
 	@ManyToOne
 	private Barrio barrio;
 
-//	@OneToMany
-//	@JoinTable(name="RESTAURANTE_COMIDA", joinColumns = @JoinColumn(name="nombre"))
-//	@Cascade(CascadeType.ALL)
-//	private List<Comida> menu;
+	// @OneToMany
+	// @JoinTable(name="RESTAURANTE_COMIDA", joinColumns =
+	// @JoinColumn(name="nombre"))
+	// @Cascade(CascadeType.ALL)
+	// private List<Comida> menu;
+
+	// foto que tipo de datos es??
+
+	public Restaurante(String nombre, String horario, String direccion, Integer telefono, Float rating,
+			Integer cantRatings, String descripcion, Barrio barrio) {
+		super();
+		this.nombre = nombre;
+		this.horario = horario;
+		this.direccion = direccion;
+		this.telefono = telefono;
+		this.rating = rating;
+		this.cantRatings = cantRatings;
+		this.descripcion = descripcion;
+		this.barrio = barrio;
+	}
+
+<<<<<<< HEAD
+	public Restaurante(String nombre, String contrasena) {
+		this.nombre = nombre;
+		this.contrasena = contrasena;
+	}
+=======
 	
-	//foto que tipo de datos es??
-	
-	public Restaurante(String nombre, String horario, String direccion, Integer telefono, Float rating, Integer cantRatings,
-		String descripcion, Barrio barrio) {
-	super();
-	this.nombre = nombre;
-	this.horario = horario;
-	this.direccion = direccion;
-	this.telefono = telefono;
-	this.rating = rating;
-	this.cantRatings = cantRatings;
-	this.descripcion = descripcion;
-	this.barrio = barrio;
-}
+
+	public Restaurante(String rUT, String nombre, String email, String password) {
+		super();
+		RUT = rUT;
+		this.nombre = nombre;
+		this.email = email;
+		this.password = password;
+	}
 
 
-	public Restaurante() {}
+>>>>>>> dafa15842c9e9dff1d3328c67e57f6d87d53b087
+
+	public Restaurante() {
+	}
 
 	public String getNombre() {
 		return nombre;
@@ -90,6 +120,30 @@ public class Restaurante implements Serializable{
 		return descripcion;
 	}
 
+<<<<<<< HEAD
+	public void setPrecioMenor(Float precioMenor) {
+		this.precioMenor = precioMenor;
+	}
+
+	public Float getPrecioMayor() {
+		return precioMayor;
+	}
+
+	public Float getPrecioMenor() {
+		return precioMenor;
+	}
+
+	public void setPrecioMayor(Float precioMayor) {
+		this.precioMayor = precioMayor;
+	}
+	// public List<Comida> getMenu() {
+	// return menu;
+	// }
+	//
+	// public void setMenu(List<Comida> menu) {
+	// this.menu = menu;
+	// }
+=======
 	
 //	public void setPrecioMenor(Float precioMenor) {
 //		this.precioMenor = precioMenor;
@@ -112,6 +166,7 @@ public class Restaurante implements Serializable{
 //	public void setMenu(List<Comida> menu) {
 //		this.menu = menu;
 //	}
+>>>>>>> dafa15842c9e9dff1d3328c67e57f6d87d53b087
 
 	@Override
 	public String toString() {
@@ -119,8 +174,13 @@ public class Restaurante implements Serializable{
 				+ telefono + ", rating=" + rating + ", cantRatings=" + cantRatings + ", descripcion=" + descripcion
 				+ ", barrio=" + barrio + "]";
 	}
-	
-	
-	
-	
+
+	public String getContrasena() {
+		return contrasena;
+	}
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+
 }
