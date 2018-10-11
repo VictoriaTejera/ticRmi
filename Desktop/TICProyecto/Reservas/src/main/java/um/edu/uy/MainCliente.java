@@ -15,17 +15,17 @@ import javafx.stage.Stage;
 import um.edu.uy.interfaz.cliente.ControladorRegistro;
 
 @SpringBootApplication
-public class Main extends Application {
+public class MainCliente extends Application {
 	Button btnRegistrarse, btnIniciarSesion, btnConfirmarInicioSesion, btnListarRestaurantes, btnConfirmarRegistro;
-	Scene scene, scene2, scene1, scene3, scene4;
+	Scene scene, scene2, scene1, scene3, scene4, scene5;
 	Stage thestage;
 	private static ConfigurableApplicationContext context;
-	private FXMLLoader fxmlLoader, fxmlLoader1, fxmlLoader2, fxmlLoader3;
-	private Parent root, root1, root2, root3;
+	private FXMLLoader fxmlLoader, fxmlLoader1, fxmlLoader2, fxmlLoader3, fxmlLoader4;;
+	private Parent root, root1, root2, root3, root4;
 
 	@Override
 	public void init() throws Exception {
-		Main.context = SpringApplication.run(Main.class);
+		MainCliente.context = SpringApplication.run(Main.class);
 	}
 
 	@Override
@@ -35,11 +35,13 @@ public class Main extends Application {
 		btnIniciarSesion = new Button();
 		btnConfirmarInicioSesion = new Button();
 		btnConfirmarRegistro = new Button();
+		btnListarRestaurantes = new Button();
 
 		btnRegistrarse.setOnAction(e -> ButtonClicked(e));
 		btnIniciarSesion.setOnAction(e -> ButtonClicked(e));
 		btnConfirmarInicioSesion.setOnAction(e -> ButtonClicked(e));
 		btnConfirmarRegistro.setOnAction(e -> ButtonClicked(e));
+		btnListarRestaurantes.setOnAction(e -> ButtonClicked(e));
 
 		fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(Main.getContext()::getBean);
@@ -64,6 +66,9 @@ public class Main extends Application {
 
 		root3 = fxmlLoader3.load(ControladorRegistro.class.getResourceAsStream("MenuPrincipal.fxml"));
 		scene3 = new Scene(root3);
+		
+		root4 = fxmlLoader4.load(ControladorRegistro.class.getResourceAsStream("ListarRestaurantes.fxml"));
+		scene5 = new Scene(root4);
 
 		scene.getStylesheets().add(ControladorRegistro.class.getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);
@@ -85,6 +90,8 @@ public class Main extends Application {
 			thestage.setScene(scene3);
 		if (e.getSource() == btnConfirmarRegistro)
 			thestage.setScene(scene2);
+		if (e.getSource() == btnListarRestaurantes)
+			thestage.setScene(scene5);
 	}
 
 	public void stop() {
