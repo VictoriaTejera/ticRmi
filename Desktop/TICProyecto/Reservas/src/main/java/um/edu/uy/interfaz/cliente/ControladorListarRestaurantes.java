@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
 
@@ -25,13 +26,13 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     private URL location;
 
     @FXML
-    private TableColumn<?, ?> columnaDireccion;
+    private TableColumn<Restaurante, String> columnaDireccion;
 
     @FXML
-    private TableColumn<?, ?> columnaNombre;
+    private TableColumn<Restaurante, String> columnaNombre;
 
     @FXML
-    private TableColumn<?, ?> columnaTelefono;
+    private TableColumn<Restaurante, Integer> columnaTelefono;
 
     @FXML
     private TableView<Restaurante> tabla;
@@ -42,6 +43,9 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     ApplicationContext applicationContext;
     
     public void llenarTabla() {
+    	columnaNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+    	columnaDireccion.setCellValueFactory(new PropertyValueFactory<>("direccion"));
+    	columnaTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
     	tabla.setItems(restaurante.getRestaurants());
     }
 
