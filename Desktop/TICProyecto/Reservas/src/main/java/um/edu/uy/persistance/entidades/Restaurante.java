@@ -79,6 +79,16 @@ public class Restaurante implements Serializable {
 
 
 
+	public String getRUT() {
+		return RUT;
+	}
+
+
+	public void setRUT(String rUT) {
+		RUT = rUT;
+	}
+
+
 	public Restaurante() {
 	}
 

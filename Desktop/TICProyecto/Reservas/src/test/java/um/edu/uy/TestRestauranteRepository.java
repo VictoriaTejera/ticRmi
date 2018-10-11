@@ -23,7 +23,7 @@ import um.edu.uy.persistance.entidades.Barrio;
 import um.edu.uy.persistance.entidades.Comida;
 import um.edu.uy.persistance.entidades.Restaurante;
 
-@SpringBootTest
+@SpringBootTest(classes=MainRestaurante.class)
 @RunWith(SpringRunner.class)
 public class TestRestauranteRepository {
 
