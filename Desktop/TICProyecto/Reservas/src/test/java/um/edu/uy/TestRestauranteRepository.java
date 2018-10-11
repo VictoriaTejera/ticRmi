@@ -23,7 +23,7 @@ import um.edu.uy.persistance.entidades.Barrio;
 import um.edu.uy.persistance.entidades.Comida;
 import um.edu.uy.persistance.entidades.Restaurante;
 
-@SpringBootTest
+@SpringBootTest(classes=MainRestaurante.class)
 @RunWith(SpringRunner.class)
 public class TestRestauranteRepository {
 
@@ -128,7 +128,7 @@ public class TestRestauranteRepository {
 
 	}
 
-	@Test
+	//@Test
 	public void testFiltroPorPrecio() {
 		
 		
@@ -143,6 +143,13 @@ public class TestRestauranteRepository {
 		assertEquals(lista.get(1).getNombre(), "nombreRes2");
 		
 		assertEquals(lista.size(),3);
+		
+		
+	}
+	
+	@Test
+	public void testCargarDatosRes() {
+		resMgr.cargarDatosRes("3", "atencion", "pocitos 144" , "13:30", (float)376, 876);
 		
 		
 	}

@@ -83,7 +83,11 @@ public class MainCliente extends Application {
 	}
 
 	public static void main(String[] args) {
+<<<<<<< HEAD
 		launch(args);
+=======
+
+>>>>>>> 8938d284fd97f8142a148b525df190190f18d1f1
 	}
 
 	private void ButtonClicked(ActionEvent e) {

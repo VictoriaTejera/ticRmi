@@ -16,11 +16,11 @@ import um.edu.uy.interfaz.administrador.AdminControladorRegistro;
 
 @SpringBootApplication
 public class MainAdministrador extends Application {
-	Button btnRegistrarse, btnConfirmarRegistro;
+	Button btnRegistrarRestaurante, btnRegistrar;
 	Scene scene, scene1;
 	Stage thestage;
 	private static ConfigurableApplicationContext context;
-	private FXMLLoader fxmlLoader, fxmlLoader1, fxmlLoader2;
+	private FXMLLoader fxmlLoader, fxmlLoader1;
 	private Parent root, root1;
 
 	@Override
@@ -31,11 +31,11 @@ public class MainAdministrador extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		thestage = primaryStage;
-		btnRegistrarse = new Button();
-		btnConfirmarRegistro = new Button();
+		btnRegistrarRestaurante = new Button();
+		btnRegistrar = new Button();
 
-		btnRegistrarse.setOnAction(e -> ButtonClicked(e));
-		btnConfirmarRegistro.setOnAction(e -> ButtonClicked(e));
+		btnRegistrarRestaurante.setOnAction(e -> ButtonClicked(e));
+		btnRegistrar.setOnAction(e -> ButtonClicked(e));
 
 		fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(MainAdministrador.getContext()::getBean);
@@ -49,8 +49,8 @@ public class MainAdministrador extends Application {
 		root1 = fxmlLoader1.load(AdminControladorRegistro.class.getResourceAsStream("RegistrarRestaurante.fxml"));
 		scene1 = new Scene(root1);
 		
-		fxmlLoader2 = new FXMLLoader();
-		fxmlLoader2.setControllerFactory(MainAdministrador.getContext()::getBean);
+//		fxmlLoader2 = new FXMLLoader();
+//		fxmlLoader2.setControllerFactory(MainAdministrador.getContext()::getBean);
 
 		scene.getStylesheets().add(AdminControladorRegistro.class.getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);
@@ -62,8 +62,11 @@ public class MainAdministrador extends Application {
 	}
 
 	private void ButtonClicked(ActionEvent e) {
-		if (e.getSource() == btnRegistrarse)
+		if (e.getSource() == btnRegistrarRestaurante)
 			thestage.setScene(scene1);
+		if (e.getSource() == btnRegistrar)
+			thestage.setScene(scene1);
+		
 	}
 
 	public void stop() {

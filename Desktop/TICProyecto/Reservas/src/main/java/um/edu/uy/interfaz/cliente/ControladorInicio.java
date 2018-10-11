@@ -38,7 +38,6 @@ public class ControladorInicio implements ApplicationContextAware {
 	void initialize() {
 		assert btnIniciarSesion != null : "fx:id=\"btnIniciarSesion\" was not injected: check your FXML file 'pantalla1.fxml'.";
 		assert btnRegistrarse != null : "fx:id=\"btnRegistrarse\" was not injected: check your FXML file 'pantalla1.fxml'.";
-
 	}
 
 	@FXML
