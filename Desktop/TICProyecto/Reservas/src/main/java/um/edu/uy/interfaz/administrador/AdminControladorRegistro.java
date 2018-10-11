@@ -65,22 +65,14 @@ public class AdminControladorRegistro implements ApplicationContextAware {
 
 		if (event.getSource() == btnRegistrar) {
 			Restaurante restaurante = new Restaurante(txtRut.getText(), txtNombre.getText(), txtEmail.getText(), txtContrasena.getText());
-			if(true) {
+			if(resMgr.restauranteYaFueCreado(restaurante)) {
 				resMgr.save(restaurante);
-				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("iniciarSesion.fxml"));
+				stage = (Stage) btnRegistrar.getScene().getWindow();
+				root = FXMLLoader.load(getClass().getResource("final.fxml"));
+			}else {
+				stage = (Stage) btnRegistrar.getScene().getWindow();
+				root = FXMLLoader.load(getClass().getResource("final.fxml"));
 			}
-			// Usuario user = new Usuario(txtNombre.getText(), txtContrasena.getText(),
-			// Integer.parseInt(txtCelular.getText()));
-
-			// if (usuMgr.usuarioYaFueCreado(user) == false) {
-			// usuMgr.save(user);
-			// root =
-			// fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("iniciarSesion.fxml"));
-			// stage = (Stage) btnConfirmarRegistro.getScene().getWindow();
-			// } else {
-			// root =
-			// fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("UsuarioYaExiste.fxml"));
-			// }
 		}
 		stage.setScene(new Scene(root));
 		stage.show();
