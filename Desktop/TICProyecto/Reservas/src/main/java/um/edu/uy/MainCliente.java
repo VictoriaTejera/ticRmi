@@ -5,6 +5,9 @@ import java.io.IOException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+
+import com.sun.javafx.css.Style;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import um.edu.uy.interfaz.cliente.ControladorInicio;
 import um.edu.uy.interfaz.cliente.ControladorRegistro;
 
 @SpringBootApplication
@@ -67,19 +71,18 @@ public class MainCliente extends Application {
 		root3 = fxmlLoader3.load(ControladorRegistro.class.getResourceAsStream("MenuPrincipal.fxml"));
 		scene3 = new Scene(root3);
 		
+		fxmlLoader4 = new FXMLLoader();
+		fxmlLoader4.setControllerFactory(MainCliente.getContext()::getBean);
+		
 		root4 = fxmlLoader4.load(ControladorRegistro.class.getResourceAsStream("ListarRestaurantes.fxml"));
 		scene5 = new Scene(root4);
 
-		scene.getStylesheets().add(ControladorRegistro.class.getResource("application.css").toExternalForm());
+		scene.getStylesheets().add(ControladorRegistro.class.getResource("style.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
 
-<<<<<<< HEAD
-	public static void Main(String[] args) {
-=======
 	public static void main(String[] args) {
->>>>>>> 34dfc17c9472ea7915c55138ba5fcbb94f9586ae
 		launch(args);
 	}
 

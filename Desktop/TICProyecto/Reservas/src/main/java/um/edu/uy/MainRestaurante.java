@@ -24,7 +24,7 @@ public class MainRestaurante extends Application{
 	
 	private static ConfigurableApplicationContext context;
 	private FXMLLoader fxmlLoader;
-	private Parent root;
+	private Parent root, root1;
 	
 	
 	@Override
@@ -43,6 +43,9 @@ public class MainRestaurante extends Application{
 		
 		root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("inicio.fxml"));
 		scene = new Scene(root);
+		
+		root1 = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
+		scene1 = new Scene(root1);
 		
 		scene.getStylesheets().add(ControladorRegistro.class.getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);
