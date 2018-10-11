@@ -30,18 +30,12 @@ public class Restaurante implements Serializable {
 	private Float rating;
 	private Integer cantRatings;
 	private String descripcion;
-<<<<<<< HEAD
-	private Float precioMenor = (float) 0.0;
-	private Float precioMayor = (float) 0.0;
-
-=======
 	private Float precioPromedio;
 	private String email;
 	private String password;
 //	private Float precioMenor=(float)1000000.0;
 //	private Float precioMayor=(float)0.0;
 
->>>>>>> dafa15842c9e9dff1d3328c67e57f6d87d53b087
 	@ManyToOne
 	private Barrio barrio;
 
@@ -65,25 +59,14 @@ public class Restaurante implements Serializable {
 		this.descripcion = descripcion;
 		this.barrio = barrio;
 	}
-
-<<<<<<< HEAD
-	public Restaurante(String nombre, String contrasena) {
-		this.nombre = nombre;
-		this.contrasena = contrasena;
-	}
-=======
 	
-
-	public Restaurante(String rUT, String nombre, String email, String password) {
+	public Restaurante(String RUT, String nombre, String email, String password) {
 		super();
-		RUT = rUT;
+		this.RUT = RUT;
 		this.nombre = nombre;
 		this.email = email;
 		this.password = password;
 	}
-
-
->>>>>>> dafa15842c9e9dff1d3328c67e57f6d87d53b087
 
 	public Restaurante() {
 	}
@@ -120,30 +103,6 @@ public class Restaurante implements Serializable {
 		return descripcion;
 	}
 
-<<<<<<< HEAD
-	public void setPrecioMenor(Float precioMenor) {
-		this.precioMenor = precioMenor;
-	}
-
-	public Float getPrecioMayor() {
-		return precioMayor;
-	}
-
-	public Float getPrecioMenor() {
-		return precioMenor;
-	}
-
-	public void setPrecioMayor(Float precioMayor) {
-		this.precioMayor = precioMayor;
-	}
-	// public List<Comida> getMenu() {
-	// return menu;
-	// }
-	//
-	// public void setMenu(List<Comida> menu) {
-	// this.menu = menu;
-	// }
-=======
 	
 //	public void setPrecioMenor(Float precioMenor) {
 //		this.precioMenor = precioMenor;
@@ -166,7 +125,6 @@ public class Restaurante implements Serializable {
 //	public void setMenu(List<Comida> menu) {
 //		this.menu = menu;
 //	}
->>>>>>> dafa15842c9e9dff1d3328c67e57f6d87d53b087
 
 	@Override
 	public String toString() {
