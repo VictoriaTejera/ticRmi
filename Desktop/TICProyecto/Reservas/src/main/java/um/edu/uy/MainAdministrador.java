@@ -12,7 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import um.edu.uy.interfaz.administrador.ControladorRegistro;
+import um.edu.uy.interfaz.administrador.AdminControladorRegistro;
 
 @SpringBootApplication
 public class MainAdministrador extends Application {
@@ -20,8 +20,8 @@ public class MainAdministrador extends Application {
 	Scene scene, scene1;
 	Stage thestage;
 	private static ConfigurableApplicationContext context;
-	private FXMLLoader fxmlLoader, fxmlLoader1, fxmlLoader2, fxmlLoader3;
-	private Parent root, root1, root2, root3;
+	private FXMLLoader fxmlLoader, fxmlLoader1, fxmlLoader2;
+	private Parent root, root1;
 
 	@Override
 	public void init() throws Exception {
@@ -40,19 +40,19 @@ public class MainAdministrador extends Application {
 		fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(MainAdministrador.getContext()::getBean);
 
-		root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("inicio.fxml"));
+		root = fxmlLoader.load(AdminControladorRegistro.class.getResourceAsStream("inicio.fxml"));
 		scene = new Scene(root);
 		
 		fxmlLoader1 = new FXMLLoader();
 		fxmlLoader1.setControllerFactory(MainAdministrador.getContext()::getBean);
 
-		root1 = fxmlLoader1.load(ControladorRegistro.class.getResourceAsStream("RegistrarRestaurante.fxml"));
+		root1 = fxmlLoader1.load(AdminControladorRegistro.class.getResourceAsStream("RegistrarRestaurante.fxml"));
 		scene1 = new Scene(root1);
 		
 		fxmlLoader2 = new FXMLLoader();
 		fxmlLoader2.setControllerFactory(MainAdministrador.getContext()::getBean);
 
-		scene.getStylesheets().add(ControladorRegistro.class.getResource("application.css").toExternalForm());
+		scene.getStylesheets().add(AdminControladorRegistro.class.getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
