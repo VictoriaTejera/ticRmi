@@ -25,11 +25,7 @@ public class MainCliente extends Application {
 
 	@Override
 	public void init() throws Exception {
-<<<<<<< HEAD
-		MainCliente.context = SpringApplication.run(Main.class);
-=======
 		MainCliente.context = SpringApplication.run(MainCliente.class);
->>>>>>> f25e80c9541eb02d6cd9827cbd4ac27baf1df45d
 	}
 
 	@Override
@@ -79,7 +75,7 @@ public class MainCliente extends Application {
 		primaryStage.show();
 	}
 
-	public static void MainCliente(String[] args) {
+	public static void Main(String[] args) {
 		launch(args);
 	}
 

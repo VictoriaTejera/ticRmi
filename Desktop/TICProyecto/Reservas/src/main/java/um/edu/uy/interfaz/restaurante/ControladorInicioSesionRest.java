@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
 
-public class ControladorInicioSesion {
+public class ControladorInicioSesionRest {
 
 	@FXML
 	private ResourceBundle resources;
@@ -53,9 +53,9 @@ public class ControladorInicioSesion {
 			Restaurante restaurante = new Restaurante(txtUsuario.getText(), txtContrasena.getText());
 			if (restauranteMgr.verificarUsuario(restaurante) == true) {
 				stage = (Stage) btnIniciarSesion.getScene().getWindow();
-				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
+				root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("MenuPrincipal.fxml"));
 			}else {
-				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("Warning.fxml"));
+				root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("Warning.fxml"));
 			}
 		}
 	}
