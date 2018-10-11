@@ -70,7 +70,7 @@ public class MainCliente extends Application {
 		primaryStage.show();
 	}
 
-	public static void MainCliente(String[] args) {
+	public static void main(String[] args) {
 		launch(args);
 	}
 

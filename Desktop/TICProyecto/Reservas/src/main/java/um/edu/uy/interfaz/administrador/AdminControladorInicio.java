@@ -12,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 
-public class ControladorInicio {
+public class AdminControladorInicio {
 
     @FXML
     private ResourceBundle resources;

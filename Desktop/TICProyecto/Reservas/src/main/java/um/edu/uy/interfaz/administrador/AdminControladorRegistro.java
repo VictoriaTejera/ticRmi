@@ -21,7 +21,7 @@ import um.edu.uy.persistance.UsuarioMgr;
 import um.edu.uy.persistance.entidades.Usuario;
 
 @Component
-public class ControladorRegistro implements ApplicationContextAware {
+public class AdminControladorRegistro implements ApplicationContextAware {
 
 	@FXML
 	private ResourceBundle resources;
@@ -46,7 +46,7 @@ public class ControladorRegistro implements ApplicationContextAware {
 
 	private ApplicationContext applicationContext;
 
-	public ControladorRegistro() {
+	public AdminControladorRegistro() {
 	}
 
 	@FXML
