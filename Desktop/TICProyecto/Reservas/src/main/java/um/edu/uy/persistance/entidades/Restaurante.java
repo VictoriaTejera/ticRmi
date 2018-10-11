@@ -30,7 +30,7 @@ public class Restaurante implements Serializable {
 	private Float rating;
 	private Integer cantRatings;
 	private String descripcion;
-	private Float precioPromedio;
+	private Float precio_promedio;
 	private String email;
 	private String password;
 //	private Float precioMenor=(float)1000000.0;
@@ -60,9 +60,9 @@ public class Restaurante implements Serializable {
 		this.barrio = barrio;
 	}
 
-	public Restaurante(String RUT, String nombre, String email, String password) {
+	public Restaurante(String rut, String nombre, String email, String password) {
 		super();
-		this.rut = RUT;
+		this.rut = rut;
 		this.nombre = nombre;
 		this.email = email;
 		this.password = password;
@@ -72,13 +72,13 @@ public class Restaurante implements Serializable {
 
 
 
-	public String getRUT() {
+	public String getRut() {
 		return rut;
 	}
 
 
-	public void setRUT(String rUT) {
-		rut = rUT;
+	public void setRut(String rut) {
+		rut = rut;
 	}
 
 
