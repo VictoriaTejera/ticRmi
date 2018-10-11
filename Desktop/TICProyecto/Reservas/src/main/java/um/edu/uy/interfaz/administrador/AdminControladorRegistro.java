@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.UsuarioMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
@@ -47,6 +48,9 @@ public class AdminControladorRegistro implements ApplicationContextAware {
 	private TextField txtRut;
 
 	private ApplicationContext applicationContext;
+	
+	@Autowired
+	private RestauranteMgr resMgr;
 
 	public AdminControladorRegistro() {
 	}
@@ -60,7 +64,11 @@ public class AdminControladorRegistro implements ApplicationContextAware {
 		stage = new Stage();
 
 		if (event.getSource() == btnRegistrar) {
-			Restaurante restaurante = new Restaurante(tstRut.getText(), tstNombre.getText(), tst)
+			Restaurante restaurante = new Restaurante(txtRut.getText(), txtNombre.getText(), txtEmail.getText(), txtContrasena.getText());
+			if(true) {
+				resMgr.save(restaurante);
+				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("iniciarSesion.fxml"));
+			}
 			// Usuario user = new Usuario(txtNombre.getText(), txtContrasena.getText(),
 			// Integer.parseInt(txtCelular.getText()));
 
