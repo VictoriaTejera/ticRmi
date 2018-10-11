@@ -59,7 +59,7 @@ public class Restaurante implements Serializable {
 		this.descripcion = descripcion;
 		this.barrio = barrio;
 	}
-	
+
 	public Restaurante(String RUT, String nombre, String email, String password) {
 		super();
 		this.RUT = RUT;
@@ -102,7 +102,6 @@ public class Restaurante implements Serializable {
 	public String getDescripcion() {
 		return descripcion;
 	}
-
 	
 //	public void setPrecioMenor(Float precioMenor) {
 //		this.precioMenor = precioMenor;
@@ -125,6 +124,7 @@ public class Restaurante implements Serializable {
 //	public void setMenu(List<Comida> menu) {
 //		this.menu = menu;
 //	}
+
 
 	@Override
 	public String toString() {

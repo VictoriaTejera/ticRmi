@@ -14,7 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import um.edu.uy.interfaz.cliente.ControladorRegistro;
-import um.edu.uy.interfaz.restaurante.ControladorInicioSesion;
+import um.edu.uy.interfaz.restaurante.ControladorInicioSesionRest;
 
 @SpringBootApplication
 public class MainRestaurante extends Application{
@@ -41,7 +41,7 @@ public class MainRestaurante extends Application{
 		fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 		
-		root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("inicio.fxml"));
+		root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("inicio.fxml"));
 		scene = new Scene(root);
 		
 		scene.getStylesheets().add(ControladorRegistro.class.getResource("application.css").toExternalForm());

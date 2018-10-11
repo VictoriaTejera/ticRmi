@@ -75,7 +75,11 @@ public class MainCliente extends Application {
 		primaryStage.show();
 	}
 
+<<<<<<< HEAD
+	public static void Main(String[] args) {
+=======
 	public static void main(String[] args) {
+>>>>>>> 34dfc17c9472ea7915c55138ba5fcbb94f9586ae
 		launch(args);
 	}
 
