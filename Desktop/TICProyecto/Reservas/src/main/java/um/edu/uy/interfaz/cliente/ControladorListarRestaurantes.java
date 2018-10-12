@@ -42,13 +42,14 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     
     ApplicationContext applicationContext;
     
+    
+
     public void llenarTabla() {
-    	columnaNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-    	columnaDireccion.setCellValueFactory(new PropertyValueFactory<>("direccion"));
-    	columnaTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
+    	columnaNombre.setCellValueFactory(new PropertyValueFactory<Restaurante,String>("nombre"));
+    	columnaDireccion.setCellValueFactory(new PropertyValueFactory<Restaurante,String>("direccion"));
+    	columnaTelefono.setCellValueFactory(new PropertyValueFactory<Restaurante,Integer>("telefono"));
     	tabla.setItems(restaurante.getRestaurants());
     }
-
 
     @FXML
     void initialize() {

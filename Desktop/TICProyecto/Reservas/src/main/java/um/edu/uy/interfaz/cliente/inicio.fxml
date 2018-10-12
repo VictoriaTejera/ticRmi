@@ -23,7 +23,7 @@
     <Button fx:id="btnRegistrarse" layoutX="121.0" layoutY="220.0" mnemonicParsing="false" onAction="#handleButtonAction" opacity="0.97" prefHeight="30.0" prefWidth="131.0" text="Regístrate" textFill="$x1" />
     <Label layoutX="108.0" layoutY="182.0" prefHeight="38.0" prefWidth="163.0" text="  ¿Aún no tienes una cuenta?" />
   </children>
-  <stylesheets>
-    <URL value="@style.css" />
-  </stylesheets>
+<!--   <stylesheets> -->
+<!--     <URL value="@style.css" /> -->
+<!--   </stylesheets> -->
 </AnchorPane>
