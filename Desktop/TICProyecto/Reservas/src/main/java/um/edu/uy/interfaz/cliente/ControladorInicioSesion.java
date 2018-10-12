@@ -36,7 +36,10 @@ public class ControladorInicioSesion implements ApplicationContextAware {
 	
 	@FXML
 	private Button btnAceptar;
-
+	
+	@FXML
+	private Button btnVolver;
+	
 	@FXML
 	private PasswordField txtContrasena;
 
@@ -62,14 +65,16 @@ public class ControladorInicioSesion implements ApplicationContextAware {
 
 		if (event.getSource() == btnConfirmarInicioSesion) {
 			Usuario user = new Usuario(txtUsuario.getText(), txtContrasena.getText());
-			System.out.println(user.getNombre());
-			
 			if (usuarioMgr.verificarUsuario(user) == true) {
 				stage = (Stage) btnConfirmarInicioSesion.getScene().getWindow();
 				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
 			} else {
 				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("Warning.fxml"));
 			}
+		}
+		if (event.getSource() == btnVolver) {
+			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("inicio.fxml"));
+			stage = (Stage) btnVolver.getScene().getWindow();
 		}
 		Scene scene = new Scene(root);
 		stage.setScene(scene);

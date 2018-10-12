@@ -1,12 +1,10 @@
 package um.edu.uy.persistance;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import um.edu.uy.persistance.entidades.Barrio;
 import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
 import javafx.collections.FXCollections;
@@ -49,10 +47,35 @@ public class RestauranteMgr {
 		return observ;
 	}
 	
-//	public List<Restaurante> filtrarPorPrecio(Float precioMenor, Float precioMayor){
-//		List<Restaurante> restaurantes= repository.filtrarPorPrecio(precioMenor, precioMayor);
+	public List<Restaurante> filtrarPorPrecio(Float precioMenor, Float precioMayor){
+		List<Restaurante> restaurantes= repository.filtrarPorPrecio(precioMenor, precioMayor);
+		return restaurantes;
+		
+	}
+	public boolean verificarUsuario(Restaurante res) {
+		boolean verifico = true;
+		if (repository.verificarUsuario(res.getNombre(), res.getContrasena()) == null) {
+			verifico = false;
+		}
+		return verifico;
+	}
+	
+//	public void cargarDatosRes(String rut, String descripcion, String direccion, String horario, Float precio_promedio, Integer telefono) {
+//		repository.cargarDatosRes(descripcion, direccion, horario, precio_promedio, telefono, rut);
+//	}
+	public boolean restauranteYaFueCreado(Restaurante res) {
+		
+		
+		boolean creado = true;
+		if (repository.verificarRutRestaurante(res.getRUT()) == null) {
+			creado = false;
+		}
+		return creado;
+	}
+
+//	public List<Restaurante> filtrarPorPrecio(Float precioMayor){
+//		List<Restaurante> restaurantes= repository.filtrarPorPrecio(precioMayor);
 //		return restaurantes;
 //		
 //	}
-
 }

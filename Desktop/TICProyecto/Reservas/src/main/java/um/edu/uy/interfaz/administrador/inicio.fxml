@@ -6,15 +6,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="403.0" prefWidth="396.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="interfaz.administrador.ControladorInicio">
+<AnchorPane prefHeight="403.0" prefWidth="396.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.administrador.AdminControladorInicio">
   <!-- TODO Add Nodes -->
   <children>
-    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="0.0" prefHeight="79.0" prefWidth="287.0" text="Indique la acción que desea realizar" textAlignment="CENTER" textOverrun="ELLIPSIS">
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="37.0" prefHeight="79.0" prefWidth="287.0" text="Indique la acción que desea realizar" textAlignment="CENTER" textOverrun="ELLIPSIS">
       <font>
         <Font name="Arial" size="15.0" />
       </font>
     </Label>
-    <Button fx:id="btnRegistrarRestaurante" layoutX="39.0" layoutY="79.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="39.0" prefWidth="160.0" text="Registrar restaurante" />
-    <Button layoutX="39.0" layoutY="135.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="159.00009999999747" text="Administrar restaurantes" />
+    <Button fx:id="btnRegistrarRestaurante" layoutX="118.0" layoutY="143.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="39.0" prefWidth="160.0" text="Registrar restaurante" />
+    <Button layoutX="118.0" layoutY="222.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="159.00009999999747" text="Administrar restaurantes" />
   </children>
 </AnchorPane>

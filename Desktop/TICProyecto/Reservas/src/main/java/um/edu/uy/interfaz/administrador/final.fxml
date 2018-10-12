@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="346.0" prefWidth="381.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.administrador.AdminControladorFinal">
+  <!-- TODO Add Nodes -->
+  <children>
+    <!-- Add Header Label -->
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="39.0" layoutY="29.0" prefHeight="71.0" prefWidth="304.0" text="El restaurante ha sido registrado exitosamente" textAlignment="CENTER">
+      <font>
+        <Font name="Calisto MT" size="15.0" />
+      </font>
+      <textFill>
+        <Color blue="0.000" green="0.000" red="0.600" fx:id="x1" />
+      </textFill>
+    </Label>
+    <!-- Add Submit Button -->
+    <Button id="submitButton" fx:id="btnRegresar" cache="false" cacheHint="DEFAULT" contentDisplay="CENTER" defaultButton="true" depthTest="INHERIT" layoutX="135.0" layoutY="173.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="31.0" prefWidth="112.0" text="Regresar" textAlignment="LEFT" textFill="WHITE" underline="false" visible="true" />
+    <!-- Add Header Label -->
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="90.0" prefHeight="71.0" prefWidth="324.0" text="Indique la accion que desea realizar:" textAlignment="CENTER" textFill="$x1">
+      <font>
+        <Font name="Calisto MT" size="20.0" />
+      </font>
+    </Label>
+    <!-- Add Submit Button -->
+    <Button id="submitButton" fx:id="btnSalir" cache="false" cacheHint="DEFAULT" contentDisplay="CENTER" defaultButton="true" depthTest="INHERIT" layoutX="135.0" layoutY="229.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="31.0" prefWidth="112.0" text="Salir" textAlignment="LEFT" textFill="WHITE" underline="false" visible="true" />
+  </children>
+</AnchorPane>

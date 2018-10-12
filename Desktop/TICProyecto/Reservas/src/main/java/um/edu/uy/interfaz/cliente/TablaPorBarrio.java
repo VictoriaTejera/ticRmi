@@ -2,8 +2,6 @@ package um.edu.uy.interfaz.cliente;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
