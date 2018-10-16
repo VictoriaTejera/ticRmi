@@ -18,11 +18,11 @@ public class ComidaMgr {
 		repository.save(comida);
 	}
 	
-	public ObservableList<Comida> getComidas() {
+	public ObservableList<String> getComidas() {
 		Iterable<Comida> it = repository.findAll();
-		ObservableList<Comida> lista = FXCollections.observableArrayList();
+		ObservableList<String> lista = FXCollections.observableArrayList();
 		for (Comida c : it) {
-			lista.add(c);
+			lista.add(c.getNombre());
 		}
 		return lista;
 	}

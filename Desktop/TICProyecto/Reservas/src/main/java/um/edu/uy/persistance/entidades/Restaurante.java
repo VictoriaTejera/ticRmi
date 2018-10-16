@@ -67,11 +67,12 @@ public class Restaurante implements Serializable {
 		this.email = email;
 		this.password = password;
 	}
-
-
-
-
-
+	
+	public Restaurante(String nombre, String password) {
+		this.nombre = nombre;
+		this.password = password;
+	}
+	
 	public String getRUT() {
 		return rut;
 	}
