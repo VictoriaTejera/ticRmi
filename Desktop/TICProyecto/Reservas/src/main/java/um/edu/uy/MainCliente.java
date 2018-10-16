@@ -71,7 +71,7 @@ public class MainCliente extends Application {
 		fxmlLoader4.setControllerFactory(MainCliente.getContext()::getBean);
 		
 		root4 = fxmlLoader4.load(ControladorRegistro.class.getResourceAsStream("ListarRestaurantes.fxml"));
-		scene5 = new Scene(root4);
+		scene4 = new Scene(root4);
 
 		scene.getStylesheets().add(ControladorRegistro.class.getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);
@@ -88,13 +88,11 @@ public class MainCliente extends Application {
 		if (e.getSource() == btnIniciarSesion)
 			thestage.setScene(scene2);
 		if (e.getSource() == btnConfirmarInicioSesion)
-			thestage.setScene(scene4);
-		if (e.getSource() == btnListarRestaurantes)
 			thestage.setScene(scene3);
+		if (e.getSource() == btnListarRestaurantes)
+			thestage.setScene(scene4);
 		if (e.getSource() == btnConfirmarRegistro)
 			thestage.setScene(scene2);
-		if (e.getSource() == btnListarRestaurantes)
-			thestage.setScene(scene5);
 	}
 
 	public void stop() {
