@@ -7,11 +7,14 @@ import java.util.ResourceBundle;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -19,7 +22,8 @@ import javafx.stage.Stage;
 import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
 
-public class ControladorInicioSesionRest {
+@Component
+public class ControladorInicioSesionRest implements ApplicationContextAware {
 
 	@FXML
 	private ResourceBundle resources;
@@ -58,6 +62,8 @@ public class ControladorInicioSesionRest {
 				root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("Warning.fxml"));
 			}
 		}
+		stage.setScene(new Scene(root));
+		stage.show();
 	}
 
 	@FXML
