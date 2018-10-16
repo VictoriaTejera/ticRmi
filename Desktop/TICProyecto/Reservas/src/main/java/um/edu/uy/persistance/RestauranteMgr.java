@@ -54,7 +54,7 @@ public class RestauranteMgr {
 	}
 	public boolean verificarUsuario(Restaurante res) {
 		boolean verifico = true;
-		if (repository.verificarUsuario(res.getNombre(), res.getPassword()) == null) {
+		if (repository.verificarRestaurante(res.getNombre(), res.getPassword()) == null) {
 			verifico = false;
 		}
 		return verifico;
