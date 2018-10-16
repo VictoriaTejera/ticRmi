@@ -36,7 +36,7 @@ public class MainAdministrador extends Application {
 
 		btnRegistrarRestaurante.setOnAction(e -> ButtonClicked(e));
 		btnRegistrar.setOnAction(e -> ButtonClicked(e));
-
+		
 		fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(MainAdministrador.getContext()::getBean);
 
@@ -49,9 +49,6 @@ public class MainAdministrador extends Application {
 		root1 = fxmlLoader1.load(AdminControladorRegistro.class.getResourceAsStream("RegistrarRestaurante.fxml"));
 		scene1 = new Scene(root1);
 		
-//		fxmlLoader2 = new FXMLLoader();
-//		fxmlLoader2.setControllerFactory(MainAdministrador.getContext()::getBean);
-
 		scene.getStylesheets().add(AdminControladorRegistro.class.getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -65,7 +62,7 @@ public class MainAdministrador extends Application {
 		if (e.getSource() == btnRegistrarRestaurante)
 			thestage.setScene(scene1);
 		if (e.getSource() == btnRegistrar)
-			thestage.setScene(scene1);
+			thestage.setScene(scene);
 		
 	}
 
