@@ -23,7 +23,6 @@ public class Restaurante implements Serializable {
 	@Id
 	private String rut;
 	private String nombre;
-	private String contrasena;
 	private String horario;
 	private String direccion;
 	private Integer telefono;
@@ -77,12 +76,9 @@ public class Restaurante implements Serializable {
 		return rut;
 	}
 
-
 	public void setRUT(String rUT) {
 		rut = rUT;
 	}
-
-
 
 	public Restaurante() {
 	}
@@ -149,12 +145,12 @@ public class Restaurante implements Serializable {
 				+ ", barrio=" + barrio + "]";
 	}
 
-	public String getContrasena() {
-		return contrasena;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setContrasena(String contrasena) {
-		this.contrasena = contrasena;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }
