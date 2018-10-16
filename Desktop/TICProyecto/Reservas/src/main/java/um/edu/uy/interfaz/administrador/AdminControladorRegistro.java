@@ -64,13 +64,13 @@ public class AdminControladorRegistro implements ApplicationContextAware {
 
 		if (event.getSource() == btnRegistrar) {
 			Restaurante restaurante = new Restaurante(txtRut.getText(), txtNombre.getText(), txtEmail.getText(), txtContrasena.getText());
-			if(resMgr.restauranteYaFueCreado(restaurante)) {
+			if(resMgr.restauranteYaFueCreado(restaurante) == false) {
 				resMgr.save(restaurante);
 				stage = (Stage) btnRegistrar.getScene().getWindow();
 				root = FXMLLoader.load(getClass().getResource("final.fxml"));
 			}else {
-				stage = (Stage) btnRegistrar.getScene().getWindow();
-				root = FXMLLoader.load(getClass().getResource("final.fxml"));
+//				stage = (Stage) btnRegistrar.getScene().getWindow();
+//				root = FXMLLoader.load(getClass().getResource("final.fxml"));
 			}
 		}
 		stage.setScene(new Scene(root));
@@ -79,12 +79,12 @@ public class AdminControladorRegistro implements ApplicationContextAware {
 
 	@FXML
 	void initialize() {
-//		assert btnRegistrar != null : "fx:id=\"btnRegistrar\" was not injected: check your FXML file 'RegistrarRestaurante.fxml'.";
-//		assert txtContrasena != null : "fx:id=\"txtContrasena\" was not injected: check your FXML file 'RegistrarRestaurante.fxml'.";
-//		assert txtEmail != null : "fx:id=\"txtEmail\" was not injected: check your FXML file 'RegistrarRestaurante.fxml'.";
-//		assert txtNombre != null : "fx:id=\"txtNombre\" was not injected: check your FXML file 'RegistrarRestaurante.fxml'.";
-//		assert txtRut != null : "fx:id=\"txtRut\" was not injected: check your FXML file 'RegistrarRestaurante.fxml'.";
-//	
+		assert btnRegistrar != null : "fx:id=\"btnRegistrar\" was not injected: check your FXML file 'RegistrarRestaurante.fxml'.";
+		assert txtContrasena != null : "fx:id=\"txtContrasena\" was not injected: check your FXML file 'RegistrarRestaurante.fxml'.";
+		assert txtEmail != null : "fx:id=\"txtEmail\" was not injected: check your FXML file 'RegistrarRestaurante.fxml'.";
+		assert txtNombre != null : "fx:id=\"txtNombre\" was not injected: check your FXML file 'RegistrarRestaurante.fxml'.";
+		assert txtRut != null : "fx:id=\"txtRut\" was not injected: check your FXML file 'RegistrarRestaurante.fxml'.";
+	
 		}
 
 	@Override

@@ -64,8 +64,6 @@ public class RestauranteMgr {
 //		repository.cargarDatosRes(descripcion, direccion, horario, precio_promedio, telefono, rut);
 //	}
 	public boolean restauranteYaFueCreado(Restaurante res) {
-		
-		
 		boolean creado = true;
 		if (repository.verificarRutRestaurante(res.getRUT()) == null) {
 			creado = false;
