@@ -74,7 +74,7 @@ public class MainCliente extends Application {
 		scene4 = new Scene(root4);
 
 		scene.getStylesheets().add(ControladorRegistro.class.getResource("application.css").toExternalForm());
-		primaryStage.setScene(scene);
+		primaryStage.setScene(scene3);
 		primaryStage.show();
 	}
 

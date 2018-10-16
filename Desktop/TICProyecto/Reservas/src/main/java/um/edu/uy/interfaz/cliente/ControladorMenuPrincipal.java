@@ -33,13 +33,7 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
     @FXML
     private Button btnCloseButton;
     
-    @FXML
-    private Button btnFiltrarRestaurantes;
-    
     ApplicationContext applicationContext;
-    
-    @Autowired
-    private Tabla tabla;
     
     @Autowired
     ControladorListarRestaurantes listar;
@@ -57,12 +51,8 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
     		stage = (Stage) btnListarRestaurantes.getScene().getWindow();
     		listar.llenarTabla();
     		listar.filtroBarrio(event);
-			//stage.setScene(tabla.getSceneTable());
+    		listar.filtroComida(event);
 		}
-    	if (event.getSource() == btnFiltrarRestaurantes) {
-    		root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("ElegirFiltro.fxml"));
-			stage = (Stage) btnFiltrarRestaurantes.getScene().getWindow();
-		} 
     	stage.setScene(new Scene(root));
 		stage.show();
     }
