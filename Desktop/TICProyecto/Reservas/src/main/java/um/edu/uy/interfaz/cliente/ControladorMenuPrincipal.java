@@ -51,7 +51,7 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
     		stage = (Stage) btnListarRestaurantes.getScene().getWindow();
     		listar.llenarTabla();
     		listar.filtroBarrio(event);
-			//stage.setScene(tabla.getSceneTable());
+    		listar.filtroComida(event);
 		}
     	stage.setScene(new Scene(root));
 		stage.show();
