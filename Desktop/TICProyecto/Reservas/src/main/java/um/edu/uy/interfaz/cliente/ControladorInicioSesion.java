@@ -65,7 +65,7 @@ public class ControladorInicioSesion implements ApplicationContextAware {
 
 		if (event.getSource() == btnConfirmarInicioSesion) {
 			Usuario user = new Usuario(txtUsuario.getText(), txtContrasena.getText());
-			if (usuarioMgr.verificarUsuario(user) == true) {
+			if (usuarioMgr.verificarUsuario(user) == false) {
 				stage = (Stage) btnConfirmarInicioSesion.getScene().getWindow();
 				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
 			} else {
