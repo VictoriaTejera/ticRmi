@@ -2,12 +2,15 @@ package um.edu.uy.interfaz.cliente;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import org.springframework.stereotype.Component;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-
+@Component
 public class ControladorProbandoFoto {
 
     @FXML

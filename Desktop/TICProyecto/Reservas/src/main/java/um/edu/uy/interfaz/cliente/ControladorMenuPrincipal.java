@@ -50,16 +50,11 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
 		stage = new Stage();
     	
     	if (event.getSource() == btnListarRestaurantes) {
-//    		root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("ListarRestaurantes.fxml"));
-//    		stage = (Stage) btnListarRestaurantes.getScene().getWindow();
-//    		listar.llenarTabla();
-//    		listar.filtroBarrio(event);
-//    		listar.filtroComida(event);
-    		
-    		root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("ProbandoFoto.fxml"));
+    		root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("ListarRestaurantes.fxml"));
     		stage = (Stage) btnListarRestaurantes.getScene().getWindow();
-    		foto.insertarImagen();
-    		
+    		listar.llenarTabla();
+    		listar.filtroBarrio(event);
+    		listar.filtroComida(event);
 		}
     	stage.setScene(new Scene(root));
 		stage.show();
