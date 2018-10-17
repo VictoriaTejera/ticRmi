@@ -1,5 +1,5 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
-.anchor {
-	-fx-backround-image: url('fondo.jpeg');
-	-fx-backround-size: cover;
+.anchor{
+	-fx-background-image: url(fondo.jpeg);
+	-fx-background-size: cover;
 }

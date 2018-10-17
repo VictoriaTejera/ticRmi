@@ -25,7 +25,6 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Integ
 
 	@Query("SELECT r FROM Restaurante r WHERE r.nombre= :nombre and r.password= :password")
 	Restaurante verificarRestaurante(@Param("nombre") String nombre, @Param("password") String password);
-	
 
 	@Modifying
 	@Query("UPDATE Restaurante r SET r.descripcion= :descripcion, r.direccion= :direccion, r.horario= :horario, r.precio_promedio= :precio_promedio, r.telefono= :telefono WHERE r.rut= :rut")

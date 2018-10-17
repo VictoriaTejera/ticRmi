@@ -40,7 +40,7 @@ public class AdminControladorInicio  implements ApplicationContextAware {
 		stage = new Stage();
 		if (event.getSource() == btnRegistrarRestaurante) {
 			stage = (Stage) btnRegistrarRestaurante.getScene().getWindow();
-			root = FXMLLoader.load(AdminControladorRegistro.class.getResource("RegistrarRestaurante.fxml"));
+			root = fxmlLoader.load(AdminControladorRegistro.class.getResourceAsStream("RegistrarRestaurante.fxml"));
 		}
 		stage.setScene(new Scene(root));
 		stage.show();
