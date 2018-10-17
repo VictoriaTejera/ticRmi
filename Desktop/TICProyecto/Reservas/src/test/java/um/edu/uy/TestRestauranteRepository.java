@@ -2,6 +2,7 @@ package um.edu.uy;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.sql.SQLException;
 
@@ -142,6 +143,15 @@ public class TestRestauranteRepository {
 
 		assertEquals(lista.size(), 3);
 
+	}
+	
+	@Test
+	public void testVerificarRestaurante() {
+		
+		Restaurante r1= new Restaurante("123", "Mc", "mc.gamil", "123");
+		resMgr.save(r1);
+		resMgr.save(new Restaurante("124", "La Pasiva", "laPasiva.gmail", "124"));
+		assertTrue(resMgr.restauranteYaFueCreado(r1));
 	}
 
 	// @Test

@@ -28,9 +28,9 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Integ
 
 	@Modifying
 	@Query("update Restaurante r set r.descripcion= :descripcion, r.direccion= :direccion, r.horario= :horario, r.precio_promedio= :precio_promedio, r.telefono= :telefono where r.rut= :rut")
-	public void cargarDatosRes(@Param("rut") String rut ,@Param("descripcion")String descripcion, @Param("direccion")String direccion, @Param("horario") Integer horario, @Param("precio_promedio") Float precio_promedio, @Param("telefono")Integer telefono);
+	public void cargarDatosRes(@Param("rut") String rut, @Param("descripcion")String descripcion, @Param("direccion")String direccion, @Param("horario") Integer horario, @Param("precio_promedio") Float precio_promedio, @Param("telefono")Integer telefono);
 
 
 	@Query("SELECT res FROM Restaurante res WHERE res.rut= :rut")
-	Usuario verificarRutRestaurante(@Param("rut") String nombre);
+	Restaurante verificarRutRestaurante(@Param("rut") String rut);
 }
