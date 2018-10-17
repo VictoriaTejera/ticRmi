@@ -14,7 +14,7 @@
         <Font name="Calisto MT" size="16.0" />
       </font>
     </Label>
-    <Button fx:id="btnDatos" layoutX="86.0" layoutY="100.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="157.0" text="Actualizar datos" />
+    <Button fx:id="btnDatos" layoutX="86.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="48.0" prefWidth="157.0" text="Actualizar datos" />
     <Button fx:id="btnReservas" layoutX="86.0" layoutY="172.0" mnemonicParsing="false" prefHeight="48.000099999997474" prefWidth="157.0" text="Ver reservas pendientes" />
   </children>
 </AnchorPane>

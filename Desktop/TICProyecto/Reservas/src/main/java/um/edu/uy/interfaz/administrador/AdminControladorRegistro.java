@@ -66,8 +66,8 @@ public class AdminControladorRegistro implements ApplicationContextAware {
 			Restaurante restaurante = new Restaurante(txtRut.getText(), txtNombre.getText(), txtEmail.getText(), txtContrasena.getText());
 			if(resMgr.restauranteYaFueCreado(restaurante) == false) {
 				resMgr.save(restaurante);
+				root = fxmlLoader.load(AdminControladorRegistro.class.getResourceAsStream("final.fxml"));
 				stage = (Stage) btnRegistrar.getScene().getWindow();
-				root = FXMLLoader.load(AdminControladorRegistro.class.getResource("final.fxml"));
 			}else {
 //				stage = (Stage) btnRegistrar.getScene().getWindow();
 //				root = FXMLLoader.load(getClass().getResource("final.fxml"));
@@ -91,6 +91,8 @@ public class AdminControladorRegistro implements ApplicationContextAware {
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
 
+		System.out.println("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+		System.out.println(this.applicationContext);
 	}
 
 }

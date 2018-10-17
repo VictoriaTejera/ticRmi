@@ -43,9 +43,8 @@ public class AdminControladorFinal implements ApplicationContextAware {
 		stage = new Stage();
 
 		if (event.getSource() == btnRegresar) {
-			
 			stage = (Stage) btnRegresar.getScene().getWindow();
-			root = FXMLLoader.load(getClass().getResource("inicio.fxml"));
+			root = fxmlLoader.load(getClass().getResourceAsStream("inicio.fxml"));
 			
 		} else if (event.getSource() == btnSalir) {
 			stage = (Stage) btnSalir.getScene().getWindow();
