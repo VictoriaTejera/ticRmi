@@ -33,13 +33,10 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
     @FXML
     private Button btnCloseButton;
     
-    @FXML
-    private Button btnFiltrarRestaurantes;
-    
     ApplicationContext applicationContext;
     
     @Autowired
-    private Tabla tabla;
+    ControladorListarRestaurantes listar;
     
     @FXML
     void ListarRestaurantes(ActionEvent event) throws IOException {
@@ -52,12 +49,10 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
     	if (event.getSource() == btnListarRestaurantes) {
     		root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("ListarRestaurantes.fxml"));
     		stage = (Stage) btnListarRestaurantes.getScene().getWindow();
-			//stage.setScene(tabla.getSceneTable());
+    		listar.llenarTabla();
+    		listar.filtroBarrio(event);
+    		listar.filtroComida(event);
 		}
-    	if (event.getSource() == btnFiltrarRestaurantes) {
-    		root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("ElegirFiltro.fxml"));
-			stage = (Stage) btnFiltrarRestaurantes.getScene().getWindow();
-		} 
     	stage.setScene(new Scene(root));
 		stage.show();
     }

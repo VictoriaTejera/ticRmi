@@ -54,18 +54,16 @@ public class RestauranteMgr {
 	}
 	public boolean verificarUsuario(Restaurante res) {
 		boolean verifico = true;
-		if (repository.verificarUsuario(res.getNombre(), res.getContrasena()) == null) {
+		if (repository.verificarRestaurante(res.getNombre(), res.getPassword()) == null) {
 			verifico = false;
 		}
 		return verifico;
 	}
 	
-	public void cargarDatosRes(String rut, String descripcion, String direccion, String horario, Float precio_promedio, Integer telefono) {
-		repository.cargarDatosRes(descripcion, direccion, horario, precio_promedio, telefono, rut);
-	}
+//	public void cargarDatosRes(String rut, String descripcion, String direccion, String horario, Float precio_promedio, Integer telefono) {
+//		repository.cargarDatosRes(descripcion, direccion, horario, precio_promedio, telefono, rut);
+//	}
 	public boolean restauranteYaFueCreado(Restaurante res) {
-		
-		
 		boolean creado = true;
 		if (repository.verificarRutRestaurante(res.getRUT()) == null) {
 			creado = false;

@@ -24,12 +24,12 @@ public class MainRestaurante extends Application{
 	
 	private static ConfigurableApplicationContext context;
 	private FXMLLoader fxmlLoader;
-	private Parent root;
+	private Parent root, root1;
 	
 	
 	@Override
 	public void init() throws IOException  {
-		MainRestaurante.context = SpringApplication.run(Main.class);
+		MainRestaurante.context = SpringApplication.run(MainRestaurante.class);
 	}
 	
 	@Override
@@ -39,10 +39,16 @@ public class MainRestaurante extends Application{
 		btnIniciarSesion.setOnAction(e -> ButtonClicked(e));
 		
 		fxmlLoader = new FXMLLoader();
-		fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+		fxmlLoader.setControllerFactory(MainRestaurante.getContext()::getBean);
 		
 		root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("inicio.fxml"));
 		scene = new Scene(root);
+		
+		fxmlLoader = new FXMLLoader();
+		fxmlLoader.setControllerFactory(MainRestaurante.getContext()::getBean);
+		
+		root1 = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
+		scene1 = new Scene(root1);
 		
 		scene.getStylesheets().add(ControladorRegistro.class.getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);

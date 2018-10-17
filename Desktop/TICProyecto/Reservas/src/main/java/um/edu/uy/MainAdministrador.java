@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -17,11 +18,11 @@ import um.edu.uy.interfaz.administrador.AdminControladorRegistro;
 @SpringBootApplication
 public class MainAdministrador extends Application {
 	Button btnRegistrarRestaurante, btnRegistrar;
-	Scene scene, scene1;
+	Scene scene, scene1, scene2;
 	Stage thestage;
 	private static ConfigurableApplicationContext context;
-	private FXMLLoader fxmlLoader, fxmlLoader1;
-	private Parent root, root1;
+	private FXMLLoader fxmlLoader, fxmlLoader1, fxmlLoader2;
+	private Parent root, root1, root2;
 
 	@Override
 	public void init() throws Exception {
@@ -36,7 +37,7 @@ public class MainAdministrador extends Application {
 
 		btnRegistrarRestaurante.setOnAction(e -> ButtonClicked(e));
 		btnRegistrar.setOnAction(e -> ButtonClicked(e));
-
+		
 		fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(MainAdministrador.getContext()::getBean);
 
@@ -49,9 +50,12 @@ public class MainAdministrador extends Application {
 		root1 = fxmlLoader1.load(AdminControladorRegistro.class.getResourceAsStream("RegistrarRestaurante.fxml"));
 		scene1 = new Scene(root1);
 		
-//		fxmlLoader2 = new FXMLLoader();
-//		fxmlLoader2.setControllerFactory(MainAdministrador.getContext()::getBean);
+		fxmlLoader2 = new FXMLLoader();
+		fxmlLoader2.setControllerFactory(MainAdministrador.getContext()::getBean);
 
+		root2 = fxmlLoader2.load(AdminControladorRegistro.class.getResourceAsStream("final.fxml"));
+		scene2 = new Scene(root2);
+		
 		scene.getStylesheets().add(AdminControladorRegistro.class.getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -65,7 +69,7 @@ public class MainAdministrador extends Application {
 		if (e.getSource() == btnRegistrarRestaurante)
 			thestage.setScene(scene1);
 		if (e.getSource() == btnRegistrar)
-			thestage.setScene(scene1);
+			thestage.setScene(scene2);
 		
 	}
 

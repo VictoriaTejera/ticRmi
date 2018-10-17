@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="138.0" prefWidth="417.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.restaurante.ControladorInicioSesionRest">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Label layoutX="30.0" layoutY="29.0" prefHeight="69.0" prefWidth="387.0" text="El usuario o contraseña son incorrectos, vuelva a intentarlo" textAlignment="CENTER">
+      <font>
+        <Font size="14.0" fx:id="x1" />
+      </font>
+      <textFill>
+        <Color blue="0.000" green="0.000" red="0.600" fx:id="x2" />
+      </textFill>
+    </Label>
+    <Label font="$x1" layoutX="30.0" layoutY="10.0" prefHeight="69.0" prefWidth="387.0" text="Lo sentimos:" textAlignment="CENTER" textFill="$x2" />
+  </children>
+</AnchorPane>

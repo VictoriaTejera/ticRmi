@@ -1,5 +1,6 @@
 package um.edu.uy.interfaz.administrador;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -15,13 +16,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import um.edu.uy.persistance.RestauranteMgr;
-import um.edu.uy.persistance.UsuarioMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
-import um.edu.uy.persistance.entidades.Usuario;
 
 @Component
 public class AdminControladorRegistro implements ApplicationContextAware {
@@ -46,41 +44,34 @@ public class AdminControladorRegistro implements ApplicationContextAware {
 
 	@FXML
 	private TextField txtRut;
-
-	private ApplicationContext applicationContext;
 	
 	@Autowired
 	private RestauranteMgr resMgr;
+	
+	ApplicationContext applicationContext;
 
 	public AdminControladorRegistro() {
+		super();
 	}
 
 	@FXML
-	void handleSubmitButtonAction(ActionEvent event) throws Exception {
+	void handleSubmitButtonAction(ActionEvent event) throws IOException {
 		Stage stage = null;
 		Parent root = null;
 		FXMLLoader fxmlLoader = new FXMLLoader();
-		fxmlLoader.setControllerFactory(applicationContext::getBean);
 		stage = new Stage();
+		fxmlLoader.setControllerFactory(applicationContext::getBean);
 
 		if (event.getSource() == btnRegistrar) {
 			Restaurante restaurante = new Restaurante(txtRut.getText(), txtNombre.getText(), txtEmail.getText(), txtContrasena.getText());
-			if(true) {
+			if(resMgr.restauranteYaFueCreado(restaurante) == false) {
 				resMgr.save(restaurante);
-				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("iniciarSesion.fxml"));
+				stage = (Stage) btnRegistrar.getScene().getWindow();
+				root = FXMLLoader.load(AdminControladorRegistro.class.getResource("final.fxml"));
+			}else {
+//				stage = (Stage) btnRegistrar.getScene().getWindow();
+//				root = FXMLLoader.load(getClass().getResource("final.fxml"));
 			}
-			// Usuario user = new Usuario(txtNombre.getText(), txtContrasena.getText(),
-			// Integer.parseInt(txtCelular.getText()));
-
-			// if (usuMgr.usuarioYaFueCreado(user) == false) {
-			// usuMgr.save(user);
-			// root =
-			// fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("iniciarSesion.fxml"));
-			// stage = (Stage) btnConfirmarRegistro.getScene().getWindow();
-			// } else {
-			// root =
-			// fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("UsuarioYaExiste.fxml"));
-			// }
 		}
 		stage.setScene(new Scene(root));
 		stage.show();
@@ -93,8 +84,10 @@ public class AdminControladorRegistro implements ApplicationContextAware {
 		assert txtEmail != null : "fx:id=\"txtEmail\" was not injected: check your FXML file 'RegistrarRestaurante.fxml'.";
 		assert txtNombre != null : "fx:id=\"txtNombre\" was not injected: check your FXML file 'RegistrarRestaurante.fxml'.";
 		assert txtRut != null : "fx:id=\"txtRut\" was not injected: check your FXML file 'RegistrarRestaurante.fxml'.";
-	}
+	
+		}
 
+	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
 

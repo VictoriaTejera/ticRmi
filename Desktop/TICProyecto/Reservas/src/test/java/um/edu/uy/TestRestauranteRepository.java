@@ -23,7 +23,7 @@ import um.edu.uy.persistance.entidades.Barrio;
 import um.edu.uy.persistance.entidades.Comida;
 import um.edu.uy.persistance.entidades.Restaurante;
 
-@SpringBootTest(classes=MainRestaurante.class)
+@SpringBootTest(classes = MainRestaurante.class)
 @RunWith(SpringRunner.class)
 public class TestRestauranteRepository {
 
@@ -47,21 +47,21 @@ public class TestRestauranteRepository {
 	// resMgr.save(res);
 	// }
 
-	//@Test
+	@Test
 	public void testGetRestaurantes() {
-		Restaurante res1 = new Restaurante("nombre1", null, null, null, null, null, null, null);
+		Restaurante res1 = new Restaurante("rut1", null, null, null);
 		resMgr.save(res1);
-		Restaurante res2 = new Restaurante("nombre2", null, null, null, null, null, null, null);
+		Restaurante res2 = new Restaurante("rut2", null, null, null);
 		resMgr.save(res2);
-		Restaurante res3 = new Restaurante("nombre3", null, null, null, null, null, null, null);
+		Restaurante res3 = new Restaurante("rut3", null, null, null);
 		resMgr.save(res3);
 		List<Restaurante> lista = resMgr.getRestaurants();
 		for (int i = 0; i < lista.size(); i++) {
 			System.out.println(lista.get(i).getNombre());
 		}
 	}
-	
-	//@Test
+
+	@Test
 	public void testGetRestaurantesII() {
 		resMgr.getRestaurants();
 	}
@@ -74,8 +74,7 @@ public class TestRestauranteRepository {
 		resMgr.save(res);
 	}
 
-
-	//@Test
+	// @Test
 	public void testFiltroPorBarrio() {
 		Barrio b1 = new Barrio("id", "nombreBarrio1");
 		barrioMgr.save(b1);
@@ -100,7 +99,7 @@ public class TestRestauranteRepository {
 
 	}
 
-	//@Test
+	// @Test
 	public void testFiltroPorComida() {
 		Restaurante res1 = new Restaurante("nombreRes1", null, null, null, null, null, null, null);
 		resMgr.save(res1);
@@ -128,12 +127,11 @@ public class TestRestauranteRepository {
 
 	}
 
-	//@Test
+	// @Test
 	public void testFiltroPorPrecio() {
-		
-		
-		List<Restaurante> lista = resMgr.filtrarPorPrecio((float)100.0, (float)1000.0);
-		
+
+		List<Restaurante> lista = resMgr.filtrarPorPrecio((float) 100.0, (float) 1000.0);
+
 		for (int i = 0; i < lista.size(); i++) {
 			System.out.println("");
 			System.out.println(lista.get(i));
@@ -141,49 +139,51 @@ public class TestRestauranteRepository {
 		System.out.println(lista.size());
 		assertEquals(lista.get(0).getNombre(), "nombreRes1");
 		assertEquals(lista.get(1).getNombre(), "nombreRes2");
-		
-		assertEquals(lista.size(),3);
-		
-		
-	}
-	
-	@Test
-	public void testCargarDatosRes() {
-		resMgr.cargarDatosRes("3", "atencion", "pocitos 144" , "13:30", (float)376, 876);
-		
-		
+
+		assertEquals(lista.size(), 3);
+
 	}
 
-//	@Test
-//	public void testFiltroPorPrecio() {
-//		
-//		Restaurante res1 = new Restaurante("nombreRes1", null, null, null, null, null, null, null);
-//		resMgr.save(res1);
-//		Restaurante res2 = new Restaurante("nombreRes2", null, null, null, null, null, null, null);
-//		resMgr.save(res2);
-//		
-//		Comida c1 = new Comida("nombre1", "tipo1", (float)123.4, res1);
-//		comidaMgr.save(c1);
-//		Comida c2 = new Comida("nombre2", "tipo2", (float)223.4, res2);
-//		comidaMgr.save(c2);
-//		Comida c3 = new Comida("nombre3", "tipo1", (float)233.4, res1);
-//		comidaMgr.save(c3);
-//		Comida c4 = new Comida("nombre4", "tipo4", (float)234.4, res2);	
-//		comidaMgr.save(c4);
-//		
-//		List<Restaurante> lista = resMgr.filtrarPorPrecio((float)122.4, (float)224.6);
-//		
-//		for (int i = 0; i < lista.size(); i++) {
-//			System.out.println("");
-//			System.out.println(lista.get(i));
-//		}
-//		
-//		assertEquals(lista.get(0).getNombre(), "nombreRes1");
-//		assertEquals(lista.get(1).getNombre(), "nombreRes2");
-//		assertEquals(lista.size(),2);
-//		
-//		
-//	}
+	// @Test
+	// public void testCargarDatosRes() {
+	// resMgr.cargarDatosRes("3", "atencion", "pocitos 144" , "13:30", (float)376,
+	// 876);
+	//
+	//
+	// }
 
+	// @Test
+	// public void testFiltroPorPrecio() {
+	//
+	// Restaurante res1 = new Restaurante("nombreRes1", null, null, null, null,
+	// null, null, null);
+	// resMgr.save(res1);
+	// Restaurante res2 = new Restaurante("nombreRes2", null, null, null, null,
+	// null, null, null);
+	// resMgr.save(res2);
+	//
+	// Comida c1 = new Comida("nombre1", "tipo1", (float)123.4, res1);
+	// comidaMgr.save(c1);
+	// Comida c2 = new Comida("nombre2", "tipo2", (float)223.4, res2);
+	// comidaMgr.save(c2);
+	// Comida c3 = new Comida("nombre3", "tipo1", (float)233.4, res1);
+	// comidaMgr.save(c3);
+	// Comida c4 = new Comida("nombre4", "tipo4", (float)234.4, res2);
+	// comidaMgr.save(c4);
+	//
+	// List<Restaurante> lista = resMgr.filtrarPorPrecio((float)122.4,
+	// (float)224.6);
+	//
+	// for (int i = 0; i < lista.size(); i++) {
+	// System.out.println("");
+	// System.out.println(lista.get(i));
+	// }
+	//
+	// assertEquals(lista.get(0).getNombre(), "nombreRes1");
+	// assertEquals(lista.get(1).getNombre(), "nombreRes2");
+	// assertEquals(lista.size(),2);
+	//
+	//
+	// }
 
 }
