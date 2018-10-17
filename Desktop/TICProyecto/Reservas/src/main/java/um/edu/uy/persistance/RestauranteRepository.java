@@ -20,16 +20,17 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Integ
 	@Query("SELECT r FROM Comida c, Restaurante r WHERE r=c.restaurante and c.tipo= :tipoComida")
 	List<Restaurante> filtrarPorComida(@Param("tipoComida") String tipoComida);
 	
-	@Query("SELECT r FROM Restaurante r WHERE r.precioPromedio BETWEEN :precioMenor and :precioMayor")
+	@Query("SELECT r FROM Restaurante r WHERE r.precio_promedio BETWEEN :precioMenor and :precioMayor")
 	List<Restaurante> filtrarPorPrecio(@Param("precioMenor") Float precioMenor, @Param ("precioMayor") Float precioMayor);
 
 	@Query("SELECT r FROM Restaurante r WHERE r.nombre= :nombre and r.password= :password")
 	Restaurante verificarRestaurante(@Param("nombre") String nombre, @Param("password") String password);
-	
-//	@Modifying
-//	@Query("update Restaurante r set r.descripcion= :descripcion, r.direccion= :direccion, r.horario= :horario, r.precio_romedio= :precio_promedio, r.telefono= :telefono where r.RUT= :rut")
-//	public void cargarDatosRes(@Param("rut") String rut ,@Param("descripcion")String descripcion, @Param("direccion")String direccion, @Param("horario") Integer horario, @Param("precio_promedio")Float precio_promedio, @Param("telefono")Integer telefono, String rut2);
+
+	@Modifying
+	@Query("update Restaurante r set r.descripcion= :descripcion, r.direccion= :direccion, r.horario= :horario, r.precio_promedio= :precio_promedio, r.telefono= :telefono where r.rut= :rut")
+	public void cargarDatosRes(@Param("rut") String rut, @Param("descripcion")String descripcion, @Param("direccion")String direccion, @Param("horario") Integer horario, @Param("precio_promedio") Float precio_promedio, @Param("telefono")Integer telefono);
+
 
 	@Query("SELECT res FROM Restaurante res WHERE res.rut= :rut")
-	Usuario verificarRutRestaurante(@Param("rut") String nombre);
+	Restaurante verificarRutRestaurante(@Param("rut") String rut);
 }
