@@ -4,17 +4,38 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="403.0" prefWidth="396.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.administrador.AdminControladorInicio">
+<AnchorPane prefHeight="350.0" prefWidth="396.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.administrador.AdminControladorInicio">
   <!-- TODO Add Nodes -->
   <children>
     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="37.0" prefHeight="79.0" prefWidth="287.0" text="Indique la acción que desea realizar" textAlignment="CENTER" textOverrun="ELLIPSIS">
       <font>
-        <Font name="Arial" size="15.0" />
+        <Font name="Calisto MT" size="15.0" />
       </font>
+      <textFill>
+        <Color blue="0.000" green="0.000" red="0.600" fx:id="x1" />
+      </textFill>
     </Label>
     <Button fx:id="btnRegistrarRestaurante" layoutX="118.0" layoutY="143.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="39.0" prefWidth="160.0" text="Registrar restaurante" />
-    <Button layoutX="118.0" layoutY="222.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="159.00009999999747" text="Administrar restaurantes" />
+    <Button layoutX="118.0" layoutY="222.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="159.00009999999747" text="Administrar restaurante" />
+    <VBox layoutX="0.0" layoutY="0.0" prefHeight="403.0" prefWidth="55.0" />
+    <VBox layoutX="7.0" layoutY="5.0" prefHeight="350.0" prefWidth="55.000099999997474">
+      <children>
+        <Label prefHeight="39.000099999997474" prefWidth="56.0" text="R" textFill="$x1">
+          <font>
+            <Font name="System Bold Italic" size="25.0" fx:id="x2" />
+          </font>
+        </Label>
+        <Label font="$x2" prefHeight="39.000099999997474" prefWidth="56.0" text="E" textFill="$x1" />
+        <Label font="$x2" prefHeight="39.000099999997474" prefWidth="56.0" text="S" textFill="$x1" />
+        <Label font="$x2" prefHeight="39.000099999997474" prefWidth="56.0" text="E" textFill="$x1" />
+        <Label font="$x2" prefHeight="39.000099999997474" prefWidth="56.0" text="R" textFill="$x1" />
+        <Label font="$x2" prefHeight="39.000099999997474" prefWidth="56.0" text="V" textFill="$x1" />
+        <Label font="$x2" prefHeight="39.000099999997474" prefWidth="56.0" text="A" textFill="$x1" />
+        <Label font="$x2" prefHeight="39.000099999997474" prefWidth="56.0" text="S" textFill="$x1" />
+      </children>
+    </VBox>
   </children>
 </AnchorPane>

@@ -12,7 +12,7 @@
   <!-- TODO Add Nodes -->
   <children>
     <!-- Add Name Label -->
-    <Label layoutX="45.0" layoutY="113.0" prefWidth="100.0" text="Nombre completo:">
+    <Label layoutX="54.0" layoutY="113.0" prefWidth="100.0" text="Nombre completo:">
       <textFill>
         <Color blue="0.000" green="0.000" red="0.600" fx:id="x1" />
       </textFill>
@@ -28,7 +28,7 @@
     <!-- Add Name Label -->
     <Label alignment="CENTER_RIGHT" layoutX="12.0" layoutY="183.0" prefWidth="100.0" text="Celular:" textAlignment="JUSTIFY" textFill="$x1" />
     <!-- Add Submit Button -->
-    <Button id="submitButton" fx:id="btnConfirmarRegistro" defaultButton="true" layoutX="210.0" layoutY="295.0" onAction="#handleSubmitButtonAction" prefHeight="28.0" prefWidth="81.0" text="Registrarse" textFill="#fefefe" />
+    <Button id="submitButton" fx:id="btnConfirmarRegistro" defaultButton="true" layoutX="210.0" layoutY="295.0" onAction="#handleSubmitButtonAction" prefHeight="28.0" prefWidth="81.0" text="Registrarse" textFill="#5a0000d7" />
     <!-- Add Header Label -->
     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="104.0" layoutY="40.0" text="Ingrese sus datos" textAlignment="CENTER" textFill="$x1">
       <font>
@@ -36,6 +36,22 @@
       </font>
     </Label>
     <!-- Add Submit Button -->
-    <Button id="submitButton" fx:id="btnVolver" cache="false" cacheHint="DEFAULT" contentDisplay="CENTER" defaultButton="true" depthTest="INHERIT" layoutX="276.0" layoutY="358.0" minHeight="16.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="25.0" prefWidth="81.0" text="Volver" textAlignment="LEFT" textFill="WHITE" underline="false" visible="true" />
+    <Button id="submitButton" fx:id="btnVolver" cache="false" cacheHint="DEFAULT" contentDisplay="CENTER" defaultButton="true" depthTest="INHERIT" layoutX="276.0" layoutY="358.0" minHeight="16.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="25.0" prefWidth="81.0" text="Volver" textAlignment="LEFT" textFill="BLACK" underline="false" visible="true" />
+    <VBox prefHeight="331.0" prefWidth="45.0" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="334.0" AnchorPane.topAnchor="33.0">
+      <children>
+        <Label prefHeight="40.0" prefWidth="45.0" text="R" textFill="$x1">
+          <font>
+            <Font name="System Bold Italic" size="25.0" fx:id="x2" />
+          </font>
+        </Label>
+        <Label font="$x2" prefHeight="40.0" prefWidth="45.0" text="E" textFill="$x1" />
+        <Label font="$x2" prefHeight="40.0" prefWidth="45.0" text="S" textFill="$x1" />
+        <Label font="$x2" prefHeight="40.0" prefWidth="45.0" text="E" textFill="$x1" />
+        <Label font="$x2" prefHeight="40.0" prefWidth="45.0" text="R" textFill="$x1" />
+        <Label font="$x2" prefHeight="40.0" prefWidth="45.0" text="V" textFill="$x1" />
+        <Label font="$x2" prefHeight="40.0" prefWidth="45.0" text="A" textFill="$x1" />
+        <Label font="$x2" prefHeight="40.0" prefWidth="45.0" text="S" textFill="$x1" />
+      </children>
+    </VBox>
   </children>
 </AnchorPane>
