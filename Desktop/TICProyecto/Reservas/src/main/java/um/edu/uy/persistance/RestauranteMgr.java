@@ -60,9 +60,9 @@ public class RestauranteMgr {
 		return verifico;
 	}
 	
-//	public void cargarDatosRes(String rut, String descripcion, String direccion, String horario, Float precio_promedio, Integer telefono) {
-//		repository.cargarDatosRes(descripcion, direccion, horario, precio_promedio, telefono, rut);
-//	}
+	public void cargarDatosRes(String rut, String descripcion, String direccion, String horario, Float precio_promedio, Integer telefono) {
+		repository.cargarDatosRes(rut, descripcion, direccion, horario, precio_promedio, telefono);
+	}
 	public boolean restauranteYaFueCreado(Restaurante res) {
 		boolean creado = true;
 		if (repository.verificarRutRestaurante(res.getRUT()) == null) {
@@ -71,9 +71,4 @@ public class RestauranteMgr {
 		return creado;
 	}
 
-//	public List<Restaurante> filtrarPorPrecio(Float precioMayor){
-//		List<Restaurante> restaurantes= repository.filtrarPorPrecio(precioMayor);
-//		return restaurantes;
-//		
-//	}
 }

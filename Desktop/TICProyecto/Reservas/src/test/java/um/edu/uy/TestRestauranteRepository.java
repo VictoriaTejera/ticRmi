@@ -154,13 +154,13 @@ public class TestRestauranteRepository {
 		assertTrue(resMgr.restauranteYaFueCreado(r1));
 	}
 
-	// @Test
-	// public void testCargarDatosRes() {
-	// resMgr.cargarDatosRes("3", "atencion", "pocitos 144" , "13:30", (float)376,
-	// 876);
-	//
-	//
-	// }
+	 @Test
+	 public void testCargarDatosRes() {
+		 
+	 resMgr.cargarDatosRes("124", "atencion", "pocitos 144" , "13:10", (float) 376, 876);
+	
+	
+	 }
 
 	// @Test
 	// public void testFiltroPorPrecio() {
