@@ -44,7 +44,8 @@ public class ControladorMenuRest implements ApplicationContextAware{
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 
 		if (event.getSource() == btnDatos) {
-			
+			stage = (Stage) btnDatos.getScene().getWindow();
+			root = fxmlLoader.load(ControladorMenuRest.class.getResourceAsStream("ActualizarDatosRest.fxml"));
 		}
 		stage.setScene(new Scene(root));
 		stage.show();
