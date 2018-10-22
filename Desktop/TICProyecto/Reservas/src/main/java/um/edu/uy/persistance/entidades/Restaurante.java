@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -33,19 +34,12 @@ public class Restaurante implements Serializable {
 	private Float precio_promedio;
 	private String email;
 	private String password;
-//	private Float precioMenor=(float)1000000.0;
-//	private Float precioMayor=(float)0.0;
+	
+	@Lob
+	private byte[] imagen;
 
 	@ManyToOne
 	private Barrio barrio;
-
-	// @OneToMany
-	// @JoinTable(name="RESTAURANTE_COMIDA", joinColumns =
-	// @JoinColumn(name="nombre"))
-	// @Cascade(CascadeType.ALL)
-	// private List<Comida> menu;
-
-	// foto que tipo de datos es??
 
 	public Restaurante(String nombre, String horarioApertura, String horarioCierre, String direccion, Integer telefono, Float rating,
 			Integer cantRatings, String descripcion, Barrio barrio) {
@@ -125,6 +119,8 @@ public class Restaurante implements Serializable {
 		return descripcion;
 	}
 	
+	
+	
 //	public void setPrecioMenor(Float precioMenor) {
 //		this.precioMenor = precioMenor;
 //	}
@@ -147,6 +143,14 @@ public class Restaurante implements Serializable {
 //		this.menu = menu;
 //	}
 
+
+	public byte[] getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(byte[] imagen) {
+		this.imagen = imagen;
+	}
 
 	@Override
 	public String toString() {
