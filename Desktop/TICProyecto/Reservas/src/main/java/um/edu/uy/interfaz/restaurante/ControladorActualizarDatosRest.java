@@ -92,7 +92,7 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware{
 			if(cboxTiposComida.getValue()!=null) {
     			tipoComida=cboxTiposComida.getValue();
     		}
-			resMgr.cargarDatosRes(rut, descripcion, direccion, horario, precio_promedio, telefono);
+//			resMgr.cargarDatosRes(rut, descripcion, direccion, horario, precio_promedio, telefono);
 			
 		}
 		
