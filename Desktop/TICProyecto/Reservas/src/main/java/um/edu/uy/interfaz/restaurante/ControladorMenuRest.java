@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
@@ -34,6 +35,9 @@ public class ControladorMenuRest implements ApplicationContextAware{
     private Button btnReservas;
     
     private ApplicationContext applicationContext;
+    
+    @Autowired
+    ControladorActualizarDatosRest controller;
 
     @FXML
     void handleSubmitButtonAction(ActionEvent event) throws IOException {
@@ -46,6 +50,8 @@ public class ControladorMenuRest implements ApplicationContextAware{
 		if (event.getSource() == btnDatos) {
 			stage = (Stage) btnDatos.getScene().getWindow();
 			root = fxmlLoader.load(ControladorMenuRest.class.getResourceAsStream("ActualizarDatosRest.fxml"));
+			controller.handleBarrioCbox(event);
+			controller.handleTipoComidaCbox(event);
 		}
 		stage.setScene(new Scene(root));
 		stage.show();
