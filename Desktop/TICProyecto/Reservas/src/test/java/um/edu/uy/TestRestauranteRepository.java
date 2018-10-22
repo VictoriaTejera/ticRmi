@@ -124,8 +124,8 @@ public class TestRestauranteRepository {
 			System.out.println(lista.get(i));
 		}
 
-//		assertEquals(lista.get(0).getNombre(), "nombreRes1");
-//		assertEquals(lista.get(1).getNombre(), "nombreRes2");
+		assertEquals(lista.get(0).getNombre(), "Ginebra");
+	//	assertEquals(lista.get(1).getNombre(), "nombreRes2");
 
 	}
 

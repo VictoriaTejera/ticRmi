@@ -22,7 +22,7 @@ public class ComidaMgr {
 		Iterable<Comida> it = repository.findAll();
 		ObservableList<String> lista = FXCollections.observableArrayList();
 		for (Comida c : it) {
-			lista.add(c.getNombre());
+			lista.add(c.getTipo());
 		}
 		return lista;
 	}
