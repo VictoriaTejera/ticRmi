@@ -62,8 +62,8 @@ public class RestauranteMgr {
 	}
 	
 	@Transactional
-	public void cargarDatosRes(String rut, String descripcion, String direccion, String horario, Float precio_promedio, Integer telefono) {
-		repository.cargarDatosRes(rut, descripcion, direccion, horario, precio_promedio, telefono);
+	public void cargarDatosRes(String rut, String descripcion, String direccion, String horarioApertura, String horarioCierre, Float precio_promedio, Integer telefono) {
+		repository.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precio_promedio, telefono);
 	}
 	public boolean restauranteYaFueCreado(Restaurante res) {
 		boolean creado = true;

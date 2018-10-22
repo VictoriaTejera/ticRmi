@@ -23,7 +23,8 @@ public class Restaurante implements Serializable {
 	@Id
 	private String rut;
 	private String nombre;
-	private String horario;
+	private String horarioApertura;
+	private String horarioCierre;
 	private String direccion;
 	private Integer telefono;
 	private Float rating;
@@ -46,11 +47,12 @@ public class Restaurante implements Serializable {
 
 	// foto que tipo de datos es??
 
-	public Restaurante(String nombre, String horario, String direccion, Integer telefono, Float rating,
+	public Restaurante(String nombre, String horarioApertura, String horarioCierre, String direccion, Integer telefono, Float rating,
 			Integer cantRatings, String descripcion, Barrio barrio) {
 		super();
 		this.nombre = nombre;
-		this.horario = horario;
+		this.horarioCierre=horarioCierre;
+		this.horarioApertura = horarioApertura;
 		this.direccion = direccion;
 		this.telefono = telefono;
 		this.rating = rating;
@@ -96,8 +98,11 @@ public class Restaurante implements Serializable {
 		return barrio;
 	}
 
-	public String getHorario() {
-		return horario;
+	public String getHorarioAperura() {
+		return horarioApertura;
+	}
+	public String getHorarioCierre() {
+		return horarioCierre;
 	}
 
 	public String getDireccion() {
@@ -145,7 +150,7 @@ public class Restaurante implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Restaurante [nombre=" + nombre + ", horario=" + horario + ", direccion=" + direccion + ", telefono="
+		return "Restaurante [nombre=" + nombre + ", horarioApertura=" + horarioApertura + ", direccion=" + direccion + ", telefono="
 				+ telefono + ", rating=" + rating + ", cantRatings=" + cantRatings + ", descripcion=" + descripcion
 				+ ", barrio=" + barrio + "]";
 	}
