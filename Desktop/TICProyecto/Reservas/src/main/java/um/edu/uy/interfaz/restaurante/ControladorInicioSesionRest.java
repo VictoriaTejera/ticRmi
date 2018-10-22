@@ -44,6 +44,8 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 	private RestauranteMgr restauranteMgr;
 
 	private ApplicationContext applicationContext;
+	
+	Restaurante restaurante;
 
 	@FXML
     void handleSubmitButtonAction(ActionEvent event) throws IOException {
@@ -54,7 +56,7 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 
 		if (event.getSource() == btnIniciarSesion) {
-			Restaurante restaurante = new Restaurante(txtUsuario.getText(), txtContrasena.getText());
+			restaurante = new Restaurante(txtUsuario.getText(), txtContrasena.getText());
 			if (restauranteMgr.verificarUsuarioRestaurante(restaurante) == true) {
 				stage = (Stage) btnIniciarSesion.getScene().getWindow();
 				root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
@@ -64,6 +66,10 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 		}
 		stage.setScene(new Scene(root));
 		stage.show();
+	}
+	
+	String getRutRest() {
+		return restaurante.getRUT(); 
 	}
 
 	@FXML
