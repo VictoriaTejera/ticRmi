@@ -72,5 +72,10 @@ public class RestauranteMgr {
 		}
 		return creado;
 	}
+	
+	public String getRut(String nombre, String password) {
+		Restaurante res=repository.verificarRestaurante(nombre, password);
+		return res.getRUT();
+	}
 
 }
