@@ -101,7 +101,7 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware{
 			if(cboxTiposComida.getValue()!=null) {
     			tipoComida=cboxTiposComida.getValue();
     		}
-			resMgr.cargarDatosRes(controller.getRutRest(), txtDescripcion.getText(), txtDireccion.getText(), txtHorario.ge, txtPrecioPromedio.getText(), txtTelefono.getText());
+			resMgr.cargarDatosRes(controller.getRutRest(), txtDescripcion.getText(), txtDireccion.getText(), txtHorarioApertura.getText(), txtHorarioCierre.getText(), Float.parseFloat(txtPrecioPromedio.getText()), Integer.parseInt(txtTelefono.getText()), barrio);
 		}
 		
 		Scene scene = new Scene(root);
