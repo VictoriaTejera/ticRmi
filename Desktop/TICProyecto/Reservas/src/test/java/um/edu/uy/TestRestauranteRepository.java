@@ -71,7 +71,7 @@ public class TestRestauranteRepository {
 	public void testSaveRestauranteConBarrio() throws SQLException {
 		Barrio b1 = new Barrio("nombre", "barrio1");
 		barrioMgr.save(b1);
-		Restaurante res = new Restaurante("nombre1", null, null, null, null, null, null, b1);
+		Restaurante res = new Restaurante("nombre1", null, null, null, null, null, null, null, b1);
 		resMgr.save(res);
 	}
 
@@ -82,11 +82,11 @@ public class TestRestauranteRepository {
 		Barrio b2 = new Barrio("id2", "nombreBarrio2");
 		barrioMgr.save(b2);
 
-		Restaurante res = new Restaurante("nombre1", null, null, null, null, null, null, b1);
+		Restaurante res = new Restaurante("nombre1", null, null, null, null, null, null,null, b1);
 		resMgr.save(res);
-		Restaurante res2 = new Restaurante("nombre2", null, null, null, null, null, null, b1);
+		Restaurante res2 = new Restaurante("nombre2", null, null, null, null, null, null, null, b1);
 		resMgr.save(res2);
-		Restaurante res3 = new Restaurante("nombre3", null, null, null, null, null, null, b1);
+		Restaurante res3 = new Restaurante("nombre3", null, null, null, null, null, null,null, b1);
 		resMgr.save(res3);
 
 		List<Restaurante> lista = resMgr.filtrarPorBarrio(b1.getNombreBarrio());
@@ -102,9 +102,9 @@ public class TestRestauranteRepository {
 
 	// @Test
 	public void testFiltroPorComida() {
-		Restaurante res1 = new Restaurante("nombreRes1", null, null, null, null, null, null, null);
+		Restaurante res1 = new Restaurante("nombreRes1", null, null, null, null, null, null, null, null);
 		resMgr.save(res1);
-		Restaurante res2 = new Restaurante("nombreRes2", null, null, null, null, null, null, null);
+		Restaurante res2 = new Restaurante("nombreRes2", null, null, null, null, null, null, null, null);
 		resMgr.save(res2);
 
 		Comida c1 = new Comida("nombre1", "tipo1", (float) 123.4, res1);
@@ -157,7 +157,7 @@ public class TestRestauranteRepository {
 	 @Test
 	 public void testCargarDatosRes() {
 		 
-	 resMgr.cargarDatosRes("124", "atencion", "pocitos 144" , "13:10", (float) 376, 876);
+	 resMgr.cargarDatosRes("124", "atencion", "pocitos 144" , "13:10", "15:30", (float) 376, 876);
 	
 	
 	 }
