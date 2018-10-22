@@ -1,5 +1,6 @@
 package um.edu.uy.persistance;
 
+import um.edu.uy.persistance.entidades.Barrio;
 import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
 
@@ -29,14 +30,10 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Integ
 
 	@Transactional
 	@Modifying
-<<<<<<< HEAD
-	@Query("UPDATE Restaurante r SET r.descripcion= :descripcion, r.direccion= :direccion, r.horarioApertura= :horarioApertura,r.horarioCierre= :horarioCiere, r.precio_promedio= :precio_promedio, r.telefono= :telefono WHERE r.rut= :rut")
-	public void cargarDatosRes(@Param("rut") String rut, @Param("descripcion")String descripcion, @Param("direccion")String direccion, @Param("horarioApertura") String horarioApertura, @Param("horarioCierre") String horarioCierre, @Param("precio_promedio") Float precio_promedio, @Param("telefono")Integer telefono);
+	@Query("UPDATE Restaurante r SET r.descripcion= :descripcion, r.direccion= :direccion, r.horarioApertura= :horarioApertura, r.horarioCierre= :horarioCierre, r.precio_promedio= :precio_promedio, r.telefono= :telefono, r.barrio= :barrio WHERE r.rut= :rut")
+	public void cargarDatosRes(@Param("rut") String rut, @Param("descripcion")String descripcion, @Param("direccion")String direccion, @Param("horarioApertura") String horarioApertura, @Param("horarioCierre") String horarioCierre, @Param("precio_promedio") Float precio_promedio, @Param("telefono")Integer telefono, @Param("barrio") Barrio barrio);
 
-=======
-	@Query("UPDATE Restaurante r SET r.descripcion= :descripcion, r.direccion= :direccion, r.horario= :horario, r.precio_promedio= :precio_promedio, r.telefono= :telefono WHERE r.rut= :rut")
-	public void cargarDatosRes(@Param("rut") String rut, @Param("descripcion")String descripcion, @Param("direccion")String direccion, @Param("horario") String horario, @Param("precio_promedio") Float precio_promedio, @Param("telefono")Integer telefono);
->>>>>>> branch 'master' of https://github.com/VictoriaTejera/TIC.git
+
 
 	@Query("SELECT res FROM Restaurante res WHERE res.rut= :rut")
 	Restaurante verificarRutRestaurante(@Param("rut") String rut);
