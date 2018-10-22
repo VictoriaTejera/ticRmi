@@ -77,7 +77,12 @@ public class RestauranteMgr {
 	
 	public String getRut(String nombre, String password) {
 		Restaurante res=repository.verificarRestaurante(nombre, password);
-		return res.getRUT();
+		if(res!=null) {
+			return res.getRUT();
+		}else {
+			return null;
+		}
+		
 	}
 
 }
