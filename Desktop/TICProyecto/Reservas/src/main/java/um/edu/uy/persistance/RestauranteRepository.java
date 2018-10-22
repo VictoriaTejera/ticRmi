@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import javafx.collections.ObservableList;
 
@@ -26,6 +27,7 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Integ
 	@Query("SELECT r FROM Restaurante r WHERE r.nombre= :nombre and r.password= :password")
 	Restaurante verificarRestaurante(@Param("nombre") String nombre, @Param("password") String password);
 
+	@Transactional
 	@Modifying
 	@Query("UPDATE Restaurante r SET r.descripcion= :descripcion, r.direccion= :direccion, r.horario= :horario, r.precio_promedio= :precio_promedio, r.telefono= :telefono WHERE r.rut= :rut")
 	public void cargarDatosRes(@Param("rut") String rut, @Param("descripcion")String descripcion, @Param("direccion")String direccion, @Param("horario") String horario, @Param("precio_promedio") Float precio_promedio, @Param("telefono")Integer telefono);

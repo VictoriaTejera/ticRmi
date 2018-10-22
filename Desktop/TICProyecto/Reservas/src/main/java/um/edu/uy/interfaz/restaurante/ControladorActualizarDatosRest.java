@@ -50,7 +50,10 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware{
 
     @FXML
     private TextField txtHorarioCierre;
-
+    
+    @FXML
+    private TextField txtDireccion;
+    
     @FXML
     private TextField txtPrecioPromedio;
 
@@ -64,6 +67,9 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware{
 	
 	@Autowired 
 	private RestauranteMgr resMgr;
+	
+	@Autowired
+	ControladorInicioSesionRest controller;
 
     @FXML
     void handleBarrioCbox(ActionEvent event) {
@@ -92,7 +98,7 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware{
 			if(cboxTiposComida.getValue()!=null) {
     			tipoComida=cboxTiposComida.getValue();
     		}
-//			resMgr.cargarDatosRes(rut, descripcion, direccion, horario, precio_promedio, telefono);
+			resMgr.cargarDatosRes(controller.getRutRest(), txtDescripcion.getText(), txtDireccion.getText(), horario, precio_promedio, telefono);
 			
 		}
 		

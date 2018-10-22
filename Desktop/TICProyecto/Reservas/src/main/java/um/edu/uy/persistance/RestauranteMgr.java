@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
@@ -60,6 +61,7 @@ public class RestauranteMgr {
 		return verifico;
 	}
 	
+	@Transactional
 	public void cargarDatosRes(String rut, String descripcion, String direccion, String horario, Float precio_promedio, Integer telefono) {
 		repository.cargarDatosRes(rut, descripcion, direccion, horario, precio_promedio, telefono);
 	}

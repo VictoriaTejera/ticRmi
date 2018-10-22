@@ -18,13 +18,13 @@ import um.edu.uy.interfaz.restaurante.ControladorInicioSesionRest;
 
 @SpringBootApplication
 public class MainRestaurante extends Application{
-	Button btnIniciarSesion;
-	Scene scene, scene1;
+	Button btnIniciarSesion, btnDatos;
+	Scene scene, scene1, scene2;
 	Stage thestage;
 	
 	private static ConfigurableApplicationContext context;
 	private FXMLLoader fxmlLoader;
-	private Parent root, root1;
+	private Parent root, root1, root2;
 	
 	
 	@Override
@@ -36,7 +36,10 @@ public class MainRestaurante extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		thestage = primaryStage;
 		btnIniciarSesion = new Button();
+		btnDatos = new Button();
+		
 		btnIniciarSesion.setOnAction(e -> ButtonClicked(e));
+		btnDatos.setOnAction(e -> ButtonClicked(e));
 		
 		fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(MainRestaurante.getContext()::getBean);
@@ -50,6 +53,12 @@ public class MainRestaurante extends Application{
 		root1 = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
 		scene1 = new Scene(root1);
 		
+		fxmlLoader = new FXMLLoader();
+		fxmlLoader.setControllerFactory(MainRestaurante.getContext()::getBean);
+		
+		root2 = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("ActualizarDatosRest.fxml"));
+		scene2 = new Scene(root2);
+		
 		scene.getStylesheets().add(ControladorRegistro.class.getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -62,6 +71,8 @@ public class MainRestaurante extends Application{
 	private void ButtonClicked(ActionEvent e) {
 		if (e.getSource() == btnIniciarSesion)
 			thestage.setScene(scene1);
+		if (e.getSource() == btnDatos)
+			thestage.setScene(scene2);
 	}
 	
 	public void stop() {

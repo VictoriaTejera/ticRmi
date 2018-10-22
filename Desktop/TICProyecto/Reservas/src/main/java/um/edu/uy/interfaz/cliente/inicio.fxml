@@ -77,7 +77,4 @@
   <!--   <stylesheets> -->
   <!--     <URL value="@style.css" /> -->
   <!--   </stylesheets> -->
-  <stylesheets>
-    <URL value="@style.css" />
-  </stylesheets>
 </AnchorPane>
