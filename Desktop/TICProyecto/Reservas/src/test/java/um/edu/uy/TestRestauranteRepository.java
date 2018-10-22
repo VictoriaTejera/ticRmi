@@ -4,11 +4,17 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 
 import java.util.LinkedList;
 
 import java.util.List;
+
+import javax.imageio.ImageIO;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -47,6 +53,23 @@ public class TestRestauranteRepository {
 	// Restaurante res = new Restaurante("nombre1", "direccion1", 65765, menu);
 	// resMgr.save(res);
 	// }
+
+	@Test
+	public void testGuardarUnRestaurante() {
+		Restaurante res1 = new Restaurante("rut1", null, null, null);
+		File file =new File("C:\\Users\\Rainer\\Desktop\\IMG1.jpg");
+		byte[] img=null;
+		try {
+		BufferedImage bufferedImage=ImageIO.read(file);
+        ByteArrayOutputStream byteOutStream=new ByteArrayOutputStream();
+        ImageIO.write(bufferedImage, "png", byteOutStream);
+        img=byteOutStream.toByteArray();
+		}catch (IOException e) {
+            e.printStackTrace();
+         }
+		res1.setImagen(img);
+		resMgr.save(res1);
+	}
 
 	@Test
 	public void testGetRestaurantes() {
