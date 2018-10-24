@@ -1,7 +1,12 @@
 package um.edu.uy.persistance.entidades;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -10,28 +15,25 @@ import javax.persistence.Table;
 @SuppressWarnings("unused")
 public class Comida {
 	@Id
-	private String nombre;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private String id;
 	private String tipo;
-	private Float precio;
 	
-	@ManyToOne
-	private Restaurante restaurante;
+	
+	@ManyToMany
+	private List<Restaurante> restaurante;
 	
 	public Comida() {}
 
-	public Comida(String nombre, String tipo, Float precio) {
+	public Comida(String tipo) {
 		super();
-		this.nombre = nombre;
+		
 		this.tipo = tipo;
-		this.precio = precio;
+		
 	}
 
-	public Comida(String nombre, String tipo, Float precio, Restaurante restaurante) {
-		super();
-		this.nombre = nombre;
-		this.tipo = tipo;
-		this.precio = precio;
-		this.restaurante = restaurante;
+	
+		
 		
 //		if(restaurante!=null) {
 //		Float precioMayor = restaurante.getPrecioMayor();
@@ -47,24 +49,22 @@ public class Comida {
 		
 			
 		
-	}
+	
 	
 
-	public Restaurante getRestaurante() {
+	
+
+
+
+	public List<Restaurante> getRestaurante() {
 		return restaurante;
 	}
 
-	public void setRestaurante(Restaurante restaurante) {
+	public void setRestaurante(List<Restaurante> restaurante) {
 		this.restaurante = restaurante;
 	}
 
-	public String getNombre() {
-		return nombre;
-	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
 
 	public String getTipo() {
 		return tipo;
@@ -74,13 +74,7 @@ public class Comida {
 		this.tipo = tipo;
 	}
 
-	public Float getPrecio() {
-		return precio;
-	}
 
-	public void setPrecio(Float precio) {
-		this.precio = precio;
-	}
 	
 	
 }

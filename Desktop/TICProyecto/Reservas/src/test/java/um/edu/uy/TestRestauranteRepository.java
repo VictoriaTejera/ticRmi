@@ -118,9 +118,9 @@ public class TestRestauranteRepository {
 		
 		
 
-		Comida c1 = new Comida("nombre1", "tipo1", (float) 123.4, res1);
+		Comida c1 = new Comida( "tipo1" );
 		comidaMgr.save(c1);
-		Comida c2 = new Comida("nombre2", "tipo2", (float) 221.7, res1);
+		Comida c2 = new Comida( "tipo2");
 		comidaMgr.save(c2);
 //		Comida c3 = new Comida("nombre3", "tipo1", (float) 4.7, res2);
 //		comidaMgr.save(c3);
@@ -209,7 +209,7 @@ public class TestRestauranteRepository {
 	//
 	//
 	// }
-=======
+
 //	@Test
 //	public void testGetRestaurantes() {
 //		Restaurante res1 = new Restaurante("rut1", null, null, null);
