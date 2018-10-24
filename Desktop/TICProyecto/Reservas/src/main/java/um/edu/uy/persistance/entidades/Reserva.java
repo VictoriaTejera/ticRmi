@@ -8,8 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.persistence.Id;
 
-  @Entity
-  @Table
+ @Entity
+ @Table
 //@SuppressWarnings("unused")
 public class Reserva {
 
@@ -20,5 +20,16 @@ public class Reserva {
 	private Restaurante restaurante;
 	private Integer cantPersonas;
 	private boolean confirmado;
+	
+	public Reserva() {}
+	
+	public Reserva(Usuario usuario, Restaurante restaurante, Integer cantPersonas) {
+		super();
+		this.usuario = usuario;
+		this.restaurante = restaurante;
+		this.cantPersonas = cantPersonas;
+	}
+	
+	
 	
 }

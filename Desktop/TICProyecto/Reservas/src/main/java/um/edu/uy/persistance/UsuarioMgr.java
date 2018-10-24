@@ -1,6 +1,7 @@
 package um.edu.uy.persistance;
 
 import java.io.IOException;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,7 +41,11 @@ public class UsuarioMgr {
 	}
 	
 	public Usuario find(Integer celular) {
-		repository.findById(celular)
-		return null; 
+		Optional<Usuario> optional=repository.findById(celular);
+		Usuario usuario=null;
+		if(optional.isPresent()) {
+			usuario=optional.get();
+		}
+		return usuario; 
 	}
 }

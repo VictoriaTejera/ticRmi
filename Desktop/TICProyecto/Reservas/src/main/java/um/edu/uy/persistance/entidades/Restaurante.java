@@ -191,4 +191,14 @@ public class Restaurante implements Serializable {
 		this.password = password;
 	}
 
+	public Float getPrecio_promedio() {
+		return precio_promedio;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+	
+	
+
 }

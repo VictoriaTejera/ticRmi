@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javafx.collections.ObservableList;
 
-public interface RestauranteRepository extends CrudRepository<Restaurante, Integer>{
+public interface RestauranteRepository extends CrudRepository<Restaurante, String>{
 	
 	@Query("SELECT r FROM Restaurante r WHERE r.barrio.nombreBarrio= :barrio")
 	List<Restaurante> filtrarPorBarrio(@Param("barrio") String nombreBarrio);
