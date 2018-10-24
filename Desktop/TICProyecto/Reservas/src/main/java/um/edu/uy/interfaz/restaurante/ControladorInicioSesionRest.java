@@ -57,10 +57,10 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 
 		if (event.getSource() == btnIniciarSesion) {
 			restaurante = new Restaurante(txtUsuario.getText(), txtContrasena.getText());
-			if (restauranteMgr.verificarUsuarioRestaurante(restaurante) == false) {
+			if (restauranteMgr.verificarUsuarioRestaurante(restaurante) == true) {
 				stage = (Stage) btnIniciarSesion.getScene().getWindow();
 				root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
-				//getRutRest();
+				getRutRest();
 			}else {
 				root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("Warning.fxml"));
 			}
@@ -70,7 +70,7 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 	}
 	
 	String getRutRest() {
-		System.out.println(restauranteMgr.getRut(restaurante.getNombre(), restaurante.getPassword()));
+		System.out.println("AAAAAAAAAAAAAAAAAA"+restauranteMgr.getRut(restaurante.getNombre(), restaurante.getPassword()));
 		return restauranteMgr.getRut(restaurante.getNombre(), restaurante.getPassword()); 
 	}
 

@@ -6,7 +6,6 @@ spring:
     url: jdbc:mysql://localhost:3306/ticdb?useSSL=false&allowPublicKeyRetrieval=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
     password: victoria15
-
   jpa:
     show-sql: true
     hibernate:

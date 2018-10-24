@@ -12,7 +12,7 @@ public class Comida {
 	@Id
 	private String nombre;
 	private String tipo;
-	private Float precio;
+	
 	
 	@ManyToOne
 	private Restaurante restaurante;
