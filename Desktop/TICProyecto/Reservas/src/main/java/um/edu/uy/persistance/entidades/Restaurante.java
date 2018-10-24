@@ -40,6 +40,11 @@ public class Restaurante implements Serializable {
 
 	@ManyToOne
 	private Barrio barrio;
+	
+	@OneToMany
+	@JoinTable(name="Restaurante_Mesa", joinColumns = @JoinColumn(name="Restaurante_RUT"))
+	@Cascade(CascadeType.ALL)
+	private List<Mesa> mesas;
 
 	public Restaurante(String nombre, String horarioApertura, String horarioCierre, String direccion, Integer telefono, Float rating,
 			Integer cantRatings, String descripcion, Barrio barrio) {

@@ -30,16 +30,17 @@ public class UsuarioMgr {
 		}
 		return verifico;
 	}
-	
+
 	public boolean usuarioYaFueCreado(Usuario us) {
-		
-	
 		boolean creado = true;
 		if (repository.verificarNombreUsuario(us.getNombre()) == null) {
 			creado = false;
 		}
 		return creado;
 	}
+	
+	public Usuario find(Integer celular) {
+		repository.findById(celular)
+		return null; 
 	}
-
-
+}
