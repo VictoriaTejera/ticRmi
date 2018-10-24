@@ -70,7 +70,7 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 	}
 	
 	String getRutRest() {
-		System.out.println(restauranteMgr.getRut(restaurante.getNombre(), restaurante.getPassword()));
+		System.out.println("AAAAAAAAAAAAAAAAAA"+restauranteMgr.getRut(restaurante.getNombre(), restaurante.getPassword()));
 		return restauranteMgr.getRut(restaurante.getNombre(), restaurante.getPassword()); 
 	}
 
