@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -38,6 +39,11 @@ public class Restaurante implements Serializable {
 	@Lob
 	private byte[] imagen;
 
+	@ManyToMany
+	private List<Comida> comidas;
+	
+	
+	
 	@ManyToOne
 	private Barrio barrio;
 
@@ -63,6 +69,19 @@ public class Restaurante implements Serializable {
 		this.password = password;
 	}
 
+	
+	public List<Comida> getComidas() {
+		return comidas;
+	}
+
+	public void setComida(List<Comida> comida) {
+		this.comidas = comida;
+	}
+
+	public void agregarComida(Comida comida) {
+		comidas.add(comida);
+	}
+	
 	
 	public Restaurante(String nombre, String password) {
 		this.nombre = nombre;
