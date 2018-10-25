@@ -40,6 +40,8 @@ public class Restaurante implements Serializable {
 	private byte[] imagen;
 
 	@ManyToMany
+	@JoinTable
+	(name="RESTAURANTE_COMIDA", joinColumns = @JoinColumn(name= "idRestaurante"))
 	private List<Comida> comidas;
 	
 	

@@ -116,10 +116,13 @@ public class TestRestauranteRepository {
 		Restaurante res1 = new Restaurante("111", "Ginebra", "ginebra@gmail.com", "123456");
 		resMgr.save(res1);
 		
-		
-
 		Comida c1 = new Comida( "tipo1" );
 		comidaMgr.save(c1);
+		
+		resMgr.insertarComida(res1.getRUT(), c1);
+
+		
+		
 		Comida c2 = new Comida( "tipo2");
 		comidaMgr.save(c2);
 //		Comida c3 = new Comida("nombre3", "tipo1", (float) 4.7, res2);

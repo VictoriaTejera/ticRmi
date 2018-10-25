@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import um.edu.uy.persistance.entidades.Barrio;
+import um.edu.uy.persistance.entidades.Comida;
 import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
 import javafx.collections.FXCollections;
@@ -31,6 +32,10 @@ public class RestauranteMgr {
 		repository.save(res);
 	}
 
+	public void insertarComida(String rut, Comida comida) {
+		repository.insertarComida(rut, comida.getId());
+	}
+	
 	public ObservableList<Restaurante> filtrarPorBarrio(String nombreBarrio) {
 		List<Restaurante> restaurantes = repository.filtrarPorBarrio(nombreBarrio);
 		ObservableList<Restaurante> observ = FXCollections.observableArrayList();

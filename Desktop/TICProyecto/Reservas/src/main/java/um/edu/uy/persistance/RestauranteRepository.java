@@ -1,6 +1,7 @@
 package um.edu.uy.persistance;
 
 import um.edu.uy.persistance.entidades.Barrio;
+import um.edu.uy.persistance.entidades.Comida;
 import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
 
@@ -22,9 +23,10 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Integ
 	@Query("SELECT r FROM Comida c, Restaurante r WHERE c.tipo= :tipoComida")
 	List<Restaurante> filtrarPorComida(@Param("tipoComida") String tipoComida);
 	
-	@Transactional
+//	@Transactional
 	@Modifying
-	@Query(UPDATE Restaurante r SET r.comida= : "tipoComida")
+	@Query("INSERT INTO Restaurante_comida (id_restaurante, comidas_id)  VALUES (:rut, :id_comida)" )
+	public void insertarComida(@Param("rut") String rut, @Param("id_comida") String id_comida);
 	
 	@Query("SELECT r FROM Restaurante r WHERE r.precio_promedio BETWEEN :precioMenor and :precioMayor")
 	List<Restaurante> filtrarPorPrecio(@Param("precioMenor") Float precioMenor, @Param ("precioMayor") Float precioMayor);

@@ -20,9 +20,17 @@ public class Comida {
 	private String tipo;
 	
 	
-	@ManyToMany
+	@ManyToMany(mappedBy ="comidas")
 	private List<Restaurante> restaurante;
 	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public Comida() {}
 
 	public Comida(String tipo) {
