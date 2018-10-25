@@ -26,7 +26,6 @@ public class MainRestaurante extends Application{
 	private FXMLLoader fxmlLoader;
 	private Parent root, root1, root2;
 	
-	
 	@Override
 	public void init() throws IOException  {
 		MainRestaurante.context = SpringApplication.run(MainRestaurante.class);

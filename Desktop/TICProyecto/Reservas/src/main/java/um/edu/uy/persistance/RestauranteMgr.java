@@ -1,6 +1,7 @@
 package um.edu.uy.persistance;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,9 @@ public class RestauranteMgr {
 
 	@Autowired
 	private RestauranteRepository repository;
+	
+	@Autowired
+	private BarrioMgr barrioMgr;
 
 	public ObservableList<Restaurante> getRestaurants() {
 		Iterable<Restaurante> it = repository.findAll();
@@ -69,9 +73,9 @@ public class RestauranteMgr {
 	
 	@Transactional
 	public void cargarDatosRes(String rut, String descripcion, String direccion, String horarioApertura, String horarioCierre, Float precio_promedio, Integer telefono, String barrio) {
-		
-		repository.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precio_promedio, telefono, repository.getResConNombre(barrio).getBarrio());
+		repository.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precio_promedio, telefono, barrioMgr.find(barrio));
 	}
+	
 	public boolean restauranteYaFueCreado(Restaurante res) {
 		boolean creado = true;
 		if (repository.verificarRutRestaurante(res.getRUT()) == null) {
@@ -82,12 +86,20 @@ public class RestauranteMgr {
 	
 	public String getRut(String nombre, String password) {
 		Restaurante res=repository.verificarRestaurante(nombre, password);
+		String rut=null;
 		if(res!=null) {
-			return res.getRUT();
-		}else {
-			return null;
+			rut=res.getRUT();
 		}
-		
+		return rut;
+	}
+	
+	public Restaurante find(String RUT) {
+		Optional<Restaurante> optional = repository.findById(RUT);
+		Restaurante restaurante = null;
+		if(optional.isPresent()) {
+			restaurante=optional.get();
+		}
+		return restaurante;
 	}
 
 }

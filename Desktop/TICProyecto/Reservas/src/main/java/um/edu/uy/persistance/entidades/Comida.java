@@ -15,12 +15,16 @@ import javax.persistence.Table;
 @SuppressWarnings("unused")
 public class Comida {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String id;
 	private String tipo;
 	
+<<<<<<< HEAD
 	
 	@ManyToMany(mappedBy ="comidas")
+=======
+	@ManyToMany
+>>>>>>> branch 'master' of https://github.com/VictoriaTejera/TIC.git
 	private List<Restaurante> restaurante;
 	
 	public String getId() {
