@@ -22,6 +22,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import um.edu.uy.interfaz.cliente.clasesAuxiliares.RestauranteMgrAUX;
 import um.edu.uy.persistance.BarrioMgr;
 import um.edu.uy.persistance.ComidaMgr;
 import um.edu.uy.persistance.RestauranteMgr;
@@ -68,6 +69,9 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     
     @Autowired
 	private RestauranteMgr restaurante;
+    
+//    @Autowired
+//	private RestauranteMgrAUX restauranteAux;
     
     @Autowired
  	private BarrioMgr barrioMgr;

@@ -41,7 +41,6 @@ public class Restaurante implements Serializable {
 	private Float precio_promedio;
 	private String email;
 	private String password;
-//	private ObjectProperty<Button> button;
 
 	@Lob
 	private byte[] imagen;
@@ -71,20 +70,6 @@ public class Restaurante implements Serializable {
 		this.cantRatings = cantRatings;
 		this.descripcion = descripcion;
 		this.barrio = barrio;
-		
-//		this.button = new SimpleObjectProperty<>(new Button("Información"));
-//		this.button.get().setOnAction((event) -> {
-//            // Aqui puedes seleccionar la instancia de usuario que corresponde y cargar la nueva ventana
-//            Restaurante restSeleccionado = this;
-//        });
-
-//		button = new Button("Info");
-//		
-//		button.setOnMouseReleased(new EventHandler() {
-//			public void handle(Event arg0) {
-//				System.out.println(nombre + "," + direccion + "," + telefono);
-//			}
-//		});
 	}
 
 	public Restaurante(String rut, String nombre, String email, String password) {
@@ -94,9 +79,6 @@ public class Restaurante implements Serializable {
 		this.email = email;
 		this.password = password;
 	}
-
-<<<<<<< HEAD
-=======
 	
 	public List<Comida> getComidas() {
 		return comidas;
@@ -110,8 +92,6 @@ public class Restaurante implements Serializable {
 		comidas.add(comida);
 	}
 	
-	
->>>>>>> 9ade773f1a9a5ef37a09a81eaf56bf592896ddee
 	public Restaurante(String nombre, String password) {
 		this.nombre = nombre;
 		this.password = password;
@@ -165,10 +145,6 @@ public class Restaurante implements Serializable {
 	public String getDescripcion() {
 		return descripcion;
 	}
-
-//	public Button getButton() {
-//		return button;
-//	}
 
 	// public void setPrecioMenor(Float precioMenor) {
 	// this.precioMenor = precioMenor;
