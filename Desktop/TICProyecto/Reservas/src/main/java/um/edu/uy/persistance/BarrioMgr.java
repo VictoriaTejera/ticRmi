@@ -1,5 +1,7 @@
 package um.edu.uy.persistance;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +27,15 @@ public class BarrioMgr {
 			lista.add(r.getNombreBarrio());
 		}
 		return lista;
+	}
+	
+	public Barrio find(String nombreBarrio) {
+		List<Barrio> lista=repository.getBarrioByNombre(nombreBarrio);
+		Barrio barrio=null;
+		if(lista.size()==1) {
+			barrio=lista.get(0);
+		}
+		return barrio;
 	}
 	
 	

@@ -15,10 +15,9 @@ import javax.persistence.Table;
 @SuppressWarnings("unused")
 public class Comida {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String id;
 	private String tipo;
-	
 	
 	@ManyToMany
 	private List<Restaurante> restaurante;

@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
 
+
 public class RestauranteMgrAUX {
 	@Autowired
 	RestauranteMgr resMgr;

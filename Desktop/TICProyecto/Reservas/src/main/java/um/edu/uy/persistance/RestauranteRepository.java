@@ -19,13 +19,13 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 	@Query("SELECT r FROM Restaurante r WHERE r.barrio.nombreBarrio= :barrio")
 	List<Restaurante> filtrarPorBarrio(@Param("barrio") String nombreBarrio);
 
-	@Query("SELECT r FROM Comida c, Restaurante r WHERE c.tipo= :tipoComida")
-	List<Restaurante> filtrarPorComida(@Param("tipoComida") String tipoComida);
+//	@Query("SELECT r FROM Comida c, Restaurante r WHERE c.tipo= :tipoComida")
+//	List<Restaurante> filtrarPorComida(@Param("tipoComida") String tipoComida);
 	
-	@Transactional
-	@Modifying
-	@Query(UPDATE Restaurante r SET r.comida= : "tipoComida")
-	
+//	@Transactional
+//	@Modifying
+//	@Query(UPDATE Restaurante r SET r.comida= : "tipoComida")
+//	
 	@Query("SELECT r FROM Restaurante r WHERE r.precio_promedio BETWEEN :precioMenor and :precioMayor")
 	List<Restaurante> filtrarPorPrecio(@Param("precioMenor") Float precioMenor, @Param ("precioMayor") Float precioMayor);
 
@@ -38,7 +38,7 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 	public void cargarDatosRes(@Param("rut") String rut, @Param("descripcion")String descripcion, @Param("direccion")String direccion, @Param("horarioApertura") String horarioApertura, @Param("horarioCierre") String horarioCierre, @Param("precio_promedio") Float precio_promedio, @Param("telefono")Integer telefono, @Param("barrio") Barrio barrio);
 
 	@Query("SELECT r from Restaurante r WHERE nombre= :nombre ")
-	Restaurante getResConNombre(@Param("nombre") String nombre);
+	Restaurante res1	(@Param("nombre") String nombre);
 
 	@Query("SELECT res FROM Restaurante res WHERE res.rut= :rut")
 	Restaurante verificarRutRestaurante(@Param("rut") String rut);

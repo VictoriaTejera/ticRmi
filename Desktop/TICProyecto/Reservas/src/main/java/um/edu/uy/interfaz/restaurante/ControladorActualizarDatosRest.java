@@ -1,5 +1,6 @@
 package um.edu.uy.interfaz.restaurante;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -85,7 +86,7 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware{
     }
     
     @FXML
-    void handleSubmitButtonAction(ActionEvent event) {
+    void handleSubmitButtonAction(ActionEvent event) throws IOException {
     	Stage stage = null;
 		Parent root = null;
 		FXMLLoader fxmlLoader = new FXMLLoader();
@@ -102,6 +103,8 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware{
     			tipoComida=cboxTiposComida.getValue();
     		}
 			resMgr.cargarDatosRes(controller.getRutRest(), txtDescripcion.getText(), txtDireccion.getText(), txtHorarioApertura.getText(), txtHorarioCierre.getText(), Float.parseFloat(txtPrecioPromedio.getText()), Integer.parseInt(txtTelefono.getText()), barrio);
+			stage = (Stage) btnGuardarDatos.getScene().getWindow();
+			root = fxmlLoader.load(ControladorActualizarDatosRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
 		}
 		
 		Scene scene = new Scene(root);

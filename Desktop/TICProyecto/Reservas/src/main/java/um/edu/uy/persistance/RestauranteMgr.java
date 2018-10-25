@@ -18,6 +18,9 @@ public class RestauranteMgr {
 
 	@Autowired
 	private RestauranteRepository repository;
+	
+	@Autowired
+	private BarrioMgr barrioMgr;
 
 	public ObservableList<Restaurante> getRestaurants() {
 		Iterable<Restaurante> it = repository.findAll();
@@ -65,9 +68,9 @@ public class RestauranteMgr {
 	
 	@Transactional
 	public void cargarDatosRes(String rut, String descripcion, String direccion, String horarioApertura, String horarioCierre, Float precio_promedio, Integer telefono, String barrio) {
-		
-		repository.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precio_promedio, telefono, repository.getResConNombre(barrio).getBarrio());
+		repository.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precio_promedio, telefono, barrioMgr.find(barrio));
 	}
+	
 	public boolean restauranteYaFueCreado(Restaurante res) {
 		boolean creado = true;
 		if (repository.verificarRutRestaurante(res.getRUT()) == null) {

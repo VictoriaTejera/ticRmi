@@ -42,8 +42,6 @@ public class Restaurante implements Serializable {
 	@ManyToMany
 	private List<Comida> comidas;
 	
-	
-	
 	@ManyToOne
 	private Barrio barrio;
 	
