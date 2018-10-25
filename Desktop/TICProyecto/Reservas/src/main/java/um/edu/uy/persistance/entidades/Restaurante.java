@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -45,8 +46,18 @@ public class Restaurante implements Serializable {
 	@Lob
 	private byte[] imagen;
 
+	@ManyToMany
+	private List<Comida> comidas;
+	
+	
+	
 	@ManyToOne
 	private Barrio barrio;
+	
+	@OneToMany
+	@JoinTable(name="Restaurante_Mesa", joinColumns = @JoinColumn(name="Restaurante_RUT"))
+	@Cascade(CascadeType.ALL)
+	private List<Mesa> mesas;
 
 	public Restaurante(String nombre, String horarioApertura, String horarioCierre, String direccion, Integer telefono,
 			Float rating, Integer cantRatings, String descripcion, Barrio barrio) {
@@ -84,6 +95,23 @@ public class Restaurante implements Serializable {
 		this.password = password;
 	}
 
+<<<<<<< HEAD
+=======
+	
+	public List<Comida> getComidas() {
+		return comidas;
+	}
+
+	public void setComida(List<Comida> comida) {
+		this.comidas = comida;
+	}
+
+	public void agregarComida(Comida comida) {
+		comidas.add(comida);
+	}
+	
+	
+>>>>>>> 9ade773f1a9a5ef37a09a81eaf56bf592896ddee
 	public Restaurante(String nombre, String password) {
 		this.nombre = nombre;
 		this.password = password;
@@ -186,5 +214,15 @@ public class Restaurante implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public Float getPrecio_promedio() {
+		return precio_promedio;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+	
+	
 
 }
