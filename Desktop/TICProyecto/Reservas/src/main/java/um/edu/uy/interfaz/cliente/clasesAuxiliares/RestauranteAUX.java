@@ -6,6 +6,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import javafx.collections.ObservableList;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import um.edu.uy.persistance.entidades.Barrio;
 import um.edu.uy.persistance.entidades.Comida;
@@ -27,6 +29,8 @@ public class RestauranteAUX {
 	private byte[] imagen;
 	private List<Comida> comidas;
 	private Barrio barrio;
+	
+//	private ObjectProperty<Button> button;
 	
 	private Button button;
 	
@@ -50,7 +54,26 @@ public class RestauranteAUX {
 		this.imagen=res.getImagen();
 		this.comidas=res.getComidas();
 		this.barrio=res.getBarrio();
-		this.button=null;
+		this.button= new Button("Info");
+		
+		
+//		this.button = new SimpleObjectProperty<>(new Button("Información"));
+//		this.button.get().setOnAction((event) -> {
+//            // Aqui puedes seleccionar la instancia de usuario que corresponde y cargar la nueva ventana
+//            Restaurante restSeleccionado = this;
+//        });
+
+//		button = new Button("Info");
+//		
+		button.setOnMouseClicked(new EventHandler() {
+			public void handle(Event arg0) {
+				System.out.println(nombre + "," + direccion + "," + telefono);
+			}
+		});
+	}
+	
+	public Button getButton() {
+	return button;
 	}
 
 }
