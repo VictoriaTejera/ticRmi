@@ -15,6 +15,12 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
+
 import javax.persistence.JoinColumn;
 
 @Entity
@@ -34,18 +40,19 @@ public class Restaurante implements Serializable {
 	private Float precio_promedio;
 	private String email;
 	private String password;
-	
+//	private ObjectProperty<Button> button;
+
 	@Lob
 	private byte[] imagen;
 
 	@ManyToOne
 	private Barrio barrio;
 
-	public Restaurante(String nombre, String horarioApertura, String horarioCierre, String direccion, Integer telefono, Float rating,
-			Integer cantRatings, String descripcion, Barrio barrio) {
+	public Restaurante(String nombre, String horarioApertura, String horarioCierre, String direccion, Integer telefono,
+			Float rating, Integer cantRatings, String descripcion, Barrio barrio) {
 		super();
 		this.nombre = nombre;
-		this.horarioCierre=horarioCierre;
+		this.horarioCierre = horarioCierre;
 		this.horarioApertura = horarioApertura;
 		this.direccion = direccion;
 		this.telefono = telefono;
@@ -53,6 +60,20 @@ public class Restaurante implements Serializable {
 		this.cantRatings = cantRatings;
 		this.descripcion = descripcion;
 		this.barrio = barrio;
+		
+//		this.button = new SimpleObjectProperty<>(new Button("Información"));
+//		this.button.get().setOnAction((event) -> {
+//            // Aqui puedes seleccionar la instancia de usuario que corresponde y cargar la nueva ventana
+//            Restaurante restSeleccionado = this;
+//        });
+
+//		button = new Button("Info");
+//		
+//		button.setOnMouseReleased(new EventHandler() {
+//			public void handle(Event arg0) {
+//				System.out.println(nombre + "," + direccion + "," + telefono);
+//			}
+//		});
 	}
 
 	public Restaurante(String rut, String nombre, String email, String password) {
@@ -63,18 +84,15 @@ public class Restaurante implements Serializable {
 		this.password = password;
 	}
 
-	
 	public Restaurante(String nombre, String password) {
 		this.nombre = nombre;
 		this.password = password;
 	}
-	
+
 	public String getRUT() {
 
 		return rut;
 	}
-
-
 
 	public void setRut(String rut) {
 		rut = rut;
@@ -95,6 +113,7 @@ public class Restaurante implements Serializable {
 	public String getHorarioAperura() {
 		return horarioApertura;
 	}
+
 	public String getHorarioCierre() {
 		return horarioCierre;
 	}
@@ -118,31 +137,32 @@ public class Restaurante implements Serializable {
 	public String getDescripcion() {
 		return descripcion;
 	}
-	
-	
-	
-//	public void setPrecioMenor(Float precioMenor) {
-//		this.precioMenor = precioMenor;
-//	}
-//
-//	public Float getPrecioMayor() {
-//		return precioMayor;
-//	}
-//	public Float getPrecioMenor() {
-//		return precioMenor;
-//	}
-//	
-//	public void setPrecioMayor(Float precioMayor) {
-//		this.precioMayor = precioMayor;
-//	}
-//	public List<Comida> getMenu() {
-//		return menu;
-//	}
-//
-//	public void setMenu(List<Comida> menu) {
-//		this.menu = menu;
+
+//	public Button getButton() {
+//		return button;
 //	}
 
+	// public void setPrecioMenor(Float precioMenor) {
+	// this.precioMenor = precioMenor;
+	// }
+	//
+	// public Float getPrecioMayor() {
+	// return precioMayor;
+	// }
+	// public Float getPrecioMenor() {
+	// return precioMenor;
+	// }
+	//
+	// public void setPrecioMayor(Float precioMayor) {
+	// this.precioMayor = precioMayor;
+	// }
+	// public List<Comida> getMenu() {
+	// return menu;
+	// }
+	//
+	// public void setMenu(List<Comida> menu) {
+	// this.menu = menu;
+	// }
 
 	public byte[] getImagen() {
 		return imagen;
@@ -154,9 +174,9 @@ public class Restaurante implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Restaurante [nombre=" + nombre + ", horarioApertura=" + horarioApertura + ", direccion=" + direccion + ", telefono="
-				+ telefono + ", rating=" + rating + ", cantRatings=" + cantRatings + ", descripcion=" + descripcion
-				+ ", barrio=" + barrio + "]";
+		return "Restaurante [nombre=" + nombre + ", horarioApertura=" + horarioApertura + ", direccion=" + direccion
+				+ ", telefono=" + telefono + ", rating=" + rating + ", cantRatings=" + cantRatings + ", descripcion="
+				+ descripcion + ", barrio=" + barrio + "]";
 	}
 
 	public String getPassword() {
