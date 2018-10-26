@@ -21,13 +21,12 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 	List<Restaurante> filtrarPorBarrio(@Param("barrio") String nombreBarrio);
 
 //	@Query("SELECT r FROM Comida c, Restaurante r WHERE c.tipo= :tipoComida")
-//	List<Restaurante> filtrarPorComida(@Param("tipoComida") String tipoComida);
-	
-//	@Transactional
+//	List<Restaurante> filtrarPorComida(@Param("tipoComida") String tipoComida);	
 
-//	@Modifying
-//	@Query("INSERT INTO Restaurante_comida (id_restaurante, comidas_id)  VALUES (:rut, :id_comida)" )
-//	public void insertarComida(@Param("rut") String rut, @Param("id_comida") String id_comida);
+	@Modifying
+	@Query(value="INSERT INTO restaurante_comida (id_restaurante, id_comida)  VALUES (:rut, :id_comida)", nativeQuery=true)
+	@Transactional
+	public void insertarComida(@Param("rut") String rut, @Param("id_comida") String id_comida);
 	
 
 //	@Modifying

@@ -19,8 +19,8 @@ public class Comida {
 	private String id;
 	private String tipo;
 
-	@ManyToMany
-	private List<Restaurante> restaurante;
+//	@ManyToMany
+//	private List<Restaurante> restaurante;
 	
 	public String getId() {
 		return id;
@@ -63,13 +63,13 @@ public class Comida {
 
 
 
-	public List<Restaurante> getRestaurante() {
-		return restaurante;
-	}
-
-	public void setRestaurante(List<Restaurante> restaurante) {
-		this.restaurante = restaurante;
-	}
+//	public List<Restaurante> getRestaurante() {
+//		return restaurante;
+//	}
+//
+//	public void setRestaurante(List<Restaurante> restaurante) {
+//		this.restaurante = restaurante;
+//	}
 
 
 

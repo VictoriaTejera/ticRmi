@@ -37,7 +37,7 @@ public class RestauranteMgr {
 	}
 
 	public void insertarComida(String rut, Comida comida) {
-//		repository.insertarComida(rut, comida.getId());
+		repository.insertarComida(rut, comida.getId());
 	}
 	
 	public ObservableList<Restaurante> filtrarPorBarrio(String nombreBarrio) {

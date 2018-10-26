@@ -47,7 +47,7 @@ public class Restaurante implements Serializable {
 
 	@ManyToMany
 	@JoinTable
-	(name="RESTAURANTE_COMIDA", joinColumns = @JoinColumn(name= "idRestaurante"))
+	(name="RESTAURANTE_COMIDA", joinColumns = {@JoinColumn(name= "idRestaurante")}, inverseJoinColumns = {@JoinColumn(name="idComida")})
 	private List<Comida> comidas;
 	
 	@ManyToOne
