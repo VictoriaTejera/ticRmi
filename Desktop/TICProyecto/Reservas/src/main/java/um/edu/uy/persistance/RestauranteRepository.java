@@ -25,9 +25,9 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 	
 //	@Transactional
 
-	@Modifying
-	@Query("INSERT INTO Restaurante_comida (id_restaurante, comidas_id)  VALUES (:rut, :id_comida)" )
-	public void insertarComida(@Param("rut") String rut, @Param("id_comida") String id_comida);
+//	@Modifying
+//	@Query("INSERT INTO Restaurante_comida (id_restaurante, comidas_id)  VALUES (:rut, :id_comida)" )
+//	public void insertarComida(@Param("rut") String rut, @Param("id_comida") String id_comida);
 	
 
 //	@Modifying
@@ -42,8 +42,13 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 
 	@Transactional
 	@Modifying
-	@Query("UPDATE Restaurante r SET r.descripcion= :descripcion, r.direccion= :direccion, r.horarioApertura= :horarioApertura, r.horarioCierre= :horarioCierre, r.precio_promedio= :precio_promedio, r.telefono= :telefono, r.barrio= :barrio WHERE r.rut= :rut")
-	public void cargarDatosRes(@Param("rut") String rut, @Param("descripcion")String descripcion, @Param("direccion")String direccion, @Param("horarioApertura") String horarioApertura, @Param("horarioCierre") String horarioCierre, @Param("precio_promedio") Float precio_promedio, @Param("telefono")Integer telefono, @Param("barrio") Barrio barrio);
+	@Query("UPDATE Restaurante r SET r.descripcion= :descripcion, r.direccion= :direccion, r.horarioApertura= :horarioApertura, "
+			+ "r.horarioCierre= :horarioCierre, r.precio_promedio= :precio_promedio, r.telefono= :telefono, r.barrio= :barrio, "
+			+ "r.imagen= :imagen WHERE r.rut= :rut")
+	public void cargarDatosRes(@Param("rut") String rut, @Param("descripcion")String descripcion, @Param("direccion")String direccion, 
+			@Param("horarioApertura") String horarioApertura, @Param("horarioCierre") String horarioCierre, 
+			@Param("precio_promedio") Float precio_promedio, @Param("telefono")Integer telefono, @Param("barrio") Barrio barrio,
+			@Param("imagen") byte[] imagen);
 
 	@Query("SELECT r from Restaurante r WHERE nombre= :nombre ")
 	Restaurante res1	(@Param("nombre") String nombre);

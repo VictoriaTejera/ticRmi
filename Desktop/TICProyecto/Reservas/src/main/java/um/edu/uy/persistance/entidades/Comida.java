@@ -18,13 +18,8 @@ public class Comida {
 //	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String id;
 	private String tipo;
-	
-<<<<<<< HEAD
-	
-	@ManyToMany(mappedBy ="comidas")
-=======
+
 	@ManyToMany
->>>>>>> branch 'master' of https://github.com/VictoriaTejera/TIC.git
 	private List<Restaurante> restaurante;
 	
 	public String getId() {
