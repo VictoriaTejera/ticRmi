@@ -1,11 +1,14 @@
 package um.edu.uy.persistance;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import um.edu.uy.persistance.entidades.Barrio;
+import um.edu.uy.persistance.entidades.Comida;
 import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
 import javafx.collections.FXCollections;
@@ -16,6 +19,9 @@ public class RestauranteMgr {
 
 	@Autowired
 	private RestauranteRepository repository;
+	
+	@Autowired
+	private BarrioMgr barrioMgr;
 
 	public ObservableList<Restaurante> getRestaurants() {
 		Iterable<Restaurante> it = repository.findAll();
@@ -30,6 +36,10 @@ public class RestauranteMgr {
 		repository.save(res);
 	}
 
+	public void insertarComida(String rut, Comida comida) {
+		repository.insertarComida(rut, comida.getId());
+	}
+	
 	public ObservableList<Restaurante> filtrarPorBarrio(String nombreBarrio) {
 		List<Restaurante> restaurantes = repository.filtrarPorBarrio(nombreBarrio);
 		ObservableList<Restaurante> observ = FXCollections.observableArrayList();
@@ -40,12 +50,13 @@ public class RestauranteMgr {
 	}
 
 	public ObservableList<Restaurante> filtrarPorComida(String tipoComida) {
-		List<Restaurante> restaurantes = repository.filtrarPorComida(tipoComida);
-		ObservableList<Restaurante> observ = FXCollections.observableArrayList();
-		for (int i = 0; i < restaurantes.size(); i++) {
-			observ.add(restaurantes.get(i));
-		}
-		return observ;
+//		List<Restaurante> restaurantes = repository.filtrarPorComida(tipoComida);
+//		ObservableList<Restaurante> observ = FXCollections.observableArrayList();
+//		for (int i = 0; i < restaurantes.size(); i++) {
+//			observ.add(restaurantes.get(i));
+//		}
+//		return observ;
+		return null;
 	}
 	
 	public List<Restaurante> filtrarPorPrecio(Float precioMenor, Float precioMayor){
@@ -62,15 +73,36 @@ public class RestauranteMgr {
 	}
 	
 	@Transactional
-	public void cargarDatosRes(String rut, String descripcion, String direccion, String horarioApertura, String horarioCierre, Float precio_promedio, Integer telefono) {
-		repository.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precio_promedio, telefono);
+	public void cargarDatosRes(String rut, String descripcion, String direccion, String horarioApertura, String horarioCierre, 
+			Float precio_promedio, Integer telefono, String barrio, byte[] imagen) {
+		repository.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precio_promedio, telefono, 
+				barrioMgr.find(barrio), imagen);
 	}
+	
 	public boolean restauranteYaFueCreado(Restaurante res) {
 		boolean creado = true;
 		if (repository.verificarRutRestaurante(res.getRUT()) == null) {
 			creado = false;
 		}
 		return creado;
+	}
+	
+	public String getRut(String nombre, String password) {
+		Restaurante res=repository.verificarRestaurante(nombre, password);
+		String rut=null;
+		if(res!=null) {
+			rut=res.getRUT();
+		}
+		return rut;
+	}
+	
+	public Restaurante find(String RUT) {
+		Optional<Restaurante> optional = repository.findById(RUT);
+		Restaurante restaurante = null;
+		if(optional.isPresent()) {
+			restaurante=optional.get();
+		}
+		return restaurante;
 	}
 
 }

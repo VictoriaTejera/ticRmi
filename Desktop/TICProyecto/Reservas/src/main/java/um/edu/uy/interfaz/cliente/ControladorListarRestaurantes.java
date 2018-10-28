@@ -17,10 +17,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import um.edu.uy.interfaz.cliente.clasesAuxiliares.RestauranteMgrAUX;
 import um.edu.uy.persistance.BarrioMgr;
 import um.edu.uy.persistance.ComidaMgr;
 import um.edu.uy.persistance.RestauranteMgr;
@@ -55,6 +57,9 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 
     @FXML
     private TableColumn<Restaurante, Integer> columnaTelefono;
+    
+    @FXML
+    private TableColumn<Restaurante, String> columnaInfo;
 
     @FXML
     private TableView<Restaurante> tabla;
@@ -65,6 +70,9 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     @Autowired
 	private RestauranteMgr restaurante;
     
+//    @Autowired
+//	private RestauranteMgrAUX restauranteAux;
+    
     @Autowired
  	private BarrioMgr barrioMgr;
     
@@ -73,12 +81,31 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     
     ApplicationContext applicationContext;
     
+    @FXML
+    private TableColumn<Restaurante, String> colDireccion;
+
+    @FXML
+    private TableColumn<Restaurante, String> colHorario;
+
+    @FXML
+    private TableColumn<Restaurante, Float> colRating;
+
+    @FXML
+    private TableColumn<Restaurante, Integer> colTel;
+
+    @FXML
+    private Label descripciónRest;
+
+    @FXML
+    private Label nombreRest;
+    
     
 
     public void llenarTabla() {
     	columnaNombre.setCellValueFactory(new PropertyValueFactory<Restaurante,String>("nombre"));
     	columnaDireccion.setCellValueFactory(new PropertyValueFactory<Restaurante,String>("direccion"));
     	columnaTelefono.setCellValueFactory(new PropertyValueFactory<Restaurante,Integer>("telefono"));
+//    	columnaInfo.setCellValueFactory(new PropertyValueFactory<Restaurante, String>("button"));
     	tabla.setItems(restaurante.getRestaurants());
     }
     
@@ -107,6 +134,24 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     		}
     	}
     }
+    
+//    @FXML
+//    void seleccionarRestaurante(){
+//    	tabla.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+//    	    if (newSelection != null) {
+//    	        Restaurante res = tabla.getSelectionModel().getSelectedItem();
+//    	    }
+//    	});
+//    }
+    
+//    @FXML
+//    void mostrarRestaurante(ActionEvent event) {
+//    	Stage stage = null;
+//		Parent root = null;
+//		FXMLLoader fxmlLoader = new FXMLLoader();
+//		stage = new Stage();
+//		fxmlLoader.setControllerFactory(applicationContext::getBean);
+//    }
     
     @FXML
     void volverAlMenu(ActionEvent event) throws IOException {

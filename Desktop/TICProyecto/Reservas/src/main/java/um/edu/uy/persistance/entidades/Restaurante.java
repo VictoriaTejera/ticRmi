@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
+import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -13,6 +15,12 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 
 import javax.persistence.JoinColumn;
 
@@ -33,25 +41,28 @@ public class Restaurante implements Serializable {
 	private Float precio_promedio;
 	private String email;
 	private String password;
-//	private Float precioMenor=(float)1000000.0;
-//	private Float precioMayor=(float)0.0;
 
+	@Lob
+	private byte[] imagen;
+
+	@ManyToMany
+	@JoinTable
+	(name="RESTAURANTE_COMIDA", joinColumns = {@JoinColumn(name= "idRestaurante")}, inverseJoinColumns = {@JoinColumn(name="idComida")})
+	private List<Comida> comidas;
+	
 	@ManyToOne
 	private Barrio barrio;
+	
+	@OneToMany
+	@JoinTable(name="Restaurante_Mesa", joinColumns = @JoinColumn(name="Restaurante_RUT"))
+	@Cascade(CascadeType.ALL)
+	private List<Mesa> mesas;
 
-	// @OneToMany
-	// @JoinTable(name="RESTAURANTE_COMIDA", joinColumns =
-	// @JoinColumn(name="nombre"))
-	// @Cascade(CascadeType.ALL)
-	// private List<Comida> menu;
-
-	// foto que tipo de datos es??
-
-	public Restaurante(String nombre, String horarioApertura, String horarioCierre, String direccion, Integer telefono, Float rating,
-			Integer cantRatings, String descripcion, Barrio barrio) {
+	public Restaurante(String nombre, String horarioApertura, String horarioCierre, String direccion, Integer telefono,
+			Float rating, Integer cantRatings, String descripcion, Barrio barrio) {
 		super();
 		this.nombre = nombre;
-		this.horarioCierre=horarioCierre;
+		this.horarioCierre = horarioCierre;
 		this.horarioApertura = horarioApertura;
 		this.direccion = direccion;
 		this.telefono = telefono;
@@ -68,19 +79,28 @@ public class Restaurante implements Serializable {
 		this.email = email;
 		this.password = password;
 	}
+	
+	public List<Comida> getComidas() {
+		return comidas;
+	}
 
+	public void setComida(List<Comida> comida) {
+		this.comidas = comida;
+	}
+
+	public void agregarComida(Comida comida) {
+		comidas.add(comida);
+	}
 	
 	public Restaurante(String nombre, String password) {
 		this.nombre = nombre;
 		this.password = password;
 	}
-	
+
 	public String getRUT() {
 
 		return rut;
 	}
-
-
 
 	public void setRut(String rut) {
 		rut = rut;
@@ -101,6 +121,7 @@ public class Restaurante implements Serializable {
 	public String getHorarioAperura() {
 		return horarioApertura;
 	}
+
 	public String getHorarioCierre() {
 		return horarioCierre;
 	}
@@ -124,35 +145,42 @@ public class Restaurante implements Serializable {
 	public String getDescripcion() {
 		return descripcion;
 	}
-	
-//	public void setPrecioMenor(Float precioMenor) {
-//		this.precioMenor = precioMenor;
-//	}
-//
-//	public Float getPrecioMayor() {
-//		return precioMayor;
-//	}
-//	public Float getPrecioMenor() {
-//		return precioMenor;
-//	}
-//	
-//	public void setPrecioMayor(Float precioMayor) {
-//		this.precioMayor = precioMayor;
-//	}
-//	public List<Comida> getMenu() {
-//		return menu;
-//	}
-//
-//	public void setMenu(List<Comida> menu) {
-//		this.menu = menu;
-//	}
 
+	// public void setPrecioMenor(Float precioMenor) {
+	// this.precioMenor = precioMenor;
+	// }
+	//
+	// public Float getPrecioMayor() {
+	// return precioMayor;
+	// }
+	// public Float getPrecioMenor() {
+	// return precioMenor;
+	// }
+	//
+	// public void setPrecioMayor(Float precioMayor) {
+	// this.precioMayor = precioMayor;
+	// }
+	// public List<Comida> getMenu() {
+	// return menu;
+	// }
+	//
+	// public void setMenu(List<Comida> menu) {
+	// this.menu = menu;
+	// }
+
+	public byte[] getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(byte[] imagen) {
+		this.imagen = imagen;
+	}
 
 	@Override
 	public String toString() {
-		return "Restaurante [nombre=" + nombre + ", horarioApertura=" + horarioApertura + ", direccion=" + direccion + ", telefono="
-				+ telefono + ", rating=" + rating + ", cantRatings=" + cantRatings + ", descripcion=" + descripcion
-				+ ", barrio=" + barrio + "]";
+		return "Restaurante [nombre=" + nombre + ", horarioApertura=" + horarioApertura + ", direccion=" + direccion
+				+ ", telefono=" + telefono + ", rating=" + rating + ", cantRatings=" + cantRatings + ", descripcion="
+				+ descripcion + ", barrio=" + barrio + "]";
 	}
 
 	public String getPassword() {
@@ -162,5 +190,15 @@ public class Restaurante implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public Float getPrecio_promedio() {
+		return precio_promedio;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+	
+	
 
 }

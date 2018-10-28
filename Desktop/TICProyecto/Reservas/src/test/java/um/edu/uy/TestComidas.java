@@ -21,7 +21,7 @@ public class TestComidas {
 
 	@Test
 	public void testGetComidas() {
-		Comida comida = new Comida("nombre2", "tipo", (float)12);
+		Comida comida = new Comida("tipo");
 		comidaMgr.save(comida);
 		ObservableList<String> lista = comidaMgr.getComidas();
 		System.out.println("Empiezo a imprimir test ---------------------------------------------------");

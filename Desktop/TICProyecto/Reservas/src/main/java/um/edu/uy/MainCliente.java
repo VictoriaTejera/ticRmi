@@ -73,7 +73,7 @@ public class MainCliente extends Application {
 		root4 = fxmlLoader4.load(ControladorRegistro.class.getResourceAsStream("ListarRestaurantes.fxml"));
 		scene4 = new Scene(root4);
 
-		scene.getStylesheets().add(ControladorRegistro.class.getResource("application.css").toExternalForm());
+		scene.getStylesheets().add("application.css");
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
