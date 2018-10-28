@@ -5,102 +5,109 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="519.0" prefWidth="702.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorListarRestaurantes">
-  <!-- TODO Add Nodes -->
-  <children>
-    <BorderPane prefHeight="518.9999000000025" prefWidth="702.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<BorderPane prefHeight="592.0" prefWidth="849.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorListarRestaurantes">
+  <bottom>
+    <Button fx:id="btnVolverAlMenu" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="31.0" prefWidth="90.99990000000253" text="Volver" BorderPane.alignment="BOTTOM_RIGHT">
+      <font>
+        <Font name="Calisto MT" size="15.0" />
+      </font>
+      <textFill>
+        <Color blue="0.000" green="0.144" red="0.600" fx:id="x1" />
+      </textFill>
+    </Button>
+  </bottom>
+  <center>
+    <TableView fx:id="tabla" prefHeight="463.0" prefWidth="465.0">
+      <columns>
+        <TableColumn prefWidth="75.0" text="Nombre" fx:id="columnaNombre" />
+        <TableColumn prefWidth="75.0" text="Dirección " fx:id="columnaDireccion" />
+        <TableColumn prefWidth="75.0" text="Teléfono" fx:id="columnaTelefono" />
+        <TableColumn prefWidth="75.0" text="Información" fx:id="columnaInfo" />
+        <TableColumn prefWidth="75.0" text="" />
+      </columns>
+    </TableView>
+  </center>
+  <left>
+    <BorderPane prefHeight="473.0" prefWidth="246.0">
       <bottom>
-        <Button fx:id="btnVolverAlMenu" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="31.0" prefWidth="90.99990000000253" text="Volver" BorderPane.alignment="BOTTOM_RIGHT" />
+        <AnchorPane prefHeight="46.0" prefWidth="151.0">
+          <children>
+            <Button fx:id="btnBuscar" mnemonicParsing="false" onAction="#ListarRestaurantes" prefHeight="200.0" prefWidth="151.0" text="Buscar" textFill="$x1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <font>
+                <Font name="Calisto MT" size="17.0" />
+              </font>
+            </Button>
+          </children>
+        </AnchorPane>
       </bottom>
       <center>
-        <TableView fx:id="tabla" prefHeight="200.0" prefWidth="333.0">
-          <columns>
-            <TableColumn prefWidth="75.0" text="Nombre" fx:id="columnaNombre" />
-            <TableColumn prefWidth="75.0" text="Dirección " fx:id="columnaDireccion" />
-            <TableColumn prefWidth="75.0" text="Teléfono" fx:id="columnaTelefono" />
-            <TableColumn prefWidth="75.0" text="Información" fx:id="columnaInfo" />
-            <TableColumn prefWidth="75.0" text="" />
-          </columns>
-        </TableView>
-      </center>
-      <left>
-        <BorderPane prefHeight="473.0" prefWidth="246.0">
-          <bottom>
-            <AnchorPane prefHeight="46.0" prefWidth="151.0">
+        <ScrollPane hbarPolicy="NEVER" prefHeight="431.0" prefWidth="156.0">
+          <content>
+            <GridPane prefHeight="318.0" prefWidth="187.0">
               <children>
-                <Button fx:id="btnBuscar" mnemonicParsing="false" onAction="#ListarRestaurantes" prefHeight="200.0" prefWidth="151.0" text="Buscar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                <Label text="Precio" textFill="$x1" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                <ComboBox fx:id="cboxPrecio" onAction="#filtroPrecio" prefHeight="21.0" prefWidth="73.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <Label text="Barrio" textFill="$x1" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                <ComboBox fx:id="cboxBarrio" onAction="#filtroBarrio" prefHeight="21.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <Label alignment="CENTER" text="Comida" textAlignment="CENTER" textFill="$x1" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+                <ComboBox fx:id="cboxComida" onAction="#filtroComida" prefHeight="21.0" prefWidth="73.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
               </children>
-            </AnchorPane>
-          </bottom>
-          <center>
-            <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
-              <content>
-                <GridPane prefHeight="330.0" prefWidth="221.0">
-                  <children>
-                    <Label text="Precio" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                    <ComboBox fx:id="cboxPrecio" onAction="#filtroPrecio" prefHeight="21.0" prefWidth="73.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-                      <items>
-                        <FXCollections fx:factory="observableArrayList">
-                          <String fx:value="Item 1" />
-                          <String fx:value="Item 2" />
-                          <String fx:value="Item 3" />
-                        </FXCollections>
-                      </items>
-                    </ComboBox>
-                    <Label text="Barrio" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                    <ComboBox fx:id="cboxBarrio" onAction="#filtroBarrio" prefHeight="21.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                      <items>
-                        <FXCollections fx:factory="observableArrayList">
-                          <String fx:value="Item 1" />
-                          <String fx:value="Item 2" />
-                          <String fx:value="Item 3" />
-                        </FXCollections>
-                      </items>
-                    </ComboBox>
-                    <Label alignment="CENTER" text="Comida" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-                    <ComboBox fx:id="cboxComida" onAction="#filtroComida" prefHeight="21.0" prefWidth="73.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0">
-                      <items>
-                        <FXCollections fx:factory="observableArrayList">
-                          <String fx:value="Item 1" />
-                          <String fx:value="Item 2" />
-                          <String fx:value="Item 3" />
-                        </FXCollections>
-                      </items>
-                    </ComboBox>
-                  </children>
-                  <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  </columnConstraints>
-                  <rowConstraints>
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  </rowConstraints>
-                </GridPane>
-              </content>
-            </ScrollPane>
-          </center>
-          <top>
-            <Label prefHeight="38.0" prefWidth="229.0" text="Seleccione los filtros que desea realizar" BorderPane.alignment="CENTER">
-              <font>
-                <Font name="System Bold" size="12.0" />
-              </font>
-            </Label>
-          </top>
-        </BorderPane>
-      </left>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+          </content>
+        </ScrollPane>
+      </center>
       <top>
-        <Label prefHeight="46.0" text="Restaurantes" BorderPane.alignment="CENTER">
+        <Label prefHeight="38.0" prefWidth="229.0" text="Seleccione los filtros que desea realizar" textFill="#661800" BorderPane.alignment="CENTER">
           <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="12.0" />
           </font>
         </Label>
       </top>
     </BorderPane>
-  </children>
-</AnchorPane>
+  </left>
+  <top>
+    <Label prefHeight="46.0" prefWidth="156.0" text="Restaurantes" textFill="$x1" BorderPane.alignment="CENTER">
+      <font>
+        <Font name="Calisto MT" size="20.0" />
+      </font>
+    </Label>
+  </top>
+</BorderPane>

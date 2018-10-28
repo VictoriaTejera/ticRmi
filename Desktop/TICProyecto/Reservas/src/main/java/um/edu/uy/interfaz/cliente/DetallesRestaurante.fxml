@@ -4,6 +4,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="355.0" prefWidth="380.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.ControladorListarRestaurantes">
   <!-- TODO Add Nodes -->
@@ -12,7 +14,11 @@
       <bottom>
         <HBox prefHeight="65.0" prefWidth="380.0">
           <children>
-            <Label alignment="CENTER" prefHeight="51.0" prefWidth="97.0" text="Descripción:" />
+            <Label alignment="CENTER" prefHeight="51.0" prefWidth="97.0" text="Descripción:">
+              <textFill>
+                <Color blue="0.000" green="0.144" red="0.600" fx:id="x1" />
+              </textFill>
+            </Label>
             <Label id="Descripción" fx:id="descripciónRest" alignment="CENTER_LEFT" prefHeight="51.0" prefWidth="269.0" text="" />
           </children>
         </HBox>
@@ -28,7 +34,11 @@
         </TableView>
       </center>
       <top>
-        <Label fx:id="nombreRest" alignment="CENTER" prefHeight="31.0" prefWidth="52.0" text="" BorderPane.alignment="CENTER" />
+        <Label fx:id="nombreRest" alignment="CENTER" prefHeight="31.0" prefWidth="166.0" text="Lo que necesitas saber..." textFill="$x1" BorderPane.alignment="CENTER">
+          <font>
+            <Font name="Calisto MT" size="15.0" />
+          </font>
+        </Label>
       </top>
     </BorderPane>
   </children>
