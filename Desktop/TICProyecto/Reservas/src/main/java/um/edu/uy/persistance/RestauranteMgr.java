@@ -50,12 +50,13 @@ public class RestauranteMgr {
 	}
 
 	public ObservableList<Restaurante> filtrarPorComida(String tipoComida) {
-		List<Restaurante> restaurantes = repository.filtrarPorComida(tipoComida);
-		ObservableList<Restaurante> observ = FXCollections.observableArrayList();
-		for (int i = 0; i < restaurantes.size(); i++) {
-			observ.add(restaurantes.get(i));
-		}
-		return observ;
+//		List<Restaurante> restaurantes = repository.filtrarPorComida(tipoComida);
+//		ObservableList<Restaurante> observ = FXCollections.observableArrayList();
+//		for (int i = 0; i < restaurantes.size(); i++) {
+//			observ.add(restaurantes.get(i));
+//		}
+//		return observ;
+		return null;
 	}
 	
 	public List<Restaurante> filtrarPorPrecio(Float precioMenor, Float precioMayor){
@@ -72,8 +73,10 @@ public class RestauranteMgr {
 	}
 	
 	@Transactional
-	public void cargarDatosRes(String rut, String descripcion, String direccion, String horarioApertura, String horarioCierre, Float precio_promedio, Integer telefono, String barrio) {
-		repository.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precio_promedio, telefono, barrioMgr.find(barrio));
+	public void cargarDatosRes(String rut, String descripcion, String direccion, String horarioApertura, String horarioCierre, 
+			Float precio_promedio, Integer telefono, String barrio, byte[] imagen) {
+		repository.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precio_promedio, telefono, 
+				barrioMgr.find(barrio), imagen);
 	}
 	
 	public boolean restauranteYaFueCreado(Restaurante res) {
