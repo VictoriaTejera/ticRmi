@@ -74,7 +74,4 @@
       </center>
     </BorderPane>
   </children>
-  <!--   <stylesheets> -->
-  <!--     <URL value="@style.css" /> -->
-  <!--   </stylesheets> -->
 </AnchorPane>

@@ -56,7 +56,6 @@ public class ControladorInicio implements ApplicationContextAware {
 			stage = (Stage) btnIniciarSesion.getScene().getWindow();
 		}
 		stage.setScene(new Scene(root));
-		stage.getScene().getStylesheets().add("application.css");
 		stage.show();
 	}
 

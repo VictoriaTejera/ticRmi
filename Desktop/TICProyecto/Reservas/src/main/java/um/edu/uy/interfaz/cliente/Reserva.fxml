@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="331.0" prefWidth="424.9999000000025" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorReservar">
+  <!-- TODO Add Nodes -->
+  <children>
+    <VBox layoutX="6.0" layoutY="0.0" prefHeight="331.0" prefWidth="74.0">
+      <children>
+        <Label prefHeight="41.0" prefWidth="43.0" text="R">
+          <font>
+            <Font name="System Bold Italic" size="25.0" fx:id="x1" />
+          </font>
+          <textFill>
+            <Color blue="0.000" green="0.096" red="0.400" fx:id="x3" />
+          </textFill>
+        </Label>
+        <Label font="$x1" prefHeight="41.0" prefWidth="43.0" text="E">
+          <textFill>
+            <Color blue="0.000" green="0.094" red="0.400" fx:id="x2" />
+          </textFill>
+        </Label>
+        <Label font="$x1" prefHeight="41.0" prefWidth="43.0" text="S" textFill="$x2" />
+        <Label font="$x1" prefHeight="41.0" prefWidth="43.0" text="E" textFill="$x2" />
+        <Label font="$x1" prefHeight="41.0" prefWidth="43.0" text="R" textFill="$x2" />
+        <Label font="$x1" prefHeight="41.0" prefWidth="43.0" text="V" textFill="$x2" />
+        <Label font="$x1" prefHeight="41.0" prefWidth="43.0" text="A" textFill="$x2" />
+        <Label font="$x1" prefHeight="41.0" prefWidth="43.0" text="S" textFill="$x2" />
+      </children>
+    </VBox>
+    <Label layoutX="81.0" layoutY="51.0" prefHeight="52.0" prefWidth="275.0" text="Ingrese la cantidad de personas " textFill="$x3">
+      <font>
+        <Font name="Calisto MT" size="20.0" />
+      </font>
+    </Label>
+    <TextField layoutX="175.0" layoutY="118.0" prefHeight="41.0" prefWidth="59.0" />
+    <Button fx:id="btnReservar" layoutX="263.0" layoutY="223.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="41.0" prefWidth="123.0" text="ACEPTAR" />
+  </children>
+</AnchorPane>

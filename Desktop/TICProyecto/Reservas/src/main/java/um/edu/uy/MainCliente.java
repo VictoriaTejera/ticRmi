@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import um.edu.uy.interfaz.cliente.ControladorInicio;
 import um.edu.uy.interfaz.cliente.ControladorRegistro;
 
 @SpringBootApplication
@@ -73,7 +74,7 @@ public class MainCliente extends Application {
 		root4 = fxmlLoader4.load(ControladorRegistro.class.getResourceAsStream("ListarRestaurantes.fxml"));
 		scene4 = new Scene(root4);
 
-		scene.getStylesheets().add("application.css");
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
