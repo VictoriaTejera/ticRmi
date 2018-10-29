@@ -129,12 +129,12 @@ public class TestRestauranteRepository {
 
 		List<Restaurante> lista = resMgr.filtrarPorComida("tipo1");
 
-//		for (int i = 0; i < lista.size(); i++) {
-//			System.out.println("AAAAAA----------------");
-//			System.out.println(lista.get(i));
-//		}
+		for (int i = 0; i < lista.size(); i++) {
+			System.out.println("AAAAAA----------------");
+			System.out.println(lista.get(i));
+		}
 
-	//	assertEquals(lista.get(0).getNombre(), "Ginebra");
+		assertEquals(lista.get(0).getNombre(), "Ginebra");
 	//	assertEquals(lista.get(1).getNombre(), "nombreRes2");
 
 	}
@@ -168,9 +168,11 @@ public class TestRestauranteRepository {
 	 @Test
 	public void testCargarDatosRes() {
 
+		 List<String> tipoComidas= new LinkedList();
+		
 		Barrio b3 = new Barrio("1", "Pocitos");
 		barrioMgr.save(b3);
-		resMgr.cargarDatosRes("124", "atencion", "pocitos 144", "13:10", "15:30", (float) 376, 876, "b3", null);
+		resMgr.cargarDatosRes("124", "atencion", "pocitos 144", "13:10", "15:30", (float) 376, 876, "b3", null, null);
 
 	}
 
