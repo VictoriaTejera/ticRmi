@@ -5,7 +5,19 @@ spring:
    # driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/ticdb?useSSL=false&allowPublicKeyRetrieval=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
+<<<<<<< HEAD
     password: 1234
+=======
+<<<<<<< HEAD
+    password: victoria15
+=======
+<<<<<<< HEAD
+    password: PazFraschini
+=======
+    password: 1997
+>>>>>>> b21facb6d2520992cf6f267afb983fb38afc4bdc
+>>>>>>> branch 'master' of https://github.com/VictoriaTejera/TIC.git
+>>>>>>> 408a3c1dab06b7156fd2090b20fa147cdad83b4d
   jpa:
     show-sql: true
     hibernate:

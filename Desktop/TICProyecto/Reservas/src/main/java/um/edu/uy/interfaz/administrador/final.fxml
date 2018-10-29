@@ -21,7 +21,7 @@
       </textFill>
     </Label>
     <!-- Add Submit Button -->
-    <Button id="submitButton" fx:id="btnRegresar" cache="false" cacheHint="DEFAULT" contentDisplay="CENTER" defaultButton="true" depthTest="INHERIT" layoutX="166.0" layoutY="162.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="31.0" prefWidth="112.0" text="Regresar" textAlignment="LEFT" textFill="WHITE" underline="false" visible="true" />
+    <Button id="submitButton" fx:id="btnRegresar" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" layoutX="166.0" layoutY="162.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="31.0" prefWidth="112.0" text="Regresar" textAlignment="LEFT" textFill="BLACK" underline="false" visible="true" />
     <!-- Add Header Label -->
     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="53.0" layoutY="82.0" prefHeight="71.0" prefWidth="324.0" text="Indique la accion que desea realizar:" textAlignment="CENTER" textFill="$x1">
       <font>
@@ -29,7 +29,7 @@
       </font>
     </Label>
     <!-- Add Submit Button -->
-    <Button id="submitButton" fx:id="btnSalir" cache="false" cacheHint="DEFAULT" contentDisplay="CENTER" defaultButton="true" depthTest="INHERIT" layoutX="166.0" layoutY="218.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="31.0" prefWidth="112.0" text="Salir" textAlignment="LEFT" textFill="WHITE" underline="false" visible="true" />
+    <Button id="submitButton" fx:id="btnSalir" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" layoutX="166.0" layoutY="218.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="31.0" prefWidth="112.0" text="Salir" textAlignment="LEFT" textFill="BLACK" underline="false" visible="true" />
     <VBox layoutX="0.0" layoutY="0.0" prefHeight="346.0" prefWidth="53.0">
       <children>
         <Label prefHeight="43.0" prefWidth="39.000099999997474" text="R" textFill="$x1">
