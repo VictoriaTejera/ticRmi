@@ -3,7 +3,9 @@ package um.edu.uy.interfaz.cliente;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
+import org.jboss.logging.Logger;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -11,6 +13,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,8 +24,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import um.edu.uy.interfaz.cliente.clasesAuxiliares.RestauranteMgrAUX;
 import um.edu.uy.persistance.BarrioMgr;
 import um.edu.uy.persistance.ComidaMgr;
 import um.edu.uy.persistance.RestauranteMgr;
@@ -69,9 +72,6 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     
     @Autowired
 	private RestauranteMgr restaurante;
-    
-//    @Autowired
-//	private RestauranteMgrAUX restauranteAux;
     
     @Autowired
  	private BarrioMgr barrioMgr;
@@ -143,16 +143,18 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 //    	    }
 //    	});
 //    }
-    
-//    @FXML
-//    void mostrarRestaurante(ActionEvent event) {
-//    	Stage stage = null;
-//		Parent root = null;
-//		FXMLLoader fxmlLoader = new FXMLLoader();
-//		stage = new Stage();
-//		fxmlLoader.setControllerFactory(applicationContext::getBean);
-//    }
-    
+//    
+    @FXML
+    void mostrarRestaurante(ActionEvent event) throws IOException {
+    	Stage stage = null;
+		Parent root = null;
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		stage = new Stage();
+		fxmlLoader.setControllerFactory(applicationContext::getBean);
+		root = fxmlLoader.load(ControladorListarRestaurantes.class.getResourceAsStream("DetallesRestaurante.fxml"));
+		stage.setScene(new Scene(root));
+    }
+    	  
     @FXML
     void volverAlMenu(ActionEvent event) throws IOException {
     	Stage stage = null;
@@ -179,6 +181,25 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
         assert columnaNombre != null : "fx:id=\"columnaNombre\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
         assert columnaTelefono != null : "fx:id=\"columnaTelefono\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
         assert tabla != null : "fx:id=\"tabla\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
+        
+        tabla.setOnMousePressed(new EventHandler<MouseEvent>(){
+        	@Override
+	    	public void handle(MouseEvent event){
+	    		FXMLLoader fxmlLoader = new FXMLLoader();
+	    		fxmlLoader.setControllerFactory(applicationContext::getBean);
+	    		fxmlLoader.setLocation(getClass().getResource("DetallesRestaurante.fxml"));
+	    		try {
+	    			//fxmlLoader.load(ControladorListarRestaurantes.class.getResourceAsStream("DetallesRestaurante.fxml"));
+	    			fxmlLoader.load();
+	    		}catch(IOException ex){
+	    			Logger.getLogger(ControladorListarRestaurantes.class.getName()).log(null, ex);
+	    		}
+	    		Parent root = fxmlLoader.getRoot();
+	    		Stage stage = new Stage();
+	    		stage.setScene(new Scene(root));
+	    		stage.show();
+	    	}
+	    });
 
     }
     

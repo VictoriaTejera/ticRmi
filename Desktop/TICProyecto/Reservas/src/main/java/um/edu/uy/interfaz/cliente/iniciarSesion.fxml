@@ -14,7 +14,11 @@
     <GridPane prefHeight="332.0" prefWidth="367.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="0.0">
       <children>
         <!-- Add Submit Button -->
-        <Button id="submitButton" fx:id="btnConfirmarInicioSesion" cache="false" cacheHint="DEFAULT" contentDisplay="CENTER" defaultButton="true" depthTest="INHERIT" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="27.0" prefWidth="104.0" text="Iniciar Sesión" textAlignment="LEFT" textFill="WHITE" underline="false" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+        <Button id="submitButton" fx:id="btnConfirmarInicioSesion" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" focusTraversable="true" mnemonicParsing="false" mouseTransparent="false" onAction="#handleSubmitButtonAction" opacity="1.0" pickOnBounds="false" prefHeight="27.0" prefWidth="104.0" text="Iniciar Sesión" textAlignment="LEFT" underline="false" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+          <textFill>
+            <Color blue="0.000" green="0.096" red="0.400" fx:id="x3" />
+          </textFill>
+        </Button>
         <Label prefHeight="27.0" prefWidth="118.0" text="CONTRASEÑA" GridPane.columnIndex="1" GridPane.rowIndex="2" />
         <Label prefHeight="27.0" prefWidth="118.0" text="USUARIO" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <Label prefHeight="27.0" prefWidth="118.0" text="DATOS" GridPane.columnIndex="2" GridPane.rowIndex="0" />
@@ -40,7 +44,7 @@
         <Label prefHeight="26.999908447265625" prefWidth="148.0" text="                      INGRESE SUS" GridPane.columnIndex="1" GridPane.rowIndex="0" />
         <BorderPane prefHeight="346.0" prefWidth="25.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
         <!-- Add Submit Button -->
-        <Button id="submitButton" fx:id="btnVolver" cache="false" cacheHint="DEFAULT" contentDisplay="CENTER" defaultButton="true" depthTest="INHERIT" minHeight="16.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="25.0" prefWidth="81.0" text="Volver" textAlignment="JUSTIFY" textFill="WHITE" underline="false" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+        <Button id="submitButton" fx:id="btnVolver" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" minHeight="16.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="25.0" prefWidth="81.0" text="Volver" textAlignment="JUSTIFY" textFill="$x3" underline="false" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
         <!-- Add Email Text Field -->
         <TextField id="emailField" fx:id="txtUsuario" prefHeight="34.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
         <!-- Add Password Field -->
