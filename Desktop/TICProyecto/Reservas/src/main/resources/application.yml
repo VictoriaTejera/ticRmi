@@ -5,7 +5,11 @@ spring:
    # driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/ticdb?useSSL=false&allowPublicKeyRetrieval=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
+<<<<<<< HEAD
     password: 1234
+=======
+    password: PazFraschini
+>>>>>>> 7c9911d1813a9dfc082b0cd865157560897553b5
   jpa:
     show-sql: true
     hibernate:
