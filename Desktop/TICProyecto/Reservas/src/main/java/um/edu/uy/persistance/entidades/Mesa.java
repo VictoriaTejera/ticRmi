@@ -15,6 +15,25 @@ public class Mesa {
 	private Long id;
 	private Integer capacidad;
 	private boolean reservada;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Integer getCapacidad() {
+		return capacidad;
+	}
+	public void setCapacidad(Integer capacidad) {
+		this.capacidad = capacidad;
+	}
+	public boolean isReservada() {
+		return reservada;
+	}
+	public void setReservada(boolean reservada) {
+		this.reservada = reservada;
+	}
+	
 	
 	
 	public Long getId() {
