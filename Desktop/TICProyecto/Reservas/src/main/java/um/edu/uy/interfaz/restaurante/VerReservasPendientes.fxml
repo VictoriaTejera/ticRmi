@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="397.0" prefWidth="433.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <!-- TODO Add Nodes -->
+  <children>
+    <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <center>
+        <TableView prefHeight="200.0" prefWidth="200.0">
+          <columns>
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="95.0" text="Restaurante" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="95.0" text="Usuario" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="95.0" text="Cant. Personas" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="95.0" text="" />
+          </columns>
+        </TableView>
+      </center>
+      <top>
+        <Label alignment="CENTER" prefHeight="30.0" prefWidth="125.0" text="Reservas pendientes" BorderPane.alignment="CENTER" />
+      </top>
+    </BorderPane>
+  </children>
+</AnchorPane>

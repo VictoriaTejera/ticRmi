@@ -4,7 +4,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,7 +17,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import um.edu.uy.persistance.entidades.Restaurante;
 
-
+@Component
 public class ControladorDetallesRestaurante {
 
     @FXML
@@ -78,8 +81,11 @@ public class ControladorDetallesRestaurante {
         colRating.setCellValueFactory(new PropertyValueFactory<Restaurante,Float>("rating"));
         colTel.setCellValueFactory(new PropertyValueFactory<Restaurante,Integer>("telefono"));
         
+        ObservableList<Restaurante> lista = FXCollections.observableArrayList();
+        lista.add(controlador.restSeleccionado());
+        tabla.setItems(lista);
         
-        //tabla.setItems(controlador.restSeleccionado());
+        descripcion.setText(controlador.restSeleccionado().getDescripcion());
     }
 
 }
