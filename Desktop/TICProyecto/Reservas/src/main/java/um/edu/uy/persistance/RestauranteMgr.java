@@ -50,13 +50,13 @@ public class RestauranteMgr {
 	}
 
 	public ObservableList<Restaurante> filtrarPorComida(String tipoComida) {
-//		List<Restaurante> restaurantes = repository.filtrarPorComida(tipoComida);
-//		ObservableList<Restaurante> observ = FXCollections.observableArrayList();
-//		for (int i = 0; i < restaurantes.size(); i++) {
-//			observ.add(restaurantes.get(i));
-//		}
-//		return observ;
-		return null;
+		List<Restaurante> restaurantes = repository.filtrarPorComida(tipoComida);
+		ObservableList<Restaurante> observ = FXCollections.observableArrayList();
+		for (int i = 0; i < restaurantes.size(); i++) {
+			observ.add(restaurantes.get(i));
+		}
+		return observ;
+		
 	}
 	
 	public List<Restaurante> filtrarPorPrecio(Float precioMenor, Float precioMayor){

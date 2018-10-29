@@ -120,26 +120,26 @@ public class TestRestauranteRepository {
 
 		resMgr.insertarComida(res1.getRUT(), c1);
 
-//		Comida c2 = new Comida( "tipo2");
-//		comidaMgr.save(c2);
-////		Comida c3 = new Comida("nombre3", "tipo1", (float) 4.7, res2);
-////		comidaMgr.save(c3);
-////		Comida c4 = new Comida("nombre4", "tipo4", (float) 800.1, res2);
-////		comidaMgr.save(c4);
-//
-//		List<Restaurante> lista = resMgr.filtrarPorComida("tipo1");
-//
-//		for (int i = 0; i < lista.size(); i++) {
-//			System.out.println("AAAAAA----------------");
-//			System.out.println(lista.get(i));
-//		}
-//
-//		assertEquals(lista.get(0).getNombre(), "Ginebra");
-//	//	assertEquals(lista.get(1).getNombre(), "nombreRes2");
+		Comida c2 = new Comida( "tipo2");
+		comidaMgr.save(c2);
+		Comida c3 = new Comida("tipo3");
+		comidaMgr.save(c3);
+		Comida c4 = new Comida("tipo4");
+		comidaMgr.save(c4);
+
+		List<Restaurante> lista = resMgr.filtrarPorComida("tipo1");
+
+		for (int i = 0; i < lista.size(); i++) {
+			System.out.println("AAAAAA----------------");
+			System.out.println(lista.get(i));
+		}
+
+	//	assertEquals(lista.get(0).getNombre(), "Ginebra");
+	//	assertEquals(lista.get(1).getNombre(), "nombreRes2");
 
 	}
 
-	 @Test
+	 //@Test
 	public void testFiltroPorPrecio() {
 
 		List<Restaurante> lista = resMgr.filtrarPorPrecio((float) 100.0, (float) 1000.0);
@@ -156,7 +156,7 @@ public class TestRestauranteRepository {
 
 	}
 
-	@Test
+	//@Test
 	public void testVerificarRestaurante() {
 
 		Restaurante r1 = new Restaurante("123", "Mc", "mc.gamil", "123");
