@@ -16,6 +16,7 @@ public class Reserva {
 	private Long Id;
 	private Integer cantPersonas;
 	private boolean confirmado;
+	private boolean terminada;
 
 	@ManyToOne
 	private Usuario usuario;

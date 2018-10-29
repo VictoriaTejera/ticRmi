@@ -123,7 +123,7 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 			resMgr.cargarDatosRes(controller.getRutRest(), txtDescripcion.getText(), txtDireccion.getText(),
 					txtHorarioApertura.getText(), txtHorarioCierre.getText(),
 					Float.parseFloat(txtPrecioPromedio.getText()), Integer.parseInt(txtTelefono.getText()), barrio,
-					imagenAGuardar);
+					imagenAGuardar, null);
 			stage = (Stage) btnGuardarDatos.getScene().getWindow();
 			root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
 		}
