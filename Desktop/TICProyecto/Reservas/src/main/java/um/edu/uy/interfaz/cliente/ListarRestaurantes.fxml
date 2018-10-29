@@ -15,7 +15,7 @@
         <Button fx:id="btnVolverAlMenu" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="31.0" prefWidth="90.99990000000253" text="Volver" BorderPane.alignment="BOTTOM_RIGHT" />
       </bottom>
       <center>
-        <TableView fx:id="tabla" prefHeight="200.0" prefWidth="333.0">
+        <TableView fx:id="tabla" onMouseClicked="#initialize" prefHeight="200.0" prefWidth="333.0">
           <columns>
             <TableColumn prefWidth="75.0" text="Nombre" fx:id="columnaNombre" />
             <TableColumn prefWidth="75.0" text="Dirección " fx:id="columnaDireccion" />
