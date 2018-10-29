@@ -139,7 +139,7 @@ public class TestRestauranteRepository {
 
 	}
 
-	// @Test
+	 @Test
 	public void testFiltroPorPrecio() {
 
 		List<Restaurante> lista = resMgr.filtrarPorPrecio((float) 100.0, (float) 1000.0);
@@ -156,7 +156,7 @@ public class TestRestauranteRepository {
 
 	}
 
-//	@Test
+	@Test
 	public void testVerificarRestaurante() {
 
 		Restaurante r1 = new Restaurante("123", "Mc", "mc.gamil", "123");
@@ -165,7 +165,7 @@ public class TestRestauranteRepository {
 		assertTrue(resMgr.restauranteYaFueCreado(r1));
 	}
 
-//	 @Test
+	 @Test
 	public void testCargarDatosRes() {
 
 		Barrio b3 = new Barrio("1", "Pocitos");
