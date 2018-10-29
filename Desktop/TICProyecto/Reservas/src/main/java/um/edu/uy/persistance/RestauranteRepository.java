@@ -28,7 +28,7 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 //	@Query("SELECT r FROM Comida c, Restaurante r WHERE c.tipo= :tipoComida")
 //	List<Restaurante> filtrarPorComida(@Param("tipoComida") String tipoComida);	
 
-
+	
 	@Modifying
 	@Query(value="INSERT INTO restaurante_comida (id_restaurante, id_comida)  VALUES (:rut, :id_comida)", nativeQuery=true)
 	@Transactional
