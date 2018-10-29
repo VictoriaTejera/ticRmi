@@ -2,24 +2,36 @@
 
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="350.0" prefWidth="396.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.administrador.AdminControladorInicio">
+<AnchorPane prefHeight="350.0000999999975" prefWidth="341.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.administrador.AdminControladorInicio">
   <!-- TODO Add Nodes -->
   <children>
-    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="37.0" prefHeight="79.0" prefWidth="287.0" text="Indique la acción que desea realizar" textAlignment="CENTER" textOverrun="ELLIPSIS">
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="37.0" prefHeight="79.0" prefWidth="287.0" text="Indique la acción que desea realizar" textAlignment="CENTER" textOverrun="ELLIPSIS" underline="true">
       <font>
-        <Font name="Calisto MT" size="15.0" />
+        <Font name="Yu Gothic UI Regular" size="15.0" />
       </font>
       <textFill>
         <Color blue="0.000" green="0.000" red="0.600" fx:id="x1" />
       </textFill>
     </Label>
-    <Button fx:id="btnRegistrarRestaurante" layoutX="118.0" layoutY="143.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="39.0" prefWidth="160.0" text="Registrar restaurante" />
-    <Button layoutX="118.0" layoutY="222.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="159.00009999999747" text="Administrar restaurante" />
+    <Button fx:id="btnRegistrarRestaurante" blendMode="DARKEN" layoutX="91.0" layoutY="142.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="40.0" prefWidth="186.9998779296875" text="Registrar restaurante" textFill="$x1">
+      <effect>
+        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+      </effect>
+      <font>
+        <Font name="Yu Gothic UI Bold" size="15.0" fx:id="x3" />
+      </font>
+    </Button>
+    <Button blendMode="DARKEN" font="$x3" layoutX="80.0" layoutY="225.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="210.0" text="Administrar restaurante" textFill="$x1">
+      <effect>
+        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+      </effect>
+    </Button>
     <VBox layoutX="0.0" layoutY="0.0" prefHeight="403.0" prefWidth="55.0" />
     <VBox layoutX="7.0" layoutY="5.0" prefHeight="350.0" prefWidth="55.000099999997474">
       <children>

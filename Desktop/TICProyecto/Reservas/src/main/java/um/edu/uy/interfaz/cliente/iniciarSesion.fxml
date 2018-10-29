@@ -3,34 +3,42 @@
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="346.0" prefWidth="394.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorInicioSesion">
+<AnchorPane prefHeight="346.0" prefWidth="394.0" styleClass="anchor" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorInicioSesion">
   <!-- TODO Add Nodes -->
   <children>
     <GridPane prefHeight="332.0" prefWidth="367.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="0.0">
       <children>
         <!-- Add Submit Button -->
-        <Button id="submitButton" fx:id="btnConfirmarInicioSesion" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" focusTraversable="true" mnemonicParsing="false" mouseTransparent="false" onAction="#handleSubmitButtonAction" opacity="1.0" pickOnBounds="false" prefHeight="27.0" prefWidth="104.0" text="Iniciar Sesión" textAlignment="LEFT" underline="false" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+        <Button id="submitButton" fx:id="btnConfirmarInicioSesion" blendMode="DARKEN" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" focusTraversable="true" mnemonicParsing="false" mouseTransparent="false" onAction="#handleSubmitButtonAction" opacity="1.0" pickOnBounds="false" prefHeight="32.0" prefWidth="151.0" text="Iniciar Sesión" textAlignment="LEFT" underline="false" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+          <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+          </effect>
+          <font>
+            <Font name="Yu Gothic Bold" size="15.0" fx:id="x4" />
+          </font>
           <textFill>
-            <Color blue="0.000" green="0.096" red="0.400" fx:id="x3" />
+            <Color blue="0.000" green="0.000" red="0.600" fx:id="x2" />
           </textFill>
         </Button>
-        <Label prefHeight="27.0" prefWidth="118.0" text="CONTRASEÑA" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-        <Label prefHeight="27.0" prefWidth="118.0" text="USUARIO" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <Label prefHeight="27.0" prefWidth="118.0" text="DATOS" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+        <Label prefHeight="27.0" prefWidth="118.0" text="CONTRASEÑA" GridPane.columnIndex="1" GridPane.rowIndex="2">
+          <font>
+            <Font name="Yu Gothic Bold" size="12.0" fx:id="x3" />
+          </font>
+        </Label>
+        <Label font="$x3" prefHeight="27.0" prefWidth="118.0" text="USUARIO" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label font="$x3" prefHeight="27.0" prefWidth="118.0" text="DATOS" textFill="$x2" underline="true" GridPane.columnIndex="2" GridPane.rowIndex="0" />
         <VBox alignment="CENTER" minHeight="262.0" prefHeight="262.0" prefWidth="47.0" snapToPixel="true" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.rowSpan="2147483647">
           <children>
-            <Label prefHeight="59.0" prefWidth="42.0" text="R">
+            <Label prefHeight="59.0" prefWidth="42.0" text="R" textFill="$x2">
               <font>
                 <Font name="System Bold Italic" size="25.0" fx:id="x1" />
               </font>
-              <textFill>
-                <Color blue="0.000" green="0.000" red="0.600" fx:id="x2" />
-              </textFill>
             </Label>
             <Label font="$x1" prefHeight="45.0" prefWidth="42.0" text="E" textFill="$x2" />
             <Label font="$x1" prefHeight="45.0" prefWidth="42.0" text="S" textFill="$x2" />
@@ -41,10 +49,14 @@
             <Label font="$x1" prefHeight="45.0" prefWidth="42.0" text="S" textFill="$x2" />
           </children>
         </VBox>
-        <Label prefHeight="26.999908447265625" prefWidth="148.0" text="                      INGRESE SUS" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Label font="$x3" prefHeight="27.0" prefWidth="151.0" text="                INGRESE SUS" textFill="$x2" underline="true" GridPane.columnIndex="1" GridPane.rowIndex="0" />
         <BorderPane prefHeight="346.0" prefWidth="25.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
         <!-- Add Submit Button -->
-        <Button id="submitButton" fx:id="btnVolver" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" minHeight="16.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="25.0" prefWidth="81.0" text="Volver" textAlignment="JUSTIFY" textFill="$x3" underline="false" visible="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+        <Button id="submitButton" fx:id="btnVolver" blendMode="DARKEN" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" font="$x4" minHeight="16.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="27.000091552734375" prefWidth="81.0" text="Volver" textAlignment="JUSTIFY" textFill="BLACK" underline="false" visible="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+          <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+          </effect>
+        </Button>
         <!-- Add Email Text Field -->
         <TextField id="emailField" fx:id="txtUsuario" prefHeight="34.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
         <!-- Add Password Field -->
