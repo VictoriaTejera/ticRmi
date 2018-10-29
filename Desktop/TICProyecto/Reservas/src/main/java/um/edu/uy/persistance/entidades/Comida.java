@@ -15,22 +15,24 @@ import javax.persistence.Table;
 @SuppressWarnings("unused")
 public class Comida {
 	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String tipo;
 
 //	@ManyToMany
 //	private List<Restaurante> restaurante;
 	
-	public String getId() {
+
+
+	public Comida() {}
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
-
-	public Comida() {}
 
 	public Comida(String tipo) {
 		super();

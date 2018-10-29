@@ -20,25 +20,17 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 	@Query("SELECT r FROM Restaurante r WHERE r.barrio.nombreBarrio= :barrio")
 	List<Restaurante> filtrarPorBarrio(@Param("barrio") String nombreBarrio);
 
-	@Query("SELECT r FROM Comida c, Restaurante r WHERE c.tipo= :tipoComida")
-	List<Restaurante> filtrarPorComida(@Param("tipoComida") String tipoComida);
+	@Query("SELECT r FROM  Restaurante r INNER JOIN r.comidas rc WHERE rc.id= :idComida")
+	List<Restaurante> filtrarPorComida(@Param("idComida") Long idComida);
 	
-//	@Transactional
+	@Query("SELECT c.id FROM Comida c WHERE c.tipo= :tipoComida")
+	Long obtenerIdComida(@Param("tipoComida") String tipoComida);
 
-//	@Query("SELECT r FROM Comida c, Restaurante r WHERE c.tipo= :tipoComida")
-//	List<Restaurante> filtrarPorComida(@Param("tipoComida") String tipoComida);	
-
-	
 	@Modifying
 	@Query(value="INSERT INTO restaurante_comida (id_restaurante, id_comida)  VALUES (:rut, :id_comida)", nativeQuery=true)
 	@Transactional
-	public void insertarComida(@Param("rut") String rut, @Param("id_comida") String id_comida);
+	public void insertarComida(@Param("rut") String rut, @Param("id_comida") Long id_comida);
 	
-
-//	@Modifying
-//	@Query(UPDATE Restaurante r SET r.comida= : "tipoComida")
-//	
-
 	@Query("SELECT r FROM Restaurante r WHERE r.precio_promedio BETWEEN :precioMenor and :precioMayor")
 	List<Restaurante> filtrarPorPrecio(@Param("precioMenor") Float precioMenor, @Param ("precioMayor") Float precioMayor);
 
