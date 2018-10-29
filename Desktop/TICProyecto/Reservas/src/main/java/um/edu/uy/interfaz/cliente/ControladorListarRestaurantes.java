@@ -143,7 +143,13 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 //    	    }
 //    	});
 //    }
-//    
+    
+    @FXML
+    Restaurante restSeleccionado() {
+    	Restaurante res = tabla.getSelectionModel().getSelectedItem();
+    	return res;
+    }
+    
     @FXML
     void mostrarRestaurante(ActionEvent event) throws IOException {
     	Stage stage = null;
