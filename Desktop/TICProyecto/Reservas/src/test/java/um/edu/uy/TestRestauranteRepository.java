@@ -129,10 +129,10 @@ public class TestRestauranteRepository {
 
 		List<Restaurante> lista = resMgr.filtrarPorComida("tipo1");
 
-		for (int i = 0; i < lista.size(); i++) {
-			System.out.println("AAAAAA----------------");
-			System.out.println(lista.get(i));
-		}
+//		for (int i = 0; i < lista.size(); i++) {
+//			System.out.println("AAAAAA----------------");
+//			System.out.println(lista.get(i));
+//		}
 
 	//	assertEquals(lista.get(0).getNombre(), "Ginebra");
 	//	assertEquals(lista.get(1).getNombre(), "nombreRes2");
