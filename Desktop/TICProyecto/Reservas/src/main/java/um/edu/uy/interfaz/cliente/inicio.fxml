@@ -39,7 +39,7 @@
             </Label>
             <Button fx:id="btnIniciarSesion" alignment="CENTER" blendMode="DARKEN" defaultButton="false" mnemonicParsing="false" onAction="#handleButtonAction" opacity="1.0" prefHeight="30.0" prefWidth="131.0" text="Inicie Sesión" textAlignment="LEFT" textFill="$x2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
               <effect>
-                <DropShadow blurType="TWO_PASS_BOX" height="31.07936507936508" radius="15.03968253968254" width="31.07936507936508" />
+                <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
               </effect>
               <font>
                 <Font name="Yu Gothic Bold" size="15.0" fx:id="x3" />
