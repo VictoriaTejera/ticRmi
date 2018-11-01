@@ -3,6 +3,7 @@
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.*?>
@@ -12,24 +13,31 @@
   <!-- TODO Add Nodes -->
   <children>
     <!-- Add Header Label -->
-    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="63.0" layoutY="29.0" prefHeight="71.0" prefWidth="304.0" text="El restaurante ha sido registrado exitosamente" textAlignment="CENTER">
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="39.0" layoutY="29.0" prefHeight="71.0" prefWidth="328.0" text="¡Su restaurante ha sido registrado exitosamente!" textAlignment="CENTER">
       <font>
-        <Font name="Calisto MT" size="15.0" />
+        <Font name="Yu Gothic UI Regular" size="15.0" fx:id="x4" />
       </font>
       <textFill>
         <Color blue="0.000" green="0.000" red="0.600" fx:id="x1" />
       </textFill>
     </Label>
     <!-- Add Submit Button -->
-    <Button id="submitButton" fx:id="btnRegresar" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" layoutX="166.0" layoutY="162.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="31.0" prefWidth="112.0" text="Regresar" textAlignment="LEFT" textFill="BLACK" underline="false" visible="true" />
-    <!-- Add Header Label -->
-    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="53.0" layoutY="82.0" prefHeight="71.0" prefWidth="324.0" text="Indique la accion que desea realizar:" textAlignment="CENTER" textFill="$x1">
+    <Button id="submitButton" fx:id="btnRegresar" blendMode="DARKEN" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" layoutX="166.0" layoutY="162.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="43.0" prefWidth="120.0" text="Regresar" textAlignment="LEFT" textFill="$x1" underline="false" visible="true">
+      <effect>
+        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+      </effect>
       <font>
-        <Font name="Calisto MT" size="20.0" />
+        <Font name="Yu Gothic UI Bold" size="15.0" fx:id="x3" />
       </font>
-    </Label>
+    </Button>
+    <!-- Add Header Label -->
+    <Label alignment="CENTER" contentDisplay="CENTER" font="$x4" layoutX="53.0" layoutY="82.0" prefHeight="71.0" prefWidth="324.0" text="Indique la accion que desea realizar:" textAlignment="CENTER" textFill="$x1" underline="true" />
     <!-- Add Submit Button -->
-    <Button id="submitButton" fx:id="btnSalir" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" layoutX="166.0" layoutY="218.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="31.0" prefWidth="112.0" text="Salir" textAlignment="LEFT" textFill="BLACK" underline="false" visible="true" />
+    <Button id="submitButton" fx:id="btnSalir" blendMode="DARKEN" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" font="$x3" layoutX="166.0" layoutY="247.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="43.0" prefWidth="120.0" text="Salir" textAlignment="LEFT" textFill="BLACK" underline="false" visible="true">
+      <effect>
+        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+      </effect>
+    </Button>
     <VBox layoutX="0.0" layoutY="0.0" prefHeight="346.0" prefWidth="53.0">
       <children>
         <Label prefHeight="43.0" prefWidth="39.000099999997474" text="R" textFill="$x1">

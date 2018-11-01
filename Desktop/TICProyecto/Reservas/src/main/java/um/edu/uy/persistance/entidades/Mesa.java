@@ -14,7 +14,8 @@ public class Mesa {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Integer capacidad;
-	private boolean reservada;
+	private boolean reservada;	
+	
 	public Long getId() {
 		return id;
 	}
@@ -33,6 +34,7 @@ public class Mesa {
 	public void setReservada(boolean reservada) {
 		this.reservada = reservada;
 	}
+	
 	
 	
 }

@@ -2,6 +2,7 @@
 
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.*?>
@@ -12,22 +13,30 @@
   <children>
     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="21.0" prefHeight="69.0" prefWidth="287.0" text="Restaurante" textAlignment="CENTER" wrapText="false">
       <font>
-        <Font name="Calisto MT" size="16.0" />
+        <Font name="Yu Gothic UI Regular" size="20.0" />
       </font>
       <textFill>
         <Color blue="0.000" green="0.000" red="0.600" fx:id="x1" />
       </textFill>
     </Label>
     <!-- Add Email Label -->
-    <Label layoutX="73.0" layoutY="115.0" prefHeight="20.0" prefWidth="104.0" text="Usuario" textAlignment="RIGHT" textFill="$x1" />
+    <Label layoutX="73.0" layoutY="115.0" prefHeight="20.0" prefWidth="104.0" text="Usuario" textAlignment="RIGHT" textFill="$x1">
+      <font>
+        <Font name="Yu Gothic UI Bold" size="15.0" fx:id="x3" />
+      </font>
+    </Label>
     <!-- Add Password Label -->
-    <Label layoutX="71.0" layoutY="193.0" text="Contraseña: " textFill="$x1" />
+    <Label font="$x3" layoutX="71.0" layoutY="193.0" text="Contraseña: " textFill="$x1" />
     <!-- Add Email Text Field -->
     <TextField id="emailField" fx:id="txtUsuario" layoutX="177.0" layoutY="105.0" prefHeight="40.0" />
     <!-- Add Password Field -->
     <PasswordField id="passwordField" fx:id="txtContrasena" layoutX="177.0" layoutY="181.0" prefHeight="40.0" />
     <!-- Add Submit Button -->
-    <Button id="submitButton" fx:id="btnIniciarSesion" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" layoutX="189.0" layoutY="278.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="27.0" prefWidth="104.0" text="Iniciar Sesión" textAlignment="LEFT" textFill="BLACK" underline="false" visible="true" />
+    <Button id="submitButton" fx:id="btnIniciarSesion" blendMode="DARKEN" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" font="$x3" layoutX="211.0" layoutY="256.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="49.0" prefWidth="126.0" text="Iniciar Sesión" textAlignment="LEFT" textFill="$x1" underline="false" visible="true">
+      <effect>
+        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+      </effect>
+    </Button>
     <VBox layoutX="5.0" layoutY="14.0" prefHeight="321.0" prefWidth="66.0">
       <children>
         <Label prefHeight="46.0" prefWidth="54.0" text="R" textFill="$x1">

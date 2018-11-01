@@ -2,6 +2,7 @@
 
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.*?>
@@ -10,22 +11,30 @@
 <AnchorPane prefHeight="342.0" prefWidth="413.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.administrador.AdminControladorRegistro">
   <!-- TODO Add Nodes -->
   <children>
-    <Label alignment="CENTER" layoutX="44.0" layoutY="34.0" prefHeight="24.0" prefWidth="282.0" text="Ingrese los datos del restaurante" textAlignment="CENTER">
+    <Label alignment="CENTER" layoutX="44.0" layoutY="34.0" prefHeight="24.0" prefWidth="282.0" text="Ingrese los datos del restaurante" textAlignment="CENTER" underline="true">
       <font>
-        <Font name="Calisto MT" size="15.0" />
+        <Font name="Yu Gothic UI Regular" size="15.0" />
       </font>
       <textFill>
         <Color blue="0.000" green="0.000" red="0.600" fx:id="x1" />
       </textFill>
     </Label>
-    <Label layoutX="80.0" layoutY="95.0" prefHeight="24.0" prefWidth="84.0" text="RUT:" textFill="$x1" />
+    <Label layoutX="80.0" layoutY="95.0" prefHeight="24.0" prefWidth="84.0" text="RUT:" textFill="$x1">
+      <font>
+        <Font name="Yu Gothic UI Bold" size="15.0" fx:id="x3" />
+      </font>
+    </Label>
     <TextField id="txt" fx:id="txtRut" layoutX="164.0" layoutY="95.0" prefHeight="24.0" prefWidth="162.0" />
-    <Label layoutX="80.0" layoutY="145.0" prefHeight="24.0" prefWidth="84.0" text="Nombre:" textFill="$x1" />
+    <Label font="$x3" layoutX="80.0" layoutY="145.0" prefHeight="24.0" prefWidth="84.0" text="Nombre:" textFill="$x1" />
     <TextField fx:id="txtNombre" layoutX="164.0" layoutY="138.0" prefHeight="24.0" prefWidth="162.0" />
-    <Label layoutX="80.0" layoutY="183.0" prefHeight="24.0" prefWidth="84.0" text="Email:" textFill="$x1" />
+    <Label font="$x3" layoutX="80.0" layoutY="183.0" prefHeight="24.0" prefWidth="84.0" text="Email:" textFill="$x1" />
     <TextField fx:id="txtEmail" layoutX="164.0" layoutY="183.0" prefHeight="24.0" prefWidth="162.0" />
-    <Button fx:id="btnRegistrar" layoutX="130.0" layoutY="273.0" minHeight="16.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="24.000099999997474" prefWidth="109.0" text="Aceptar" />
-    <Label layoutX="80.0" layoutY="223.0" prefHeight="24.0" prefWidth="84.0" text="Contraseña:" textFill="$x1" />
+    <Button fx:id="btnRegistrar" blendMode="DARKEN" font="$x3" layoutX="245.0" layoutY="269.0" minHeight="16.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="40.0" prefWidth="117.0" text="Aceptar" textFill="$x1">
+      <effect>
+        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+      </effect>
+    </Button>
+    <Label font="$x3" layoutX="80.0" layoutY="223.0" prefHeight="24.0" prefWidth="84.0" text="Contraseña:" textFill="$x1" />
     <TextField fx:id="txtContrasena" layoutX="164.0" layoutY="223.0" prefHeight="24.0" prefWidth="162.0" />
     <VBox layoutX="0.0" layoutY="14.0" prefHeight="314.0" prefWidth="58.0">
       <children>
