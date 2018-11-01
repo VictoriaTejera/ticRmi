@@ -10,7 +10,7 @@ import javax.persistence.Id;
 
  @Entity
  @Table
-//@SuppressWarnings("unused")
+
 public class Reserva {
 
 	@Id
@@ -20,6 +20,7 @@ public class Reserva {
 	private Restaurante restaurante;
 	private Integer cantPersonas;
 	private boolean confirmado;
+	private boolean terminada;
 	
 	public Reserva() {}
 	
@@ -29,6 +30,7 @@ public class Reserva {
 		this.restaurante = restaurante;
 		this.cantPersonas = cantPersonas;
 	}
+	
 	
 	
 	
