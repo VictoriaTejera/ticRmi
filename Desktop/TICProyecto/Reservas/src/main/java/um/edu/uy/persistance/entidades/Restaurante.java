@@ -54,7 +54,6 @@ public class Restaurante implements Serializable {
 	private Barrio barrio;
 	
 	@OneToMany
-//	@JoinTable(name="Restaurante_Mesa", joinColumns = @JoinColumn(name="Restaurante_RUT"))
 	@JoinColumn(name="Restaurante_id")
 	@Cascade(CascadeType.ALL)
 	private List<Mesa> mesas;
@@ -104,8 +103,7 @@ public class Restaurante implements Serializable {
 	}
 
 	public void setRut(String rut) {
-		rut = rut;
-
+		this.rut = rut;
 	}
 
 	public Restaurante() {
@@ -147,28 +145,6 @@ public class Restaurante implements Serializable {
 		return descripcion;
 	}
 
-	// public void setPrecioMenor(Float precioMenor) {
-	// this.precioMenor = precioMenor;
-	// }
-	//
-	// public Float getPrecioMayor() {
-	// return precioMayor;
-	// }
-	// public Float getPrecioMenor() {
-	// return precioMenor;
-	// }
-	//
-	// public void setPrecioMayor(Float precioMayor) {
-	// this.precioMayor = precioMayor;
-	// }
-	// public List<Comida> getMenu() {
-	// return menu;
-	// }
-	//
-	// public void setMenu(List<Comida> menu) {
-	// this.menu = menu;
-	// }
-
 	public byte[] getImagen() {
 		return imagen;
 	}
@@ -200,6 +176,4 @@ public class Restaurante implements Serializable {
 		return email;
 	}
 	
-	
-
 }

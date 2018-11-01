@@ -1,5 +1,7 @@
 package um.edu.uy.persistance;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,10 @@ public class ReservaMgr {
 		Restaurante res = resMgr.find(restauranteRUT);
 		Reserva reserva=new Reserva(usu, res, cantPersonas);
 		repository.save(reserva);
+	}
+	
+	public List<Reserva> verEstadoReservasUsuario(Integer usuarioCelular){
+		return repository.verEstadoReservasUsuario(usuarioCelular);
 	}
 
 }

@@ -4,6 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -15,13 +19,15 @@ public class Reserva {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
 	private Integer cantPersonas;
-	private boolean confirmado;
+	private boolean confirmada;
 	private boolean terminada;
 
 	@ManyToOne
+	@Cascade(CascadeType.ALL)
 	private Usuario usuario;
 
 	@ManyToOne
+	@Cascade(CascadeType.ALL)
 	private Restaurante restaurante;
 
 	public Reserva() {
@@ -32,6 +38,8 @@ public class Reserva {
 		this.usuario = usuario;
 		this.restaurante = restaurante;
 		this.cantPersonas = cantPersonas;
+		confirmada=false;
+		terminada=false;
 	}
 
 	public Long getId() {
@@ -51,11 +59,11 @@ public class Reserva {
 	}
 
 	public boolean isConfirmado() {
-		return confirmado;
+		return confirmada;
 	}
 
 	public void setConfirmado(boolean confirmado) {
-		this.confirmado = confirmado;
+		this.confirmada = confirmado;
 	}
 
 	public Usuario getUsuario() {
