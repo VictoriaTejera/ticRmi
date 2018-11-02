@@ -33,16 +33,15 @@ public class ReservaMgr {
 		repository.save(reserva);
 	}
 	
-<<<<<<< HEAD
 	public List<Reserva>obtenerReservasNoTerminadas(String rut) {
 		List<Reserva> reservasNoTerminadas= repository.obtenerReservasNoTerminadas(rut);
 		return reservasNoTerminadas;
+	}
 		
 		
-=======
+
 	public List<Reserva> verEstadoReservasUsuario(Integer usuarioCelular){
 		return repository.verEstadoReservasUsuario(usuarioCelular);
->>>>>>> branch 'master' of https://github.com/VictoriaTejera/TIC.git
 	}
 
 }
