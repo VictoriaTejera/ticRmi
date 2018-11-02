@@ -23,9 +23,9 @@ public class RestauranteMgr {
 	@Autowired
 	private BarrioMgr barrioMgr;
 
-	public ObservableList<Restaurante> getRestaurants() {
+	public List<Restaurante> getRestaurants() {
 		Iterable<Restaurante> it = repository.findAll();
-		ObservableList<Restaurante> lista = FXCollections.observableArrayList();
+		List<Restaurante> lista = FXCollections.observableArrayList();
 		for (Restaurante r : it) {
 			lista.add(r);
 		}
@@ -40,22 +40,14 @@ public class RestauranteMgr {
 		repository.insertarComida(rut, comida.getId());
 	}
 	
-	public ObservableList<Restaurante> filtrarPorBarrio(String nombreBarrio) {
+	public List<Restaurante> filtrarPorBarrio(String nombreBarrio) {
 		List<Restaurante> restaurantes = repository.filtrarPorBarrio(nombreBarrio);
-		ObservableList<Restaurante> observ = FXCollections.observableArrayList();
-		for (int i = 0; i < restaurantes.size(); i++) {
-			observ.add(restaurantes.get(i));
-		}
-		return observ;
+		return restaurantes;
 	}
 
-	public ObservableList<Restaurante> filtrarPorComida(String tipoComida) {
+	public List<Restaurante> filtrarPorComida(String tipoComida) {
 		List<Restaurante> restaurantes = repository.filtrarPorComida(tipoComida);
-		ObservableList<Restaurante> observ = FXCollections.observableArrayList();
-		for (int i = 0; i < restaurantes.size(); i++) {
-			observ.add(restaurantes.get(i));
-		}
-		return observ;
+		return restaurantes;
 		
 	}
 	

@@ -55,18 +55,21 @@ public class MainCliente extends Application {
 
 		root1 = fxmlLoader1.load(ControladorRegistro.class.getResourceAsStream("registrarse.fxml"));
 		scene1 = new Scene(root1);
+		scene1.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		
 		fxmlLoader2 = new FXMLLoader();
 		fxmlLoader2.setControllerFactory(MainCliente.getContext()::getBean);
 
 		root2 = fxmlLoader2.load(ControladorRegistro.class.getResourceAsStream("iniciarSesion.fxml"));
 		scene2 = new Scene(root2);
+		scene2.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 
 		fxmlLoader3 = new FXMLLoader();
 		fxmlLoader3.setControllerFactory(MainCliente.getContext()::getBean);
 
 		root3 = fxmlLoader3.load(ControladorRegistro.class.getResourceAsStream("MenuPrincipal.fxml"));
 		scene3 = new Scene(root3);
+		scene3.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		
 		fxmlLoader4 = new FXMLLoader();
 		fxmlLoader4.setControllerFactory(MainCliente.getContext()::getBean);
