@@ -2,6 +2,7 @@
 
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.*?>
@@ -12,18 +13,40 @@
   <children>
     <Pane prefHeight="376.0" prefWidth="446.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-        <Label alignment="CENTER" layoutX="80.0" layoutY="34.0" prefHeight="56.0" prefWidth="292.0000999999975" text="Seleccione la operación que desea realizar" textAlignment="CENTER">
+        <Label alignment="CENTER" layoutX="48.0" layoutY="34.0" prefHeight="56.0" prefWidth="344.0000999999975" text="Seleccione la operación que desea realizar" textAlignment="CENTER" underline="true">
           <font>
-            <Font name="Calisto MT" size="16.0" />
+            <Font name="Yu Gothic Bold" size="16.0" />
           </font>
           <textFill>
             <Color blue="0.000" green="0.000" red="0.600" fx:id="x1" />
           </textFill>
         </Label>
-        <Button fx:id="btnListarRestaurantes" layoutX="134.0" layoutY="101.0" mnemonicParsing="false" onAction="#ListarRestaurantes" prefHeight="43.0" prefWidth="185.0" text="Ver restaurantes" underline="true" />
-        <Button id="btnListarRestaurantes" layoutX="134.0" layoutY="180.0" mnemonicParsing="false" onAction="#ListarRestaurantes" prefHeight="43.0" prefWidth="185.0" text="Reservas realizadas" underline="true" />
-        <Button id="btnListarRestaurantes" layoutX="134.0" layoutY="264.0" mnemonicParsing="false" onAction="#ListarRestaurantes" prefHeight="43.0" prefWidth="185.0" text="Puntuar restaurantes visitados" textAlignment="CENTER" underline="true" wrapText="false" />
-        <Button id="btnSalir" fx:id="btnCloseButton" layoutX="328.0" layoutY="333.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="29.0" prefWidth="88.0" text="Salir" />
+        <Button fx:id="btnListarRestaurantes" blendMode="DARKEN" layoutX="134.0" layoutY="101.0" mnemonicParsing="false" onAction="#ListarRestaurantes" prefHeight="43.0" prefWidth="185.0" text="Ver restaurantes" textFill="$x1" underline="false">
+          <effect>
+            <DropShadow blurType="TWO_PASS_BOX" color="#332500" height="31.064" radius="15.032" width="31.064" />
+          </effect>
+          <font>
+            <Font name="Yu Gothic Bold" size="15.0" fx:id="x3" />
+          </font>
+        </Button>
+        <Button id="btnListarRestaurantes" blendMode="DARKEN" font="$x3" layoutX="134.0" layoutY="180.0" mnemonicParsing="false" onAction="#ListarRestaurantes" prefHeight="43.0" prefWidth="185.0" text="Reservas realizadas" textFill="$x1" underline="false">
+          <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+          </effect>
+        </Button>
+        <Button id="btnListarRestaurantes" blendMode="DARKEN" font="$x3" layoutX="80.0" layoutY="253.0" mnemonicParsing="false" onAction="#ListarRestaurantes" prefHeight="43.0" prefWidth="272.0" text="Puntuar restaurantes visitados" textAlignment="CENTER" textFill="$x1" underline="false" wrapText="false">
+          <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+          </effect>
+        </Button>
+        <Button id="btnSalir" fx:id="btnCloseButton" blendMode="DARKEN" layoutX="328.0" layoutY="322.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="29.0" prefWidth="88.0" text="Salir" textFill="BLACK">
+          <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" spread="0.3253968253968254" width="31.064" />
+          </effect>
+          <font>
+            <Font name="Yu Gothic Bold" size="20.0" />
+          </font>
+        </Button>
         <VBox layoutX="41.0" layoutY="86.0" prefHeight="200.0" prefWidth="53.0" />
         <VBox layoutX="7.0" layoutY="0.0" prefHeight="384.99980000000505" prefWidth="52.999977929684974">
           <children>

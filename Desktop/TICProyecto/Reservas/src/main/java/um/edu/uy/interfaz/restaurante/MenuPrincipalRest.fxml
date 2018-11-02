@@ -2,6 +2,7 @@
 
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.*?>
@@ -10,16 +11,27 @@
 <AnchorPane prefHeight="321.0" prefWidth="369.999977929685" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.restaurante.ControladorMenuRest">
   <!-- TODO Add Nodes -->
   <children>
-    <Label alignment="CENTER" layoutX="57.0" layoutY="35.0" prefHeight="56.0" prefWidth="292.0000999999975" text="Seleccione la operación que desea realizar" textAlignment="CENTER">
+    <Label alignment="CENTER" layoutX="57.0" layoutY="35.0" prefHeight="56.0" prefWidth="292.0000999999975" text="Seleccione la operación que desea realizar" textAlignment="CENTER" underline="true">
       <font>
-        <Font name="Calisto MT" size="16.0" />
+        <Font name="Yu Gothic UI Regular" size="15.0" />
       </font>
       <textFill>
         <Color blue="0.000" green="0.000" red="0.600" fx:id="x1" />
       </textFill>
     </Label>
-    <Button fx:id="btnDatos" layoutX="138.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="48.0" prefWidth="157.0" text="Actualizar datos" />
-    <Button fx:id="btnReservas" layoutX="138.0" layoutY="215.0" mnemonicParsing="false" prefHeight="48.000099999997474" prefWidth="157.0" text="Ver reservas pendientes" />
+    <Button fx:id="btnDatos" blendMode="DARKEN" layoutX="114.0" layoutY="120.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="48.0" prefWidth="157.0" text="Actualizar datos" textFill="$x1">
+      <effect>
+        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+      </effect>
+      <font>
+        <Font name="Yu Gothic UI Bold" size="15.0" fx:id="x3" />
+      </font>
+    </Button>
+    <Button fx:id="btnReservas" blendMode="DARKEN" font="$x3" layoutX="86.0" layoutY="196.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="199.0" text="Ver reservas pendientes" textFill="$x1">
+      <effect>
+        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+      </effect>
+    </Button>
     <VBox layoutX="7.0" layoutY="14.0" prefHeight="307.0" prefWidth="63.0">
       <children>
         <Label prefHeight="46.0" prefWidth="50.0" text="R" textFill="$x1">

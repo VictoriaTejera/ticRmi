@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import um.edu.uy.interfaz.cliente.ControladorInicio;
 import um.edu.uy.interfaz.restaurante.ControladorActualizarDatosRest;
 import um.edu.uy.interfaz.restaurante.ControladorDatosActualizadosExitosamenteRest;
 import um.edu.uy.interfaz.restaurante.ControladorInicioSesionRest;
@@ -71,7 +72,7 @@ public class MainRestaurante extends Application{
 //		root3 = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("WarningDatosGuardadosExitosamente.fxml"));
 //		scene3 = new Scene(root3);		
 		
-		scene.getStylesheets().add(ControladorInicioSesionRest.class.getResource("application.css").toExternalForm());
+		scene.getStylesheets().add(ControladorInicio.class.getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}

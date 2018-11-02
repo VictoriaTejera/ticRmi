@@ -4,6 +4,7 @@
 <?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.*?>
@@ -31,26 +32,38 @@
             <Label alignment="CENTER" contentDisplay="CENTER" font="$x1" prefHeight="38.0" prefWidth="36.0" text="S" textAlignment="CENTER" textFill="$x2" wrapText="false" GridPane.columnIndex="0" GridPane.rowIndex="7" />
             <Label alignment="CENTER" contentDisplay="CENTER" font="$x1" prefHeight="54.0" prefWidth="46.0" text="E" textAlignment="CENTER" textFill="$x2" wrapText="false" GridPane.columnIndex="0" GridPane.rowIndex="3" />
             <Label alignment="CENTER" contentDisplay="CENTER" font="$x1" prefHeight="54.0" prefWidth="46.0" text="R" textAlignment="CENTER" textFill="$x2" wrapText="false" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-            <Label alignment="CENTER" prefHeight="38.0" prefWidth="257.0" text="Seleccione lo que desea realizar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <Label alignment="CENTER" prefHeight="38.0" prefWidth="332.0" text="Seleccione la acción que desea realizar" textFill="$x2" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
               <font>
-                <Font name="Calisto MT" size="16.0" />
+                <Font name="Yu Gothic Bold" size="16.0" />
               </font>
             </Label>
-            <Button fx:id="btnIniciarSesion" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" opacity="0.71" prefHeight="30.0" prefWidth="131.0" text="Iniciar Sesión" textAlignment="LEFT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+            <Button fx:id="btnIniciarSesion" alignment="CENTER" blendMode="DARKEN" defaultButton="false" mnemonicParsing="false" onAction="#handleButtonAction" opacity="1.0" prefHeight="30.0" prefWidth="131.0" text="Inicie Sesión" textAlignment="LEFT" textFill="$x2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+              <effect>
+                <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+              </effect>
               <font>
-                <Font name="Calisto MT" size="13.0" fx:id="x3" />
+                <Font name="Yu Gothic Bold" size="15.0" fx:id="x3" />
               </font>
-              <textFill>
-                <Color blue="0.000" green="0.000" red="0.200" fx:id="x4" />
-              </textFill>
+              <GridPane.margin>
+                <Insets />
+              </GridPane.margin>
             </Button>
-            <Button fx:id="btnRegistrarse" font="$x3" mnemonicParsing="false" onAction="#handleButtonAction" opacity="0.71" prefHeight="30.0" prefWidth="131.0" text="Regístrate" textFill="$x4" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+            <Button fx:id="btnRegistrarse" blendMode="DARKEN" font="$x3" mnemonicParsing="false" onAction="#handleButtonAction" opacity="0.71" prefHeight="30.0" prefWidth="131.0" text="Regístrese" textFill="$x2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+              <effect>
+                <DropShadow blurType="TWO_PASS_BOX" height="31.078" radius="15.039" width="31.078" />
+              </effect>
+            </Button>
             <Label alignment="CENTER" prefHeight="39.0" prefWidth="155.0" text="¿Ya eres un usuario?" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
               <font>
-                <Font name="Calisto MT" size="14.0" fx:id="x5" />
+                <Font name="Yu Gothic Medium" size="14.0" fx:id="x4" />
               </font>
             </Label>
-            <Label alignment="CENTER" font="$x5" prefHeight="38.000099999997474" prefWidth="218.0" text="¿Aún no tienes una cuenta?" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+            <Label alignment="CENTER" font="$x4" prefHeight="38.000099999997474" prefWidth="218.0" text="¿Aún no tienes una cuenta?" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="140.0" text="¡BIENVENIDO!" textAlignment="CENTER" textFill="GREY" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0">
+              <font>
+                <Font name="System Bold" size="20.0" />
+              </font>
+            </Label>
           </children>
           <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="84.0" minWidth="10.0" prefWidth="47.0" />

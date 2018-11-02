@@ -3,52 +3,61 @@
 <?import java.lang.*?>
 <?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="420.0" prefWidth="421.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.restaurante.ControladorActualizarDatosRest">
+<AnchorPane prefHeight="476.0" prefWidth="496.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.restaurante.ControladorActualizarDatosRest">
   <!-- TODO Add Nodes -->
   <children>
-    <Label alignment="CENTER" layoutX="66.0" layoutY="23.0" prefHeight="24.0" prefWidth="282.0" text="Ingrese sus datos" textAlignment="CENTER">
+    <Label alignment="CENTER" layoutX="104.0" layoutY="23.0" prefHeight="24.0" prefWidth="282.0" text="Ingrese sus datos" textAlignment="CENTER" underline="true">
       <font>
-        <Font name="Calisto MT" size="15.0" />
+        <Font name="Yu Gothic UI Regular" size="15.0" fx:id="x4" />
       </font>
       <textFill>
         <Color blue="0.000" green="0.000" red="0.600" fx:id="x1" />
       </textFill>
     </Label>
-    <Label layoutX="140.0" layoutY="47.0" prefHeight="24.0" prefWidth="134.0" text="Horario de atencion:" textFill="$x1" />
-    <TextField id="txt" fx:id="txtHorarioApertura" layoutX="155.0" layoutY="71.0" prefHeight="24.0" prefWidth="84.0" />
-    <Label layoutX="77.0" layoutY="100.0" prefHeight="24.0" prefWidth="120.0" text="Precio promedio:" textFill="$x1" />
-    <TextField id="txtNombre" fx:id="txtPrecioPromedio" layoutX="207.0" layoutY="100.0" prefHeight="24.0" prefWidth="162.0" />
-    <Label layoutX="77.0" layoutY="126.0" prefHeight="24.0" prefWidth="84.0" text="Barrio:" textFill="$x1" />
-    <Button id="btnRegistrar" fx:id="btnGuardarDatos" layoutX="278.0" layoutY="364.0" minHeight="16.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="24.000099999997474" prefWidth="109.0" text="Aceptar" />
-    <Label layoutX="77.0" layoutY="155.0" prefHeight="24.0" prefWidth="84.0" text="Descripción:" textFill="$x1" />
-    <TextField id="txtContrasena" fx:id="txtDescripcion" layoutX="207.0" layoutY="155.0" prefHeight="24.0" prefWidth="162.0" />
-    <TextField id="txt" fx:id="txtHorarioCierre" layoutX="323.0" layoutY="71.0" prefHeight="24.0" prefWidth="84.0" />
-    <Label layoutX="77.0" layoutY="71.0" prefWidth="68.0" text="Apertura" textFill="$x1" />
-    <Label layoutX="269.0" layoutY="71.0" prefWidth="37.0" text="Cierre" textFill="$x1" />
-    <VBox layoutX="3.0" layoutY="4.0" prefHeight="343.0" prefWidth="68.0">
+    <Label font="$x4" layoutX="172.0" layoutY="59.0" prefHeight="24.0" prefWidth="144.50006103515625" text="Horario de atención:" textFill="$x1" />
+    <TextField id="txt" fx:id="txtHorarioApertura" layoutX="144.0" layoutY="83.0" prefHeight="24.0" prefWidth="84.0" />
+    <Label layoutX="40.0" layoutY="118.0" prefHeight="24.0" prefWidth="157.0" text="Precio promedio:" textFill="$x1">
+      <font>
+        <Font name="Yu Gothic UI Bold" size="15.0" fx:id="x3" />
+      </font>
+    </Label>
+    <TextField id="txtNombre" fx:id="txtPrecioPromedio" layoutX="207.0" layoutY="114.0" prefHeight="24.0" prefWidth="162.0" />
+    <Label font="$x3" layoutX="77.0" layoutY="148.0" prefHeight="24.0" prefWidth="84.0" text="Barrio:" textFill="$x1" />
+    <Button id="btnRegistrar" fx:id="btnGuardarDatos" blendMode="DARKEN" font="$x3" layoutX="365.0" layoutY="412.0" minHeight="16.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="43.0" prefWidth="120.0" text="Aceptar" textFill="$x1">
+      <effect>
+        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+      </effect>
+    </Button>
+    <Label font="$x3" layoutX="74.0" layoutY="183.0" prefHeight="24.0" prefWidth="84.0" text="Descripción:" textFill="$x1" />
+    <TextField id="txtContrasena" fx:id="txtDescripcion" layoutX="207.0" layoutY="183.0" prefHeight="24.0" prefWidth="162.0" />
+    <TextField id="txt" fx:id="txtHorarioCierre" layoutX="348.0" layoutY="85.0" prefHeight="24.0" prefWidth="84.0" />
+    <Label font="$x3" layoutX="74.0" layoutY="87.0" prefWidth="68.0" text="Apertura" textFill="$x1" />
+    <Label font="$x3" layoutX="269.0" layoutY="83.0" prefWidth="68.0" text="Cierre" textFill="$x1" />
+    <VBox layoutX="3.0" layoutY="4.0" prefHeight="472.0" prefWidth="74.0">
       <children>
-        <Label prefHeight="44.0" prefWidth="37.0" text="R" textFill="$x1">
+        <Label prefHeight="55.0" prefWidth="51.0" text="R" textFill="$x1">
           <font>
             <Font name="System Bold Italic" size="25.0" fx:id="x2" />
           </font>
         </Label>
-        <Label font="$x2" prefHeight="44.0" prefWidth="37.0" text="E" textFill="$x1" />
-        <Label font="$x2" prefHeight="44.0" prefWidth="37.0" text="S" textFill="$x1" />
-        <Label font="$x2" prefHeight="44.0" prefWidth="37.0" text="E" textFill="$x1" />
-        <Label font="$x2" prefHeight="44.0" prefWidth="37.0" text="R" textFill="$x1" />
-        <Label font="$x2" prefHeight="44.0" prefWidth="37.0" text="V" textFill="$x1" />
-        <Label font="$x2" prefHeight="44.0" prefWidth="37.0" text="A" textFill="$x1" />
-        <Label font="$x2" prefHeight="44.0" prefWidth="37.0" text="S" textFill="$x1" />
+        <Label font="$x2" prefHeight="55.0" prefWidth="51.0" text="E" textFill="$x1" />
+        <Label font="$x2" prefHeight="55.0" prefWidth="51.0" text="S" textFill="$x1" />
+        <Label font="$x2" prefHeight="55.0" prefWidth="51.0" text="E" textFill="$x1" />
+        <Label font="$x2" prefHeight="55.0" prefWidth="51.0" text="R" textFill="$x1" />
+        <Label font="$x2" prefHeight="55.0" prefWidth="51.0" text="V" textFill="$x1" />
+        <Label font="$x2" prefHeight="55.0" prefWidth="51.0" text="A" textFill="$x1" />
+        <Label font="$x2" prefHeight="66.0" prefWidth="51.0" text="S" textFill="$x1" />
       </children>
     </VBox>
-    <Label layoutX="77.0" layoutY="183.0" prefHeight="24.0" prefWidth="109.0" text="Tipo de comida:" textFill="$x1" />
-    <ComboBox id="cBOx" fx:id="cboxTiposComida" layoutX="207.0" layoutY="184.0" onAction="#handleTipoComidaCbox" prefHeight="21.0" prefWidth="162.0">
+    <Label font="$x3" layoutX="38.0" layoutY="224.0" prefHeight="24.0" prefWidth="144.50006103515625" text="Tipo de comida:" textFill="$x1" />
+    <ComboBox id="cBOx" fx:id="cboxTiposComida" layoutX="207.0" layoutY="224.0" onAction="#handleTipoComidaCbox" prefHeight="21.0" prefWidth="162.0">
       <items>
         <FXCollections fx:factory="observableArrayList">
           <String fx:value="Item 1" />
@@ -57,7 +66,7 @@
         </FXCollections>
       </items>
     </ComboBox>
-    <ComboBox fx:id="cboxBarrio" layoutX="207.0" layoutY="127.0" onAction="#handleBarrioCbox" prefHeight="21.0" prefWidth="162.0">
+    <ComboBox fx:id="cboxBarrio" layoutX="207.0" layoutY="148.0" onAction="#handleBarrioCbox" prefHeight="21.0" prefWidth="162.0">
       <items>
         <FXCollections fx:factory="observableArrayList">
           <String fx:value="Item 1" />
@@ -66,11 +75,15 @@
         </FXCollections>
       </items>
     </ComboBox>
-    <Label layoutX="77.0" layoutY="212.0" prefHeight="24.0" prefWidth="109.0" text="Dirección:" textFill="$x1" />
-    <TextField id="txtContrasena" fx:id="txtDireccion" layoutX="207.0" layoutY="212.0" prefHeight="24.0" prefWidth="162.0" />
-    <Label layoutX="77.0" layoutY="243.0" prefHeight="24.0" prefWidth="109.0" text="Teléfono:" textFill="$x1" />
-    <TextField id="txtContrasena" fx:id="txtTelefono" layoutX="207.0" layoutY="243.0" prefHeight="24.0" prefWidth="162.0" />
-    <ImageView fx:id="imgView" fitHeight="108.37504577636719" fitWidth="144.50006103515625" layoutX="66.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true" />
-    <Button fx:id="btnCargarImagen" layoutX="231.0" layoutY="294.0" mnemonicParsing="false" onAction="#cargarImagen" text="CargarImagen" />
+    <Label font="$x3" layoutX="77.0" layoutY="252.0" prefHeight="24.0" prefWidth="109.0" text="Dirección:" textFill="$x1" />
+    <TextField id="txtContrasena" fx:id="txtDireccion" layoutX="207.0" layoutY="255.0" prefHeight="24.0" prefWidth="162.0" />
+    <Label font="$x3" layoutX="77.0" layoutY="283.0" prefHeight="24.0" prefWidth="109.0" text="Teléfono:" textFill="$x1" />
+    <TextField id="txtContrasena" fx:id="txtTelefono" layoutX="207.0" layoutY="283.0" prefHeight="24.0" prefWidth="162.0" />
+    <ImageView fx:id="imgView" fitHeight="71.50000063208648" fitWidth="95.33333206176758" layoutX="66.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true" />
+    <Button fx:id="btnCargarImagen" blendMode="DARKEN" font="$x3" layoutX="183.0" layoutY="341.0" mnemonicParsing="false" onAction="#cargarImagen" prefHeight="43.0" prefWidth="172.0" text="Cargar Imagen" textFill="$x1">
+      <effect>
+        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+      </effect>
+    </Button>
   </children>
 </AnchorPane>

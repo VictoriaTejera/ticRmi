@@ -50,9 +50,6 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 	@FXML
 	private Button btnCargarImagen;
 
-//	@FXML
-//	private Button btnVolverAMenu;
-
 	@FXML
 	private ImageView imgView;
 
@@ -126,10 +123,9 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 			resMgr.cargarDatosRes(controller.getRutRest(), txtDescripcion.getText(), txtDireccion.getText(),
 					txtHorarioApertura.getText(), txtHorarioCierre.getText(),
 					Float.parseFloat(txtPrecioPromedio.getText()), Integer.parseInt(txtTelefono.getText()), barrio,
-					imagenAGuardar);
+					imagenAGuardar, null);
 			stage = (Stage) btnGuardarDatos.getScene().getWindow();
-			root = fxmlLoader.load(
-					ControladorActualizarDatosRest.class.getResourceAsStream("MenuPrincipal.fxml"));
+			root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
 		}
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
