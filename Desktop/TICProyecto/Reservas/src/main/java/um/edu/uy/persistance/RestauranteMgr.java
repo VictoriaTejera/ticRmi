@@ -39,21 +39,18 @@ public class RestauranteMgr {
 	public void insertarComida(String rut, Comida comida) {
 		repository.insertarComida(rut, comida.getId());
 	}
-
 	
-	//public List<Restaurante> filtrarPorBarrio(String nombreBarrio) {
 
-
-	public ObservableList<Restaurante> filtrarPorBarrio(String nombreBarrio) {
+	public List<Restaurante> filtrarPorBarrio(String nombreBarrio) {
 		List<Restaurante> restaurantes = repository.filtrarPorBarrio(nombreBarrio);
-		return (ObservableList<Restaurante>) restaurantes;
+		return restaurantes;
 	}
-
 
 	public List<Restaurante> filtrarPorComida(String tipoComida) {
 		List<Restaurante> restaurantes = repository.filtrarPorComida(tipoComida);
 		return restaurantes;
 	}
+
 	
 
 	
@@ -67,6 +64,7 @@ public class RestauranteMgr {
 //		return observ;
 //
 //	}
+
 
 	public List<Restaurante> filtrarPorPrecio(Float precioMenor, Float precioMayor) {
 		List<Restaurante> restaurantes = repository.filtrarPorPrecio(precioMenor, precioMayor);

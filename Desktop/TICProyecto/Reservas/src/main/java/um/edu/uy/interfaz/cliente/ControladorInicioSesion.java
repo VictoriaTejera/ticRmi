@@ -50,6 +50,8 @@ public class ControladorInicioSesion implements ApplicationContextAware {
 	private UsuarioMgr usuarioMgr;
 	
 	private ApplicationContext applicationContext;
+	
+	Usuario usuario;
 
 	public ControladorInicioSesion() {
 		super();
@@ -64,8 +66,8 @@ public class ControladorInicioSesion implements ApplicationContextAware {
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 
 		if (event.getSource() == btnConfirmarInicioSesion) {
-			Usuario user = new Usuario(txtUsuario.getText(), txtContrasena.getText());
-			if (usuarioMgr.verificarUsuario(user) == true) {
+			usuario = new Usuario(txtUsuario.getText(), txtContrasena.getText());
+			if (usuarioMgr.verificarUsuario(usuario) == true) {
 				stage = (Stage) btnConfirmarInicioSesion.getScene().getWindow();
 				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
 			} else {
@@ -80,6 +82,10 @@ public class ControladorInicioSesion implements ApplicationContextAware {
 		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		stage.setScene(scene);
 		stage.show();
+	}
+	
+	Usuario getUsuario() {
+		return usuario;
 	}
 
 	@FXML

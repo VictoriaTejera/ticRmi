@@ -108,9 +108,8 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     
 
     public void llenarTabla() {
-    	columnaNombre.setCellValueFactory(new Callback<CellDataFeatures<RestauranteAUX, String>, String>() {
-    	     public String call(CellDataFeatures<RestauranteAUX, String> r) {
-    	         // r.getValue() returns the Person instance for a particular TableView row
+    	columnaNombre.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<RestauranteAUX, String>, ObservableValue<String>>() {
+    	     public ObservableValue<String> call(TableColumn.CellDataFeatures<RestauranteAUX, String> r) {
     	         return r.getValue().getRestaurante().getNombre();
     	     }
     	  });
