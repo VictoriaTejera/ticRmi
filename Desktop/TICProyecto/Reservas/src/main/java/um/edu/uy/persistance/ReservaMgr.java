@@ -32,16 +32,17 @@ public class ReservaMgr {
 		Reserva reserva=new Reserva(usu, res, cantPersonas);
 		repository.save(reserva);
 	}
-	
+
 	public List<Reserva>obtenerReservasNoTerminadas(String rut) {
 		List<Reserva> reservasNoTerminadas= repository.obtenerReservasNoTerminadas(rut);
 		return reservasNoTerminadas;
 	}
 		
-		
+
 
 	public List<Reserva> verEstadoReservasUsuario(Integer usuarioCelular){
 		return repository.verEstadoReservasUsuario(usuarioCelular);
+
 	}
 
 }

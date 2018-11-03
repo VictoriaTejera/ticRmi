@@ -39,16 +39,44 @@ public class RestauranteMgr {
 	public void insertarComida(String rut, Comida comida) {
 		repository.insertarComida(rut, comida.getId());
 	}
+<<<<<<< HEAD
 	
 	public List<Restaurante> filtrarPorBarrio(String nombreBarrio) {
+=======
+
+	
+//	public List<Restaurante> filtrarPorBarrio(String nombreBarrio) {
+
+
+	public ObservableList<Restaurante> filtrarPorBarrio(String nombreBarrio) {
+>>>>>>> b7f813208d6895dd819e5b703a38d77bd0385cd1
 		List<Restaurante> restaurantes = repository.filtrarPorBarrio(nombreBarrio);
-		return restaurantes;
+		return (ObservableList<Restaurante>) restaurantes;
 	}
 
+<<<<<<< HEAD
 	public List<Restaurante> filtrarPorComida(String tipoComida) {
 		List<Restaurante> restaurantes = repository.filtrarPorComida(repository.obtenerIdComida(tipoComida));
 		return restaurantes;
 	}
+=======
+
+	public List<Restaurante> filtrarPorComida(String tipoComida) {
+		List<Restaurante> restaurantes = repository.filtrarPorComida(tipoComida);
+		return restaurantes;
+	}
+		
+
+//	public ObservableList<Restaurante> filtrarPorComida(String tipoComida) {
+//		List<Restaurante> restaurantes = repository.filtrarPorComida(repository.obtenerIdComida(tipoComida));
+//		ObservableList<Restaurante> observ = FXCollections.observableArrayList();
+//		for (int i = 0; i < restaurantes.size(); i++) {
+//			observ.add(restaurantes.get(i));
+//		}
+//		return observ;
+//
+//	}
+>>>>>>> b7f813208d6895dd819e5b703a38d77bd0385cd1
 
 	public List<Restaurante> filtrarPorPrecio(Float precioMenor, Float precioMayor) {
 		List<Restaurante> restaurantes = repository.filtrarPorPrecio(precioMenor, precioMayor);

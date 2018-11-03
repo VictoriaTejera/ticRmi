@@ -14,7 +14,7 @@ import um.edu.uy.persistance.entidades.Reserva;
 public interface ReservaRepository extends CrudRepository<Reserva, String> {
 	
 
-	@Query("SELECT r FROM Reserva r WHERE r.terminada=false AND r.rut= :rut")
+	@Query("SELECT r FROM Reserva r WHERE r.terminada=false AND r.restaurante.rut= :rut")
 	List<Reserva> obtenerReservasNoTerminadas(@Param("rut") String rut);
 	
 	
