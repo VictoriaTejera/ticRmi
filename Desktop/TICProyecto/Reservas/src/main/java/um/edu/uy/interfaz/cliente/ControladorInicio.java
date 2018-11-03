@@ -55,7 +55,9 @@ public class ControladorInicio implements ApplicationContextAware {
 			root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("iniciarSesion.fxml"));
 			stage = (Stage) btnIniciarSesion.getScene().getWindow();
 		}
-		stage.setScene(new Scene(root));
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
 		stage.show();
 	}
 
