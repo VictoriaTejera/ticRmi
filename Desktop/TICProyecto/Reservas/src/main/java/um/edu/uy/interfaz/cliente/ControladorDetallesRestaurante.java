@@ -1,21 +1,29 @@
 package um.edu.uy.interfaz.cliente;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import um.edu.uy.persistance.entidades.Restaurante;
+import um.edu.uy.persistance.entidades.Usuario;
 
 @Component
 public class ControladorDetallesRestaurante {
@@ -55,11 +63,8 @@ public class ControladorDetallesRestaurante {
     
     @Autowired
     ControladorListarRestaurantes controlador;
-
-
-    @FXML
-    void RealizarReserva(ActionEvent event) {
-    }
+    
+	private ApplicationContext applicationContext;
 
     @FXML
     void initialize() {
@@ -87,5 +92,27 @@ public class ControladorDetallesRestaurante {
         
         descripcion.setText(controlador.restSeleccionado().getDescripcion());
     }
+    
+    @FXML
+    void RealizarReserva(ActionEvent event) throws IOException {
+    	Stage stage = null;
+		Parent root = null;
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		stage = new Stage();
+		fxmlLoader.setControllerFactory(applicationContext::getBean);
+		if (event.getSource() == btnReservar) {
+			stage = (Stage) btnReservar.getScene().getWindow();
+			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("Reservar.fxml"));	
+		}
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
+		stage.show();
+	}
+    
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+		this.applicationContext = applicationContext;
+		
+	}
 
 }
