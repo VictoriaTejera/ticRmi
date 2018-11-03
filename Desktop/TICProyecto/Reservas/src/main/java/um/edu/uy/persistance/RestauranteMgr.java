@@ -41,7 +41,7 @@ public class RestauranteMgr {
 	}
 
 	
-//	public List<Restaurante> filtrarPorBarrio(String nombreBarrio) {
+	//public List<Restaurante> filtrarPorBarrio(String nombreBarrio) {
 
 
 	public ObservableList<Restaurante> filtrarPorBarrio(String nombreBarrio) {
@@ -54,7 +54,9 @@ public class RestauranteMgr {
 		List<Restaurante> restaurantes = repository.filtrarPorComida(tipoComida);
 		return restaurantes;
 	}
-		
+	
+
+	
 
 //	public ObservableList<Restaurante> filtrarPorComida(String tipoComida) {
 //		List<Restaurante> restaurantes = repository.filtrarPorComida(repository.obtenerIdComida(tipoComida));
