@@ -66,7 +66,7 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 				root = fxmlLoader.load(ControladorMenuRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
 				getRutRest();
 			}else {
-				root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("Warning.fxml"));
+				showAlert("Lo sentimos, ", "El usuario o contraseña son incorrectos. Vuelva a intentarlo");
 			}
 		}
 		stage.setScene(new Scene(root));
@@ -88,5 +88,13 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 		this.applicationContext = applicationContext;
 
 	}
+	public static void showAlert(String title, String contextText) {
+        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(contextText);
+        alert.showAndWait();
+    }
+
 
 }
