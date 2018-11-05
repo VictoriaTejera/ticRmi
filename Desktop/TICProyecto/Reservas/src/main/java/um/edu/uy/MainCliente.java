@@ -17,12 +17,12 @@ import um.edu.uy.interfaz.cliente.ControladorRegistro;
 
 @SpringBootApplication
 public class MainCliente extends Application {
-	Button btnRegistrarse, btnIniciarSesion, btnConfirmarInicioSesion, btnListarRestaurantes, btnConfirmarRegistro;
+	Button btnRegistrarse, btnIniciarSesion, btnConfirmarInicioSesion, btnListarRestaurantes, btnConfirmarRegistro, btnReservar;
 	Scene scene, scene2, scene1, scene3, scene4, scene5;
 	Stage thestage;
 	private static ConfigurableApplicationContext context;
-	private FXMLLoader fxmlLoader, fxmlLoader1, fxmlLoader2, fxmlLoader3, fxmlLoader4;;
-	private Parent root, root1, root2, root3, root4;
+	private FXMLLoader fxmlLoader, fxmlLoader1, fxmlLoader2, fxmlLoader3, fxmlLoader4, fxmlLoader5;
+	private Parent root, root1, root2, root3, root4, root5;
 
 	@Override
 	public void init() throws Exception {
@@ -37,12 +37,14 @@ public class MainCliente extends Application {
 		btnConfirmarInicioSesion = new Button();
 		btnConfirmarRegistro = new Button();
 		btnListarRestaurantes = new Button();
+		btnReservar = new Button();
 
 		btnRegistrarse.setOnAction(e -> ButtonClicked(e));
 		btnIniciarSesion.setOnAction(e -> ButtonClicked(e));
 		btnConfirmarInicioSesion.setOnAction(e -> ButtonClicked(e));
 		btnConfirmarRegistro.setOnAction(e -> ButtonClicked(e));
 		btnListarRestaurantes.setOnAction(e -> ButtonClicked(e));
+		btnReservar.setOnAction(e -> ButtonClicked(e));
 
 		fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(MainCliente.getContext()::getBean);
@@ -55,24 +57,33 @@ public class MainCliente extends Application {
 
 		root1 = fxmlLoader1.load(ControladorRegistro.class.getResourceAsStream("registrarse.fxml"));
 		scene1 = new Scene(root1);
+		scene1.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		
 		fxmlLoader2 = new FXMLLoader();
 		fxmlLoader2.setControllerFactory(MainCliente.getContext()::getBean);
 
 		root2 = fxmlLoader2.load(ControladorRegistro.class.getResourceAsStream("iniciarSesion.fxml"));
 		scene2 = new Scene(root2);
+		scene2.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 
 		fxmlLoader3 = new FXMLLoader();
 		fxmlLoader3.setControllerFactory(MainCliente.getContext()::getBean);
 
 		root3 = fxmlLoader3.load(ControladorRegistro.class.getResourceAsStream("MenuPrincipal.fxml"));
 		scene3 = new Scene(root3);
+		scene3.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		
 		fxmlLoader4 = new FXMLLoader();
 		fxmlLoader4.setControllerFactory(MainCliente.getContext()::getBean);
 		
 		root4 = fxmlLoader4.load(ControladorRegistro.class.getResourceAsStream("ListarRestaurantes.fxml"));
 		scene4 = new Scene(root4);
+		
+		fxmlLoader5 = new FXMLLoader();
+		fxmlLoader5.setControllerFactory(MainCliente.getContext()::getBean);
+		
+		root5 = fxmlLoader5.load(ControladorRegistro.class.getResourceAsStream("Reservar.fxml"));
+		scene5 = new Scene(root5);
 
 		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		primaryStage.setScene(scene);
@@ -94,6 +105,8 @@ public class MainCliente extends Application {
 			thestage.setScene(scene4);
 		if (e.getSource() == btnConfirmarRegistro)
 			thestage.setScene(scene2);
+		if (e.getSource() == btnReservar)
+			thestage.setScene(scene5);
 	}
 
 	public void stop() {

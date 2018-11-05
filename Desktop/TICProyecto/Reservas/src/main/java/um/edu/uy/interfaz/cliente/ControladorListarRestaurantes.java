@@ -12,6 +12,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -22,10 +25,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Callback;
+import um.edu.uy.interfaz.cliente.clasesAuxiliares.RestauranteAUX;
 import um.edu.uy.persistance.BarrioMgr;
 import um.edu.uy.persistance.ComidaMgr;
 import um.edu.uy.persistance.RestauranteMgr;
@@ -56,16 +62,16 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     private TableColumn<Restaurante, String> columnaDireccion;
 
     @FXML
-    private TableColumn<Restaurante, String> columnaNombre;
+    private TableColumn<RestauranteAUX, String> columnaNombre;
 
     @FXML
     private TableColumn<Restaurante, Integer> columnaTelefono;
     
     @FXML
-    private TableColumn<Restaurante, String> columnaInfo;
+    private TableColumn<RestauranteAUX, String> columnaReservar;
 
     @FXML
-    private TableView<Restaurante> tabla;
+    private TableView<RestauranteAUX> tabla;
     
     @FXML
     private Button btnVolverAlMenu;
@@ -102,11 +108,25 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     
 
     public void llenarTabla() {
-    	columnaNombre.setCellValueFactory(new PropertyValueFactory<Restaurante,String>("nombre"));
+    	columnaNombre.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<RestauranteAUX, String>, ObservableValue<String>>() {
+    	     public ObservableValue<String> call(TableColumn.CellDataFeatures<RestauranteAUX, String> r) {
+    	         return r.getValue().getRestaurante().getNombre();
+    	     }
+    	  });
+    	 
     	columnaDireccion.setCellValueFactory(new PropertyValueFactory<Restaurante,String>("direccion"));
     	columnaTelefono.setCellValueFactory(new PropertyValueFactory<Restaurante,Integer>("telefono"));
-//    	columnaInfo.setCellValueFactory(new PropertyValueFactory<Restaurante, String>("button"));
-    	tabla.setItems(restaurante.getRestaurants());
+    	columnaReservar.setCellValueFactory(new PropertyValueFactory<RestauranteAUX, String>("button"));
+    	
+    	ObservableList<RestauranteAUX> restaurantes = FXCollections.observableArrayList();
+    	RestauranteAUX restAux;
+		for (int i = 0; i < restaurante.getRestaurants().size(); i++) {
+			//restaurantes.add(restaurante.getRestaurants().get(i));
+			restAux = new RestauranteAUX(restaurante.getRestaurants().get(i));
+			restaurantes.add(restAux);
+		}
+		
+    	tabla.setItems(restaurantes);
     }
     
     @FXML
@@ -126,27 +146,28 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     @FXML
     void ListarRestaurantes(ActionEvent event) {
     	if (event.getSource() == btnBuscar) {
+    		ObservableList<RestauranteAUX> rest = FXCollections.observableArrayList();
+    		RestauranteAUX restAux;
     		if(cboxBarrio.getValue()!=null) {
-    			tabla.setItems(restaurante.filtrarPorBarrio(cboxBarrio.getValue()));
+    			for (int i = 0; i < restaurante.filtrarPorBarrio(cboxBarrio.getValue()).size(); i++) {
+    				restAux = new RestauranteAUX(restaurante.filtrarPorBarrio(cboxBarrio.getValue()).get(i)); 
+    				rest.add(restAux);
+    			}
+    			tabla.setItems(rest);
     		}
     		if(cboxComida.getValue()!=null) {
-    			tabla.setItems(restaurante.filtrarPorComida(cboxComida.getValue()));
+    			for (int i = 0; i < restaurante.filtrarPorComida(cboxComida.getValue()).size(); i++) {
+    				restAux = new RestauranteAUX(restaurante.filtrarPorComida(cboxComida.getValue()).get(i)); 
+    				rest.add(restAux);
+    			}
+    			tabla.setItems(rest);
     		}
     	}
     }
     
-//    @FXML
-//    void seleccionarRestaurante(){
-//    	tabla.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-//    	    if (newSelection != null) {
-//    	        Restaurante res = tabla.getSelectionModel().getSelectedItem();
-//    	    }
-//    	});
-//    }
-    
     @FXML
     Restaurante restSeleccionado() {
-    	Restaurante res = tabla.getSelectionModel().getSelectedItem();
+    	Restaurante res = tabla.getSelectionModel().getSelectedItem().getRestaurante();
     	return res;
     }
     
@@ -195,7 +216,6 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	    		fxmlLoader.setControllerFactory(applicationContext::getBean);
 	    		fxmlLoader.setLocation(getClass().getResource("DetallesRestaurante.fxml"));
 	    		try {
-	    			//fxmlLoader.load(ControladorListarRestaurantes.class.getResourceAsStream("DetallesRestaurante.fxml"));
 	    			fxmlLoader.load();
 	    		}catch(IOException ex){
 	    			Logger.getLogger(ControladorListarRestaurantes.class.getName()).log(null, ex);

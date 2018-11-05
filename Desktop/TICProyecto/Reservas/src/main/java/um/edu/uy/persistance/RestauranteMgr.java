@@ -23,9 +23,9 @@ public class RestauranteMgr {
 	@Autowired
 	private BarrioMgr barrioMgr;
 
-	public ObservableList<Restaurante> getRestaurants() {
+	public List<Restaurante> getRestaurants() {
 		Iterable<Restaurante> it = repository.findAll();
-		ObservableList<Restaurante> lista = FXCollections.observableArrayList();
+		List<Restaurante> lista = FXCollections.observableArrayList();
 		for (Restaurante r : it) {
 			lista.add(r);
 		}
@@ -39,25 +39,32 @@ public class RestauranteMgr {
 	public void insertarComida(String rut, Comida comida) {
 		repository.insertarComida(rut, comida.getId());
 	}
+	
 
-	public ObservableList<Restaurante> filtrarPorBarrio(String nombreBarrio) {
+	public List<Restaurante> filtrarPorBarrio(String nombreBarrio) {
 		List<Restaurante> restaurantes = repository.filtrarPorBarrio(nombreBarrio);
-		ObservableList<Restaurante> observ = FXCollections.observableArrayList();
-		for (int i = 0; i < restaurantes.size(); i++) {
-			observ.add(restaurantes.get(i));
-		}
-		return observ;
+		return restaurantes;
 	}
 
-	public ObservableList<Restaurante> filtrarPorComida(String tipoComida) {
-		List<Restaurante> restaurantes = repository.filtrarPorComida(repository.obtenerIdComida(tipoComida));
-		ObservableList<Restaurante> observ = FXCollections.observableArrayList();
-		for (int i = 0; i < restaurantes.size(); i++) {
-			observ.add(restaurantes.get(i));
-		}
-		return observ;
-
+	public List<Restaurante> filtrarPorComida(String tipoComida) {
+		List<Restaurante> restaurantes = repository.filtrarPorComida(tipoComida);
+		return restaurantes;
 	}
+
+	
+
+	
+
+//	public ObservableList<Restaurante> filtrarPorComida(String tipoComida) {
+//		List<Restaurante> restaurantes = repository.filtrarPorComida(repository.obtenerIdComida(tipoComida));
+//		ObservableList<Restaurante> observ = FXCollections.observableArrayList();
+//		for (int i = 0; i < restaurantes.size(); i++) {
+//			observ.add(restaurantes.get(i));
+//		}
+//		return observ;
+//
+//	}
+
 
 	public List<Restaurante> filtrarPorPrecio(Float precioMenor, Float precioMayor) {
 		List<Restaurante> restaurantes = repository.filtrarPorPrecio(precioMenor, precioMayor);

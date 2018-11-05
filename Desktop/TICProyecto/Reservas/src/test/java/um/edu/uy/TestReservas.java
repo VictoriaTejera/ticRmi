@@ -27,9 +27,18 @@ public class TestReservas {
 	
 	@Autowired 
 	UsuarioMgr usuarioMgr;
-
+	
 	@Test
 	public void testSaveReserva() {
+		Restaurante res=new Restaurante("rut", "nombre", "email", "pass");
+		Usuario u= new Usuario("nombre", "contrasena", 123);
+		Reserva reserva=new Reserva(u, res, 123);
+		
+		reservaMgr.save(reserva);
+	}
+
+	@Test
+	public void testSaveReserva2() {
 		Restaurante res = new Restaurante("rut", "nombre", "email", "pass");
 		Restaurante res2 = new Restaurante("rut2", "nombre2", "email2", "pass2");
 		restauranteMgr.save(res);
@@ -47,7 +56,6 @@ public class TestReservas {
 		for (int i = 0; i < lista.size(); i++) {
 			System.out.println(lista.get(i));
 		}
-
 	}
-
+	
 }

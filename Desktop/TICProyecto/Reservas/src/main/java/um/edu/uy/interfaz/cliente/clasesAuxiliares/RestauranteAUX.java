@@ -1,79 +1,64 @@
 package um.edu.uy.interfaz.cliente.clasesAuxiliares;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import org.jboss.logging.Logger;
+
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import um.edu.uy.interfaz.cliente.ControladorListarRestaurantes;
 import um.edu.uy.persistance.entidades.Barrio;
 import um.edu.uy.persistance.entidades.Comida;
 import um.edu.uy.persistance.entidades.Restaurante;
 
 public class RestauranteAUX {
-	private String rut;
-	private String nombre;
-	private String horarioApertura;
-	private String horarioCierre;
-	private String direccion;
-	private Integer telefono;
-	private Float rating;
-	private Integer cantRatings;
-	private String descripcion;
-	private Float precio_promedio;
-	private String email;
-	private String password;
-	private byte[] imagen;
-	private List<Comida> comidas;
-	private Barrio barrio;
-	
-//	private ObjectProperty<Button> button;
-	
+	private Restaurante restaurante;
 	private Button button;
 	
 	public ObservableList<Restaurante> getRestaurants(){
 		return null;
 	}
 	
-	public RestauranteAUX(Restaurante res) {
-		this.rut=res.getRUT();
-		this.nombre=res.getNombre();
-		this.horarioApertura=res.getHorarioAperura();
-		this.horarioCierre=res.getHorarioCierre();
-		this.direccion=res.getDireccion();
-		this.telefono=res.getTelefono();
-		this.rating=res.getRating();
-		this.cantRatings=res.getCantRatings();
-		this.descripcion=res.getDescripcion();
-		this.precio_promedio=res.getPrecio_promedio();
-		this.email=res.getEmail();
-		this.password=res.getPassword();
-		this.imagen=res.getImagen();
-		this.comidas=res.getComidas();
-		this.barrio=res.getBarrio();
-		this.button= new Button("Info");
-		
-		
-//		this.button = new SimpleObjectProperty<>(new Button("Información"));
-//		this.button.get().setOnAction((event) -> {
-//            // Aqui puedes seleccionar la instancia de usuario que corresponde y cargar la nueva ventana
-//            Restaurante restSeleccionado = this;
-//        });
-
-//		button = new Button("Info");
-//		
-		button.setOnMouseClicked(new EventHandler() {
-			public void handle(Event arg0) {
-				System.out.println(nombre + "," + direccion + "," + telefono);
-			}
-		});
+	public RestauranteAUX(Restaurante restaurante) {
+		this.restaurante = restaurante;
+		this.button= new Button("Reservar");
+		button = new Button("Info");
+		button.setOnMouseClicked(new EventHandler<MouseEvent>(){
+        	@Override
+	    	public void handle(MouseEvent event){
+	    		FXMLLoader fxmlLoader = new FXMLLoader();
+	    		//fxmlLoader.setControllerFactory(applicationContext::getBean);
+	    		fxmlLoader.setLocation(getClass().getResource("Reservar.fxml"));
+	    		try {
+	    			fxmlLoader.load();
+	    		}catch(IOException ex){
+	    			Logger.getLogger(ControladorListarRestaurantes.class.getName()).log(null, ex);
+	    		}
+	    		Parent root = fxmlLoader.getRoot();
+	    		Stage stage = new Stage();
+	    		stage.setScene(new Scene(root));
+	    		stage.show();
+	    	}
+	    });
 	}
 	
 	public Button getButton() {
-	return button;
+		return button;
+	}
+	
+	public Restaurante getRestaurante() {
+		return restaurante;
 	}
 
 }
