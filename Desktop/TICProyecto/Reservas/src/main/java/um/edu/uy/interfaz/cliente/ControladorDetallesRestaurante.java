@@ -67,7 +67,7 @@ public class ControladorDetallesRestaurante {
     @Autowired
     ControladorListarRestaurantes controlador;
     
-	private ApplicationContext applicationContext;
+    private ApplicationContext applicationContext;
 
     @FXML
     void initialize() {

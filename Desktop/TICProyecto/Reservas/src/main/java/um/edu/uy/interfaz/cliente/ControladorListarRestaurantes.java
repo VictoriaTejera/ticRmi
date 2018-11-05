@@ -87,7 +87,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     @Autowired
  	private ComidaMgr comidaMgr;
     
-    ApplicationContext applicationContext;
+    private ApplicationContext applicationContext;
     
     @FXML
     private TableColumn<RestauranteAUX, String> colDireccion;
@@ -194,7 +194,9 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		stage = new Stage();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 		root = fxmlLoader.load(ControladorListarRestaurantes.class.getResourceAsStream("DetallesRestaurante.fxml"));
+		//stage = (Stage) event.getSource().getScene().getWindow();
 		stage.setScene(new Scene(root));
+		stage.show();
     }
     	  
     @FXML
