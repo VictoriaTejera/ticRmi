@@ -71,13 +71,7 @@ public class ControladorInicioSesion implements ApplicationContextAware {
 			usuario = new Usuario(txtUsuario.getText(), txtContrasena.getText());
 			if (usuarioMgr.verificarUsuario(usuario) == true) {
 				stage = (Stage) btnConfirmarInicioSesion.getScene().getWindow();
-				
-				int celular = usuarioMgr.encontrarPorMail(txtUsuario.getText()).getCelular();
-				ControladorMenuPrincipal controller = Main.getContext().getBean(ControladorMenuPrincipal.class);
-				controller.setUsuarioCelular(celular);
-				
 				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
-				
 				} else {
 				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("Warning.fxml"));
 			}

@@ -22,8 +22,8 @@ public interface UsuarioRepository extends CrudRepository<Usuario, Integer>{
 	Usuario verificarNombreUsuario(@Param("nombre") String nombre);
 	
 	
-	@Query("SELECT u from Usuario where u.Mail = :mail")
-	Usuario encontrarPorMail(@Param("mail") String mail);
+//	@Query("SELECT u from Usuario where u.Mail = :mail")
+//	Usuario encontrarPorMail(@Param("mail") String mail);
 	
 	
 
