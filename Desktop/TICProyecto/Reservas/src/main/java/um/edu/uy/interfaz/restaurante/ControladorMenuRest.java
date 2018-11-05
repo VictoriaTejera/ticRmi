@@ -51,7 +51,7 @@ public class ControladorMenuRest implements ApplicationContextAware{
 			stage = (Stage) btnDatos.getScene().getWindow();
 			root = fxmlLoader.load(ControladorMenuRest.class.getResourceAsStream("ActualizarDatosRest.fxml"));
 			controller.handleBarrioCbox(event);
-			controller.handleTipoComidaCbox(event);
+//			controller.handleTipoComidaCbox(event);
 		}
 		stage.setScene(new Scene(root));
 		stage.show();

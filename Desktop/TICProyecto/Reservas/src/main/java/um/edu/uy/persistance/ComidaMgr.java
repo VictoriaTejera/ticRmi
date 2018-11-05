@@ -27,5 +27,9 @@ public class ComidaMgr {
 		return lista;
 	}
 	
+	public Long find(String tipoComida) {
+		return repository.find(tipoComida);
+	}
+	
 	
 }
