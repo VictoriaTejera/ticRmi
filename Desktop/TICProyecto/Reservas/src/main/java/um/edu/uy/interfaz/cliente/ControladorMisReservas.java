@@ -44,14 +44,10 @@ public class ControladorMisReservas {
     @Autowired
     private ReservaMgr resMgr;
     
+    @Autowired
+    private ControladorInicioSesion controladorInicio;
+    
     private final StringProperty prop = new SimpleStringProperty();
-    
-    private int usuarioCelular;
-    
-    
-    public void setUsuarioCelular (int uC) {
-    	usuarioCelular = uC;
-    }
     
     @FXML
     void initialize() {
@@ -71,7 +67,7 @@ public class ControladorMisReservas {
     	     }
     	  });
 
-    	List<Reserva> todasLasReservas =   resMgr.verEstadoReservasUsuario(usuarioCelular); 
+    	List<Reserva> todasLasReservas =   resMgr.verEstadoReservasUsuario(controladorInicio.getUsuario().getCelular()); 
     	
     	for(Reserva r : todasLasReservas) {
     		if(r.isConfirmado()) {

@@ -43,7 +43,6 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
     @Autowired
     ControladorListarRestaurantes listar;
 
-    private int usuarioCelular;
 
     @FXML
     void ListarRestaurantes(ActionEvent event) throws IOException {
@@ -69,9 +68,7 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 		stage = new Stage();
     	if (event.getSource() == btnReservasRealizadas) {
-
     		ControladorMisReservas controller = Main.getContext().getBean(ControladorMisReservas.class);
-    		controller.setUsuarioCelular(usuarioCelular);
     		root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("MisReservas.fxml"));
     		stage = (Stage) btnListarRestaurantes.getScene().getWindow();
 		}
@@ -96,7 +93,4 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
 		this.applicationContext = applicationContext;
 		
 	}
-    public void setUsuarioCelular(int usuarioCelular) {
-    	this.usuarioCelular=usuarioCelular;
-    }
 }

@@ -24,9 +24,6 @@ public class UsuarioMgr {
 		repository.save(usuario);
 	}
 	
-	public Usuario encontrarPorMail(String mail) {
-		return repository.encontrarPorMail(mail);
-	}
 
 	public boolean verificarUsuario(Usuario us) {
 		boolean verifico = true;
