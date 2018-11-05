@@ -3,7 +3,6 @@ package um.edu.uy.interfaz.cliente;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.BeansException;
@@ -27,15 +26,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Callback;
-import um.edu.uy.Main;
 import um.edu.uy.interfaz.cliente.clasesAuxiliares.RestauranteAUX;
-import um.edu.uy.interfaz.restaurante.ControladorMenuRest;
 import um.edu.uy.persistance.BarrioMgr;
 import um.edu.uy.persistance.ComidaMgr;
 import um.edu.uy.persistance.RestauranteMgr;
@@ -82,34 +78,35 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 	@Autowired
 	private RestauranteMgr restaurante;
-	
-    @Autowired
- 	private BarrioMgr barrioMgr;
-    
-    @Autowired
- 	private ComidaMgr comidaMgr;
-    
-    private ApplicationContext applicationContext;
-    
-    @FXML
-    private TableColumn<RestauranteAUX, String> colDireccion;
 
-    @FXML
-    private TableColumn<RestauranteAUX, String> colHorario;
+	@Autowired
+	private BarrioMgr barrioMgr;
 
-    @FXML
-    private TableColumn<RestauranteAUX, Float> colRating;
+	@Autowired
+	private ComidaMgr comidaMgr;
 
-    @FXML
-    private TableColumn<RestauranteAUX, Integer> colTel;
+	private ApplicationContext applicationContext;
 
-    @FXML
-    private Label descripciónRest;
+	@FXML
+	private TableColumn<RestauranteAUX, String> colDireccion;
 
     @FXML
     private Label nombreRest;
     
     private final StringProperty prop = new SimpleStringProperty();
+	
+    @FXML
+	private TableColumn<RestauranteAUX, String> colHorario;
+
+	@FXML
+	private TableColumn<RestauranteAUX, Float> colRating;
+
+	@FXML
+	private TableColumn<RestauranteAUX, Integer> colTel;
+
+	@FXML
+	private Label descripciónRest;
+
 
 	public void llenarTabla() {
 		columnaNombre.setCellValueFactory(
@@ -199,10 +196,10 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		stage = new Stage();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 		root = fxmlLoader.load(ControladorListarRestaurantes.class.getResourceAsStream("DetallesRestaurante.fxml"));
-		//stage = (Stage) event.getSource().getScene().getWindow();
+		// stage = (Stage) event.getSource().getScene().getWindow();
 		stage.setScene(new Scene(root));
 		stage.show();
-    }
+	}
 
 	@FXML
 	void volverAlMenu(ActionEvent event) throws IOException {
@@ -211,7 +208,6 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		stage = new Stage();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
-
     	if (event.getSource() == btnVolverAlMenu) {
     		root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
 			stage = (Stage) btnVolverAlMenu.getScene().getWindow();

@@ -23,7 +23,6 @@ public class UsuarioMgr {
 	public void save(Usuario usuario) {
 		repository.save(usuario);
 	}
-	
 
 	public boolean verificarUsuario(Usuario us) {
 		boolean verifico = true;
