@@ -81,6 +81,12 @@ public class Reserva {
 	public void setRestaurante(Restaurante restaurante) {
 		this.restaurante = restaurante;
 	}
+
+	@Override
+	public String toString() {
+		return "Reserva [Id=" + Id + ", cantPersonas=" + cantPersonas + ", confirmada=" + confirmada + ", terminada="
+				+ terminada + ", usuario=" + usuario + ", restaurante=" + restaurante + "]";
+	}
 	
 	
 

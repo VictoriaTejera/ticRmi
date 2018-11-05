@@ -46,11 +46,12 @@ public class Restaurante implements Serializable {
 	private byte[] imagen;
 
 	@ManyToMany
-	@JoinTable
-	(name="RESTAURANTE_COMIDA", joinColumns = {@JoinColumn(name= "idRestaurante")}, inverseJoinColumns = {@JoinColumn(name="idComida")})
+	@JoinTable(name="RESTAURANTE_COMIDA", joinColumns = {@JoinColumn(name= "idRestaurante")}, inverseJoinColumns = {@JoinColumn(name="idComida")})
+	@Cascade(CascadeType.ALL)
 	private List<Comida> comidas;
 	
 	@ManyToOne
+	@Cascade(CascadeType.ALL)
 	private Barrio barrio;
 	
 	@OneToMany

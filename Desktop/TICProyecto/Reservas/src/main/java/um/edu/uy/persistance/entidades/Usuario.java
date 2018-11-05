@@ -14,8 +14,6 @@ public class Usuario  implements Serializable{
 	@Id
 	private Integer celular;
 	private String Nombre;
-	
-//	@Column(unique=true)
 	private String NombreUsuario;
 	private String contrasena;
 	private Float rating;

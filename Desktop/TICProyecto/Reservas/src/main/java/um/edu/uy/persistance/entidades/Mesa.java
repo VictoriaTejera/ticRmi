@@ -13,8 +13,16 @@ public class Mesa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private Integer capacidad;
 	private boolean reservada;	
+	
+	public Mesa() {}
+	
+	public Mesa(Integer capacidad, boolean reservada) {
+		this.capacidad = capacidad;
+		this.reservada = reservada;
+	}
 	
 	public Long getId() {
 		return id;

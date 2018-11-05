@@ -18,14 +18,14 @@ public class Comida {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String tipo;
-
-//	@ManyToMany
-//	private List<Restaurante> restaurante;
 	
-
-
+	
 	public Comida() {}
 
+	public Comida(String tipo) {
+		this.tipo = tipo;		
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -34,47 +34,6 @@ public class Comida {
 		this.id = id;
 	}
 
-	public Comida(String tipo) {
-		super();
-		
-		this.tipo = tipo;
-		
-	}
-
-	
-		
-		
-//		if(restaurante!=null) {
-//		Float precioMayor = restaurante.getPrecioMayor();
-//		Float precioMenor=restaurante.getPrecioMenor();
-//	
-//		if(precio<precioMenor) {
-//			restaurante.setPrecioMenor(precio);
-//		}
-//		if(precio>precioMayor) {
-//			restaurante.setPrecioMayor(precio);
-//		}
-//		}
-		
-			
-		
-	
-	
-
-	
-
-
-
-//	public List<Restaurante> getRestaurante() {
-//		return restaurante;
-//	}
-//
-//	public void setRestaurante(List<Restaurante> restaurante) {
-//		this.restaurante = restaurante;
-//	}
-
-
-
 	public String getTipo() {
 		return tipo;
 	}
@@ -82,8 +41,5 @@ public class Comida {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-
-
-	
 	
 }
