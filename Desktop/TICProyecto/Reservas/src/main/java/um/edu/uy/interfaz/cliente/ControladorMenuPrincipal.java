@@ -68,7 +68,6 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 		stage = new Stage();
     	if (event.getSource() == btnReservasRealizadas) {
-    		ControladorMisReservas controller = Main.getContext().getBean(ControladorMisReservas.class);
     		root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("MisReservas.fxml"));
     		stage = (Stage) btnListarRestaurantes.getScene().getWindow();
 		}

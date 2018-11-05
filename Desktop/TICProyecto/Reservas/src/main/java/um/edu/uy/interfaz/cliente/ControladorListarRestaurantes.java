@@ -179,14 +179,14 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 				tabla.setItems(rest);
 			}
 
-			if (cboxComida.getValue() != null && cboxBarrio.getValue() != null) {
+			/*if (cboxComida.getValue() != null && cboxBarrio.getValue() != null) {
 				for (int i = 0; i < restaurante.filtrarPorVarios(cboxComida.getValue(), cboxBarrio.getValue())
 						.size(); i++) {
 					restAux = new RestauranteAUX(
 							restaurante.filtrarPorVarios(cboxComida.getValue(), cboxBarrio.getValue()).get(i));
 					rest.add(restAux);
 				}
-			}
+			}*/
 		}
 
 	}
