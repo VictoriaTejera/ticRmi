@@ -29,7 +29,7 @@
             <Font name="Yu Gothic Bold" size="15.0" fx:id="x3" />
           </font>
         </Button>
-        <Button id="btnListarRestaurantes" blendMode="DARKEN" font="$x3" layoutX="134.0" layoutY="180.0" mnemonicParsing="false" onAction="#ListarRestaurantes" prefHeight="43.0" prefWidth="185.0" text="Reservas realizadas" textFill="$x1" underline="false">
+        <Button id="btnListarRestaurantes" fx:id="btnReservasRealizadas" blendMode="DARKEN" font="$x3" layoutX="134.0" layoutY="180.0" mnemonicParsing="false" onAction="#reservasRealizadas" prefHeight="43.0" prefWidth="185.0" text="Reservas realizadas" textFill="$x1" underline="false">
           <effect>
             <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
           </effect>

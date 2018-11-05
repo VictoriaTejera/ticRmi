@@ -29,6 +29,9 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
 
     @FXML
     private Button btnListarRestaurantes;
+    
+    @FXML
+    private Button btnReservasRealizadas;
 
     @FXML
     private Button btnCloseButton;
@@ -55,6 +58,22 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
     		//listar.llenarTabla();
     		//listar.filtroBarrio(event);
     		//listar.filtroComida(event);
+		}
+    	stage.setScene(new Scene(root));
+		stage.show();
+    }
+    
+    @FXML
+    void reservasRealizadas(ActionEvent event) throws IOException {
+    	Stage stage;
+		Parent root = null;
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setControllerFactory(applicationContext::getBean);
+		stage = new Stage();
+    	
+    	if (event.getSource() == btnReservasRealizadas) {
+    		root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("MisReservas.fxml"));
+    		stage = (Stage) btnListarRestaurantes.getScene().getWindow();
 		}
     	stage.setScene(new Scene(root));
 		stage.show();

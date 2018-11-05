@@ -49,6 +49,9 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 
 	@FXML
 	private Button btnCargarImagen;
+	
+//	@FXML
+//	private Button btnAgregarTiposComida;
 
 	@FXML
 	private ImageView imgView;
@@ -56,8 +59,8 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 	@FXML
 	private ComboBox<String> cboxBarrio;
 
-	@FXML
-	private ComboBox<String> cboxTiposComida;
+//	@FXML
+//	private ComboBox<String> cboxTiposComida;
 
 	@FXML
 	private TextField txtDescripcion;
@@ -82,26 +85,31 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 	@Autowired
 	private BarrioMgr barrioMgr;
 
-	@Autowired
-	private ComidaMgr comidaMgr;
+//	@Autowired
+//	private ComidaMgr comidaMgr;
 
 	@Autowired
 	private RestauranteMgr resMgr;
 
 	byte[] imagenAGuardar = null;
+	
+	private Stage stage;
 
 	@Autowired
 	ControladorInicioSesionRest controller;
+	
+	@Autowired
+	ControladorAgregarTiposComidaRest controllerTiposComida;
 
 	@FXML
 	void handleBarrioCbox(ActionEvent event) {
 		cboxBarrio.setItems(barrioMgr.getBarrios());
 	}
 
-	@FXML
-	void handleTipoComidaCbox(ActionEvent event) {
-		cboxTiposComida.setItems(comidaMgr.getComidas());
-	}
+//	@FXML
+//	void handleTipoComidaCbox(ActionEvent event) {
+//		cboxTiposComida.setItems(comidaMgr.getComidas());
+//	}
 
 	@FXML
 	void handleSubmitButtonAction(ActionEvent event) throws IOException {
@@ -116,32 +124,58 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 			if (cboxBarrio.getValue() != null) {
 				barrio = cboxBarrio.getValue();
 			}
-			String tipoComida = null;
-			if (cboxTiposComida.getValue() != null) {
-				tipoComida = cboxTiposComida.getValue();
+//			if (cboxTiposComida.getValue() != null) {
+//				resMgr.insertarComida(controller.getRutRest(), cboxTiposComida.getValue());
+//			}
+			Float precioPromedio=null;
+			if(txtPrecioPromedio.getText()!="") {
+//				System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"+txtPrecioPromedio.getText()+"BBBBBBBBBBBBBBBBBBB");
+				precioPromedio=Float.parseFloat(txtPrecioPromedio.getText());
+			}
+			Integer telefono=null;
+			if(txtTelefono.getText()!="") {
+				telefono=Integer.parseInt(txtTelefono.getText());
 			}
 			resMgr.cargarDatosRes(controller.getRutRest(), txtDescripcion.getText(), txtDireccion.getText(),
 					txtHorarioApertura.getText(), txtHorarioCierre.getText(),
-					Float.parseFloat(txtPrecioPromedio.getText()), Integer.parseInt(txtTelefono.getText()), barrio,
+					precioPromedio, telefono, barrio,
 					imagenAGuardar, null);
 			stage = (Stage) btnGuardarDatos.getScene().getWindow();
-			root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
+			root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("AgregarTiposComida.fxml"));
+			controllerTiposComida.handleTipoComidaCbox1(event);
+			controllerTiposComida.handleTipoComidaCbox2(event);
+			controllerTiposComida.handleTipoComidaCbox3(event);
+			
 		}
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
+//		this.stage=stage;
 		stage.show();
 	}
+	
+//	Stage getStage() {
+//		return stage;
+//	}
+	
+//	@FXML
+//	void agregarTiposComida(ActionEvent event) throws IOException {
+//		Stage stage = null;
+//		Parent root = null;
+//		FXMLLoader fxmlLoader = new FXMLLoader();
+//		stage = new Stage();
+//		fxmlLoader.setControllerFactory(applicationContext::getBean);
+//		
+//		if (event.getSource() == btnAgregarTiposComida) {
+//			stage = (Stage) btnAgregarTiposComida.getScene().getWindow();
+//			root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("AgregarTiposComida.fxml"));
+//		}
+//		Scene scene = new Scene(root);
+//		stage.setScene(scene);
+//		stage.show();
+//	}
 
 	@FXML
 	void cargarImagen() throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader();
-		fxmlLoader.setControllerFactory(applicationContext::getBean);
-		Stage stage = (Stage) btnCargarImagen.getScene().getWindow();
-		Parent root = fxmlLoader
-				.load(ControladorActualizarDatosRest.class.getResourceAsStream("ActualizarDatosRest.fxml"));
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
-
 		FileChooser fc = new FileChooser();
 		FileChooser.ExtensionFilter ext1 = new FileChooser.ExtensionFilter("JPG files(*.jpg)", "*.JPG");
 		FileChooser.ExtensionFilter ext2 = new FileChooser.ExtensionFilter("PNG files(*.png)", "*.PNG");
@@ -177,7 +211,7 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 	void initialize() {
 		assert btnGuardarDatos != null : "fx:id=\"btnGuardarDatos\" was not injected: check your FXML file 'ActualizarDatosRest.fxml'.";
 		assert cboxBarrio != null : "fx:id=\"cboxBarrio\" was not injected: check your FXML file 'ActualizarDatosRest.fxml'.";
-		assert cboxTiposComida != null : "fx:id=\"cboxTiposComida\" was not injected: check your FXML file 'ActualizarDatosRest.fxml'.";
+//		assert cboxTiposComida != null : "fx:id=\"cboxTiposComida\" was not injected: check your FXML file 'ActualizarDatosRest.fxml'.";
 		assert txtDescripcion != null : "fx:id=\"txtDescripcion\" was not injected: check your FXML file 'ActualizarDatosRest.fxml'.";
 		assert txtHorarioApertura != null : "fx:id=\"txtHorarioApertura\" was not injected: check your FXML file 'ActualizarDatosRest.fxml'.";
 		assert txtHorarioCierre != null : "fx:id=\"txtHorarioCierre\" was not injected: check your FXML file 'ActualizarDatosRest.fxml'.";
