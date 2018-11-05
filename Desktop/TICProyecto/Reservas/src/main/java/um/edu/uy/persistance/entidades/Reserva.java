@@ -18,13 +18,13 @@ import javax.persistence.ManyToOne;
 @SuppressWarnings("unused")
 
 public class Reserva {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
 	private Integer cantPersonas;
 
 	private boolean confirmada;
+	private boolean rechazada;
 	private boolean terminada;
 	
 	@ManyToOne
@@ -38,7 +38,6 @@ public class Reserva {
 	public Reserva() {
 	}
 
-
 	public Reserva(Usuario usuario, Restaurante restaurante, Integer cantPersonas) {
 		super();
 		this.usuario = usuario;
@@ -46,6 +45,7 @@ public class Reserva {
 		this.cantPersonas = cantPersonas;
 		confirmada=false;
 		terminada=false;
+		rechazada=false;
 	}
 
 	public Long getId() {

@@ -10,11 +10,15 @@ import um.edu.uy.persistance.entidades.Mesa;
 public class MesaMgr {
 	
 	@Autowired
-	private MesaRepository repository;
+	private MesaRepository mesaRepository;
 	
 	public void save(Mesa mesa) {
-		repository.save(mesa);
+		mesaRepository.save(mesa);
 	}
 	
+	
+	public void marcarMesaComoReservada(Long id) {
+		mesaRepository.marcarMesaComoReservada(id);
+	}
 
 }

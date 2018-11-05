@@ -7,6 +7,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import org.jboss.logging.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javafx.collections.ObservableList;
@@ -20,6 +21,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import um.edu.uy.interfaz.cliente.ControladorInicio;
 import um.edu.uy.interfaz.cliente.ControladorListarRestaurantes;
+import um.edu.uy.interfaz.cliente.ControladorReservarDirecto;
 import um.edu.uy.persistance.entidades.Barrio;
 import um.edu.uy.persistance.entidades.Comida;
 import um.edu.uy.persistance.entidades.Restaurante;
@@ -27,6 +29,9 @@ import um.edu.uy.persistance.entidades.Restaurante;
 public class RestauranteAUX {
 	private Restaurante restaurante;
 	private Button button;
+	
+	@Autowired 
+	ControladorListarRestaurantes controller;
 	
 	public ObservableList<Restaurante> getRestaurants(){
 		return null;
@@ -39,12 +44,13 @@ public class RestauranteAUX {
         	@Override
 	    	public void handle(MouseEvent event){
 	    		FXMLLoader fxmlLoader = new FXMLLoader();
-	    		fxmlLoader.setLocation(ControladorInicio.class.getResource("Reservar.fxml"));
+	    		fxmlLoader.setLocation(ControladorInicio.class.getResource("Reservar2.fxml"));
 	    		try {
 	    			fxmlLoader.load();
 	    		}catch(IOException ex){
 	    			Logger.getLogger(ControladorListarRestaurantes.class.getName()).log(null, ex);
 	    		}
+	    		controller.setRestaurante(restaurante);
 	    		Parent root = fxmlLoader.getRoot();
 	    		Stage stage = new Stage();
 	    		stage.setScene(new Scene(root));

@@ -1,6 +1,5 @@
 package um.edu.uy.interfaz.cliente;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -14,13 +13,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import um.edu.uy.interfaz.cliente.clasesAuxiliares.RestauranteAUX;
 import um.edu.uy.persistance.ReservaMgr;
 import um.edu.uy.persistance.entidades.Reserva;
+import um.edu.uy.persistance.entidades.Restaurante;
 
 @Component
-public class ControladorReservar implements ApplicationContextAware {
+public class ControladorReservarDirecto implements ApplicationContextAware {
 
-    @FXML
+	@FXML
     private ResourceBundle resources;
 
     @FXML
@@ -46,7 +47,7 @@ public class ControladorReservar implements ApplicationContextAware {
     @FXML
     void handleButtonAction(ActionEvent event) {
     	if (event.getSource() == btnReservar) {
-			Reserva reserva = new Reserva(controladorInicioSesion.getUsuario(), controlador.restSeleccionado(), Integer.parseInt(cantPersonas.getText()));
+			Reserva reserva = new Reserva(controladorInicioSesion.getUsuario(), controlador.getRestaurante(), Integer.parseInt(cantPersonas.getText()));
 			reservaMgr.save(reserva);
 		}
     }
@@ -62,6 +63,5 @@ public class ControladorReservar implements ApplicationContextAware {
 
 	}
     
+    
 }
-
-

@@ -26,6 +26,10 @@ public class Mesa {
 		reservada=false;
 	}
 	
+	public void setReservada(boolean reservada) {
+		this.reservada = reservada;
+	}
+
 	public Long getId() {
 		return id;
 	}

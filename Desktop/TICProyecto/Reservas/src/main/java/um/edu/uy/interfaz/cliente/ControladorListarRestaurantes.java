@@ -77,7 +77,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	private Button btnVolverAlMenu;
 
 	@Autowired
-	private RestauranteMgr restaurante;
+	private RestauranteMgr restauranteMgr;
 
 	@Autowired
 	private BarrioMgr barrioMgr;
@@ -90,12 +90,12 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	@FXML
 	private TableColumn<RestauranteAUX, String> colDireccion;
 
-    @FXML
-    private Label nombreRest;
-    
-    private final StringProperty prop = new SimpleStringProperty();
-	
-    @FXML
+	@FXML
+	private Label nombreRest;
+
+	private final StringProperty prop = new SimpleStringProperty();
+
+	@FXML
 	private TableColumn<RestauranteAUX, String> colHorario;
 
 	@FXML
@@ -106,7 +106,8 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 	@FXML
 	private Label descripciónRest;
-
+	
+	private Restaurante res;
 
 	public void llenarTabla() {
 		columnaNombre.setCellValueFactory(
@@ -138,8 +139,8 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		ObservableList<RestauranteAUX> restaurantes = FXCollections.observableArrayList();
 		RestauranteAUX restAux;
 
-		for (int i = 0; i < restaurante.getRestaurants().size(); i++) {
-			restAux = new RestauranteAUX(restaurante.getRestaurants().get(i));
+		for (int i = 0; i < restauranteMgr.getRestaurants().size(); i++) {
+			restAux = new RestauranteAUX(restauranteMgr.getRestaurants().get(i));
 			restaurantes.add(restAux);
 		}
 
@@ -166,20 +167,30 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 			ObservableList<RestauranteAUX> rest = FXCollections.observableArrayList();
 			RestauranteAUX restAux;
 			if (cboxBarrio.getValue() != null) {
-				for (int i = 0; i < restaurante.filtrarPorBarrio(cboxBarrio.getValue()).size(); i++) {
-					restAux = new RestauranteAUX(restaurante.filtrarPorBarrio(cboxBarrio.getValue()).get(i));
+				for (int i = 0; i < restauranteMgr.filtrarPorBarrio(cboxBarrio.getValue()).size(); i++) {
+					restAux = new RestauranteAUX(restauranteMgr.filtrarPorBarrio(cboxBarrio.getValue()).get(i));
 					rest.add(restAux);
 				}
 				tabla.setItems(rest);
 			}
 			if (cboxComida.getValue() != null) {
-				for (int i = 0; i < restaurante.filtrarPorComida(cboxComida.getValue()).size(); i++) {
-					restAux = new RestauranteAUX(restaurante.filtrarPorComida(cboxComida.getValue()).get(i));
+				for (int i = 0; i < restauranteMgr.filtrarPorComida(cboxComida.getValue()).size(); i++) {
+					restAux = new RestauranteAUX(restauranteMgr.filtrarPorComida(cboxComida.getValue()).get(i));
 					rest.add(restAux);
 				}
 				tabla.setItems(rest);
 			}
+
+			/*if (cboxComida.getValue() != null && cboxBarrio.getValue() != null) {
+				for (int i = 0; i < restaurante.filtrarPorVarios(cboxComida.getValue(), cboxBarrio.getValue())
+						.size(); i++) {
+					restAux = new RestauranteAUX(
+							restaurante.filtrarPorVarios(cboxComida.getValue(), cboxBarrio.getValue()).get(i));
+					rest.add(restAux);
+				}
+			}*/
 		}
+
 	}
 
 	@FXML
@@ -208,8 +219,8 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		stage = new Stage();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
-    	if (event.getSource() == btnVolverAlMenu) {
-    		root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
+		if (event.getSource() == btnVolverAlMenu) {
+			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
 			stage = (Stage) btnVolverAlMenu.getScene().getWindow();
 		}
 		Scene scene = new Scene(root);
@@ -256,6 +267,14 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
 
+	}
+	
+	public void setRestaurante(Restaurante res) {
+		this.res=res;
+	}
+	
+	public Restaurante getRestaurante() {
+		return res;
 	}
 
 }
