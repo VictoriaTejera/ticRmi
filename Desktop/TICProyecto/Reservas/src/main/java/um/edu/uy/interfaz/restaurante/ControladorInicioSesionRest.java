@@ -20,8 +20,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import um.edu.uy.Main;
+import um.edu.uy.persistance.ReservaMgr;
 import um.edu.uy.persistance.RestauranteMgr;
+import um.edu.uy.persistance.entidades.Reserva;
 import um.edu.uy.persistance.entidades.Restaurante;
+import um.edu.uy.persistance.entidades.Usuario;
 
 @Component
 public class ControladorInicioSesionRest implements ApplicationContextAware {
@@ -47,6 +50,9 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 	private ApplicationContext applicationContext;
 	
 	Restaurante restaurante;
+	
+	@Autowired
+	private ReservaMgr resMgr;
 
 	@FXML
     void handleSubmitButtonAction(ActionEvent event) throws IOException {
@@ -60,6 +66,14 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 			restaurante = new Restaurante(txtUsuario.getText(),txtContrasena.getText());
 			if (restauranteMgr.verificarUsuarioRestaurante(restaurante) == true) {
 				stage = (Stage) btnIniciarSesion.getScene().getWindow();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+				ControladorMenuRest controller = Main.getContext().getBean(ControladorMenuRest.class);
+				controller.setRestaurante(restauranteMgr.find(restauranteMgr.getRut(nombreUsuario, contrasena)));
+>>>>>>> a30320513b3d6d6e034880354770f87b075f13fe
+>>>>>>> 1b8aced0093e20badffbbd12a9ceb4d8ca9692c3
 				root = fxmlLoader.load(ControladorMenuRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
 			}else {
 				showAlert("Lo sentimos, ", "El usuario o contraseña son incorrectos. Vuelva a intentarlo");
@@ -78,6 +92,11 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 		assert btnIniciarSesion != null : "fx:id=\"btnIniciarSesion\" was not injected: check your FXML file 'inicio.fxml'.";
 		assert txtContrasena != null : "fx:id=\"txtContrasena\" was not injected: check your FXML file 'inicio.fxml'.";
 		assert txtUsuario != null : "fx:id=\"txtUsuario\" was not injected: check your FXML file 'inicio.fxml'.";
+		
+//		Usuario u1= new Usuario("s123", "123", Integer.parseInt("123"));
+//		Restaurante r1 = new Restaurante("1234", "r1234", "", "1234");
+//		Reserva res = new Reserva(u1, r1, Integer.parseInt("2"));
+		//resMgr.save(123, "1234", 2);
 	}
 
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
