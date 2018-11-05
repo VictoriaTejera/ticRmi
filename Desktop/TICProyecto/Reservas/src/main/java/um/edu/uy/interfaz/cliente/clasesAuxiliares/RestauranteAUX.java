@@ -7,6 +7,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import org.jboss.logging.Logger;
+import org.springframework.stereotype.Component;
 
 import javafx.collections.ObservableList;
 import javafx.event.Event;
@@ -17,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import um.edu.uy.interfaz.cliente.ControladorInicio;
 import um.edu.uy.interfaz.cliente.ControladorListarRestaurantes;
 import um.edu.uy.persistance.entidades.Barrio;
 import um.edu.uy.persistance.entidades.Comida;
@@ -37,8 +39,7 @@ public class RestauranteAUX {
         	@Override
 	    	public void handle(MouseEvent event){
 	    		FXMLLoader fxmlLoader = new FXMLLoader();
-	    		//fxmlLoader.setControllerFactory(applicationContext::getBean);
-	    		fxmlLoader.setLocation(getClass().getResource("Reservar.fxml"));
+	    		fxmlLoader.setLocation(ControladorInicio.class.getResource("Reservar.fxml"));
 	    		try {
 	    			fxmlLoader.load();
 	    		}catch(IOException ex){

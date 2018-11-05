@@ -70,7 +70,7 @@ public class ControladorInicioSesion implements ApplicationContextAware {
 			if (usuarioMgr.verificarUsuario(usuario) == true) {
 				stage = (Stage) btnConfirmarInicioSesion.getScene().getWindow();
 				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
-			} else {
+				} else {
 				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("Warning.fxml"));
 			}
 		}

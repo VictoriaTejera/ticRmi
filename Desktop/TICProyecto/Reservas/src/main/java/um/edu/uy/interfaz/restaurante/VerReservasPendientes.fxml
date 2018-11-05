@@ -11,11 +11,10 @@
   <children>
     <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <center>
-        <TableView prefHeight="378.0" prefWidth="220.0">
+        <TableView fx:id="reservasPendientes" prefHeight="378.0" prefWidth="220.0">
           <columns>
-            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="123.0" text="Restaurante" />
-            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="153.0" text="Usuario" />
-            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="178.0" sortType="ASCENDING" text="Cantidad Personas" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="229.0" text="Usuario" fx:id="columnaUsuario" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="240.0" sortType="ASCENDING" text="Cantidad Personas" fx:id="columnaCantPersonas" />
           </columns>
         </TableView>
       </center>

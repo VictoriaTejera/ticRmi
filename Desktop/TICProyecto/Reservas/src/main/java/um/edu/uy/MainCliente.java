@@ -18,7 +18,7 @@ import um.edu.uy.interfaz.cliente.ControladorRegistro;
 @SpringBootApplication
 public class MainCliente extends Application {
 	Button btnRegistrarse, btnIniciarSesion, btnConfirmarInicioSesion, btnListarRestaurantes, btnConfirmarRegistro, btnReservar;
-	Scene scene, scene2, scene1, scene3, scene4, scene5;
+	Scene scene, scene2, scene1, scene3, scene4, scene5, scene6;
 	Stage thestage;
 	private static ConfigurableApplicationContext context;
 	private FXMLLoader fxmlLoader, fxmlLoader1, fxmlLoader2, fxmlLoader3, fxmlLoader4, fxmlLoader5;

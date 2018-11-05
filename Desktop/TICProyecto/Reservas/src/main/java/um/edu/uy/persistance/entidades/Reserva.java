@@ -27,7 +27,6 @@ public class Reserva {
 	private boolean confirmada;
 	private boolean terminada;
 	
-
 	@ManyToOne
 	@Cascade(CascadeType.ALL)
 	private Usuario usuario;

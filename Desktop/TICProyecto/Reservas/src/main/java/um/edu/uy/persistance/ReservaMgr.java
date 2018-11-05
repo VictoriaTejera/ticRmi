@@ -41,11 +41,18 @@ public class ReservaMgr {
 		List<Reserva> reservasNoTerminadas= repository.obtenerReservasNoTerminadas(rut);
 		return reservasNoTerminadas;
 	}
+	
+	public List<Reserva> obtenerReservasNoConfirmadas(String rut) {
+		List<Reserva> reservasNoConfirmadas= repository.obtenerReservasNoConfirmadas(rut);
+		return reservasNoConfirmadas;
+	}
+
 
 	public List<Reserva> verEstadoReservasUsuario(Integer usuarioCelular){
 		return repository.verEstadoReservasUsuario(usuarioCelular);
 	}
 	
+<<<<<<< HEAD
 	public boolean confirmarReserva(Long idReserva){
 		boolean reservaConfirmada=false;
 		Reserva reserva= repository.otenerReservaPorId(idReserva);
@@ -78,5 +85,8 @@ public class ReservaMgr {
 		
 		
 	}
+=======
+//	public boolean confirmarReserva() {}
+>>>>>>> branch 'master' of https://github.com/VictoriaTejera/TIC.git
 
 }

@@ -21,7 +21,7 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 	@Query("SELECT r FROM Restaurante r WHERE r.barrio.nombreBarrio= :barrio")
 	List<Restaurante> filtrarPorBarrio(@Param("barrio") String nombreBarrio);
 
-	@Query("SELECT r FROM  Restaurante r INNER JOIN r.comidas rc WHERE rc.id= :idComida")
+	@Query("SELECT r FROM  Restaurante r INNER JOIN r.comidas rc WHERE rc.tipo= :idComida")
 	List<Restaurante> filtrarPorComida(@Param("idComida") String tipoComida);
 	
 	@Query("SELECT c.id FROM Comida c WHERE c.tipo= :tipoComida")
