@@ -80,8 +80,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 	@Autowired
 	private RestauranteMgr restaurante;
-<<<<<<< HEAD
-    
+	
     @Autowired
  	private BarrioMgr barrioMgr;
     
@@ -109,63 +108,6 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     private Label nombreRest;
     
     private final StringProperty prop = new SimpleStringProperty();
-    
-
-    public void llenarTabla() {
-    	columnaNombre.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<RestauranteAUX, String>, ObservableValue<String>>() {
-    	     public ObservableValue<String> call(TableColumn.CellDataFeatures<RestauranteAUX, String> r) {
-    	    	 prop.setValue(r.getValue().getRestaurante().getNombre());
-    	    	 return prop;
-    	     }
-    	  });
-    	 
-    	columnaDireccion.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<RestauranteAUX, String>, ObservableValue<String>>() {
-   	     public ObservableValue<String> call(TableColumn.CellDataFeatures<RestauranteAUX, String> r) {
-	    	 prop.setValue(r.getValue().getRestaurante().getDireccion());
-	    	 return prop;
-	     }
-	  });
-    	
-    	columnaTelefono.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<RestauranteAUX, String>, ObservableValue<String>>() {
-   	     public ObservableValue<String> call(TableColumn.CellDataFeatures<RestauranteAUX, String> r) {
-	    	 prop.setValue(Integer.toString(r.getValue().getRestaurante().getTelefono()));
-	    	 return prop;
-	     }
-	  });
-    	
-    	columnaReservar.setCellValueFactory(new PropertyValueFactory<RestauranteAUX, String>("button"));
-    	
-    	ObservableList<RestauranteAUX> restaurantes = FXCollections.observableArrayList();
-    	RestauranteAUX restAux;
-=======
-
-	@Autowired
-	private BarrioMgr barrioMgr;
-
-	@Autowired
-	private ComidaMgr comidaMgr;
-
-	ApplicationContext applicationContext;
-
-	@FXML
-	private TableColumn<RestauranteAUX, String> colDireccion;
-
-	@FXML
-	private TableColumn<RestauranteAUX, String> colHorario;
-
-	@FXML
-	private TableColumn<RestauranteAUX, Float> colRating;
-
-	@FXML
-	private TableColumn<RestauranteAUX, Integer> colTel;
-
-	@FXML
-	private Label descripciónRest;
-
-	@FXML
-	private Label nombreRest;
-
-	private final StringProperty prop = new SimpleStringProperty();
 
 	public void llenarTabla() {
 		columnaNombre.setCellValueFactory(
@@ -196,7 +138,6 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 		ObservableList<RestauranteAUX> restaurantes = FXCollections.observableArrayList();
 		RestauranteAUX restAux;
->>>>>>> 64af517b5aec566125b3d8fbc6a86ec549416776
 		for (int i = 0; i < restaurante.getRestaurants().size(); i++) {
 			restAux = new RestauranteAUX(restaurante.getRestaurants().get(i));
 			restaurantes.add(restAux);
@@ -257,20 +198,12 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		root = fxmlLoader.load(ControladorListarRestaurantes.class.getResourceAsStream("DetallesRestaurante.fxml"));
 		//stage = (Stage) event.getSource().getScene().getWindow();
 		stage.setScene(new Scene(root));
-<<<<<<< HEAD
 		stage.show();
     }
-    	  
-    @FXML
-    void volverAlMenu(ActionEvent event) throws IOException {
-    	Stage stage = null;
-=======
-	}
 
 	@FXML
 	void volverAlMenu(ActionEvent event) throws IOException {
 		Stage stage = null;
->>>>>>> 64af517b5aec566125b3d8fbc6a86ec549416776
 		Parent root = null;
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		stage = new Stage();
