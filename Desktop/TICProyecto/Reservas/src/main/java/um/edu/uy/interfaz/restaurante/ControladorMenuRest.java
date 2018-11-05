@@ -58,6 +58,22 @@ public class ControladorMenuRest implements ApplicationContextAware{
 	}
     
     @FXML
+    void verReservasPendientes(ActionEvent event) throws IOException {
+    	Stage stage = null;
+		Parent root = null;
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		stage = new Stage();
+		fxmlLoader.setControllerFactory(applicationContext::getBean);
+
+		if (event.getSource() == btnReservas) {
+			stage = (Stage) btnReservas.getScene().getWindow();
+			root = fxmlLoader.load(ControladorMenuRest.class.getResourceAsStream("VerReservasPendientes.fxml"));
+		}
+		stage.setScene(new Scene(root));
+		stage.show();
+    }
+    
+    @FXML
     void initialize() {
         assert btnDatos != null : "fx:id=\"btnDatos\" was not injected: check your FXML file 'MenuPrincipalRest.fxml'.";
         assert btnReservas != null : "fx:id=\"btnReservas\" was not injected: check your FXML file 'MenuPrincipalRest.fxml'.";

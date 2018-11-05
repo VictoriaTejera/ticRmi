@@ -120,7 +120,7 @@ public class TestRestauranteRepository {
 
 		resMgr.insertarComida(res1.getRUT(), c1);
 
-		Comida c2 = new Comida( "tipo2");
+		Comida c2 = new Comida("tipo2");
 		comidaMgr.save(c2);
 		Comida c3 = new Comida("tipo3");
 		comidaMgr.save(c3);
@@ -135,11 +135,11 @@ public class TestRestauranteRepository {
 		}
 
 		assertEquals(lista.get(0).getNombre(), "Ginebra");
-	//	assertEquals(lista.get(1).getNombre(), "nombreRes2");
+		// assertEquals(lista.get(1).getNombre(), "nombreRes2");
 
 	}
 
-	 //@Test
+	// @Test
 	public void testFiltroPorPrecio() {
 
 		List<Restaurante> lista = resMgr.filtrarPorPrecio((float) 100.0, (float) 1000.0);
@@ -156,7 +156,7 @@ public class TestRestauranteRepository {
 
 	}
 
-	//@Test
+	// @Test
 	public void testVerificarRestaurante() {
 
 		Restaurante r1 = new Restaurante("123", "Mc", "mc.gamil", "123");
@@ -165,15 +165,20 @@ public class TestRestauranteRepository {
 		assertTrue(resMgr.restauranteYaFueCreado(r1));
 	}
 
-	 @Test
+	@Test
 	public void testCargarDatosRes() {
 
-		 List<String> tipoComidas= new LinkedList();
-		
+		List<String> tipoComidas = new LinkedList();
+
 		Barrio b3 = new Barrio("1", "Pocitos");
 		barrioMgr.save(b3);
 		resMgr.cargarDatosRes("124", "atencion", "pocitos 144", "13:10", "15:30", (float) 376, 876, "b3", null, null);
 
+	}
+	
+	@Test
+	public void testObtenerMesasNoReservadas() {
+		resMgr.obtenerMesasNoReservadas("123");
 	}
 
 }

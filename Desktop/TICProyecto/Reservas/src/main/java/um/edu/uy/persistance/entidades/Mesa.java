@@ -39,8 +39,8 @@ public class Mesa {
 	public boolean isReservada() {
 		return reservada;
 	}
-	public void setReservada(boolean reservada) {
-		this.reservada = reservada;
+	public void reservar() {
+		reservada=true;
 	}
 	
 	
