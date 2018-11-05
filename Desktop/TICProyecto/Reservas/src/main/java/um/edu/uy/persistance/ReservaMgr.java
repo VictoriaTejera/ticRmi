@@ -52,7 +52,6 @@ public class ReservaMgr {
 		return repository.verEstadoReservasUsuario(usuarioCelular);
 	}
 	
-<<<<<<< HEAD
 	public boolean confirmarReserva(Long idReserva){
 		boolean reservaConfirmada=false;
 		Reserva reserva= repository.otenerReservaPorId(idReserva);
@@ -81,12 +80,12 @@ public class ReservaMgr {
 			reservaConfirmada=false;
 		}
 		
-		return false;
+		return reservaConfirmada;
 		
 		
 	}
-=======
+
 //	public boolean confirmarReserva() {}
->>>>>>> branch 'master' of https://github.com/VictoriaTejera/TIC.git
+
 
 }

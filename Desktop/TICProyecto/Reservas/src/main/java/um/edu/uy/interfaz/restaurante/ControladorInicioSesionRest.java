@@ -57,8 +57,8 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 
 		if (event.getSource() == btnIniciarSesion) {
-			restaurante = new Restaurante(txtUsuario.getText(), txtContrasena.getText());
-			if (restauranteMgr.verificarUsuarioRestaurante(restaurante) == true) {
+			
+			if (restauranteMgr.verificarUsuarioRestaurante(txtUsuario.getText(), txtContrasena.getText()) == true) {
 				stage = (Stage) btnIniciarSesion.getScene().getWindow();
 				ControladorMenuRest controller = Main.getContext().getBean(ControladorMenuRest.class);
 				controller.setRestaurante(restaurante);
