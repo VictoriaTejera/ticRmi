@@ -27,7 +27,7 @@
         <Font name="Yu Gothic UI Bold" size="15.0" fx:id="x3" />
       </font>
     </Button>
-    <Button fx:id="btnReservas" blendMode="DARKEN" font="$x3" layoutX="86.0" layoutY="196.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="199.0" text="Ver reservas pendientes" textFill="$x1">
+    <Button fx:id="btnReservas" blendMode="DARKEN" font="$x3" layoutX="86.0" layoutY="196.0" mnemonicParsing="false" onAction="#verReservasPendientes" prefHeight="49.0" prefWidth="199.0" text="Ver reservas pendientes" textFill="$x1">
       <effect>
         <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
       </effect>

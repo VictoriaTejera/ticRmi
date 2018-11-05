@@ -17,11 +17,13 @@ public class Mesa {
 	private Integer capacidad;
 	private boolean reservada;	
 	
-	public Mesa() {}
+	public Mesa() {
+		reservada=false;
+	}
 	
-	public Mesa(Integer capacidad, boolean reservada) {
+	public Mesa(Integer capacidad) {
 		this.capacidad = capacidad;
-		this.reservada = reservada;
+		reservada=false;
 	}
 	
 	public Long getId() {
@@ -39,8 +41,8 @@ public class Mesa {
 	public boolean isReservada() {
 		return reservada;
 	}
-	public void setReservada(boolean reservada) {
-		this.reservada = reservada;
+	public void reservar() {
+		reservada=true;
 	}
 	
 	
