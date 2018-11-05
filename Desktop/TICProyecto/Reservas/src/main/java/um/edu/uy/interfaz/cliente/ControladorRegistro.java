@@ -69,7 +69,7 @@ public class ControladorRegistro implements ApplicationContextAware {
 				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("iniciarSesion.fxml"));
 				stage = (Stage) btnConfirmarRegistro.getScene().getWindow();
 			} else {
-				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("UsuarioYaExiste.fxml"));
+				showAlert("No se ha podido registrar al usuario: " , "Ya existe.");
 			}
 		}
 		if (event.getSource() == btnVolver) {
@@ -93,5 +93,12 @@ public class ControladorRegistro implements ApplicationContextAware {
 		this.applicationContext = applicationContext;
 
 	}
+	public static void showAlert(String title, String contextText) {
+        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(contextText);
+        alert.showAndWait();
+    }
 
 }

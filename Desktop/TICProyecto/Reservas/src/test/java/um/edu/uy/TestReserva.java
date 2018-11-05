@@ -15,7 +15,7 @@ import um.edu.uy.persistance.entidades.Reserva;
 import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
 
-@SpringBootTest
+@SpringBootTest(classes = MainRestaurante.class)
 @RunWith(SpringRunner.class)
 public class TestReserva {
 
