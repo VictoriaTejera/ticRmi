@@ -71,7 +71,7 @@ public class ControladorInicioSesion implements ApplicationContextAware {
 				stage = (Stage) btnConfirmarInicioSesion.getScene().getWindow();
 				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
 				} else {
-				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("Warning.fxml"));
+				showAlert("Lo sentimos, ", "El usuario o contraseña son incorrectos.");
 			}
 		}
 		if (event.getSource() == btnVolver) {
@@ -97,4 +97,13 @@ public class ControladorInicioSesion implements ApplicationContextAware {
 		this.applicationContext = applicationContext;
 		
 	}
+	
+	public static void showAlert(String title, String contextText) {
+        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(contextText);
+        alert.showAndWait();
+    }
+
 }

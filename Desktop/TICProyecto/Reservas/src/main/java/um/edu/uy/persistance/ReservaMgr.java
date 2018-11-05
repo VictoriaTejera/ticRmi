@@ -86,6 +86,9 @@ public class ReservaMgr {
 	}
 
 //	public boolean confirmarReserva() {}
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/VictoriaTejera/TIC.git
 
 }
