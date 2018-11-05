@@ -3,16 +3,20 @@
 <?import java.lang.*?>
 <?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="555.0" prefWidth="758.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorListarRestaurantes">
+<BorderPane prefHeight="554.9999000000025" prefWidth="726.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorListarRestaurantes">
   <bottom>
-    <Button fx:id="btnVolverAlMenu" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="31.0" prefWidth="90.99990000000253" text="Volver" BorderPane.alignment="BOTTOM_RIGHT">
+    <Button fx:id="btnVolverAlMenu" blendMode="DARKEN" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="31.0" prefWidth="90.99990000000253" text="Volver" BorderPane.alignment="BOTTOM_RIGHT">
+      <effect>
+        <DropShadow height="31.064" radius="15.032" width="31.064" />
+      </effect>
       <font>
-        <Font name="Calisto MT" size="15.0" />
+        <Font name="Yu Gothic UI Regular" size="15.0" fx:id="x2" />
       </font>
       <textFill>
         <Color blue="0.000" green="0.144" red="0.600" fx:id="x1" />
@@ -22,11 +26,10 @@
   <center>
     <TableView fx:id="tabla" onMouseClicked="#initialize" prefHeight="463.0" prefWidth="465.0">
       <columns>
-        <TableColumn prefWidth="75.0" text="Nombre" fx:id="columnaNombre" />
-        <TableColumn prefWidth="75.0" text="Dirección " fx:id="columnaDireccion" />
-        <TableColumn prefWidth="75.0" text="Teléfono" fx:id="columnaTelefono" />
-        <TableColumn prefWidth="75.0" text="" fx:id="columnaReservar" />
-        <TableColumn prefWidth="75.0" text="" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="107.0" text="Nombre" fx:id="columnaNombre" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="148.0" text="Dirección " fx:id="columnaDireccion" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="130.0" text="Teléfono" fx:id="columnaTelefono" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="287.0" text="" fx:id="columnaReservar" />
       </columns>
     </TableView>
   </center>
@@ -35,9 +38,12 @@
       <bottom>
         <AnchorPane prefHeight="46.0" prefWidth="151.0">
           <children>
-            <Button fx:id="btnBuscar" mnemonicParsing="false" onAction="#ListarRestaurantes" prefHeight="200.0" prefWidth="151.0" text="Buscar" textFill="$x1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Button fx:id="btnBuscar" blendMode="DARKEN" mnemonicParsing="false" onAction="#ListarRestaurantes" prefHeight="200.0" prefWidth="151.0" text="Buscar" textFill="$x1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <effect>
+                <DropShadow height="31.064" radius="15.032" width="31.064" />
+              </effect>
               <font>
-                <Font name="Calisto MT" size="17.0" />
+                <Font name="Yu Gothic UI Regular" size="17.0" />
               </font>
             </Button>
           </children>
@@ -48,7 +54,7 @@
           <content>
             <GridPane prefHeight="318.0" prefWidth="187.0">
               <children>
-                <Label text="Precio" textFill="$x1" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                <Label font="$x2" text="Precio" textFill="$x1" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                 <ComboBox fx:id="cboxPrecio" onAction="#filtroPrecio" prefHeight="21.0" prefWidth="73.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                   <items>
                     <FXCollections fx:factory="observableArrayList">
@@ -58,7 +64,11 @@
                     </FXCollections>
                   </items>
                 </ComboBox>
-                <Label text="Barrio" textFill="$x1" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                <Label font="$x2" prefWidth="42.0" text="Barrio" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <textFill>
+                    <Color blue="0.000" green="0.000" red="0.600" fx:id="x3" />
+                  </textFill>
+                </Label>
                 <ComboBox fx:id="cboxBarrio" onAction="#filtroBarrio" prefHeight="21.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                   <items>
                     <FXCollections fx:factory="observableArrayList">
@@ -68,7 +78,7 @@
                     </FXCollections>
                   </items>
                 </ComboBox>
-                <Label alignment="CENTER" text="Comida" textAlignment="CENTER" textFill="$x1" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+                <Label alignment="CENTER" font="$x2" text="Comida" textAlignment="CENTER" textFill="$x1" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
                 <ComboBox fx:id="cboxComida" onAction="#filtroComida" prefHeight="21.0" prefWidth="73.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0">
                   <items>
                     <FXCollections fx:factory="observableArrayList">
@@ -95,9 +105,9 @@
         </ScrollPane>
       </center>
       <top>
-        <Label prefHeight="38.0" prefWidth="229.0" text="Seleccione los filtros que desea realizar" textFill="#661800" BorderPane.alignment="CENTER">
+        <Label prefHeight="38.0" prefWidth="229.0" text="Seleccione los filtros que desea realizar" textFill="$x3" BorderPane.alignment="CENTER">
           <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Yu Gothic Bold" size="11.0" />
           </font>
         </Label>
       </top>
@@ -106,7 +116,7 @@
   <top>
     <Label prefHeight="46.0" prefWidth="156.0" text="Restaurantes" textFill="$x1" BorderPane.alignment="CENTER">
       <font>
-        <Font name="Calisto MT" size="20.0" />
+        <Font name="Yu Gothic UI Regular" size="20.0" />
       </font>
     </Label>
   </top>
