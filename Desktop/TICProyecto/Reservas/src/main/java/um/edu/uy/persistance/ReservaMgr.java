@@ -3,6 +3,7 @@ package um.edu.uy.persistance;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 
@@ -21,6 +22,9 @@ public class ReservaMgr {
 	
 	@Autowired
 	UsuarioMgr usuarioMgr;
+	
+	@Autowired
+	private MesaRepository mesaRepository;
 	
 	public void save(Reserva reserva) {
 		repository.save(reserva);
@@ -48,6 +52,41 @@ public class ReservaMgr {
 		return repository.verEstadoReservasUsuario(usuarioCelular);
 	}
 	
+<<<<<<< HEAD
+	public boolean confirmarReserva(Long idReserva){
+		boolean reservaConfirmada=false;
+		Reserva reserva= repository.otenerReservaPorId(idReserva);
+		reserva.setConfirmado(true);
+		int cantMesas=0;
+		if( (reserva.getCantPersonas()%4)==0) {
+			cantMesas=reserva.getCantPersonas()/4;
+			}
+		else {
+			cantMesas=(reserva.getCantPersonas()/4)+1;
+		}
+		
+		String rutRestaurante= repository.otenerRutRestauranteDeReserva(idReserva);
+		
+		int cantMesasDisponibles= resMgr.obtenerMesasNoReservadas(rutRestaurante).size();
+		
+		if(cantMesasDisponibles>= cantMesas) {
+			for (int i=0; i<cantMesas; i++) {
+				
+				mesaRepository.marcarMesaComoReservada(resMgr.obtenerMesasNoReservadas(rutRestaurante).get(i).getId());
+			}
+			reservaConfirmada=true;
+			
+				
+		}else {
+			reservaConfirmada=false;
+		}
+		
+		return false;
+		
+		
+	}
+=======
 //	public boolean confirmarReserva() {}
+>>>>>>> branch 'master' of https://github.com/VictoriaTejera/TIC.git
 
 }
