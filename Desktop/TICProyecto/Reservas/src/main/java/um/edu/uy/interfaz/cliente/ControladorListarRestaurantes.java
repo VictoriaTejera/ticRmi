@@ -82,40 +82,40 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 	@Autowired
 	private RestauranteMgr restaurante;
-	
-    @Autowired
- 	private BarrioMgr barrioMgr;
-    
-    @Autowired
- 	private ComidaMgr comidaMgr;
-    
-    private ApplicationContext applicationContext;
-    
-    @FXML
-    private TableColumn<RestauranteAUX, String> colDireccion;
 
-    @FXML
-    private TableColumn<RestauranteAUX, String> colHorario;
+	@Autowired
+	private BarrioMgr barrioMgr;
 
-    @FXML
-    private TableColumn<RestauranteAUX, Float> colRating;
+	@Autowired
+	private ComidaMgr comidaMgr;
 
-    @FXML
-    private TableColumn<RestauranteAUX, Integer> colTel;
+	private ApplicationContext applicationContext;
 
-    @FXML
-    private Label descripciónRest;
+	@FXML
+	private TableColumn<RestauranteAUX, String> colDireccion;
 
-    @FXML
-    private Label nombreRest;
-    
-    private final StringProperty prop = new SimpleStringProperty();
-    
-    private int usuarioCelular;
-    
-    public void setUsuarioCelular (int uC) {
-    	usuarioCelular=uC;
-    }
+	@FXML
+	private TableColumn<RestauranteAUX, String> colHorario;
+
+	@FXML
+	private TableColumn<RestauranteAUX, Float> colRating;
+
+	@FXML
+	private TableColumn<RestauranteAUX, Integer> colTel;
+
+	@FXML
+	private Label descripciónRest;
+
+	@FXML
+	private Label nombreRest;
+
+	private final StringProperty prop = new SimpleStringProperty();
+
+	private int usuarioCelular;
+
+	public void setUsuarioCelular(int uC) {
+		usuarioCelular = uC;
+	}
 
 	public void llenarTabla() {
 		columnaNombre.setCellValueFactory(
@@ -205,10 +205,10 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		stage = new Stage();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 		root = fxmlLoader.load(ControladorListarRestaurantes.class.getResourceAsStream("DetallesRestaurante.fxml"));
-		//stage = (Stage) event.getSource().getScene().getWindow();
+		// stage = (Stage) event.getSource().getScene().getWindow();
 		stage.setScene(new Scene(root));
 		stage.show();
-    }
+	}
 
 	@FXML
 	void volverAlMenu(ActionEvent event) throws IOException {
@@ -218,10 +218,10 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		stage = new Stage();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 
-    	if (event.getSource() == btnVolverAlMenu) {
-    		ControladorMenuPrincipal controller = Main.getContext().getBean(ControladorMenuPrincipal.class);
+		if (event.getSource() == btnVolverAlMenu) {
+			ControladorMenuPrincipal controller = Main.getContext().getBean(ControladorMenuPrincipal.class);
 			controller.setUsuarioCelular(usuarioCelular);
-    		root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
+			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
 			stage = (Stage) btnVolverAlMenu.getScene().getWindow();
 		}
 		Scene scene = new Scene(root);
