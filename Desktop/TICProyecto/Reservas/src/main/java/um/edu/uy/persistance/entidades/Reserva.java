@@ -18,7 +18,6 @@ import javax.persistence.ManyToOne;
 @SuppressWarnings("unused")
 
 public class Reserva {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
@@ -38,7 +37,6 @@ public class Reserva {
 
 	public Reserva() {
 	}
-
 
 	public Reserva(Usuario usuario, Restaurante restaurante, Integer cantPersonas) {
 		super();
