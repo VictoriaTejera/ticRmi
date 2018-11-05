@@ -105,15 +105,14 @@ public class ControladorDetallesRestaurante {
 		stage = new Stage();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 		if (event.getSource() == btnReservar) {
-			stage = (Stage) btnReservar.getScene().getWindow();
 			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("Reservar.fxml"));	
+			stage = (Stage) btnReservar.getScene().getWindow();
 		}
 		if (event.getSource() == btnVolver) {
-			stage = (Stage) btnVolver.getScene().getWindow();
 			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("ListarRestaurantes.fxml"));
+			stage = (Stage) btnVolver.getScene().getWindow();
 		}
 		Scene scene = new Scene(root);
-		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		stage.setScene(scene);
 		stage.show();
 	}
