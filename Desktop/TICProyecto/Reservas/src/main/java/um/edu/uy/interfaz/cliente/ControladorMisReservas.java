@@ -33,10 +33,13 @@ public class ControladorMisReservas {
     private TableColumn<Reserva, String> confirmadas;
 
     @FXML
-    private TableView<Reserva> misReservas;
+    private TableColumn<Reserva, String> pendientes;
 
     @FXML
-    private TableColumn<Reserva, String> pendientes;
+    private TableView<Reserva> tablaConfirmadas;
+
+    @FXML
+    private TableView<Reserva> tablaPendientes;
 
     @Autowired
     private ReservaMgr resMgr;
@@ -68,13 +71,13 @@ public class ControladorMisReservas {
     	     }
     	  });
 
-    	List<Reserva> todasLasReservas =   resMgr.obtenerReservasDe(usuarioCelular); //TODO HAGAN FUNCION DE OBTENER TODAS LAS RESERVAS DE UN USUARIO
+    	List<Reserva> todasLasReservas =   resMgr.verEstadoReservasUsuario(usuarioCelular); 
     	
     	for(Reserva r : todasLasReservas) {
     		if(r.isConfirmado()) {
-    			tablaPend.add(r);
+    			((List<Reserva>) tablaPendientes).add(r);
     		}else {
-    			tablaConf.add(r);
+    			((List<Reserva>) tablaConfirmadas).add(r);
     		}
     	}
 
