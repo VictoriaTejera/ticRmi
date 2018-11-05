@@ -48,10 +48,6 @@ public class ReservaMgr {
 		return repository.verEstadoReservasUsuario(usuarioCelular);
 	}
 	
-<<<<<<< HEAD
-	//public boolean confirmarReserva
-=======
 //	public boolean confirmarReserva() {}
->>>>>>> 4f58b1446972e11d699f10e937d829c06f1a2c5c
 
 }
