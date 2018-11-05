@@ -77,4 +77,5 @@ public class ReservaMgr {
 		repository.marcarRechazada(idReserva);
 	}
 
+
 }

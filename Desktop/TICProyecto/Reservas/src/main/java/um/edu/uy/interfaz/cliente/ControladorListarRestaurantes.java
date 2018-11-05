@@ -90,12 +90,12 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	@FXML
 	private TableColumn<RestauranteAUX, String> colDireccion;
 
-    @FXML
-    private Label nombreRest;
-    
-    private final StringProperty prop = new SimpleStringProperty();
-	
-    @FXML
+	@FXML
+	private Label nombreRest;
+
+	private final StringProperty prop = new SimpleStringProperty();
+
+	@FXML
 	private TableColumn<RestauranteAUX, String> colHorario;
 
 	@FXML
@@ -108,7 +108,6 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	private Label descripciónRest;
 	
 	private Restaurante res;
-
 
 	public void llenarTabla() {
 		columnaNombre.setCellValueFactory(
@@ -181,7 +180,17 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 				}
 				tabla.setItems(rest);
 			}
+
+			/*if (cboxComida.getValue() != null && cboxBarrio.getValue() != null) {
+				for (int i = 0; i < restaurante.filtrarPorVarios(cboxComida.getValue(), cboxBarrio.getValue())
+						.size(); i++) {
+					restAux = new RestauranteAUX(
+							restaurante.filtrarPorVarios(cboxComida.getValue(), cboxBarrio.getValue()).get(i));
+					rest.add(restAux);
+				}
+			}*/
 		}
+
 	}
 
 	@FXML
@@ -210,8 +219,8 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		stage = new Stage();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
-    	if (event.getSource() == btnVolverAlMenu) {
-    		root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
+		if (event.getSource() == btnVolverAlMenu) {
+			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
 			stage = (Stage) btnVolverAlMenu.getScene().getWindow();
 		}
 		Scene scene = new Scene(root);
