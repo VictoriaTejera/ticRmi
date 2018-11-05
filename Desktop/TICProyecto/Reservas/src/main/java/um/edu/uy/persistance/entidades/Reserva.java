@@ -25,6 +25,7 @@ public class Reserva {
 	private Integer cantPersonas;
 
 	private boolean confirmada;
+	private boolean rechazada;
 	private boolean terminada;
 	
 	@ManyToOne
@@ -46,6 +47,7 @@ public class Reserva {
 		this.cantPersonas = cantPersonas;
 		confirmada=false;
 		terminada=false;
+		rechazada=false;
 	}
 
 	public Long getId() {
