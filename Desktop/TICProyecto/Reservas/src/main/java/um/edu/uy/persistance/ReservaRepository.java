@@ -22,5 +22,13 @@ public interface ReservaRepository extends CrudRepository<Reserva, String> {
 	@Query("SELECT r FROM Reserva r WHERE r.usuario.celular= :usuarioCelular and r.terminada=false")
 	public List<Reserva> verEstadoReservasUsuario(@Param("usuarioCelular") Integer usuarioCelular);
 
+	
+	@Query("SELECT r FROM Reserva r WHERE r.id= :id")
+	Reserva otenerReservaPorId(@Param("id") Long id);
+	
+	@Query("SELECT r.restaurante.rut FROM Reserva r WHERE r.id= :id")
+	String otenerRutRestauranteDeReserva(@Param("id") Long id);
 
+	
+	//NECESITO AYUDA CON ESTO!!!!!!!!
 }
