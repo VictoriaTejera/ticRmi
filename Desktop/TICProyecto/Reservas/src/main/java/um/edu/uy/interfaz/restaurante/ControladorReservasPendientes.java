@@ -45,12 +45,15 @@ public class ControladorReservasPendientes {
     private Restaurante restaurante;
     private final StringProperty prop = new SimpleStringProperty();
     
+    @Autowired
+    private ControladorInicioSesionRest controlador;
+    
 
     @FXML
     void initialize() {
     	
     	
-    	List<Reserva> listaDePendientes =  resMgr.obtenerReservasNoConfirmadas(restaurante.getRUT());
+    	List<Reserva> listaDePendientes =  resMgr.obtenerReservasNoConfirmadas(controlador.getRestaurante().getRUT());
     	
        	columnaUsuario.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reserva, String>, ObservableValue<String>>() {
    	     public ObservableValue<String> call(TableColumn.CellDataFeatures<Reserva, String> r) {

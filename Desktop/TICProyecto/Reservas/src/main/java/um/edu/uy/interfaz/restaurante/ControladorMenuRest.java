@@ -54,7 +54,7 @@ public class ControladorMenuRest implements ApplicationContextAware{
 			stage = (Stage) btnDatos.getScene().getWindow();
 			root = fxmlLoader.load(ControladorMenuRest.class.getResourceAsStream("ActualizarDatosRest.fxml"));
 			controller.handleBarrioCbox(event);
-//			controller.handleTipoComidaCbox(event);
+			//controller.handleTipoComidaCbox(event);
 		}
 		stage.setScene(new Scene(root));
 		stage.show();
@@ -70,7 +70,6 @@ public class ControladorMenuRest implements ApplicationContextAware{
 
 		if (event.getSource() == btnReservas) {
 			stage = (Stage) btnReservas.getScene().getWindow();
-			//ControladorReservasPendientes controller = Main.getContext().getBean(ControladorReservasPendientes.class);
 			//controller.setRestaurante(restaurante);
 			root = fxmlLoader.load(ControladorReservasPendientes.class.getResourceAsStream("VerReservasPendientes.fxml"));
 		}
