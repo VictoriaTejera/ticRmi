@@ -23,10 +23,6 @@ public class UsuarioMgr {
 	public void save(Usuario usuario) {
 		repository.save(usuario);
 	}
-	
-//	public Usuario encontrarPorMail(String mail) {
-//		return repository.encontrarPorMail(mail);
-//	}
 
 	public boolean verificarUsuario(Usuario us) {
 		boolean verifico = true;
