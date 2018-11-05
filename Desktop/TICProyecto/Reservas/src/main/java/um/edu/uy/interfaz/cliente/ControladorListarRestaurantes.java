@@ -110,12 +110,6 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     private Label nombreRest;
     
     private final StringProperty prop = new SimpleStringProperty();
-    
-    private int usuarioCelular;
-    
-    public void setUsuarioCelular (int uC) {
-    	usuarioCelular=uC;
-    }
 
 	public void llenarTabla() {
 		columnaNombre.setCellValueFactory(
@@ -219,8 +213,6 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 
     	if (event.getSource() == btnVolverAlMenu) {
-    		ControladorMenuPrincipal controller = Main.getContext().getBean(ControladorMenuPrincipal.class);
-			controller.setUsuarioCelular(usuarioCelular);
     		root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
 			stage = (Stage) btnVolverAlMenu.getScene().getWindow();
 		}
