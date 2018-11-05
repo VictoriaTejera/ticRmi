@@ -42,6 +42,6 @@ public class ReservaMgr {
 		return repository.verEstadoReservasUsuario(usuarioCelular);
 	}
 	
-	public boolean confirmarReserva
+//	public boolean confirmarReserva() {}
 
 }
