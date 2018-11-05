@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import um.edu.uy.persistance.entidades.Barrio;
 import um.edu.uy.persistance.entidades.Comida;
+import um.edu.uy.persistance.entidades.Mesa;
 import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
 import javafx.collections.FXCollections;
@@ -119,6 +120,10 @@ public class RestauranteMgr {
 			restaurante = optional.get();
 		}
 		return restaurante;
+	}
+	
+	public List<Mesa> obtenerMesasNoReservadas(String RUT){
+		return repository.obtenerMesasNoReservadas(RUT);
 	}
 
 }

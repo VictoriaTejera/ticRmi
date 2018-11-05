@@ -12,6 +12,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -59,13 +61,13 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     private ComboBox<String> cboxPrecio;
 
     @FXML
-    private TableColumn<Restaurante, String> columnaDireccion;
+    private TableColumn<RestauranteAUX, String> columnaDireccion;
 
     @FXML
     private TableColumn<RestauranteAUX, String> columnaNombre;
 
     @FXML
-    private TableColumn<Restaurante, Integer> columnaTelefono;
+    private TableColumn<RestauranteAUX, String> columnaTelefono;
     
     @FXML
     private TableColumn<RestauranteAUX, String> columnaReservar;
@@ -88,16 +90,16 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     ApplicationContext applicationContext;
     
     @FXML
-    private TableColumn<Restaurante, String> colDireccion;
+    private TableColumn<RestauranteAUX, String> colDireccion;
 
     @FXML
-    private TableColumn<Restaurante, String> colHorario;
+    private TableColumn<RestauranteAUX, String> colHorario;
 
     @FXML
-    private TableColumn<Restaurante, Float> colRating;
+    private TableColumn<RestauranteAUX, Float> colRating;
 
     @FXML
-    private TableColumn<Restaurante, Integer> colTel;
+    private TableColumn<RestauranteAUX, Integer> colTel;
 
     @FXML
     private Label descripciónRest;
@@ -105,23 +107,36 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     @FXML
     private Label nombreRest;
     
+    private final StringProperty prop = new SimpleStringProperty();
     
 
     public void llenarTabla() {
     	columnaNombre.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<RestauranteAUX, String>, ObservableValue<String>>() {
     	     public ObservableValue<String> call(TableColumn.CellDataFeatures<RestauranteAUX, String> r) {
-    	         return r.getValue().getRestaurante().getNombre();
+    	    	 prop.setValue(r.getValue().getRestaurante().getNombre());
+    	    	 return prop;
     	     }
     	  });
     	 
-    	columnaDireccion.setCellValueFactory(new PropertyValueFactory<Restaurante,String>("direccion"));
-    	columnaTelefono.setCellValueFactory(new PropertyValueFactory<Restaurante,Integer>("telefono"));
+    	columnaDireccion.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<RestauranteAUX, String>, ObservableValue<String>>() {
+   	     public ObservableValue<String> call(TableColumn.CellDataFeatures<RestauranteAUX, String> r) {
+	    	 prop.setValue(r.getValue().getRestaurante().getDireccion());
+	    	 return prop;
+	     }
+	  });
+    	
+    	columnaTelefono.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<RestauranteAUX, String>, ObservableValue<String>>() {
+   	     public ObservableValue<String> call(TableColumn.CellDataFeatures<RestauranteAUX, String> r) {
+	    	 prop.setValue(Integer.toString(r.getValue().getRestaurante().getTelefono()));
+	    	 return prop;
+	     }
+	  });
+    	
     	columnaReservar.setCellValueFactory(new PropertyValueFactory<RestauranteAUX, String>("button"));
     	
     	ObservableList<RestauranteAUX> restaurantes = FXCollections.observableArrayList();
     	RestauranteAUX restAux;
 		for (int i = 0; i < restaurante.getRestaurants().size(); i++) {
-			//restaurantes.add(restaurante.getRestaurants().get(i));
 			restAux = new RestauranteAUX(restaurante.getRestaurants().get(i));
 			restaurantes.add(restAux);
 		}
@@ -130,17 +145,17 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     }
     
     @FXML
-    void filtroBarrio(ActionEvent event) {
+    void filtroBarrio() {
     	cboxBarrio.setItems(barrioMgr.getBarrios());
     }
 
     @FXML
-    void filtroComida(ActionEvent event) {
+    void filtroComida() {
     	cboxComida.setItems(comidaMgr.getComidas());
     }
 
     @FXML
-    void filtroPrecio(ActionEvent event) {
+    void filtroPrecio() {
     }
 
     @FXML
@@ -208,6 +223,11 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
         assert columnaNombre != null : "fx:id=\"columnaNombre\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
         assert columnaTelefono != null : "fx:id=\"columnaTelefono\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
         assert tabla != null : "fx:id=\"tabla\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
+        
+        llenarTabla();
+        filtroBarrio();
+        filtroComida();
+        filtroPrecio();
         
         tabla.setOnMousePressed(new EventHandler<MouseEvent>(){
         	@Override

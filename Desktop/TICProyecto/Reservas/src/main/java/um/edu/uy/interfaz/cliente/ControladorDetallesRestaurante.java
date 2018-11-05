@@ -36,6 +36,9 @@ public class ControladorDetallesRestaurante {
 
     @FXML
     private Button btnReservar;
+    
+    @FXML
+    private Button btnVolver;
 
     @FXML
     private TableColumn<Restaurante, String> colDireccion;
@@ -77,6 +80,7 @@ public class ControladorDetallesRestaurante {
         assert descripcion != null : "fx:id=\"descripcion\" was not injected: check your FXML file 'DetallesRestaurante.fxml'.";
         assert nombreRest != null : "fx:id=\"nombreRest\" was not injected: check your FXML file 'DetallesRestaurante.fxml'.";
         assert tabla != null : "fx:id=\"tabla\" was not injected: check your FXML file 'DetallesRestaurante.fxml'.";
+        assert btnVolver != null : "fx:id=\"btnVolver\" was not injected: check your FXML file 'DetallesRestaurante.fxml'.";
         
         nombreRest.setText(controlador.restSeleccionado().getNombre());
         
@@ -103,6 +107,10 @@ public class ControladorDetallesRestaurante {
 		if (event.getSource() == btnReservar) {
 			stage = (Stage) btnReservar.getScene().getWindow();
 			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("Reservar.fxml"));	
+		}
+		if (event.getSource() == btnVolver) {
+			stage = (Stage) btnVolver.getScene().getWindow();
+			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("ListarRestaurantes.fxml"));
 		}
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());

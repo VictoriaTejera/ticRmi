@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,6 +17,13 @@
           <center>
             <Button fx:id="btnReservar" alignment="CENTER" mnemonicParsing="false" onAction="#RealizarReserva" prefHeight="31.0" prefWidth="90.0" text="Reservar" BorderPane.alignment="CENTER" />
           </center>
+          <right>
+            <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#RealizarReserva" prefHeight="24.0" prefWidth="66.0" text="Volver" BorderPane.alignment="BOTTOM_CENTER">
+              <BorderPane.margin>
+                <Insets bottom="5.0" right="5.0" />
+              </BorderPane.margin>
+            </Button>
+          </right>
           <top>
             <HBox prefHeight="103.0" prefWidth="455.0">
               <children>

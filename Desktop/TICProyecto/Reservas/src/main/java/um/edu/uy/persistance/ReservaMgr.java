@@ -37,12 +37,11 @@ public class ReservaMgr {
 		List<Reserva> reservasNoTerminadas= repository.obtenerReservasNoTerminadas(rut);
 		return reservasNoTerminadas;
 	}
-		
-
 
 	public List<Reserva> verEstadoReservasUsuario(Integer usuarioCelular){
 		return repository.verEstadoReservasUsuario(usuarioCelular);
-
 	}
+	
+	public boolean confirmarReserva
 
 }

@@ -33,7 +33,6 @@ public class RestauranteAUX {
 	public RestauranteAUX(Restaurante restaurante) {
 		this.restaurante = restaurante;
 		this.button= new Button("Reservar");
-		button = new Button("Info");
 		button.setOnMouseClicked(new EventHandler<MouseEvent>(){
         	@Override
 	    	public void handle(MouseEvent event){
