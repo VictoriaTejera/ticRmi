@@ -98,12 +98,13 @@ public class ControladorDetallesRestaurante {
     }
     
     @FXML
-    void RealizarReserva(ActionEvent event) throws IOException {
-    	Stage stage = null;
+    void RealizarReserva(ActionEvent event) throws IOException {  	
+    	Stage stage;
 		Parent root = null;
 		FXMLLoader fxmlLoader = new FXMLLoader();
-		stage = new Stage();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
+		stage = new Stage();
+		
 		if (event.getSource() == btnReservar) {
 			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("Reservar.fxml"));	
 			stage = (Stage) btnReservar.getScene().getWindow();
