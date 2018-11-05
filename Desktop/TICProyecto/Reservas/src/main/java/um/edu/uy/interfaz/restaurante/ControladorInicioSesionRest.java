@@ -19,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import um.edu.uy.Main;
 import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
 
@@ -59,7 +60,9 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 			restaurante = new Restaurante(txtUsuario.getText(), txtContrasena.getText());
 			if (restauranteMgr.verificarUsuarioRestaurante(restaurante) == true) {
 				stage = (Stage) btnIniciarSesion.getScene().getWindow();
-				root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
+				ControladorMenuRest controller = Main.getContext().getBean(ControladorMenuRest.class);
+				controller.setRestaurante(restaurante);
+				root = fxmlLoader.load(ControladorMenuRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
 				getRutRest();
 			}else {
 				root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("Warning.fxml"));

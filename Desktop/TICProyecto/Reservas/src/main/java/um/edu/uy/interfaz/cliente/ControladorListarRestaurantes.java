@@ -33,7 +33,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import um.edu.uy.Main;
 import um.edu.uy.interfaz.cliente.clasesAuxiliares.RestauranteAUX;
+import um.edu.uy.interfaz.restaurante.ControladorMenuRest;
 import um.edu.uy.persistance.BarrioMgr;
 import um.edu.uy.persistance.ComidaMgr;
 import um.edu.uy.persistance.RestauranteMgr;
@@ -108,8 +110,11 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     private Label nombreRest;
     
     private final StringProperty prop = new SimpleStringProperty();
+    private int usuarioCelular;
     
-
+    public void setUsuarioCelular (int uC) {
+    	usuarioCelular=uC;
+    }
     public void llenarTabla() {
     	columnaNombre.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<RestauranteAUX, String>, ObservableValue<String>>() {
     	     public ObservableValue<String> call(TableColumn.CellDataFeatures<RestauranteAUX, String> r) {
@@ -205,6 +210,9 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		stage = new Stage();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
     	if (event.getSource() == btnVolverAlMenu) {
+    		ControladorMenuPrincipal controller = Main.getContext().getBean(ControladorMenuPrincipal.class);
+			controller.setUsuarioCelular(usuarioCelular);
+			
     		root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
 			stage = (Stage) btnVolverAlMenu.getScene().getWindow();
     	}

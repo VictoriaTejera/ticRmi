@@ -37,11 +37,17 @@ public class ReservaMgr {
 		List<Reserva> reservasNoTerminadas= repository.obtenerReservasNoTerminadas(rut);
 		return reservasNoTerminadas;
 	}
+	
+	public List<Reserva> obtenerReservasNoConfirmadas(String rut) {
+		List<Reserva> reservasNoConfirmadas= repository.obtenerReservasNoConfirmadas(rut);
+		return reservasNoConfirmadas;
+	}
+
 
 	public List<Reserva> verEstadoReservasUsuario(Integer usuarioCelular){
 		return repository.verEstadoReservasUsuario(usuarioCelular);
 	}
 	
-	public boolean confirmarReserva
+	//public boolean confirmarReserva
 
 }

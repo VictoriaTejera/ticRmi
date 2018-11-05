@@ -17,6 +17,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import um.edu.uy.Main;
+import um.edu.uy.interfaz.restaurante.ControladorMenuRest;
 
 @Component
 public class ControladorMenuPrincipal implements ApplicationContextAware {
@@ -44,6 +46,10 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
     @Autowired
     ControladorProbandoFoto foto;
     
+    
+    private int usuarioCelular;
+    
+    
     @FXML
     void ListarRestaurantes(ActionEvent event) throws IOException {
     	Stage stage;
@@ -70,8 +76,10 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 		stage = new Stage();
-    	
     	if (event.getSource() == btnReservasRealizadas) {
+
+    		ControladorMisReservas controller = Main.getContext().getBean(ControladorMisReservas.class);
+    		controller.setUsuarioCelular(usuarioCelular);
     		root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("MisReservas.fxml"));
     		stage = (Stage) btnListarRestaurantes.getScene().getWindow();
 		}
@@ -96,5 +104,7 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
 		this.applicationContext = applicationContext;
 		
 	}
-
+    public void setUsuarioCelular(int usuarioCelular) {
+    	this.usuarioCelular=usuarioCelular;
+    }
 }
