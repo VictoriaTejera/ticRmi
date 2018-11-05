@@ -110,39 +110,12 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
     private Label nombreRest;
     
     private final StringProperty prop = new SimpleStringProperty();
-<<<<<<< HEAD
+    
     private int usuarioCelular;
     
     public void setUsuarioCelular (int uC) {
     	usuarioCelular=uC;
     }
-    public void llenarTabla() {
-    	columnaNombre.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<RestauranteAUX, String>, ObservableValue<String>>() {
-    	     public ObservableValue<String> call(TableColumn.CellDataFeatures<RestauranteAUX, String> r) {
-    	    	 prop.setValue(r.getValue().getRestaurante().getNombre());
-    	    	 return prop;
-    	     }
-    	  });
-    	 
-    	columnaDireccion.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<RestauranteAUX, String>, ObservableValue<String>>() {
-   	     public ObservableValue<String> call(TableColumn.CellDataFeatures<RestauranteAUX, String> r) {
-	    	 prop.setValue(r.getValue().getRestaurante().getDireccion());
-	    	 return prop;
-	     }
-	  });
-    	
-    	columnaTelefono.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<RestauranteAUX, String>, ObservableValue<String>>() {
-   	     public ObservableValue<String> call(TableColumn.CellDataFeatures<RestauranteAUX, String> r) {
-	    	 prop.setValue(Integer.toString(r.getValue().getRestaurante().getTelefono()));
-	    	 return prop;
-	     }
-	  });
-    	
-    	columnaReservar.setCellValueFactory(new PropertyValueFactory<RestauranteAUX, String>("button"));
-    	
-    	ObservableList<RestauranteAUX> restaurantes = FXCollections.observableArrayList();
-    	RestauranteAUX restAux;
-=======
 
 	public void llenarTabla() {
 		columnaNombre.setCellValueFactory(
@@ -173,7 +146,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 		ObservableList<RestauranteAUX> restaurantes = FXCollections.observableArrayList();
 		RestauranteAUX restAux;
->>>>>>> 4f58b1446972e11d699f10e937d829c06f1a2c5c
+
 		for (int i = 0; i < restaurante.getRestaurants().size(); i++) {
 			restAux = new RestauranteAUX(restaurante.getRestaurants().get(i));
 			restaurantes.add(restAux);
@@ -244,16 +217,11 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		stage = new Stage();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
-<<<<<<< HEAD
+
     	if (event.getSource() == btnVolverAlMenu) {
     		ControladorMenuPrincipal controller = Main.getContext().getBean(ControladorMenuPrincipal.class);
 			controller.setUsuarioCelular(usuarioCelular);
-			
     		root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
-=======
-		if (event.getSource() == btnVolverAlMenu) {
-			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
->>>>>>> 4f58b1446972e11d699f10e937d829c06f1a2c5c
 			stage = (Stage) btnVolverAlMenu.getScene().getWindow();
 		}
 		Scene scene = new Scene(root);

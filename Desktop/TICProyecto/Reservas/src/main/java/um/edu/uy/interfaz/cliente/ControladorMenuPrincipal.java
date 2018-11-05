@@ -42,17 +42,9 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
     
     @Autowired
     ControladorListarRestaurantes listar;
-    
-<<<<<<< HEAD
-    @Autowired
-    ControladorProbandoFoto foto;
-    
-    
+
     private int usuarioCelular;
-    
-    
-=======
->>>>>>> 4f58b1446972e11d699f10e937d829c06f1a2c5c
+
     @FXML
     void ListarRestaurantes(ActionEvent event) throws IOException {
     	Stage stage;
