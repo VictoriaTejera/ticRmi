@@ -43,6 +43,7 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
     @Autowired
     ControladorListarRestaurantes listar;
     
+<<<<<<< HEAD
     @Autowired
     ControladorProbandoFoto foto;
     
@@ -50,6 +51,8 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
     private int usuarioCelular;
     
     
+=======
+>>>>>>> 4f58b1446972e11d699f10e937d829c06f1a2c5c
     @FXML
     void ListarRestaurantes(ActionEvent event) throws IOException {
     	Stage stage;
@@ -61,9 +64,6 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
     	if (event.getSource() == btnListarRestaurantes) {
     		root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("ListarRestaurantes.fxml"));
     		stage = (Stage) btnListarRestaurantes.getScene().getWindow();
-    		//listar.llenarTabla();
-    		//listar.filtroBarrio(event);
-    		//listar.filtroComida(event);
 		}
     	stage.setScene(new Scene(root));
 		stage.show();
