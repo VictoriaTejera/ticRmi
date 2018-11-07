@@ -93,7 +93,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	@FXML
 	private Label nombreRest;
 
-	private final StringProperty prop = new SimpleStringProperty();
+	private StringProperty prop = new SimpleStringProperty();
 
 	@FXML
 	private TableColumn<RestauranteAUX, String> colHorario;
@@ -106,8 +106,6 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 	@FXML
 	private Label descripciónRest;
-	
-	private Restaurante res;
 
 	public void llenarTabla() {
 		columnaNombre.setCellValueFactory(
@@ -267,14 +265,6 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
 
-	}
-	
-	public void setRestaurante(Restaurante res) {
-		this.res=res;
-	}
-	
-	public Restaurante getRestaurante() {
-		return res;
 	}
 
 }
