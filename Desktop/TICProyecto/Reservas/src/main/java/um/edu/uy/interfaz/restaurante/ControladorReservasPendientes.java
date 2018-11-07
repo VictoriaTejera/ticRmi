@@ -22,61 +22,6 @@ import um.edu.uy.persistance.entidades.Reserva;
 @Component
 public class ControladorReservasPendientes {
 
-<<<<<<< HEAD
-    @FXML
-    private ResourceBundle resources;
-    
-    @FXML
-    private URL location;
-    
-    @FXML
-    private TableColumn<Reserva, String> columnaCantPersonas;
-
-    @FXML
-    private TableColumn<Reserva, String> columnaUsuario;
-
-    @FXML
-    private TableView<Reserva> reservasPendientes;
-
-    @Autowired
-    private ReservaMgr resMgr;
-    
-    private Restaurante restaurante;
-    private final StringProperty prop = new SimpleStringProperty();
-    
-    @Autowired
-    private ControladorInicioSesionRest controlador;
-    
-
-    @FXML
-    void initialize() {
-    	
-    	
-    	List<Reserva> listaDePendientes =  resMgr.obtenerReservasNoConfirmadas(controlador.getRestaurante().getRUT());
-    	
-       	columnaUsuario.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reserva, String>, ObservableValue<String>>() {
-   	     public ObservableValue<String> call(TableColumn.CellDataFeatures<Reserva, String> r) {
-   	    	 prop.setValue(r.getValue().getUsuario().getNombre());
-   	    	 return prop;
-   	     }
-   	  });
-    	columnaCantPersonas.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reserva, String>, ObservableValue<String>>() {
-      	     public ObservableValue<String> call(TableColumn.CellDataFeatures<Reserva, String> r) {
-      	    	 prop.setValue(Integer.toString(r.getValue().getCantPersonas()));
-      	    	 return prop;
-      	     }
-      	  });
-    	
-    	ObservableList<Reserva> reservas = FXCollections.observableArrayList();
-    	Reserva reserva;
-		reservas.addAll(listaDePendientes);
-    	reservasPendientes.setItems(reservas);
-    }
-
-
-	public void setRestaurante(Restaurante restaurante2) {
-		restaurante = restaurante2;
-=======
 	@FXML
 	private ResourceBundle resources;
 
@@ -121,7 +66,6 @@ public class ControladorReservasPendientes {
 						return prop;
 					}
 				});
->>>>>>> 1b8aced0093e20badffbbd12a9ceb4d8ca9692c3
 		
 		columnaCantPersonas.setCellValueFactory(
 				new Callback<TableColumn.CellDataFeatures<ReservaAux, String>, ObservableValue<String>>() {
@@ -133,7 +77,7 @@ public class ControladorReservasPendientes {
 
 		colAceptar.setCellValueFactory(new PropertyValueFactory<ReservaAux, String>("aceptar"));
 
-		//colRechazar.setCellValueFactory(new PropertyValueFactory<ReservaAux, String>("rechazar"));
+		colRechazar.setCellValueFactory(new PropertyValueFactory<ReservaAux, String>("rechazar"));
 
 		List<Reserva> listaDePendientes = resMgr.obtenerReservasNoConfirmadas(controladorInicio.getRutRest());
 		ObservableList<ReservaAux> reservas = FXCollections.observableArrayList();
