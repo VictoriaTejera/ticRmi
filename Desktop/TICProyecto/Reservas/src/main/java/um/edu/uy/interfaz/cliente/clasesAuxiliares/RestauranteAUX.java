@@ -3,12 +3,15 @@ package um.edu.uy.interfaz.cliente.clasesAuxiliares;
 import java.io.IOException;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javafx.collections.ObservableList;
 import javafx.event.Event;
@@ -19,19 +22,24 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import um.edu.uy.MainCliente;
 import um.edu.uy.interfaz.cliente.ControladorInicio;
 import um.edu.uy.interfaz.cliente.ControladorListarRestaurantes;
+import um.edu.uy.interfaz.cliente.ControladorRegistro;
 import um.edu.uy.interfaz.cliente.ControladorReservarDirecto;
 import um.edu.uy.persistance.entidades.Barrio;
 import um.edu.uy.persistance.entidades.Comida;
 import um.edu.uy.persistance.entidades.Restaurante;
 
+//@Entity
 public class RestauranteAUX {
+	@Id
+	private Integer id;
 	private Restaurante restaurante;
 	private Button button;
 	
 	@Autowired 
-	ControladorListarRestaurantes controller;
+	ControladorReservarDirecto controller;
 	
 	public ObservableList<Restaurante> getRestaurants(){
 		return null;
@@ -50,6 +58,7 @@ public class RestauranteAUX {
 	    		}catch(IOException ex){
 	    			Logger.getLogger(ControladorListarRestaurantes.class.getName()).log(null, ex);
 	    		}
+	    		controller=(ControladorReservarDirecto)MainCliente.getContext().getBean("ControladorReservarDirecto");
 	    		controller.setRestaurante(restaurante);
 	    		Parent root = fxmlLoader.getRoot();
 	    		Stage stage = new Stage();

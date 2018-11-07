@@ -85,7 +85,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	@Autowired
 	private ComidaMgr comidaMgr;
 
-	private ApplicationContext applicationContext;
+	private static ApplicationContext applicationContext;
 
 	@FXML
 	private TableColumn<RestauranteAUX, String> colDireccion;
@@ -106,8 +106,6 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 	@FXML
 	private Label descripciónRest;
-	
-	private Restaurante res;
 
 	public void llenarTabla() {
 		columnaNombre.setCellValueFactory(
@@ -181,14 +179,13 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 				tabla.setItems(rest);
 			}
 
-			/*if (cboxComida.getValue() != null && cboxBarrio.getValue() != null) {
-				for (int i = 0; i < restaurante.filtrarPorVarios(cboxComida.getValue(), cboxBarrio.getValue())
-						.size(); i++) {
-					restAux = new RestauranteAUX(
-							restaurante.filtrarPorVarios(cboxComida.getValue(), cboxBarrio.getValue()).get(i));
-					rest.add(restAux);
-				}
-			}*/
+			/*
+			 * if (cboxComida.getValue() != null && cboxBarrio.getValue() != null) { for
+			 * (int i = 0; i < restaurante.filtrarPorVarios(cboxComida.getValue(),
+			 * cboxBarrio.getValue()) .size(); i++) { restAux = new RestauranteAUX(
+			 * restaurante.filtrarPorVarios(cboxComida.getValue(),
+			 * cboxBarrio.getValue()).get(i)); rest.add(restAux); } }
+			 */
 		}
 
 	}
@@ -268,13 +265,8 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		this.applicationContext = applicationContext;
 
 	}
-	
-	public void setRestaurante(Restaurante res) {
-		this.res=res;
-	}
-	
-	public Restaurante getRestaurante() {
-		return res;
-	}
 
+	public static <T> T getBean(Class<T> beanClass) {
+		return applicationContext.getBean(beanClass);
+	}
 }
