@@ -93,7 +93,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	@FXML
 	private Label nombreRest;
 
-	private final StringProperty prop = new SimpleStringProperty();
+	private StringProperty prop = new SimpleStringProperty();
 
 	@FXML
 	private TableColumn<RestauranteAUX, String> colHorario;
