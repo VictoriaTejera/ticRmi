@@ -63,12 +63,23 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 
 		if (event.getSource() == btnIniciarSesion) {
-			String nombreUsuario=txtUsuario.getText();
-			String contrasena=txtContrasena.getText();
-			if (restauranteMgr.verificarUsuarioRestaurante(nombreUsuario, contrasena) == true) {
+			restaurante = new Restaurante(txtUsuario.getText(),txtContrasena.getText());
+			if (restauranteMgr.verificarUsuarioRestaurante(restaurante) == true) {
 				stage = (Stage) btnIniciarSesion.getScene().getWindow();
+<<<<<<< HEAD
 				root = fxmlLoader.load(ControladorMenuRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
 				//getRutRest();
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+				ControladorMenuRest controller = Main.getContext().getBean(ControladorMenuRest.class);
+				controller.setRestaurante(restauranteMgr.find(restauranteMgr.getRut(nombreUsuario, contrasena)));
+>>>>>>> a30320513b3d6d6e034880354770f87b075f13fe
+>>>>>>> 1b8aced0093e20badffbbd12a9ceb4d8ca9692c3
+				root = fxmlLoader.load(ControladorMenuRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
+>>>>>>> d831814ba27df04b1989c5ef48439c318daa99d7
 			}else {
 				showAlert("Lo sentimos, ", "El usuario o contraseña son incorrectos. Vuelva a intentarlo");
 			}
@@ -105,5 +116,7 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
         alert.showAndWait();
     }
 
-
+	Restaurante getRestaurante() {
+		return restaurante;
+	}
 }
