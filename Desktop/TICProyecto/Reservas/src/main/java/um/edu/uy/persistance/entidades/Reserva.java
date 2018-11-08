@@ -26,8 +26,11 @@ public class Reserva {
 	private Long Id;
 	private Integer cantPersonas;
 
+	@Column(columnDefinition="boolean default FALSE")
 	private boolean confirmada;
+	@Column(columnDefinition="boolean default FALSE")
 	private boolean rechazada;
+	@Column(columnDefinition="boolean default FALSE")
 	private boolean terminada;
 	
 	@ManyToOne
