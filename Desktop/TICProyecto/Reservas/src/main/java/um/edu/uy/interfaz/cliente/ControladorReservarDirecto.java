@@ -37,20 +37,20 @@ public class ControladorReservarDirecto implements ApplicationContextAware {
 	ControladorInicioSesion controladorInicioSesion;
 
 	@Autowired
-	ControladorListarRestaurantes controlador;
+	ControladorListarRestaurantes controladorListarRestaurantes;
 
 	@Autowired
 	ReservaMgr reservaMgr;
 
 	private ApplicationContext applicationContext;
 
-	private Restaurante restaurante;
+//	private Restaurante restaurante;
 
 	@FXML
 	void handleButtonAction(ActionEvent event) {
 		if (event.getSource() == btnReservar) {
 			if (cantPersonas.getText() != "") {
-				Reserva reserva = new Reserva(controladorInicioSesion.getUsuario(), restaurante,
+				Reserva reserva = new Reserva(controladorInicioSesion.getUsuario(), controladorListarRestaurantes.getRestaurante(),
 						Integer.parseInt(cantPersonas.getText()));
 				reservaMgr.save(reserva);
 			} else {
@@ -65,14 +65,11 @@ public class ControladorReservarDirecto implements ApplicationContextAware {
 		assert cantPersonas != null : "fx:id=\"cantPersonas\" was not injected: check your FXML file 'Reservar.fxml'.";
 	}
 
-	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-		this.applicationContext = applicationContext;
+	
 
-	}
-
-	public void setRestaurante(Restaurante restaurante) {
-		this.restaurante = restaurante;
-	}
+//	public void setRestaurante(Restaurante restaurante) {
+//		this.restaurante = restaurante;
+//	}
 	
 	public static void showAlert(String title) {
         javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
@@ -81,5 +78,10 @@ public class ControladorReservarDirecto implements ApplicationContextAware {
         alert.setContentText(null);
         alert.showAndWait();
     }
+	
+	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+		this.applicationContext = applicationContext;
+
+	}
 
 }

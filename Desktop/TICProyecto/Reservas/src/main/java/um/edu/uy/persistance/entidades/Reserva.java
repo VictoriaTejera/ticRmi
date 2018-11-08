@@ -1,5 +1,6 @@
 package um.edu.uy.persistance.entidades;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,9 @@ import javax.persistence.ManyToOne;
 
 public class Reserva {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+//	@GeneratedValue
+	@Column(name="id", unique=true, nullable=false)
 	private Long Id;
 	private Integer cantPersonas;
 

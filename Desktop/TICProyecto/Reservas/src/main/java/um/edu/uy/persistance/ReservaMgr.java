@@ -24,16 +24,22 @@ public class ReservaMgr {
 
 	@Autowired
 	private MesaRepository mesaRepository;
+	
+	private Long ultimoNumeroUsado=(long) 0;
 
 	public void save(Reserva reserva) {
+//		reCserva.setId(ultimoNumeroUsado);
 		repository.save(reserva);
+		ultimoNumeroUsado++;
 	}
 
 	public void save(Integer usuarioCelular, String restauranteRUT, Integer cantPersonas) {
 		Usuario usu = usuarioMgr.find(usuarioCelular);
 		Restaurante res = resMgr.find(restauranteRUT);
 		Reserva reserva = new Reserva(usu, res, cantPersonas);
+		reserva.setId(ultimoNumeroUsado);
 		repository.save(reserva);
+		ultimoNumeroUsado++;
 	}
 
 	public List<Reserva> obtenerReservasNoTerminadas(String rut) {

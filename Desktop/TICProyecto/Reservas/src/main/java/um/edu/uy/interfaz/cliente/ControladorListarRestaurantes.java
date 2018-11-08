@@ -37,7 +37,7 @@ import um.edu.uy.persistance.ComidaMgr;
 import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
 
-@Component
+@Component("ControladorListarRestaurantes")
 public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 	@FXML
@@ -106,6 +106,8 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 	@FXML
 	private Label descripciónRest;
+	
+	private Restaurante res;
 
 	public void llenarTabla() {
 		columnaNombre.setCellValueFactory(
@@ -268,5 +270,13 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 	public static <T> T getBean(Class<T> beanClass) {
 		return applicationContext.getBean(beanClass);
+	}
+	
+	public Restaurante getRestaurante() {
+		return res;
+	}
+	
+	public void setRestaurante(Restaurante res) {
+		this.res=res;
 	}
 }

@@ -39,7 +39,8 @@ public class RestauranteAUX {
 	private Button button;
 	
 	@Autowired 
-	ControladorReservarDirecto controller;
+//	ControladorReservarDirecto controller;
+	ControladorListarRestaurantes controller;
 	
 	public ObservableList<Restaurante> getRestaurants(){
 		return null;
@@ -52,15 +53,23 @@ public class RestauranteAUX {
         	@Override
 	    	public void handle(MouseEvent event){
 	    		FXMLLoader fxmlLoader = new FXMLLoader();
+//	    		Parent root = null;
+	    		fxmlLoader.setControllerFactory(MainCliente.getContext()::getBean);
 	    		fxmlLoader.setLocation(ControladorInicio.class.getResource("Reservar2.fxml"));
+//	    		try {
+//					root=fxmlLoader.setLocation(ControladorInicio.class.getResourceAsStream("Reservar2.fxml"));
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
 	    		try {
 	    			fxmlLoader.load();
 	    		}catch(IOException ex){
 	    			Logger.getLogger(ControladorListarRestaurantes.class.getName()).log(null, ex);
 	    		}
-	    		controller=(ControladorReservarDirecto)MainCliente.getContext().getBean("ControladorReservarDirecto");
+//	    		controller=(ControladorReservarDirecto)MainCliente.getContext().getBean("ControladorReservarDirecto");
+	    		controller=(ControladorListarRestaurantes)MainCliente.getContext().getBean("ControladorListarRestaurantes");
 	    		controller.setRestaurante(restaurante);
-	    		Parent root = fxmlLoader.getRoot();
+	    		Parent root=fxmlLoader.getRoot();
 	    		Stage stage = new Stage();
 	    		stage.setScene(new Scene(root));
 	    		stage.show();
