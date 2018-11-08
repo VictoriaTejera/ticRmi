@@ -52,7 +52,8 @@ public class ControladorReservarDirecto implements ApplicationContextAware {
 			if (cantPersonas.getText() != "") {
 				Reserva reserva = new Reserva(controladorInicioSesion.getUsuario(), controladorListarRestaurantes.getRestaurante(),
 						Integer.parseInt(cantPersonas.getText()));
-				reservaMgr.save(reserva);
+				reservaMgr.save(controladorInicioSesion.getUsuario().getCelular(), controladorListarRestaurantes.getRestaurante().getRUT(),
+						Integer.parseInt(cantPersonas.getText()));
 			} else {
 				showAlert("Ingrese una cantidad de personas.");
 			}
