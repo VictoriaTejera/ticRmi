@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 import javafx.collections.FXCollections;
@@ -26,7 +27,7 @@ import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
 
 @Component
-public class ControladorDetallesRestaurante {
+public class ControladorDetallesRestaurante implements ApplicationContextAware{
 
     @FXML
     private ResourceBundle resources;

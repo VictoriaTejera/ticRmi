@@ -37,7 +37,7 @@ import um.edu.uy.persistance.ComidaMgr;
 import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
 
-@Component
+@Component("ControladorListarRestaurantes")
 public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 	@FXML
@@ -77,7 +77,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	private Button btnVolverAlMenu;
 
 	@Autowired
-	private RestauranteMgr restaurante;
+	private RestauranteMgr restauranteMgr;
 
 	@Autowired
 	private BarrioMgr barrioMgr;
@@ -85,7 +85,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	@Autowired
 	private ComidaMgr comidaMgr;
 
-	private ApplicationContext applicationContext;
+	private static ApplicationContext applicationContext;
 
 	@FXML
 	private TableColumn<RestauranteAUX, String> colDireccion;
@@ -93,7 +93,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	@FXML
 	private Label nombreRest;
 
-	private final StringProperty prop = new SimpleStringProperty();
+	private StringProperty prop = new SimpleStringProperty();
 
 	@FXML
 	private TableColumn<RestauranteAUX, String> colHorario;
@@ -106,6 +106,8 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 	@FXML
 	private Label descripciónRest;
+	
+	private Restaurante res;
 
 	public void llenarTabla() {
 		columnaNombre.setCellValueFactory(
@@ -137,8 +139,8 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		ObservableList<RestauranteAUX> restaurantes = FXCollections.observableArrayList();
 		RestauranteAUX restAux;
 
-		for (int i = 0; i < restaurante.getRestaurants().size(); i++) {
-			restAux = new RestauranteAUX(restaurante.getRestaurants().get(i));
+		for (int i = 0; i < restauranteMgr.getRestaurants().size(); i++) {
+			restAux = new RestauranteAUX(restauranteMgr.getRestaurants().get(i));
 			restaurantes.add(restAux);
 		}
 
@@ -165,28 +167,27 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 			ObservableList<RestauranteAUX> rest = FXCollections.observableArrayList();
 			RestauranteAUX restAux;
 			if (cboxBarrio.getValue() != null) {
-				for (int i = 0; i < restaurante.filtrarPorBarrio(cboxBarrio.getValue()).size(); i++) {
-					restAux = new RestauranteAUX(restaurante.filtrarPorBarrio(cboxBarrio.getValue()).get(i));
+				for (int i = 0; i < restauranteMgr.filtrarPorBarrio(cboxBarrio.getValue()).size(); i++) {
+					restAux = new RestauranteAUX(restauranteMgr.filtrarPorBarrio(cboxBarrio.getValue()).get(i));
 					rest.add(restAux);
 				}
 				tabla.setItems(rest);
 			}
 			if (cboxComida.getValue() != null) {
-				for (int i = 0; i < restaurante.filtrarPorComida(cboxComida.getValue()).size(); i++) {
-					restAux = new RestauranteAUX(restaurante.filtrarPorComida(cboxComida.getValue()).get(i));
+				for (int i = 0; i < restauranteMgr.filtrarPorComida(cboxComida.getValue()).size(); i++) {
+					restAux = new RestauranteAUX(restauranteMgr.filtrarPorComida(cboxComida.getValue()).get(i));
 					rest.add(restAux);
 				}
 				tabla.setItems(rest);
 			}
 
-			if (cboxComida.getValue() != null && cboxBarrio.getValue() != null) {
-				for (int i = 0; i < restaurante.filtrarPorVarios(cboxComida.getValue(), cboxBarrio.getValue())
-						.size(); i++) {
-					restAux = new RestauranteAUX(
-							restaurante.filtrarPorVarios(cboxComida.getValue(), cboxBarrio.getValue()).get(i));
-					rest.add(restAux);
-				}
-			}
+			/*
+			 * if (cboxComida.getValue() != null && cboxBarrio.getValue() != null) { for
+			 * (int i = 0; i < restaurante.filtrarPorVarios(cboxComida.getValue(),
+			 * cboxBarrio.getValue()) .size(); i++) { restAux = new RestauranteAUX(
+			 * restaurante.filtrarPorVarios(cboxComida.getValue(),
+			 * cboxBarrio.getValue()).get(i)); rest.add(restAux); } }
+			 */
 		}
 
 	}
@@ -267,4 +268,15 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 	}
 
+	public static <T> T getBean(Class<T> beanClass) {
+		return applicationContext.getBean(beanClass);
+	}
+	
+	public Restaurante getRestaurante() {
+		return res;
+	}
+	
+	public void setRestaurante(Restaurante res) {
+		this.res=res;
+	}
 }

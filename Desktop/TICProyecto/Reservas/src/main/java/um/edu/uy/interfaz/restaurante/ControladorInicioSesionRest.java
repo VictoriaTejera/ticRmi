@@ -20,8 +20,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import um.edu.uy.Main;
+import um.edu.uy.persistance.ReservaMgr;
 import um.edu.uy.persistance.RestauranteMgr;
+import um.edu.uy.persistance.entidades.Reserva;
 import um.edu.uy.persistance.entidades.Restaurante;
+import um.edu.uy.persistance.entidades.Usuario;
 
 @Component
 public class ControladorInicioSesionRest implements ApplicationContextAware {
@@ -47,6 +50,9 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 	private ApplicationContext applicationContext;
 	
 	Restaurante restaurante;
+	
+	@Autowired
+	private ReservaMgr resMgr;
 
 	@FXML
     void handleSubmitButtonAction(ActionEvent event) throws IOException {
@@ -57,15 +63,13 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 
 		if (event.getSource() == btnIniciarSesion) {
-			
+			restaurante = new Restaurante(txtUsuario.getText(),txtContrasena.getText());
 			if (restauranteMgr.verificarUsuarioRestaurante(txtUsuario.getText(), txtContrasena.getText()) == true) {
 				stage = (Stage) btnIniciarSesion.getScene().getWindow();
-				ControladorMenuRest controller = Main.getContext().getBean(ControladorMenuRest.class);
-				controller.setRestaurante(restauranteMgr.find(restauranteMgr.getRut(txtUsuario.getText(), txtContrasena.getText())));
 				root = fxmlLoader.load(ControladorMenuRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
-				getRutRest();
+				//getRutRest();
 			}else {
-				root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("Warning.fxml"));
+				showAlert("Lo sentimos, ", "El usuario o contraseña son incorrectos. Vuelva a intentarlo");
 			}
 		}
 		stage.setScene(new Scene(root));
@@ -81,11 +85,26 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 		assert btnIniciarSesion != null : "fx:id=\"btnIniciarSesion\" was not injected: check your FXML file 'inicio.fxml'.";
 		assert txtContrasena != null : "fx:id=\"txtContrasena\" was not injected: check your FXML file 'inicio.fxml'.";
 		assert txtUsuario != null : "fx:id=\"txtUsuario\" was not injected: check your FXML file 'inicio.fxml'.";
+		
+//		Usuario u1= new Usuario("s123", "123", Integer.parseInt("123"));
+//		Restaurante r1 = new Restaurante("1234", "r1234", "", "1234");
+//		Reserva res = new Reserva(u1, r1, Integer.parseInt("2"));
+		//resMgr.save(123, "1234", 2);
 	}
 
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
 
 	}
+	public static void showAlert(String title, String contextText) {
+        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(contextText);
+        alert.showAndWait();
+    }
 
+	Restaurante getRestaurante() {
+		return restaurante;
+	}
 }

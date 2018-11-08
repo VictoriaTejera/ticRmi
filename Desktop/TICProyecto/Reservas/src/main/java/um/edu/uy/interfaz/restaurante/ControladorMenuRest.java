@@ -17,8 +17,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import um.edu.uy.Main;
-import um.edu.uy.persistance.entidades.Restaurante;
 
 @Component
 public class ControladorMenuRest implements ApplicationContextAware{
@@ -39,8 +37,6 @@ public class ControladorMenuRest implements ApplicationContextAware{
     
     @Autowired
     ControladorActualizarDatosRest controller;
-    
-    private Restaurante restaurante;
 
     @FXML
     void handleSubmitButtonAction(ActionEvent event) throws IOException {
@@ -54,7 +50,7 @@ public class ControladorMenuRest implements ApplicationContextAware{
 			stage = (Stage) btnDatos.getScene().getWindow();
 			root = fxmlLoader.load(ControladorMenuRest.class.getResourceAsStream("ActualizarDatosRest.fxml"));
 			controller.handleBarrioCbox(event);
-//			controller.handleTipoComidaCbox(event);
+			//controller.handleTipoComidaCbox(event);
 		}
 		stage.setScene(new Scene(root));
 		stage.show();
@@ -70,8 +66,6 @@ public class ControladorMenuRest implements ApplicationContextAware{
 
 		if (event.getSource() == btnReservas) {
 			stage = (Stage) btnReservas.getScene().getWindow();
-			ControladorReservasPendientes controller = Main.getContext().getBean(ControladorReservasPendientes.class);
-			controller.setRestaurante(restaurante);
 			root = fxmlLoader.load(ControladorReservasPendientes.class.getResourceAsStream("VerReservasPendientes.fxml"));
 		}
 		stage.setScene(new Scene(root));
@@ -87,10 +81,6 @@ public class ControladorMenuRest implements ApplicationContextAware{
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
-	}
-	
-	public void setRestaurante(Restaurante r) {
-		restaurante = r;
 	}
 
 }

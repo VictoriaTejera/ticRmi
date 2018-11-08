@@ -1,7 +1,6 @@
 package um.edu.uy;
 
 import java.io.IOException;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -14,8 +13,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import um.edu.uy.interfaz.cliente.ControladorInicio;
-import um.edu.uy.interfaz.restaurante.ControladorActualizarDatosRest;
-import um.edu.uy.interfaz.restaurante.ControladorDatosActualizadosExitosamenteRest;
 import um.edu.uy.interfaz.restaurante.ControladorInicioSesionRest;
 
 @SpringBootApplication
