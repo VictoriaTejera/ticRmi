@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import um.edu.uy.persistance.entidades.Reserva;
 import um.edu.uy.persistance.entidades.Restaurante;
@@ -14,7 +15,7 @@ import um.edu.uy.persistance.entidades.Usuario;
 public class ReservaMgr {
 
 	@Autowired
-	ReservaRepository repository;
+	private ReservaRepository repository;
 
 	@Autowired
 	RestauranteMgr resMgr;
@@ -24,16 +25,27 @@ public class ReservaMgr {
 
 	@Autowired
 	private MesaRepository mesaRepository;
+	
+	private Long ultimoNumeroUsado=(long) 0;
 
-	public void save(Reserva reserva) {
-		repository.save(reserva);
-	}
+	
+//	@Transactional
+//	public void save(Reserva reserva) {
+//		reserva.setRestaurante(resMgr.find(reserva.getRestaurante().getRUT()));
+//		reserva.setUsuario(usuarioMgr.find(reserva.getUsuario().getCelular()));
+////		reCserva.setId(ultimoNumeroUsado);
+//		repository.save(reserva);
+//	//	ultimoNumeroUsado++;
+//	}
 
+	@Transactional
 	public void save(Integer usuarioCelular, String restauranteRUT, Integer cantPersonas) {
 		Usuario usu = usuarioMgr.find(usuarioCelular);
 		Restaurante res = resMgr.find(restauranteRUT);
 		Reserva reserva = new Reserva(usu, res, cantPersonas);
+		reserva.setId(ultimoNumeroUsado);
 		repository.save(reserva);
+		ultimoNumeroUsado++;
 	}
 
 	public List<Reserva> obtenerReservasNoTerminadas(String rut) {
@@ -73,9 +85,13 @@ public class ReservaMgr {
 		return reservaConfirmada;
 	}
 
+
+//	public boolean confirmarReserva() {}
+
 	public void rechazarReserva(Long idReserva) {
 		repository.marcarRechazada(idReserva);
 	}
+
 
 
 }

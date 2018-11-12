@@ -64,9 +64,10 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 
 		if (event.getSource() == btnIniciarSesion) {
 			restaurante = new Restaurante(txtUsuario.getText(),txtContrasena.getText());
-			if (restauranteMgr.verificarUsuarioRestaurante(restaurante) == true) {
+			if (restauranteMgr.verificarUsuarioRestaurante(txtUsuario.getText(), txtContrasena.getText()) == true) {
 				stage = (Stage) btnIniciarSesion.getScene().getWindow();
 				root = fxmlLoader.load(ControladorMenuRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
+				//getRutRest();
 			}else {
 				showAlert("Lo sentimos, ", "El usuario o contraseña son incorrectos. Vuelva a intentarlo");
 			}

@@ -34,7 +34,7 @@ public class TestReservas {
 		Usuario u= new Usuario("nombre", "contrasena", 123);
 		Reserva reserva=new Reserva(u, res, 123);
 		
-		reservaMgr.save(reserva);
+		//reservaMgr.save(reserva);
 	}
 
 	@Test
@@ -49,8 +49,8 @@ public class TestReservas {
 		usuarioMgr.save(u2);
 		
 		Reserva reserva = new Reserva(u, res, 5);
-		reservaMgr.save(reserva);
-		reservaMgr.save(123, "rut2", 4);
+		//reservaMgr.save(reserva);
+		//reservaMgr.save(123, "rut2", 4);
 
 		List<Reserva> lista = reservaMgr.verEstadoReservasUsuario(123);
 		for (int i = 0; i < lista.size(); i++) {

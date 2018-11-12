@@ -1,5 +1,7 @@
 package um.edu.uy.persistance.entidades;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,12 +21,18 @@ import javax.persistence.ManyToOne;
 
 public class Reserva {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+//	@GeneratedValue
+	@Basic(optional = false)
+	@Column(name="id", unique=true, nullable=false)
 	private Long Id;
 	private Integer cantPersonas;
 
+	@Column(columnDefinition="boolean default FALSE")
 	private boolean confirmada;
+	@Column(columnDefinition="boolean default FALSE")
 	private boolean rechazada;
+	@Column(columnDefinition="boolean default FALSE")
 	private boolean terminada;
 	
 	@ManyToOne

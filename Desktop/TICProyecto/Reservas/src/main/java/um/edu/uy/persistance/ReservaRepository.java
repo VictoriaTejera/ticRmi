@@ -12,9 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 import um.edu.uy.persistance.entidades.Reserva;
 
 @Component
-public interface ReservaRepository extends CrudRepository<Reserva, String> {
+public interface ReservaRepository extends CrudRepository<Reserva, Long> {
 	
-
 	@Query("SELECT r FROM Reserva r WHERE r.terminada=false AND r.restaurante.rut= :rut")
 	List<Reserva> obtenerReservasNoTerminadas(@Param("rut") String rut);
 	

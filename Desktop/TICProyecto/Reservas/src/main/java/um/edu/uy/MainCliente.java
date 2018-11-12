@@ -30,7 +30,7 @@ public class MainCliente extends Application {
 	}
 
 	@Override
-	public void start(Stage primaryStage) throws IOException {
+	public void start(Stage primaryStage) throws IOException{
 		thestage = primaryStage;
 		btnRegistrarse = new Button();
 		btnIniciarSesion = new Button();

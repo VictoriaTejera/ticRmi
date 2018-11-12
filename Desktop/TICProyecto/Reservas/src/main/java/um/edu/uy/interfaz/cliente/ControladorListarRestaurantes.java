@@ -37,7 +37,7 @@ import um.edu.uy.persistance.ComidaMgr;
 import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
 
-@Component
+@Component("ControladorListarRestaurantes")
 public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 	@FXML
@@ -85,7 +85,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	@Autowired
 	private ComidaMgr comidaMgr;
 
-	private ApplicationContext applicationContext;
+	private static ApplicationContext applicationContext;
 
 	@FXML
 	private TableColumn<RestauranteAUX, String> colDireccion;
@@ -93,7 +93,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	@FXML
 	private Label nombreRest;
 
-	private final StringProperty prop = new SimpleStringProperty();
+	private StringProperty prop = new SimpleStringProperty();
 
 	@FXML
 	private TableColumn<RestauranteAUX, String> colHorario;
@@ -181,14 +181,13 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 				tabla.setItems(rest);
 			}
 
-			/*if (cboxComida.getValue() != null && cboxBarrio.getValue() != null) {
-				for (int i = 0; i < restaurante.filtrarPorVarios(cboxComida.getValue(), cboxBarrio.getValue())
-						.size(); i++) {
-					restAux = new RestauranteAUX(
-							restaurante.filtrarPorVarios(cboxComida.getValue(), cboxBarrio.getValue()).get(i));
-					rest.add(restAux);
-				}
-			}*/
+			/*
+			 * if (cboxComida.getValue() != null && cboxBarrio.getValue() != null) { for
+			 * (int i = 0; i < restaurante.filtrarPorVarios(cboxComida.getValue(),
+			 * cboxBarrio.getValue()) .size(); i++) { restAux = new RestauranteAUX(
+			 * restaurante.filtrarPorVarios(cboxComida.getValue(),
+			 * cboxBarrio.getValue()).get(i)); rest.add(restAux); } }
+			 */
 		}
 
 	}
@@ -268,13 +267,16 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		this.applicationContext = applicationContext;
 
 	}
-	
-	public void setRestaurante(Restaurante res) {
-		this.res=res;
+
+	public static <T> T getBean(Class<T> beanClass) {
+		return applicationContext.getBean(beanClass);
 	}
 	
 	public Restaurante getRestaurante() {
 		return res;
 	}
-
+	
+	public void setRestaurante(Restaurante res) {
+		this.res=res;
+	}
 }
