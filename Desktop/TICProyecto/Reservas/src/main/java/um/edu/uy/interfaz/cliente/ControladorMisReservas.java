@@ -106,7 +106,7 @@ public class ControladorMisReservas implements ApplicationContextAware {
 //		List<Reserva> todasLasReservas = resMgr.verEstadoReservasUsuario(controladorInicio.getUsuario().getCelular());
 //
 //		for (Reserva r : todasLasReservas) {
-//			if (r.isConfirmado()) {
+//			if (r.isConfirmado() == true) {
 //				((List<Reserva>) tablaPendientes).add(r);
 //			} else {
 //				((List<Reserva>) tablaConfirmadas).add(r);
