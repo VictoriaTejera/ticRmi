@@ -69,6 +69,8 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
     ControladorListarRestaurantes controlador;
     
     private ApplicationContext applicationContext;
+    
+    private Restaurante rest;
 
     @FXML
     void initialize() {
@@ -84,6 +86,7 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
         assert btnVolver != null : "fx:id=\"btnVolver\" was not injected: check your FXML file 'DetallesRestaurante.fxml'.";
         
         nombreRest.setText(controlador.restSeleccionado().getNombre());
+        rest=controlador.restSeleccionado();
         
         colDireccion.setCellValueFactory(new PropertyValueFactory<Restaurante,String>("direccion"));
         colHoraApertura.setCellValueFactory(new PropertyValueFactory<Restaurante,String>("horarioApertura"));
@@ -123,5 +126,9 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
 		this.applicationContext = applicationContext;
 		
 	}
+    
+    public Restaurante getRestaurante() {
+    	return rest;
+    }
 
 }

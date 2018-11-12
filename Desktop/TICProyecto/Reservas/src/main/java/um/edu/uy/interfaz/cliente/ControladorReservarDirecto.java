@@ -1,5 +1,6 @@
 package um.edu.uy.interfaz.cliente;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -11,12 +12,17 @@ import org.springframework.stereotype.Component;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import um.edu.uy.interfaz.cliente.clasesAuxiliares.RestauranteAUX;
 import um.edu.uy.persistance.ReservaMgr;
 import um.edu.uy.persistance.entidades.Reserva;
 import um.edu.uy.persistance.entidades.Restaurante;
+import um.edu.uy.persistance.entidades.Usuario;
 
 @Component("ControladorReservarDirecto")
 public class ControladorReservarDirecto implements ApplicationContextAware {
@@ -47,16 +53,27 @@ public class ControladorReservarDirecto implements ApplicationContextAware {
 //	private Restaurante restaurante;
 
 	@FXML
-	void handleButtonAction(ActionEvent event) {
+	void handleButtonAction(ActionEvent event) throws IOException {
+		Stage stage = null;
+		Parent root = null;
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		stage = new Stage();
+		fxmlLoader.setControllerFactory(applicationContext::getBean);
+		
 		if (event.getSource() == btnReservar) {
-			if (cantPersonas.getText() != "") {
-				Reserva reserva = new Reserva(controladorInicioSesion.getUsuario(), controladorListarRestaurantes.getRestaurante(),
-						Integer.parseInt(cantPersonas.getText()));
+			try {
 				reservaMgr.save(controladorInicioSesion.getUsuario().getCelular(), controladorListarRestaurantes.getRestaurante().getRUT(),
 						Integer.parseInt(cantPersonas.getText()));
-			} else {
+				stage = (Stage) btnReservar.getScene().getWindow();
+				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
+			}catch(NumberFormatException e) {
 				showAlert("Ingrese una cantidad de personas.");
 			}
+
+	    	Scene scene = new Scene(root);
+			scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+			stage.setScene(scene);
+			stage.show();
 		}
 	}
 

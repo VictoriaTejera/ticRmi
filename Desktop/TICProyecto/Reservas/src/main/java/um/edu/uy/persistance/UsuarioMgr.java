@@ -24,9 +24,9 @@ public class UsuarioMgr {
 		repository.save(usuario);
 	}
 
-	public boolean verificarUsuario(Usuario us) {
+	public boolean verificarUsuario(String nombreUsuario, String contrasenaUsuario) {
 		boolean verifico = true;
-		if (repository.verificarUsuario(us.getNombre(), us.getContrasena()) == null) {
+		if (repository.verificarUsuario(nombreUsuario, contrasenaUsuario) == null) {
 			verifico = false;
 		}
 		return verifico;
@@ -47,5 +47,9 @@ public class UsuarioMgr {
 			usuario=optional.get();
 		}
 		return usuario; 
+	}
+	
+	public Usuario find(String nombre, String contrasena) {
+		return repository.verificarUsuario(nombre, contrasena);
 	}
 }
