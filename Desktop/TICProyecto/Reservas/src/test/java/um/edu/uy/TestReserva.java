@@ -62,7 +62,7 @@ public class TestReserva {
 
 		//reserMgr.save(r1);
 
-		reservaMgr.save(r1);
+		//reservaMgr.save(r1);
 	}
 	
 	

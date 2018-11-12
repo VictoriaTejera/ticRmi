@@ -34,7 +34,7 @@ public class TestReservas {
 		Usuario u= new Usuario("nombre", "contrasena", 123);
 		Reserva reserva=new Reserva(u, res, 123);
 		
-		reservaMgr.save(reserva);
+		//reservaMgr.save(reserva);
 	}
 
 	@Test
