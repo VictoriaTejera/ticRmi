@@ -39,18 +39,6 @@ public class Restaurante implements Serializable {
 	private Integer telefono;
 	private Float rating;
 	private Integer cantRatings;
-	public List<Mesa> getMesas() {
-		return mesas;
-	}
-
-	public void setMesas(List<Mesa> mesas) {
-		this.mesas = mesas;
-	}
-
-	public void setBarrio(Barrio barrio) {
-		this.barrio = barrio;
-	}
-
 	private String descripcion;
 	private Float precio_promedio;
 	private String email;
@@ -190,4 +178,16 @@ public class Restaurante implements Serializable {
 		return email;
 	}
 	
+	public List<Mesa> getMesas() {
+		return mesas;
+	}
+
+	public void setMesas(List<Mesa> mesas) {
+		this.mesas = mesas;
+	}
+
+	public void setBarrio(Barrio barrio) {
+		this.barrio = barrio;
+	}
+
 }

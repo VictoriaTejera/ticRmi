@@ -65,7 +65,6 @@ public class AdminControladorRegistro implements ApplicationContextAware {
 
 		if (event.getSource() == btnRegistrar) {
 			Restaurante restaurante = new Restaurante(txtRut.getText(), txtNombre.getText(), Integer.parseInt(txtTelefono.getText()), txtContrasena.getText());
-			//RestauranteAUX restAux = new RestauranteAUX(restaurante);
 			if(resMgr.restauranteYaFueCreado(restaurante) == false) {
 				resMgr.save(restaurante);
 				root = fxmlLoader.load(AdminControladorRegistro.class.getResourceAsStream("final.fxml"));
