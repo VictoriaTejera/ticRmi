@@ -31,7 +31,7 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 	@Modifying
 	@Query(value="INSERT INTO restaurante_comida (id_restaurante, id_comida)  VALUES (:rut, :id_comida)", nativeQuery=true)
 	@Transactional
-	public void insertarComida(@Param("rut") String rut, @Param("id_comida") Long id_comida);
+	public void insertarComida(@Param("rut") String rut, @Param("id_comida") Long id_comida);	
 	
 	@Query("SELECT r FROM Restaurante r WHERE r.precio_promedio BETWEEN :precioMenor and :precioMayor")
 	List<Restaurante> filtrarPorPrecio(@Param("precioMenor") Float precioMenor, @Param ("precioMayor") Float precioMayor);
@@ -42,11 +42,11 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 	@Transactional
 	@Modifying
 	@Query("UPDATE Restaurante r SET r.descripcion= :descripcion, r.direccion= :direccion, r.horarioApertura= :horarioApertura, "
-			+ "r.horarioCierre= :horarioCierre, r.precio_promedio= :precio_promedio, r.telefono= :telefono, r.barrio= :barrio, "
+			+ "r.horarioCierre= :horarioCierre, r.precio_promedio= :precio_promedio, r.email= :mail, r.barrio= :barrio, "
 			+ "r.imagen= :imagen WHERE r.rut= :rut")
 	public void cargarDatosRes(@Param("rut") String rut, @Param("descripcion")String descripcion, @Param("direccion")String direccion, 
 			@Param("horarioApertura") String horarioApertura, @Param("horarioCierre") String horarioCierre, 
-			@Param("precio_promedio") Float precio_promedio, @Param("telefono")Integer telefono, @Param("barrio") Barrio barrio,
+			@Param("precio_promedio") Float precio_promedio, @Param("mail")String mail, @Param("barrio") Barrio barrio,
 			@Param("imagen") byte[] imagen);
 
 	@Query("SELECT r from Restaurante r WHERE nombre= :nombre ")

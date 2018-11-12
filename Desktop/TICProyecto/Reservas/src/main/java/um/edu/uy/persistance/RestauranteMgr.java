@@ -36,11 +36,11 @@ public class RestauranteMgr {
 		}
 		return lista;
 	}
-	
+
 	@Transactional
 	public void save(Restaurante res) {
-		if(res.getBarrio()!=null) {
-		res.setBarrio(barrioMgr.find(res.getBarrio().getNombreBarrio()));
+		if (res.getBarrio() != null) {
+			res.setBarrio(barrioMgr.find(res.getBarrio().getNombreBarrio()));
 		}
 		repository.save(res);
 	}
@@ -89,16 +89,12 @@ public class RestauranteMgr {
 
 	@Transactional
 	public void cargarDatosRes(String rut, String descripcion, String direccion, String horarioApertura,
-			String horarioCierre, Float precio_promedio, Integer telefono, String barrio, byte[] imagen,
-			List<String> tipoComidas) {
-		repository.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precio_promedio,
-				telefono, barrioMgr.find(barrio), imagen);
-		if (tipoComidas != null) {
-			for (int i = 0; i < tipoComidas.size(); i++) {
-				repository.insertarComida(rut, repository.obtenerIdComida(tipoComidas.get(i)));
-			}
+			String horarioCierre, Float precio_promedio, String mail, String barrio, byte[] imagen, Integer cantMesas) {
+		repository.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precio_promedio, mail,
+				barrioMgr.find(barrio), imagen);
+		for (int i = 0; i < cantMesas; i++) {
+			
 		}
-
 	}
 
 	public boolean restauranteYaFueCreado(Restaurante res) {
@@ -126,24 +122,22 @@ public class RestauranteMgr {
 		}
 		return restaurante;
 	}
-	
-	public List<Mesa> obtenerMesasNoReservadas(String RUT){
+
+	public List<Mesa> obtenerMesasNoReservadas(String RUT) {
 		return repository.obtenerMesasNoReservadas(RUT);
 	}
 
-	public List<Reserva> obtenerReservasTerminadas(String rut){
+	public List<Reserva> obtenerReservasTerminadas(String rut) {
 		return repository.obtenerReservasTerminadas(rut);
-		
+
 	}
 
-	
 	public long cantidadAPagar(String rut) {
-		long cantAPagar=0;
-		 List<Reserva> reservasTerminadas= repository.obtenerReservasTerminadas(rut);
-		 cantAPagar= reservasTerminadas.size()*500;
-				 
-		
+		long cantAPagar = 0;
+		List<Reserva> reservasTerminadas = repository.obtenerReservasTerminadas(rut);
+		cantAPagar = reservasTerminadas.size() * 500;
+
 		return cantAPagar;
 	}
-	
+
 }

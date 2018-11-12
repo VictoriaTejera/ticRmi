@@ -12,10 +12,15 @@ import um.edu.uy.persistance.entidades.Usuario;
 
 public interface MesaRepository extends CrudRepository<Mesa, Long>{
 
-	
 	@Transactional
 	@Modifying
 	@Query("UPDATE Mesa m SET m.reservada= true WHERE m.id= :id")
 	void marcarMesaComoReservada(@Param("id") Long id);
+	
+	@Modifying
+	@Query(value="INSERT INTO Mesa (capacidad, restaurante_id)  VALUES (:capacidad, :rut)", nativeQuery=true)
+	@Transactional
+	public void insertarMesa(@Param("capacidad") Integer capacidad, @Param("rut") String rut);
+	
 	
 }
