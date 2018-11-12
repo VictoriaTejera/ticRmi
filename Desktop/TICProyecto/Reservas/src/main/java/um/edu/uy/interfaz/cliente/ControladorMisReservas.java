@@ -1,6 +1,6 @@
 package um.edu.uy.interfaz.cliente;
 
-import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.net.URL;
 import um.edu.uy.persistance.ReservaMgr;
 import um.edu.uy.persistance.entidades.Reserva;
@@ -26,9 +26,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javafx.event.ActionEvent;
 
 @Component
-public class ControladorMisReservas implements ApplicationContextAware  {
+public class ControladorMisReservas implements ApplicationContextAware {
 
 	@FXML
 	private ResourceBundle resources;
@@ -56,8 +57,26 @@ public class ControladorMisReservas implements ApplicationContextAware  {
 
 	@Autowired
 	private ControladorInicioSesion controladorInicio;
+
 	private ApplicationContext applicationContext;
+
 	private final StringProperty prop = new SimpleStringProperty();
+	
+    @FXML
+    void volverAlMenu(ActionEvent event) throws IOException {
+    	Stage stage = null;
+		Parent root = null;
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setControllerFactory(applicationContext::getBean);
+		stage = new Stage();
+		if (event.getSource() == btnVolver) {
+			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
+			stage = (Stage) btnVolver.getScene().getWindow();
+		}
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+    }
 
 	@FXML
 	void initialize() {
@@ -84,38 +103,21 @@ public class ControladorMisReservas implements ApplicationContextAware  {
 					}
 				});
 
-		List<Reserva> todasLasReservas = resMgr.verEstadoReservasUsuario(controladorInicio.getUsuario().getCelular());
-
-		for (Reserva r : todasLasReservas) {
-			if (r.isConfirmado()) {
-				((List<Reserva>) tablaPendientes).add(r);
-			} else {
-				((List<Reserva>) tablaConfirmadas).add(r);
-			}
-		}
-
-	}
-
-	@FXML
-	void btnVolver(ActionEvent event) throws Exception {
-		Stage stage;
-		Parent root = null;
-		FXMLLoader fxmlLoader = new FXMLLoader();
-		fxmlLoader.setControllerFactory(applicationContext::getBean);
-		stage = new Stage();
-		if (event.getSource() == btnVolver) {
-			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
-			stage = (Stage) btnVolver.getScene().getWindow();
-		}
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
+//		List<Reserva> todasLasReservas = resMgr.verEstadoReservasUsuario(controladorInicio.getUsuario().getCelular());
+//
+//		for (Reserva r : todasLasReservas) {
+//			if (r.isConfirmado()) {
+//				((List<Reserva>) tablaPendientes).add(r);
+//			} else {
+//				((List<Reserva>) tablaConfirmadas).add(r);
+//			}
+//		}
 
 	}
 
-	 public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-			this.applicationContext = applicationContext;
-			
-		}
+	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+		this.applicationContext = applicationContext;
+
+	}
 
 }
