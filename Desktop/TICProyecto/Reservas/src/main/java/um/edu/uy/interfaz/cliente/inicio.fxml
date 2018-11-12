@@ -48,7 +48,7 @@
                 <Insets />
               </GridPane.margin>
             </Button>
-            <Button fx:id="btnRegistrarse" blendMode="DARKEN" font="$x3" mnemonicParsing="false" onAction="#handleButtonAction" opacity="0.71" prefHeight="30.0" prefWidth="131.0" text="Regístrese" textFill="$x2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+            <Button fx:id="btnRegistrarse" blendMode="DARKEN" font="$x3" mnemonicParsing="false" onAction="#handleButtonAction" opacity="1.0" prefHeight="30.0" prefWidth="131.0" text="Regístrese" textFill="$x2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7">
               <effect>
                 <DropShadow blurType="TWO_PASS_BOX" height="31.078" radius="15.039" width="31.078" />
               </effect>
