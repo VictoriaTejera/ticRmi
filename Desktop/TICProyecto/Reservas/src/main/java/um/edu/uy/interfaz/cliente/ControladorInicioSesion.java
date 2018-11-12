@@ -66,10 +66,10 @@ public class ControladorInicioSesion implements ApplicationContextAware {
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 
 		if (event.getSource() == btnConfirmarInicioSesion) {
-			usuario = new Usuario(txtUsuario.getText(), txtContrasena.getText());
-			if (usuarioMgr.verificarUsuario(usuario) == true) {
+			if (usuarioMgr.verificarUsuario(txtUsuario.getText(), txtContrasena.getText()) == true) {
 				stage = (Stage) btnConfirmarInicioSesion.getScene().getWindow();
 				root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
+				usuario=usuarioMgr.find(txtUsuario.getText(), txtContrasena.getText());
 				} else {
 				showAlert("Lo sentimos, ", "El usuario o contraseña son incorrectos.");
 			}

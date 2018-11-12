@@ -49,18 +49,12 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 
 	@FXML
 	private Button btnCargarImagen;
-	
-//	@FXML
-//	private Button btnAgregarTiposComida;
 
 	@FXML
 	private ImageView imgView;
 
 	@FXML
 	private ComboBox<String> cboxBarrio;
-
-//	@FXML
-//	private ComboBox<String> cboxTiposComida;
 
 	@FXML
 	private TextField txtDescripcion;
@@ -78,15 +72,15 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 	private TextField txtPrecioPromedio;
 
 	@FXML
-	private TextField txtTelefono;
+	private TextField txtMail;
+	
+	@FXML
+	private TextField txtCantMesas;
 
 	ApplicationContext applicationContext;
 
 	@Autowired
 	private BarrioMgr barrioMgr;
-
-//	@Autowired
-//	private ComidaMgr comidaMgr;
 
 	@Autowired
 	private RestauranteMgr resMgr;
@@ -124,21 +118,17 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 			if (cboxBarrio.getValue() != null) {
 				barrio = cboxBarrio.getValue();
 			}
-//			if (cboxTiposComida.getValue() != null) {
-//				resMgr.insertarComida(controller.getRutRest(), cboxTiposComida.getValue());
-//			}
 			Float precioPromedio=null;
-			if(txtPrecioPromedio.getText()!="") {
-//				System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"+txtPrecioPromedio.getText()+"BBBBBBBBBBBBBBBBBBB");
+			Integer mail=null;
+			
+			try {
 				precioPromedio=Float.parseFloat(txtPrecioPromedio.getText());
-			}
-			Integer telefono=null;
-			if(txtTelefono.getText()!="") {
-				telefono=Integer.parseInt(txtTelefono.getText());
-			}
+				mail=Integer.parseInt(txtMail.getText());
+			}catch(NumberFormatException e) {}
+			
 			resMgr.cargarDatosRes(controller.getRestaurante().getRUT(), txtDescripcion.getText(), txtDireccion.getText(),
 					txtHorarioApertura.getText(), txtHorarioCierre.getText(),
-					precioPromedio, telefono, barrio,
+					precioPromedio, mail, barrio,
 					imagenAGuardar, null);
 			stage = (Stage) btnGuardarDatos.getScene().getWindow();
 			root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("AgregarTiposComida.fxml"));
@@ -149,7 +139,6 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 		}
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
-//		this.stage=stage;
 		stage.show();
 	}
 	

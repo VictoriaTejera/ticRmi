@@ -30,7 +30,7 @@ public class TestReservas {
 	
 	//@Test
 	public void testSaveReserva() {
-		Restaurante res=new Restaurante("rut", "nombre", "email", "pass");
+		Restaurante res=new Restaurante("rut", "nombre", 325, "pass");
 		Usuario u= new Usuario("nombre", "contrasena", 123);
 		Reserva reserva=new Reserva(u, res, 123);
 		
@@ -39,8 +39,8 @@ public class TestReservas {
 
 	@Test
 	public void testSaveReserva2() {
-		Restaurante res = new Restaurante("rut", "nombre", "email", "pass");
-		Restaurante res2 = new Restaurante("rut2", "nombre2", "email2", "pass2");
+		Restaurante res = new Restaurante("rut", "nombre", 234, "pass");
+		Restaurante res2 = new Restaurante("rut2", "nombre2",543, "pass2");
 		restauranteMgr.save(res);
 		restauranteMgr.save(res2);
 		Usuario u = new Usuario("nombre", "contrasena", 123);

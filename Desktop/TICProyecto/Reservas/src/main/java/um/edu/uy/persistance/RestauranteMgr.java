@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import um.edu.uy.persistance.entidades.Barrio;
 import um.edu.uy.persistance.entidades.Comida;
 import um.edu.uy.persistance.entidades.Mesa;
+import um.edu.uy.persistance.entidades.Reserva;
 import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
 import javafx.collections.FXCollections;
@@ -35,8 +36,12 @@ public class RestauranteMgr {
 		}
 		return lista;
 	}
-
+	
+	@Transactional
 	public void save(Restaurante res) {
+		if(res.getBarrio()!=null) {
+		res.setBarrio(barrioMgr.find(res.getBarrio().getNombreBarrio()));
+		}
 		repository.save(res);
 	}
 
@@ -126,4 +131,19 @@ public class RestauranteMgr {
 		return repository.obtenerMesasNoReservadas(RUT);
 	}
 
+	public List<Reserva> obtenerReservasTerminadas(String rut){
+		return repository.obtenerReservasTerminadas(rut);
+		
+	}
+
+	
+	public long cantidadAPagar(String rut) {
+		long cantAPagar=0;
+		 List<Reserva> reservasTerminadas= repository.obtenerReservasTerminadas(rut);
+		 cantAPagar= reservasTerminadas.size()*500;
+				 
+		
+		return cantAPagar;
+	}
+	
 }

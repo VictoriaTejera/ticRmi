@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import um.edu.uy.persistance.entidades.Restaurante;
 
 @Component
 public class ControladorDetallesRestaurante implements ApplicationContextAware{
@@ -57,6 +58,8 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
     ControladorListarRestaurantes controlador;
     
     private ApplicationContext applicationContext;
+    
+    private Restaurante rest;
 
     @FXML
     void initialize() {
@@ -104,5 +107,9 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
 		this.applicationContext = applicationContext;
 		
 	}
+    
+    public Restaurante getRestaurante() {
+    	return rest;
+    }
 
 }

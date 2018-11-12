@@ -33,7 +33,7 @@ public class ReservaMgr {
 //	public void save(Reserva reserva) {
 //		reserva.setRestaurante(resMgr.find(reserva.getRestaurante().getRUT()));
 //		reserva.setUsuario(usuarioMgr.find(reserva.getUsuario().getCelular()));
-////		reCserva.setId(ultimoNumeroUsado);
+////		reserva.setId(ultimoNumeroUsado);
 //		repository.save(reserva);
 //	//	ultimoNumeroUsado++;
 //	}
