@@ -33,8 +33,13 @@ public class TestReserva {
 	public void obtenerReservasNoTerminadas() {
 		Usuario u1=new Usuario("nombre2", "con2", 1234);
 		usuarioMgr.save(u1);
-		Restaurante r1=new Restaurante("Mc", "123");
+
+		Restaurante r1=new Restaurante("12355", "R", "R@gmail", "123");
 		restauranteMgr.save(r1);
+
+//		Restaurante r1=new Restaurante("Mc", "123");
+//		restauranteMgr.save(r1);
+
 		Reserva rr= new Reserva(u1, r1, 3);
 		
 		
@@ -45,11 +50,19 @@ public class TestReserva {
 	public void testConfirmarReserva() {
 		Usuario u5=new Usuario("nombre2", "con2", 1234);
 		usuarioMgr.save(u5);
-		Restaurante r5=new Restaurante("Ruffi", "1233");
+
+		Restaurante r5=new Restaurante("12366", "J", "J@gmail", "12345");
 		restauranteMgr.save(r5);
 
+//		Restaurante r5=new Restaurante("Ruffi", "1233");
+//		restauranteMgr.save(r5);
+
+
 		Reserva r1= new Reserva(u5, r5, 7);
-		reservaMgr.save(r1);
+
+		//reserMgr.save(r1);
+
+		//reservaMgr.save(r1);
 	}
 	
 	

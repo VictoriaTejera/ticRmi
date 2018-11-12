@@ -5,11 +5,15 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+<<<<<<< HEAD
 import org.springframework.beans.BeansException;
+=======
+>>>>>>> 5086abcf17fe5c5e9222c16e7f6fbc083afd8546
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
@@ -23,17 +27,78 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+<<<<<<< HEAD
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import um.edu.uy.interfaz.cliente.ControladorInicioSesion;
 import um.edu.uy.interfaz.restaurante.clasesAuxiliares.ReservaAux;
+=======
+import javafx.util.Callback;
+import um.edu.uy.interfaz.cliente.clasesAuxiliares.RestauranteAUX;
+>>>>>>> 5086abcf17fe5c5e9222c16e7f6fbc083afd8546
 import um.edu.uy.persistance.ReservaMgr;
 import um.edu.uy.persistance.entidades.Reserva;
+import um.edu.uy.persistance.entidades.Restaurante;
 
 @Component
 public class ControladorReservasPendientes implements ApplicationContextAware {
 
+<<<<<<< HEAD
+    @FXML
+    private ResourceBundle resources;
+    
+    @FXML
+    private URL location;
+    
+    @FXML
+    private TableColumn<Reserva, String> columnaCantPersonas;
+
+    @FXML
+    private TableColumn<Reserva, String> columnaUsuario;
+
+    @FXML
+    private TableView<Reserva> reservasPendientes;
+
+    @Autowired
+    private ReservaMgr resMgr;
+    
+    private Restaurante restaurante;
+    private final StringProperty prop = new SimpleStringProperty();
+    @Autowired
+    private ControladorInicioSesionRest controlador;
+    
+
+    @FXML
+    void initialize() {
+    	
+    	
+    	List<Reserva> listaDePendientes =  resMgr.obtenerReservasNoConfirmadas(controlador.getRestaurante().getRUT());
+    	
+       	columnaUsuario.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reserva, String>, ObservableValue<String>>() {
+   	     public ObservableValue<String> call(TableColumn.CellDataFeatures<Reserva, String> r) {
+   	    	 prop.setValue(r.getValue().getUsuario().getNombre());
+   	    	 return prop;
+   	     }
+   	  });
+    	columnaCantPersonas.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reserva, String>, ObservableValue<String>>() {
+      	     public ObservableValue<String> call(TableColumn.CellDataFeatures<Reserva, String> r) {
+      	    	 prop.setValue(Integer.toString(r.getValue().getCantPersonas()));
+      	    	 return prop;
+      	     }
+      	  });
+    	
+    	ObservableList<Reserva> reservas = FXCollections.observableArrayList();
+    	Reserva reserva;
+		reservas.addAll(listaDePendientes);
+    	reservasPendientes.setItems(reservas);
+    }
+
+
+	public void setRestaurante(Restaurante restaurante2) {
+		restaurante = restaurante2;
+		
+=======
 	@FXML
 	private ResourceBundle resources;
 
@@ -122,6 +187,7 @@ public class ControladorReservasPendientes implements ApplicationContextAware {
 			reservas.add(reserva);
 		}
 		reservasPendientes.setItems(reservas);
+>>>>>>> b184ba391b73b7eb548c6657039ba14916a399f4
 	}
 	
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
@@ -130,3 +196,4 @@ public class ControladorReservasPendientes implements ApplicationContextAware {
 	}
 
 }
+
