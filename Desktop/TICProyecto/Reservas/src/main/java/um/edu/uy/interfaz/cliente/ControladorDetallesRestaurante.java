@@ -93,14 +93,14 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
 		if (event.getSource() == btnReservar) {
 			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("Reservar.fxml"));	
 			stage = (Stage) btnReservar.getScene().getWindow();
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
 		}
 		if (event.getSource() == btnVolver) {
-			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("ListarRestaurantes.fxml"));
 			stage = (Stage) btnVolver.getScene().getWindow();
+			stage.close();
 		}
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
 	}
     
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {

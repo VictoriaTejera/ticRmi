@@ -49,7 +49,11 @@
             <Label font="$x1" prefHeight="45.0" prefWidth="42.0" text="S" textFill="$x2" />
           </children>
         </VBox>
-        <Label font="$x3" prefHeight="27.0" prefWidth="151.0" text="                INGRESE SUS" textFill="$x2" underline="true" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Label font="$x3" prefHeight="27.0" prefWidth="151.0" text="INGRESE SUS" textFill="$x2" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0">
+          <GridPane.margin>
+            <Insets left="60.0" />
+          </GridPane.margin>
+        </Label>
         <BorderPane prefHeight="346.0" prefWidth="25.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
         <!-- Add Submit Button -->
         <Button id="submitButton" fx:id="btnVolver" blendMode="DARKEN" cache="false" cacheHint="DEFAULT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" depthTest="INHERIT" font="$x4" minHeight="16.0" onAction="#handleSubmitButtonAction" opacity="1.0" prefHeight="27.000091552734375" prefWidth="81.0" text="Volver" textAlignment="JUSTIFY" textFill="BLACK" underline="false" visible="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
