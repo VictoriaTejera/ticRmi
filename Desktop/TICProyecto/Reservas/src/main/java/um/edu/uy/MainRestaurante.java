@@ -17,13 +17,13 @@ import um.edu.uy.interfaz.restaurante.ControladorInicioSesionRest;
 
 @SpringBootApplication
 public class MainRestaurante extends Application{
-	Button btnIniciarSesion, btnDatos, btnGuardarDatos, btnCargarImagen, btnVolverAMenu;
-	Scene scene, scene1, scene2, scene3;
+	Button btnIniciarSesion, btnDatos, btnGuardarDatos, btnCargarImagen, btnVolverAMenu, btnReservas;
+	Scene scene, scene1, scene2, scene3, scene4;
 	Stage thestage;
 	
 	private static ConfigurableApplicationContext context;
 	private FXMLLoader fxmlLoader;
-	private Parent root, root1, root2, root3;
+	private Parent root, root1, root2, root3, root4;
 	
 	@Override
 	public void init() throws IOException  {
@@ -38,11 +38,13 @@ public class MainRestaurante extends Application{
 		btnGuardarDatos = new Button();
 		btnCargarImagen = new Button();
 //		btnVolverAMenu = new Button();
+		//btnReservas = new Button();
 		
 		btnIniciarSesion.setOnAction(e -> ButtonClicked(e));
 		btnDatos.setOnAction(e -> ButtonClicked(e));
 		btnGuardarDatos.setOnAction(e -> ButtonClicked(e));
 		btnCargarImagen.setOnAction(e -> ButtonClicked(e));
+		//btnReservas.setOnAction(e -> ButtonClicked(e));
 		
 		
 		fxmlLoader = new FXMLLoader();
@@ -62,6 +64,12 @@ public class MainRestaurante extends Application{
 		
 		root2 = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("ActualizarDatosRest.fxml"));
 		scene2 = new Scene(root2);
+		
+//		fxmlLoader = new FXMLLoader();
+//		fxmlLoader.setControllerFactory(MainRestaurante.getContext()::getBean);
+		
+//		root4 = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("VerReservasPendientes.fxml"));
+//		scene4 = new Scene(root4);
 		
 //		fxmlLoader = new FXMLLoader();
 //		fxmlLoader.setControllerFactory(MainRestaurante.getContext()::getBean);
@@ -87,6 +95,8 @@ public class MainRestaurante extends Application{
 			thestage.setScene(scene1);	
 //		if (e.getSource() == btnVolverAMenu)
 //			thestage.setScene(scene1);
+//		if (e.getSource() == btnReservas)
+//			thestage.setScene(scene4);	
 	}
 	
 	public void stop() {
