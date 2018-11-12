@@ -1,5 +1,7 @@
 package um.edu.uy.persistance.entidades;
 
+import java.util.Date;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,6 +29,7 @@ public class Reserva {
 	@Column(name="id", unique=true, nullable=false)
 	private Long Id;
 	private Integer cantPersonas;
+	private Date fecha;
 
 	@Column(columnDefinition="boolean default FALSE")
 	private boolean confirmada;
@@ -54,6 +57,9 @@ public class Reserva {
 		confirmada=false;
 		terminada=false;
 		rechazada=false;
+		
+		java.util.Date fecha= new Date();
+		this.fecha=fecha;
 	}
 
 	public Long getId() {
