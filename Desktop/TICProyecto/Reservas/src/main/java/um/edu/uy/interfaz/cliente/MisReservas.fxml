@@ -2,12 +2,13 @@
 
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="376.0" prefWidth="411.9998779296875" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorMisReservas">
+<AnchorPane prefHeight="429.0" prefWidth="461.9998779296875" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorMisReservas">
   <!-- TODO Add Nodes -->
   <children>
     <VBox layoutX="7.0" layoutY="0.0" prefHeight="376.0" prefWidth="74.0">
@@ -48,5 +49,10 @@
         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="158.0" text="Confirmadas" fx:id="confirmadas" />
       </columns>
     </TableView>
+    <Button fx:id="btnVolver" blendMode="DARKEN" font="$x3" layoutX="336.0" layoutY="376.0" mnemonicParsing="false" onAction="#btnVolver" prefHeight="37.0" prefWidth="78.0" text="Volver">
+      <effect>
+        <DropShadow blurType="TWO_PASS_BOX" height="31.64" radius="15.32" width="31.64" />
+      </effect>
+    </Button>
   </children>
 </AnchorPane>
