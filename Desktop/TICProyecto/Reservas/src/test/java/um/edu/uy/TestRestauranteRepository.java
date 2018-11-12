@@ -112,7 +112,7 @@ public class TestRestauranteRepository {
 	@Test
 	public void testFiltroPorComida() {
 
-		Restaurante res1 = new Restaurante("111", "Ginebra", "ginebra@gmail.com", "123456");
+		Restaurante res1 = new Restaurante("111", "Ginebra", 353454, "123456");
 		resMgr.save(res1);
 
 		Comida c1 = new Comida("tipo1");
@@ -159,9 +159,9 @@ public class TestRestauranteRepository {
 	// @Test
 	public void testVerificarRestaurante() {
 
-		Restaurante r1 = new Restaurante("123", "Mc", "mc.gamil", "123");
+		Restaurante r1 = new Restaurante("123", "Mc", 44543, "123");
 		resMgr.save(r1);
-		resMgr.save(new Restaurante("124", "La Pasiva", "laPasiva.gmail", "124"));
+		resMgr.save(new Restaurante("124", "La Pasiva", 452421, "124"));
 		assertTrue(resMgr.restauranteYaFueCreado(r1));
 	}
 

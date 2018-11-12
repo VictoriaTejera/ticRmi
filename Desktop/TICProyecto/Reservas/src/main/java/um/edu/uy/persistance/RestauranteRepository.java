@@ -3,6 +3,7 @@ package um.edu.uy.persistance;
 import um.edu.uy.persistance.entidades.Barrio;
 import um.edu.uy.persistance.entidades.Comida;
 import um.edu.uy.persistance.entidades.Mesa;
+import um.edu.uy.persistance.entidades.Reserva;
 import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
 
@@ -56,4 +57,7 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 	
 	@Query("SELECT rm FROM Restaurante r INNER JOIN r.mesas rm WHERE r.rut= :rut and rm.reservada=false")
 	List<Mesa> obtenerMesasNoReservadas(@Param("rut") String rut);
+	
+	@Query("SELECT rv FROM  Reserva rv WHERE rv.restaurante= :rut  and rv.terminada=0")
+	List<Reserva> obtenerReservasTerminadas(@Param ("rut") String rut);
 }

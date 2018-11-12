@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -34,9 +35,22 @@ public class Restaurante implements Serializable {
 	private String horarioApertura;
 	private String horarioCierre;
 	private String direccion;
+	@NotNull
 	private Integer telefono;
 	private Float rating;
 	private Integer cantRatings;
+	public List<Mesa> getMesas() {
+		return mesas;
+	}
+
+	public void setMesas(List<Mesa> mesas) {
+		this.mesas = mesas;
+	}
+
+	public void setBarrio(Barrio barrio) {
+		this.barrio = barrio;
+	}
+
 	private String descripcion;
 	private Float precio_promedio;
 	private String email;
@@ -73,11 +87,11 @@ public class Restaurante implements Serializable {
 		this.barrio = barrio;
 	}
 
-	public Restaurante(String rut, String nombre, String email, String password) {
+	public Restaurante(String rut, String nombre, Integer telefono, String password) {
 		super();
 		this.rut = rut;
 		this.nombre = nombre;
-		this.email = email;
+		this.telefono = telefono;
 		this.password = password;
 	}
 	
