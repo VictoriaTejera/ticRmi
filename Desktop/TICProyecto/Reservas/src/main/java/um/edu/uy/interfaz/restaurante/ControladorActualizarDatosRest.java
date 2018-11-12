@@ -136,7 +136,7 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 			if(txtTelefono.getText()!="") {
 				telefono=Integer.parseInt(txtTelefono.getText());
 			}
-			resMgr.cargarDatosRes(controller.getRutRest(), txtDescripcion.getText(), txtDireccion.getText(),
+			resMgr.cargarDatosRes(controller.getRestaurante().getRUT(), txtDescripcion.getText(), txtDireccion.getText(),
 					txtHorarioApertura.getText(), txtHorarioCierre.getText(),
 					precioPromedio, telefono, barrio,
 					imagenAGuardar, null);
