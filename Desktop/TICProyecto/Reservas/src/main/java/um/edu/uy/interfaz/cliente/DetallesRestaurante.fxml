@@ -8,12 +8,12 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="444.0" prefWidth="455.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorDetallesRestaurante">
+<AnchorPane prefHeight="357.0" prefWidth="455.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorDetallesRestaurante">
   <!-- TODO Add Nodes -->
   <children>
-    <BorderPane prefHeight="355.0" prefWidth="380.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <BorderPane prefHeight="444.0" prefWidth="455.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <bottom>
-        <BorderPane prefHeight="176.0" prefWidth="427.0">
+        <BorderPane prefHeight="162.0" prefWidth="455.0">
           <center>
             <Button fx:id="btnReservar" alignment="CENTER" mnemonicParsing="false" onAction="#RealizarReserva" prefHeight="31.0" prefWidth="90.0" text="Reservar" BorderPane.alignment="CENTER" />
           </center>
@@ -25,7 +25,7 @@
             </Button>
           </right>
           <top>
-            <HBox prefHeight="103.0" prefWidth="455.0">
+            <HBox prefHeight="95.0" prefWidth="455.0">
               <children>
                 <Label alignment="CENTER" prefHeight="51.0" prefWidth="97.0" text="Descripción:" textFill="#992500" />
                 <Label id="Descripción" fx:id="descripcion" alignment="CENTER_LEFT" prefHeight="103.0" prefWidth="263.0" text="" />
@@ -35,18 +35,34 @@
         </BorderPane>
       </bottom>
       <center>
-        <TableView fx:id="tabla" prefHeight="195.0" prefWidth="380.0">
-          <columns>
-            <TableColumn prefWidth="75.0" text="Dirección" fx:id="colDireccion" />
-            <TableColumn prefWidth="75.0" text="Teléfono" fx:id="colTel" />
-            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="94.0" text="Hora Apertura" fx:id="colHoraApertura" />
-            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="89.0" text="Hora Cierre" fx:id="colHoraCierre" />
-            <TableColumn prefWidth="75.0" text="Rating" fx:id="colRating" />
-          </columns>
-        </TableView>
+        <GridPane prefHeight="208.0" prefWidth="455.0" BorderPane.alignment="CENTER">
+          <children>
+            <Label alignment="CENTER_LEFT" prefWidth="55.9998779296875" text="Dirección:" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+            <Label alignment="CENTER_LEFT" text="Teléfono:" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Label text="Hora apertura:" textAlignment="LEFT" textOverrun="ELLIPSIS" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Label text="Hora cierre:" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Label text="Rating:" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <Label fx:id="txtDireccion" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+            <Label fx:id="txtTelefono" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Label fx:id="txtHoraApertura" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Label fx:id="txtHoraCierre" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Label fx:id="txtRating" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="49.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="85.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="71.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="73.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
       </center>
       <top>
-        <Label fx:id="nombreRest" alignment="CENTER" prefHeight="31.0" prefWidth="166.0" text="" BorderPane.alignment="CENTER">
+        <Label fx:id="nombreRest" alignment="CENTER" prefHeight="51.0" prefWidth="166.0" text="Nombre" BorderPane.alignment="CENTER">
           <font>
             <Font name="Calisto MT" size="15.0" />
           </font>
