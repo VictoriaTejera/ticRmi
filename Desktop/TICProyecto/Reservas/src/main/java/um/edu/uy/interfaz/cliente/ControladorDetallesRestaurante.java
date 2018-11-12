@@ -3,6 +3,9 @@ package um.edu.uy.interfaz.cliente;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -26,6 +29,9 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
 
     @FXML
     private URL location;
+    
+    Logger logger = LoggerFactory.getLogger(ControladorDetallesRestaurante.class);
+
 
     @FXML
     private Button btnReservar;
@@ -73,13 +79,17 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
         assert txtTelefono != null : "fx:id=\"txtTelefono\" was not injected: check your FXML file 'DetallesRestaurante.fxml'.";
         assert btnVolver != null : "fx:id=\"btnVolver\" was not injected: check your FXML file 'DetallesRestaurante.fxml'.";
         
+        rest = controlador.restSeleccionado();
+        
         nombreRest.setText(controlador.restSeleccionado().getNombre());
         txtDireccion.setText(controlador.restSeleccionado().getDireccion());
         txtHoraApertura.setText(controlador.restSeleccionado().getHorarioAperura());
         txtHoraCierre.setText(controlador.restSeleccionado().getHorarioCierre());
-        txtRating.setText(Float.toString(controlador.restSeleccionado().getRating()));
+        txtRating.setText(Float.toString(controlador.restSeleccionado().getRating() != null ? controlador.restSeleccionado().getRating() : 0));
         txtTelefono.setText(Integer.toString(controlador.restSeleccionado().getTelefono()));
         descripcion.setText(controlador.restSeleccionado().getDescripcion());
+        
+        logger.info("AAAAAAAAAAAAAAAAA " + controlador.restSeleccionado().getTelefono());
     }
     
     @FXML

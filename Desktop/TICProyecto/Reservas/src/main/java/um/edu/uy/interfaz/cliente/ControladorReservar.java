@@ -45,7 +45,7 @@ public class ControladorReservar {
     	Stage stage = null;
     	if (event.getSource() == btnReservar) {
     		try {
-				reservaMgr.save(controladorInicioSesion.getUsuario().getCelular(), controlador.restSeleccionado().getRUT(),
+				reservaMgr.save(controladorInicioSesion.getUsuario().getCelular(), controlador2.getRestaurante().getRUT(),
 						Integer.parseInt(cantPersonas.getText()));
 				stage = (Stage) btnReservar.getScene().getWindow();
 				stage.close();
