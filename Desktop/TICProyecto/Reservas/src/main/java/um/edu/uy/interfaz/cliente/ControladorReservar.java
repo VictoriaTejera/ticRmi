@@ -46,8 +46,7 @@ public class ControladorReservar implements ApplicationContextAware {
     @FXML
     void handleButtonAction(ActionEvent event) {
     	if (event.getSource() == btnReservar) {
-			Reserva reserva = new Reserva(controladorInicioSesion.getUsuario(), controlador.restSeleccionado(), Integer.parseInt(cantPersonas.getText()));
-			reservaMgr.save(reserva);
+			reservaMgr.save(controladorInicioSesion.getUsuario().getCelular(), controlador.restSeleccionado().getRUT(), Integer.parseInt(cantPersonas.getText()));
 		}
     }
 

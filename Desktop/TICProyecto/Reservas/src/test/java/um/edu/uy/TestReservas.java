@@ -28,7 +28,7 @@ public class TestReservas {
 	@Autowired 
 	UsuarioMgr usuarioMgr;
 	
-	@Test
+	//@Test
 	public void testSaveReserva() {
 		Restaurante res=new Restaurante("rut", "nombre", "email", "pass");
 		Usuario u= new Usuario("nombre", "contrasena", 123);
@@ -48,9 +48,11 @@ public class TestReservas {
 		usuarioMgr.save(u);
 		usuarioMgr.save(u2);
 		
-		Reserva reserva = new Reserva(u, res, 5);
+//		Reserva reserva = new Reserva(u, res, 5);
 		//reservaMgr.save(reserva);
-		//reservaMgr.save(123, "rut2", 4);
+		reservaMgr.save(123, "rut2", 4);
+		reservaMgr.save(123, "rut2", 4);
+		
 
 		List<Reserva> lista = reservaMgr.verEstadoReservasUsuario(123);
 		for (int i = 0; i < lista.size(); i++) {
