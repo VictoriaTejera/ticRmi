@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -50,6 +52,12 @@ public class ControladorReservarDirecto {
 				showAlert("Ingrese una cantidad de personas.");
 			}
 		}
+		 Parent root = null;
+	        Scene scene = new Scene(root );
+			scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+			stage.setScene(scene);
+			stage.show();
+			
 	}
 
 	@FXML

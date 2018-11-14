@@ -64,8 +64,10 @@ public class ControladorMisReservas implements ApplicationContextAware {
 	
     @FXML
     void volverAlMenu(ActionEvent event) throws IOException {
-    	Stage stage = null;
-		Parent root = null;
+
+        Parent root = null;
+        Stage stage = null;
+        
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 		stage = new Stage();
@@ -73,7 +75,10 @@ public class ControladorMisReservas implements ApplicationContextAware {
 			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipal.fxml"));
 			stage = (Stage) btnVolver.getScene().getWindow();
 		}
-		Scene scene = new Scene(root);
+		Scene scene = new Scene(root );
+		stage.setScene(scene);
+		stage.show();
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		stage.setScene(scene);
 		stage.show();
     }

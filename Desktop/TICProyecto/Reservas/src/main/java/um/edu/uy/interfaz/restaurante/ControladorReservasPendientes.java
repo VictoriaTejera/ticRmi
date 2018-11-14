@@ -26,6 +26,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import um.edu.uy.interfaz.cliente.ControladorInicio;
 import um.edu.uy.interfaz.cliente.ControladorInicioSesion;
 import um.edu.uy.interfaz.restaurante.clasesAuxiliares.ReservaAux;
 import um.edu.uy.persistance.ReservaMgr;
@@ -80,7 +81,11 @@ public class ControladorReservasPendientes implements ApplicationContextAware {
 			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipalRest.fxml"));
 			stage = (Stage) btnVolver.getScene().getWindow();
 		}
-		Scene scene = new Scene(root);
+	        Scene scene = new Scene(root );
+			scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+			stage.setScene(scene);
+			stage.show();
+			
 		stage.setScene(scene);
 		stage.show();
 	}
