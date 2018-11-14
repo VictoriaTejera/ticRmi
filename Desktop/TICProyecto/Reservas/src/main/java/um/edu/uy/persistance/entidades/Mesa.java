@@ -1,5 +1,6 @@
 package um.edu.uy.persistance.entidades;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +16,7 @@ public class Mesa {
 	private Long id;
 	
 	private Integer capacidad;
+	@Column(columnDefinition="boolean default FALSE")
 	private boolean reservada;	
 	
 	public Mesa() {

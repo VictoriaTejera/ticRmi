@@ -19,7 +19,7 @@
         <Color blue="0.000" green="0.000" red="0.600" fx:id="x1" />
       </textFill>
     </Label>
-    <Button fx:id="btnDatos" blendMode="DARKEN" layoutX="114.0" layoutY="120.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="48.0" prefWidth="157.0" text="Actualizar datos" textFill="$x1">
+    <Button fx:id="btnDatos" blendMode="DARKEN" layoutX="93.0" layoutY="91.0" mnemonicParsing="false" onAction="#actualizarDatos" prefHeight="49.0" prefWidth="199.0" text="Actualizar datos" textFill="$x1">
       <effect>
         <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
       </effect>
@@ -27,7 +27,7 @@
         <Font name="Yu Gothic UI Bold" size="15.0" fx:id="x3" />
       </font>
     </Button>
-    <Button fx:id="btnReservas" blendMode="DARKEN" font="$x3" layoutX="86.0" layoutY="196.0" mnemonicParsing="false" onAction="#verReservasPendientes" prefHeight="49.0" prefWidth="199.0" text="Ver reservas pendientes" textFill="$x1">
+    <Button fx:id="btnReservas" blendMode="DARKEN" font="$x3" layoutX="93.0" layoutY="157.0" mnemonicParsing="false" onAction="#verReservasPendientes" prefHeight="49.0" prefWidth="199.0" text="Ver reservas pendientes" textFill="$x1">
       <effect>
         <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
       </effect>
@@ -48,5 +48,10 @@
         <Label font="$x2" prefHeight="46.0" prefWidth="50.0" text="S" textFill="$x1" />
       </children>
     </VBox>
+    <Button id="btnReservas" fx:id="btnTotalAPagar" blendMode="DARKEN" font="$x3" layoutX="93.0" layoutY="220.0" mnemonicParsing="false" onAction="#verTotalAPagar" prefHeight="49.0" prefWidth="199.0" text="Ver total a pagar" textFill="$x1">
+      <effect>
+        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+      </effect>
+    </Button>
   </children>
 </AnchorPane>

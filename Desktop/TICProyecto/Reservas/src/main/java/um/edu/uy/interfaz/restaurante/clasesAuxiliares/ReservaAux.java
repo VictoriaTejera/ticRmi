@@ -22,16 +22,24 @@ public class ReservaAux {
 			}
 		});
 		
-//		rechazar.setOnMouseClicked(new EventHandler<MouseEvent>() {
-//			@Override
-//			public void handle(MouseEvent event) {
-//				reserva.setConfirmado(false); //hay que hacer un setRechazado
-//			}
-//		});
+		rechazar.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				reserva.setConfirmado(false); //hay que hacer un setRechazado
+			}
+		});
 	}
 
 	public Reserva getReserva() {
 		return reserva;
+	}
+
+	public Button getAceptar() {
+		return aceptar;
+	}
+
+	public Button getRechazar() {
+		return rechazar;
 	}
 
 }

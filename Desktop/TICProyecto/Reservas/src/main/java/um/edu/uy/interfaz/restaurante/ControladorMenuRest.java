@@ -33,13 +33,16 @@ public class ControladorMenuRest implements ApplicationContextAware{
     @FXML
     private Button btnReservas;
     
+    @FXML
+    private Button btnTotalAPagar;
+    
     private ApplicationContext applicationContext;
     
     @Autowired
     ControladorActualizarDatosRest controller;
 
     @FXML
-    void handleSubmitButtonAction(ActionEvent event) throws IOException {
+    void actualizarDatos(ActionEvent event) throws IOException {
     	Stage stage = null;
 		Parent root = null;
 		FXMLLoader fxmlLoader = new FXMLLoader();
@@ -58,6 +61,23 @@ public class ControladorMenuRest implements ApplicationContextAware{
     
     @FXML
     void verReservasPendientes(ActionEvent event) throws IOException {
+    	Stage stage = null;
+		Parent root = null;
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		stage = new Stage();
+		fxmlLoader.setControllerFactory(applicationContext::getBean);
+
+		if (event.getSource() == btnReservas) {
+			stage = (Stage) btnReservas.getScene().getWindow();
+
+			root = fxmlLoader.load(ControladorReservasPendientes.class.getResourceAsStream("VerReservasPendientes.fxml"));
+		}
+		stage.setScene(new Scene(root));
+		stage.show();
+    }
+    
+    @FXML 
+    void verTotalAPagar(ActionEvent event) throws IOException {
     	Stage stage = null;
 		Parent root = null;
 		FXMLLoader fxmlLoader = new FXMLLoader();
