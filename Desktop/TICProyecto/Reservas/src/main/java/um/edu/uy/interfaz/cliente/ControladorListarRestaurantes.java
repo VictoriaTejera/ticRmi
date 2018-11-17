@@ -106,7 +106,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 
 	@FXML
 	private Label descripciónRest;
-	
+
 	private Restaurante res;
 
 	public void llenarTabla() {
@@ -225,6 +225,10 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
+		stage.show();
+
 	}
 
 	@FXML
@@ -237,6 +241,7 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		assert columnaNombre != null : "fx:id=\"columnaNombre\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
 		assert columnaTelefono != null : "fx:id=\"columnaTelefono\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
 		assert tabla != null : "fx:id=\"tabla\" was not injected: check your FXML file 'ListarRestaurantes.fxml'.";
+
 
 		llenarTabla();
 		filtroBarrio();
@@ -271,12 +276,12 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 	public static <T> T getBean(Class<T> beanClass) {
 		return applicationContext.getBean(beanClass);
 	}
-	
+
 	public Restaurante getRestaurante() {
 		return res;
 	}
-	
+
 	public void setRestaurante(Restaurante res) {
-		this.res=res;
+		this.res = res;
 	}
 }

@@ -27,8 +27,8 @@
     <TextField id="txt" fx:id="txtRut" layoutX="164.0" layoutY="95.0" prefHeight="24.0" prefWidth="162.0" />
     <Label font="$x3" layoutX="80.0" layoutY="145.0" prefHeight="24.0" prefWidth="84.0" text="Nombre:" textFill="$x1" />
     <TextField fx:id="txtNombre" layoutX="164.0" layoutY="138.0" prefHeight="24.0" prefWidth="162.0" />
-    <Label font="$x3" layoutX="80.0" layoutY="183.0" prefHeight="24.0" prefWidth="84.0" text="Email:" textFill="$x1" />
-    <TextField fx:id="txtEmail" layoutX="164.0" layoutY="183.0" prefHeight="24.0" prefWidth="162.0" />
+    <Label font="$x3" layoutX="80.0" layoutY="183.0" prefHeight="24.0" prefWidth="84.0" text="Telefono:" textFill="$x1" />
+    <TextField id="txtEmail" fx:id="txtTelefono" layoutX="164.0" layoutY="183.0" prefHeight="24.0" prefWidth="162.0" />
     <Button fx:id="btnRegistrar" blendMode="DARKEN" font="$x3" layoutX="245.0" layoutY="269.0" minHeight="16.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="40.0" prefWidth="117.0" text="Aceptar" textFill="$x1">
       <effect>
         <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />

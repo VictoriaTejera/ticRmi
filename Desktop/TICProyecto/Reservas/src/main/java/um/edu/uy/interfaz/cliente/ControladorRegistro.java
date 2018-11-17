@@ -78,6 +78,10 @@ public class ControladorRegistro implements ApplicationContextAware {
 		}
 		stage.setScene(new Scene(root));
 		stage.show();
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@FXML
@@ -86,7 +90,9 @@ public class ControladorRegistro implements ApplicationContextAware {
 		assert txtCelular != null : "fx:id=\"txtCelular\" was not injected: check your FXML file 'registrarse.fxml'.";
 		assert txtContrasena != null : "fx:id=\"txtContrasena\" was not injected: check your FXML file 'registrarse.fxml'.";
 		assert txtNombre != null : "fx:id=\"txtNombre\" was not injected: check your FXML file 'registrarse.fxml'.";
-
+		
+		 
+			
 	}
 
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {

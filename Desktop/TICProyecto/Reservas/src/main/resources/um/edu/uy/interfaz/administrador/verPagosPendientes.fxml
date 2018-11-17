@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="554.9999000000025" prefWidth="726.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.administrador.AdminControladorVerPagosPendientes">
+  <bottom>
+    <Button fx:id="btnVolverAlMenu" blendMode="DARKEN" mnemonicParsing="false" onAction="#volverAlMenu" prefHeight="31.0" prefWidth="90.99990000000253" text="Volver" BorderPane.alignment="BOTTOM_RIGHT">
+      <effect>
+        <DropShadow height="31.064" radius="15.032" width="31.064" />
+      </effect>
+      <font>
+        <Font name="Yu Gothic UI Regular" size="15.0" fx:id="x2" />
+      </font>
+      <textFill>
+        <Color blue="0.000" green="0.144" red="0.600" fx:id="x1" />
+      </textFill>
+    </Button>
+  </bottom>
+  <left>
+    <BorderPane prefHeight="477.9998779296875" prefWidth="618.0">
+      <bottom>
+        <AnchorPane prefHeight="46.0" prefWidth="151.0" />
+      </bottom>
+      <center>
+        <TableView fx:id="tabla" onMouseClicked="#initialize" prefHeight="492.0" prefWidth="618.0">
+          <columns>
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="280.0" text="Nombre" fx:id="columnaNombre" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="159.0" text="Telefono" fx:id="columnaTelefono" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="177.0" text="Cantidad" fx:id="columnaCantidad" />
+          </columns>
+        </TableView>
+      </center>
+    </BorderPane>
+  </left>
+  <top>
+    <Label prefHeight="46.0" prefWidth="182.0" text="Pagos pendientes" textFill="$x1" BorderPane.alignment="CENTER">
+      <font>
+        <Font name="Yu Gothic UI Regular" size="20.0" />
+      </font>
+    </Label>
+  </top>
+</BorderPane>

@@ -1,7 +1,12 @@
 package um.edu.uy.persistance;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+
+import javax.imageio.ImageIO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,19 +33,28 @@ public class RestauranteMgr {
 	@Autowired
 	private ComidaMgr comidaMgr;
 
+	@Autowired
+	private MesaMgr mesaMgr;
+
 	public List<Restaurante> getRestaurants() {
 		Iterable<Restaurante> it = repository.findAll();
 		List<Restaurante> lista = FXCollections.observableArrayList();
 		for (Restaurante r : it) {
-			lista.add(r);
+			if (repository.obtenerCantMesas(r.getRUT()) != 0) {
+				lista.add(r);
+			}
 		}
 		return lista;
 	}
-	
+
+//	public List<Restaurante> getRestaurantesInicializados(){
+//		
+//	}
+
 	@Transactional
 	public void save(Restaurante res) {
-		if(res.getBarrio()!=null) {
-		res.setBarrio(barrioMgr.find(res.getBarrio().getNombreBarrio()));
+		if (res.getBarrio() != null) {
+			res.setBarrio(barrioMgr.find(res.getBarrio().getNombreBarrio()));
 		}
 		repository.save(res);
 	}
@@ -89,16 +103,26 @@ public class RestauranteMgr {
 
 	@Transactional
 	public void cargarDatosRes(String rut, String descripcion, String direccion, String horarioApertura,
-			String horarioCierre, Float precio_promedio, Integer telefono, String barrio, byte[] imagen,
-			List<String> tipoComidas) {
-		repository.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precio_promedio,
-				telefono, barrioMgr.find(barrio), imagen);
-		if (tipoComidas != null) {
-			for (int i = 0; i < tipoComidas.size(); i++) {
-				repository.insertarComida(rut, repository.obtenerIdComida(tipoComidas.get(i)));
+			String horarioCierre, Float precio_promedio, String mail, String barrio, byte[] imagen, Integer cantMesas) {
+		repository.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precio_promedio, mail,
+				barrioMgr.find(barrio), imagen);
+		if (cantMesas != null) {
+			Integer cantMesasActuales = repository.obtenerCantMesas(rut);
+			if (cantMesasActuales == 0) {
+				for (int i = 0; i < cantMesas; i++) {
+					mesaMgr.save(rut, 4);
+				}
+			} else if (cantMesasActuales > cantMesas) {
+				List<Mesa> mesas = repository.obtenerMesas(rut);
+				for (int i = 0; i < cantMesasActuales - cantMesas; i++) {
+					mesaMgr.delete(mesas.get(i).getId());
+				}
+			} else if (cantMesasActuales < cantMesas) {
+				for (int i = 0; i < cantMesas - cantMesasActuales; i++) {
+					mesaMgr.save(rut, 4);
+				}
 			}
 		}
-
 	}
 
 	public boolean restauranteYaFueCreado(Restaurante res) {
@@ -126,24 +150,35 @@ public class RestauranteMgr {
 		}
 		return restaurante;
 	}
-	
-	public List<Mesa> obtenerMesasNoReservadas(String RUT){
+
+	public List<Mesa> obtenerMesasNoReservadas(String RUT) {
 		return repository.obtenerMesasNoReservadas(RUT);
 	}
 
-	public List<Reserva> obtenerReservasTerminadas(String rut){
+	public List<Reserva> obtenerReservasTerminadas(String rut) {
 		return repository.obtenerReservasTerminadas(rut);
-		
+
 	}
 
-	
 	public long cantidadAPagar(String rut) {
-		long cantAPagar=0;
-		 List<Reserva> reservasTerminadas= repository.obtenerReservasTerminadas(rut);
-		 cantAPagar= reservasTerminadas.size()*500;
-				 
-		
+		long cantAPagar = 0;
+		List<Reserva> reservasTerminadas = repository.obtenerReservasTerminadas(rut);
+		cantAPagar = reservasTerminadas.size() * 500;
+
 		return cantAPagar;
 	}
-	
+
+	public Integer getCantMesas(String rut) {
+		return repository.obtenerCantMesas(rut);
+	}
+
+	public List<Mesa> obtenerMesas(String rut) {
+		return repository.obtenerMesas(rut);
+	}
+
+	public BufferedImage obtenerImagen(String rut) throws IOException {
+		byte[] array = repository.obtenerImagen(rut);
+		return ImageIO.read(new ByteArrayInputStream(array));
+	}
+
 }

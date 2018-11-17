@@ -17,7 +17,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import um.edu.uy.Main;
 import um.edu.uy.interfaz.restaurante.ControladorMenuRest;
 
 @Component
@@ -50,12 +49,12 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 		stage = new Stage();
-    	
-    	if (event.getSource() == btnListarRestaurantes) {
-    		root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("ListarRestaurantes.fxml"));
-    		stage = (Stage) btnListarRestaurantes.getScene().getWindow();
+
+		if (event.getSource() == btnListarRestaurantes) {
+			root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("ListarRestaurantes.fxml"));
+			stage = (Stage) btnListarRestaurantes.getScene().getWindow();
 		}
-    	stage.setScene(new Scene(root));
+		stage.setScene(new Scene(root));
 		stage.show();
     }
     
@@ -72,6 +71,11 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
 		}
     	stage.setScene(new Scene(root));
 		stage.show();
+
+//		Scene scene = new Scene(root );
+//		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+//		stage.setScene(scene);
+//		stage.show();
     }
     
     @FXML

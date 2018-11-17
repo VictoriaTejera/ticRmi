@@ -25,18 +25,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 import um.edu.uy.persistance.BarrioMgr;
 import um.edu.uy.persistance.BarrioRepository;
 import um.edu.uy.persistance.ComidaMgr;
-import um.edu.uy.persistance.ReservaMgr;
 import um.edu.uy.persistance.RestauranteMgr;
-import um.edu.uy.persistance.UsuarioMgr;
 import um.edu.uy.persistance.entidades.Barrio;
 import um.edu.uy.persistance.entidades.Comida;
-import um.edu.uy.persistance.entidades.Reserva;
 import um.edu.uy.persistance.entidades.Restaurante;
-import um.edu.uy.persistance.entidades.Usuario;
 
 @SpringBootTest(classes = MainRestaurante.class)
 @RunWith(SpringRunner.class)
-public class TestRestauranteRepository {
+public class TestRestauranteI {
 
 	@Autowired
 	RestauranteMgr resMgr;
@@ -46,13 +42,6 @@ public class TestRestauranteRepository {
 
 	@Autowired
 	ComidaMgr comidaMgr;
-	
-	@Autowired
-	ReservaMgr reservaMgr;
-	
-	@Autowired
-	UsuarioMgr usuMgr;
-	
 
 //	 @Test
 	public void testSaveRestaurante() throws SQLException {
@@ -183,7 +172,7 @@ public class TestRestauranteRepository {
 
 		Barrio b3 = new Barrio("1", "Pocitos");
 		barrioMgr.save(b3);
-		//resMgr.cargarDatosRes("124", "atencion", "pocitos 144", "13:10", "15:30", (float) 376, 876, "b3", null, null);
+//		resMgr.cargarDatosRes("124", "atencion", "pocitos 144", "13:10", "15:30", (float) 376, 876, "b3", null, null);
 
 	}
 	
@@ -191,18 +180,5 @@ public class TestRestauranteRepository {
 	public void testObtenerMesasNoReservadas() {
 		resMgr.obtenerMesasNoReservadas("123");
 	}
-	
-   @Test
-   public void testCantidadAPagar() {
-	   Restaurante r8 = new Restaurante("1237", "Hi", 44543, "1234");
-		resMgr.save(r8);
-		Usuario usu=  new Usuario("usu", "123", 9888);
-		usuMgr.save(usu);
-	    reservaMgr.save(usu.getCelular(), r8.getRUT(), 2);
-	    resMgr.cantidadAPagar(r8.getRUT());
-	    
-	    
-	   
-   }
 
 }

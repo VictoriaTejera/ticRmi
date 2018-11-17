@@ -3,6 +3,9 @@ package um.edu.uy.interfaz.cliente;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -16,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import um.edu.uy.persistance.entidades.Restaurante;
 
 @Component
 public class ControladorDetallesRestaurante implements ApplicationContextAware{
@@ -25,6 +29,8 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
 
     @FXML
     private URL location;
+    
+    Logger logger = LoggerFactory.getLogger(ControladorDetallesRestaurante.class);
 
     @FXML
     private Button btnReservar;
@@ -57,6 +63,8 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
     ControladorListarRestaurantes controlador;
     
     private ApplicationContext applicationContext;
+    
+    private Restaurante rest;
 
     @FXML
     void initialize() {
@@ -70,13 +78,17 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
         assert txtTelefono != null : "fx:id=\"txtTelefono\" was not injected: check your FXML file 'DetallesRestaurante.fxml'.";
         assert btnVolver != null : "fx:id=\"btnVolver\" was not injected: check your FXML file 'DetallesRestaurante.fxml'.";
         
+        rest = controlador.restSeleccionado();
+        
         nombreRest.setText(controlador.restSeleccionado().getNombre());
         txtDireccion.setText(controlador.restSeleccionado().getDireccion());
         txtHoraApertura.setText(controlador.restSeleccionado().getHorarioAperura());
         txtHoraCierre.setText(controlador.restSeleccionado().getHorarioCierre());
-        txtRating.setText(Float.toString(controlador.restSeleccionado().getRating()));
+        txtRating.setText(Float.toString(controlador.restSeleccionado().getRating() != null ? controlador.restSeleccionado().getRating() : 0));
         txtTelefono.setText(Integer.toString(controlador.restSeleccionado().getTelefono()));
         descripcion.setText(controlador.restSeleccionado().getDescripcion());
+        
+        logger.info("AAAAAAAAAAAAAAAAA " + controlador.restSeleccionado().getTelefono());
     }
     
     @FXML
@@ -90,19 +102,23 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
 		if (event.getSource() == btnReservar) {
 			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("Reservar.fxml"));	
 			stage = (Stage) btnReservar.getScene().getWindow();
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
 		}
 		if (event.getSource() == btnVolver) {
-			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("ListarRestaurantes.fxml"));
 			stage = (Stage) btnVolver.getScene().getWindow();
+			stage.close();
 		}
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
 	}
     
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
 		
 	}
+    
+    public Restaurante getRestaurante() {
+    	return rest;
+    }
 
 }
