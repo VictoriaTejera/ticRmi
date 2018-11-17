@@ -119,7 +119,7 @@ public class ControladorReservasPendientes implements ApplicationContextAware {
 
 		colRechazar.setCellValueFactory(new PropertyValueFactory<ReservaAux, String>("rechazar"));
 
-		List<Reserva> listaDePendientes = resMgr.obtenerReservasNoConfirmadas(controladorInicio.getRutRest());
+		List<Reserva> listaDePendientes = resMgr.obtenerReservasNoConfirmadas(controladorInicio.getRutRestaurante());
 		ObservableList<ReservaAux> reservas = FXCollections.observableArrayList();
 		ReservaAux reserva;
 

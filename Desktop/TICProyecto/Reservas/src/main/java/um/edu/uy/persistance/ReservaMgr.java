@@ -1,5 +1,6 @@
 package um.edu.uy.persistance;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class ReservaMgr {
 	@Autowired
 	private MesaRepository mesaRepository;
 	
-	private Long ultimoNumeroUsado=(long) 0;
+//	private Long ultimoNumeroUsado=(long) 0;
 
 	
 //	@Transactional
@@ -43,9 +44,9 @@ public class ReservaMgr {
 		Usuario usu = usuarioMgr.find(usuarioCelular);
 		Restaurante res = resMgr.find(restauranteRUT);
 		Reserva reserva = new Reserva(usu, res, cantPersonas);
-		reserva.setId(ultimoNumeroUsado);
+//		reserva.setId(ultimoNumeroUsado);
 		repository.save(reserva);
-		ultimoNumeroUsado++;
+//		ultimoNumeroUsado++;
 	}
 
 	public List<Reserva> obtenerReservasNoTerminadas(String rut) {

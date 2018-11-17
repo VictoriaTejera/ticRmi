@@ -87,13 +87,13 @@ public class ControladorAgregarTiposComidaRest implements ApplicationContextAwar
 
 		if (event.getSource() == btnAgregarMasTiposComida) {
 			if (btnTipoComida1.getValue() != null) {
-				restauranteMgr.insertarComida(controller.getRestaurante().getRUT(), btnTipoComida1.getValue());
+				restauranteMgr.insertarComida(controller.getRutRestaurante(), btnTipoComida1.getValue());
 			}
 			if (btnTipoComida2.getValue() != null) {
-				restauranteMgr.insertarComida(controller.getRestaurante().getRUT(), btnTipoComida2.getValue());
+				restauranteMgr.insertarComida(controller.getRutRestaurante(), btnTipoComida2.getValue());
 			}
 			if (btnTipoComida3.getValue() != null) {
-				restauranteMgr.insertarComida(controller.getRestaurante().getRUT(), btnTipoComida3.getValue());
+				restauranteMgr.insertarComida(controller.getRutRestaurante(), btnTipoComida3.getValue());
 			}
 			stage = (Stage) btnAgregarMasTiposComida.getScene().getWindow();
 			root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("AgregarTiposComida.fxml"));
@@ -116,13 +116,13 @@ public class ControladorAgregarTiposComidaRest implements ApplicationContextAwar
 
 		if (event.getSource() == btnVolverAAgregarDatos) {
 			if (btnTipoComida1.getValue() != null) {
-				restauranteMgr.insertarComida(controller.getRestaurante().getRUT(), btnTipoComida1.getValue());
+				restauranteMgr.insertarComida(controller.getRutRestaurante(), btnTipoComida1.getValue());
 			}
 			if (btnTipoComida2.getValue() != null) {
-				restauranteMgr.insertarComida(controller.getRestaurante().getRUT(), btnTipoComida2.getValue());
+				restauranteMgr.insertarComida(controller.getRutRestaurante(), btnTipoComida2.getValue());
 			}
 			if (btnTipoComida3.getValue() != null) {
-				restauranteMgr.insertarComida(controller.getRestaurante().getRUT(), btnTipoComida3.getValue());
+				restauranteMgr.insertarComida(controller.getRutRestaurante(), btnTipoComida3.getValue());
 			}
 			stage = (Stage) btnVolverAAgregarDatos.getScene().getWindow();
 			root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));

@@ -75,7 +75,7 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 		stage.show();
 	}
 	
-	String getRutRest() {
+	String getRutRestaurante() {
 		return restauranteMgr.getRut(restaurante.getNombre(), restaurante.getPassword()); 
 	}
 
@@ -103,7 +103,7 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
         alert.showAndWait();
     }
 
-	Restaurante getRestaurante() {
-		return restaurante;
-	}
+//	Restaurante getRestaurante() {
+//		return restaurante;
+//	}
 }

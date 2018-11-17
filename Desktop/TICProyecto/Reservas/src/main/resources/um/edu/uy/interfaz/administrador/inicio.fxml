@@ -19,7 +19,7 @@
         <Color blue="0.000" green="0.000" red="0.600" fx:id="x1" />
       </textFill>
     </Label>
-    <Button fx:id="btnRegistrarRestaurante" blendMode="DARKEN" layoutX="91.0" layoutY="142.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="40.0" prefWidth="186.9998779296875" text="Registrar restaurante" textFill="$x1">
+    <Button fx:id="btnRegistrarRestaurante" blendMode="DARKEN" layoutX="92.0" layoutY="116.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="40.0" prefWidth="186.9998779296875" text="Registrar restaurante" textFill="$x1">
       <effect>
         <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
       </effect>
@@ -27,7 +27,7 @@
         <Font name="Yu Gothic UI Bold" size="15.0" fx:id="x3" />
       </font>
     </Button>
-    <Button blendMode="DARKEN" font="$x3" layoutX="80.0" layoutY="225.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="210.0" text="Administrar restaurante" textFill="$x1">
+    <Button blendMode="DARKEN" font="$x3" layoutX="80.0" layoutY="185.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="210.0" text="Administrar restaurante" textFill="$x1">
       <effect>
         <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
       </effect>
@@ -49,5 +49,10 @@
         <Label font="$x2" prefHeight="39.000099999997474" prefWidth="56.0" text="S" textFill="$x1" />
       </children>
     </VBox>
+    <Button fx:id="btnPagosPendientes" blendMode="DARKEN" font="$x3" layoutX="81.0" layoutY="249.0" mnemonicParsing="false" onAction="#pagosPendientes" prefHeight="40.0" prefWidth="210.0" text="Ver pagos pendientes" textFill="$x1">
+      <effect>
+        <DropShadow blurType="TWO_PASS_BOX" height="31.064" radius="15.032" width="31.064" />
+      </effect>
+    </Button>
   </children>
 </AnchorPane>

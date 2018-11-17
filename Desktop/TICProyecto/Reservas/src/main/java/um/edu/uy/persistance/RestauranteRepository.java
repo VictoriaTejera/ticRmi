@@ -60,4 +60,13 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 	
 	@Query("SELECT rv FROM  Reserva rv WHERE rv.restaurante= :rut  and rv.terminada=0")
 	List<Reserva> obtenerReservasTerminadas(@Param ("rut") String rut);
+	
+	@Query(value="SELECT COUNT(m.id) FROM Mesa m WHERE m.restaurante_id= :rut", nativeQuery=true)
+	Integer obtenerCantMesas(@Param ("rut") String rut);
+	
+	@Query("SELECT m FROM Restaurante r JOIN r.mesas m WHERE r.rut= :rut")
+	List<Mesa> obtenerMesas(@Param ("rut") String rut);
+	
+	@Query("SELECT r.imagen FROM Restaurante r WHERE r.rut= :rut")
+	byte[] obtenerImagen(@Param ("rut") String rut);
 }

@@ -28,6 +28,9 @@ public class AdminControladorInicio  implements ApplicationContextAware {
 
     @FXML
     private Button btnRegistrarRestaurante;
+    
+    @FXML
+    private Button btnPagosPendientes;
 
     ApplicationContext applicationContext;
 
@@ -41,6 +44,21 @@ public class AdminControladorInicio  implements ApplicationContextAware {
 		if (event.getSource() == btnRegistrarRestaurante) {
 			stage = (Stage) btnRegistrarRestaurante.getScene().getWindow();
 			root = fxmlLoader.load(AdminControladorRegistro.class.getResourceAsStream("RegistrarRestaurante.fxml"));
+		}
+		stage.setScene(new Scene(root));
+		stage.show();
+    }
+    
+    @FXML
+    void pagosPendientes(ActionEvent event) throws IOException {
+    	Stage stage;
+		Parent root = null;
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setControllerFactory(applicationContext::getBean);
+		stage = new Stage();
+		if (event.getSource() == btnPagosPendientes) {
+			stage = (Stage) btnRegistrarRestaurante.getScene().getWindow();
+			root = fxmlLoader.load(AdminControladorRegistro.class.getResourceAsStream("recibirFechasParaPagosPendientes.fxml"));
 		}
 		stage.setScene(new Scene(root));
 		stage.show();

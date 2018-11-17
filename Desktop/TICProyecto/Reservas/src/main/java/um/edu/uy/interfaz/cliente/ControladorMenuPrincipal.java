@@ -49,13 +49,12 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 		stage = new Stage();
-		Scene scene = new Scene(root );
-    	if (event.getSource() == btnListarRestaurantes) {
-    		root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("ListarRestaurantes.fxml"));
-    		stage = (Stage) btnListarRestaurantes.getScene().getWindow();
+
+		if (event.getSource() == btnListarRestaurantes) {
+			root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("ListarRestaurantes.fxml"));
+			stage = (Stage) btnListarRestaurantes.getScene().getWindow();
 		}
-    
-    	stage.setScene(new Scene(root));
+		stage.setScene(new Scene(root));
 		stage.show();
     }
     

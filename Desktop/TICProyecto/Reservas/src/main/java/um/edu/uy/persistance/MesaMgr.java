@@ -20,5 +20,14 @@ public class MesaMgr {
 	public void marcarMesaComoReservada(Long id) {
 		repository.marcarMesaComoReservada(id);
 	}
+	
+	public void delete(Long id) {
+		repository.deleteById(id);
+	}
+	
+//	public boolean isReservada(Long id) {
+//		return repository.isReservada(id);
+//	}
 
+	
 }

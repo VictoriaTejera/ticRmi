@@ -73,7 +73,7 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 
 	@FXML
 	private TextField txtMail;
-	
+
 	@FXML
 	private TextField txtCantMesas;
 
@@ -86,12 +86,12 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 	private RestauranteMgr resMgr;
 
 	byte[] imagenAGuardar = null;
-	
+
 	private Stage stage;
 
 	@Autowired
 	ControladorInicioSesionRest controller;
-	
+
 	@Autowired
 	ControladorAgregarTiposComidaRest controllerTiposComida;
 
@@ -114,41 +114,51 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 
 		if (event.getSource() == btnGuardarDatos) {
+			String rut = controller.getRutRestaurante();
+			String descripcion = txtDescripcion.getText();
+			String direccion = txtDireccion.getText();
+			String horarioApertura = txtHorarioApertura.getText();
+			String horarioCierre = txtHorarioCierre.getText();
+			String mail = txtMail.getText();
 			String barrio = null;
+			Float precioPromedio = null;
+			Integer cantMesas = null;
+
 			if (cboxBarrio.getValue() != null) {
 				barrio = cboxBarrio.getValue();
 			}
-			Float precioPromedio=null;
 			try {
-				precioPromedio=Float.parseFloat(txtPrecioPromedio.getText());
-			}catch(NumberFormatException e) {}
-			
-			Integer cantMesas=null;
-			try {
-				cantMesas=Integer.parseInt(txtCantMesas.getText());
-			}catch(NumberFormatException e) {
-				showAlert("Ingrese la cantidad de mesas", "para habilitar las reservas.");
+				precioPromedio = Float.parseFloat(txtPrecioPromedio.getText());
+			} catch (NumberFormatException e) {
 			}
-			
-			resMgr.cargarDatosRes(controller.getRestaurante().getRUT(), txtDescripcion.getText(), txtDireccion.getText(),
-					txtHorarioApertura.getText(), txtHorarioCierre.getText(),
-					precioPromedio, txtMail.getText(), barrio, imagenAGuardar, cantMesas);
+			try {
+
+				cantMesas = Integer.parseInt(txtCantMesas.getText());
+			} catch (NumberFormatException e) {
+				if (resMgr.getCantMesas(rut) == 0) {
+					showAlert("Ingrese la cantidad de mesas", "para habilitar las reservas.");
+				}
+			}
+
+			resMgr.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precioPromedio, mail,
+					barrio, imagenAGuardar, cantMesas);
+
 			stage = (Stage) btnGuardarDatos.getScene().getWindow();
 			root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("AgregarTiposComida.fxml"));
 			controllerTiposComida.handleTipoComidaCbox1(event);
 			controllerTiposComida.handleTipoComidaCbox2(event);
 			controllerTiposComida.handleTipoComidaCbox3(event);
-			
+
 		}
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
 	}
-	
+
 //	Stage getStage() {
 //		return stage;
 //	}
-	
+
 //	@FXML
 //	void agregarTiposComida(ActionEvent event) throws IOException {
 //		Stage stage = null;
@@ -217,12 +227,12 @@ public class ControladorActualizarDatosRest implements ApplicationContextAware {
 	}
 
 	public static void showAlert(String title, String contextText) {
-        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(contextText);
-        alert.showAndWait();
-    }
-	
+		javafx.scene.control.Alert alert = new javafx.scene.control.Alert(
+				javafx.scene.control.Alert.AlertType.INFORMATION);
+		alert.setTitle(title);
+		alert.setHeaderText(null);
+		alert.setContentText(contextText);
+		alert.showAndWait();
+	}
 
 }

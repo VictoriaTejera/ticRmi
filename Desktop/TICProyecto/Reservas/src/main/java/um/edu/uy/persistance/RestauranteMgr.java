@@ -1,7 +1,12 @@
 package um.edu.uy.persistance;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+
+import javax.imageio.ImageIO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,14 +33,23 @@ public class RestauranteMgr {
 	@Autowired
 	private ComidaMgr comidaMgr;
 
+	@Autowired
+	private MesaMgr mesaMgr;
+
 	public List<Restaurante> getRestaurants() {
 		Iterable<Restaurante> it = repository.findAll();
 		List<Restaurante> lista = FXCollections.observableArrayList();
 		for (Restaurante r : it) {
-			lista.add(r);
+			if (repository.obtenerCantMesas(r.getRUT()) != 0) {
+				lista.add(r);
+			}
 		}
 		return lista;
 	}
+
+//	public List<Restaurante> getRestaurantesInicializados(){
+//		
+//	}
 
 	@Transactional
 	public void save(Restaurante res) {
@@ -92,8 +106,22 @@ public class RestauranteMgr {
 			String horarioCierre, Float precio_promedio, String mail, String barrio, byte[] imagen, Integer cantMesas) {
 		repository.cargarDatosRes(rut, descripcion, direccion, horarioApertura, horarioCierre, precio_promedio, mail,
 				barrioMgr.find(barrio), imagen);
-		for (int i = 0; i < cantMesas; i++) {
-			
+		if (cantMesas != null) {
+			Integer cantMesasActuales = repository.obtenerCantMesas(rut);
+			if (cantMesasActuales == 0) {
+				for (int i = 0; i < cantMesas; i++) {
+					mesaMgr.save(rut, 4);
+				}
+			} else if (cantMesasActuales > cantMesas) {
+				List<Mesa> mesas = repository.obtenerMesas(rut);
+				for (int i = 0; i < cantMesasActuales - cantMesas; i++) {
+					mesaMgr.delete(mesas.get(i).getId());
+				}
+			} else if (cantMesasActuales < cantMesas) {
+				for (int i = 0; i < cantMesas - cantMesasActuales; i++) {
+					mesaMgr.save(rut, 4);
+				}
+			}
 		}
 	}
 
@@ -138,6 +166,19 @@ public class RestauranteMgr {
 		cantAPagar = reservasTerminadas.size() * 500;
 
 		return cantAPagar;
+	}
+
+	public Integer getCantMesas(String rut) {
+		return repository.obtenerCantMesas(rut);
+	}
+
+	public List<Mesa> obtenerMesas(String rut) {
+		return repository.obtenerMesas(rut);
+	}
+
+	public BufferedImage obtenerImagen(String rut) throws IOException {
+		byte[] array = repository.obtenerImagen(rut);
+		return ImageIO.read(new ByteArrayInputStream(array));
 	}
 
 }

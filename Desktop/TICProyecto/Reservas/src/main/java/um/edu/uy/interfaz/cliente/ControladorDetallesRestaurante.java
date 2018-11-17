@@ -32,7 +32,6 @@ public class ControladorDetallesRestaurante implements ApplicationContextAware{
     
     Logger logger = LoggerFactory.getLogger(ControladorDetallesRestaurante.class);
 
-
     @FXML
     private Button btnReservar;
     

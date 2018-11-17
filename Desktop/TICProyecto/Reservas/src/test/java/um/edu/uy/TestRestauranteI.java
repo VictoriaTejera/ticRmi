@@ -32,7 +32,7 @@ import um.edu.uy.persistance.entidades.Restaurante;
 
 @SpringBootTest(classes = MainRestaurante.class)
 @RunWith(SpringRunner.class)
-public class TestRestauranteRepository {
+public class TestRestauranteI {
 
 	@Autowired
 	RestauranteMgr resMgr;
@@ -172,7 +172,7 @@ public class TestRestauranteRepository {
 
 		Barrio b3 = new Barrio("1", "Pocitos");
 		barrioMgr.save(b3);
-		resMgr.cargarDatosRes("124", "atencion", "pocitos 144", "13:10", "15:30", (float) 376, 876, "b3", null, null);
+//		resMgr.cargarDatosRes("124", "atencion", "pocitos 144", "13:10", "15:30", (float) 376, 876, "b3", null, null);
 
 	}
 	
