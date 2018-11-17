@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="321.0" prefWidth="369.999977929685" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.restaurante.ControladorMenuRest">
+<AnchorPane prefHeight="321.0" prefWidth="369.999977929685" styleClass="anchor" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.restaurante.ControladorMenuRest">
   <!-- TODO Add Nodes -->
   <children>
     <Label alignment="CENTER" layoutX="57.0" layoutY="35.0" prefHeight="56.0" prefWidth="292.0000999999975" text="Seleccione la operación que desea realizar" textAlignment="CENTER" underline="true">

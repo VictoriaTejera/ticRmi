@@ -19,44 +19,45 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import um.edu.uy.interfaz.administrador.AdminControladorRegistro;
+import um.edu.uy.interfaz.cliente.ControladorInicio;
 import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
 
 @Controller
 public class ControladorVerTotalAPagar implements ApplicationContextAware {
 
-    @FXML
-    private ResourceBundle resources;
+	@FXML
+	private ResourceBundle resources;
 
-    @FXML
-    private URL location;
+	@FXML
+	private URL location;
 
-    @FXML
-    private Button btnVolver;
+	@FXML
+	private Button btnVolver;
 
-    @FXML
-    private Label txtCantidad;
+	@FXML
+	private Label txtCantidad;
 
-    @FXML
-    private Label txtFechaDesde;
+	@FXML
+	private Label txtFechaDesde;
 
-    @FXML
-    private Label txtFechaHasta;
+	@FXML
+	private Label txtFechaHasta;
 
-    ApplicationContext applicationContext;
-    
-    @Autowired
-    ControladorInicioSesionRest controlador;
-    
-    @Autowired
-    ControladorFechasPagoPendiente controladorFechas;
-    
-    @Autowired 
-    RestauranteMgr restauranteMgr;
+	ApplicationContext applicationContext;
 
-    @FXML
-    void volver(ActionEvent event) throws IOException {
-    	Stage stage;
+	@Autowired
+	ControladorInicioSesionRest controlador;
+
+	@Autowired
+	ControladorFechasPagoPendiente controladorFechas;
+
+	@Autowired
+	RestauranteMgr restauranteMgr;
+
+	@FXML
+	void volver(ActionEvent event) throws IOException {
+		Stage stage;
 		Parent root = null;
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
@@ -65,8 +66,29 @@ public class ControladorVerTotalAPagar implements ApplicationContextAware {
 			stage = (Stage) btnVolver.getScene().getWindow();
 			root = fxmlLoader.load(AdminControladorRegistro.class.getResourceAsStream("MenuPrincipalRest.fxml"));
 		}
+<<<<<<< HEAD
 		stage.setScene(new Scene(root));
 		stage.show();
+	}
+
+	@FXML
+	void initialize() {
+		assert btnVolver != null : "fx:id=\"btnVolver\" was not injected: check your FXML file 'VerTotalAPagar.fxml'.";
+		assert txtCantidad != null : "fx:id=\"txtCantidad\" was not injected: check your FXML file 'VerTotalAPagar.fxml'.";
+		assert txtFechaDesde != null : "fx:id=\"txtFechaDesde\" was not injected: check your FXML file 'VerTotalAPagar.fxml'.";
+		assert txtFechaHasta != null : "fx:id=\"txtFechaHasta\" was not injected: check your FXML file 'VerTotalAPagar.fxml'.";
+
+		Restaurante rest = restauranteMgr.find(controlador.getRutRestaurante());
+
+		txtCantidad.setText(rest.getRUT());
+		txtFechaDesde.setText(controladorFechas.getFechaInicio());
+		txtFechaHasta.setText(controladorFechas.getFechaFin());
+	}
+=======
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
+    	stage.show();
     }
 
     @FXML
@@ -82,10 +104,11 @@ public class ControladorVerTotalAPagar implements ApplicationContextAware {
         txtFechaDesde.setText(controladorFechas.getFechaInicio());
         txtFechaHasta.setText(controladorFechas.getFechaFin());
     }
+>>>>>>> 0214fdfdc67ee7c98f60dbc411583c17edc2e5ce
 
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-		this.applicationContext=applicationContext;
+		this.applicationContext = applicationContext;
 	}
 
 }
