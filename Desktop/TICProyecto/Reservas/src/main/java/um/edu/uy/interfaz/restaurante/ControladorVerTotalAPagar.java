@@ -25,38 +25,38 @@ import um.edu.uy.persistance.entidades.Restaurante;
 @Controller
 public class ControladorVerTotalAPagar implements ApplicationContextAware {
 
-    @FXML
-    private ResourceBundle resources;
+	@FXML
+	private ResourceBundle resources;
 
-    @FXML
-    private URL location;
+	@FXML
+	private URL location;
 
-    @FXML
-    private Button btnVolver;
+	@FXML
+	private Button btnVolver;
 
-    @FXML
-    private Label txtCantidad;
+	@FXML
+	private Label txtCantidad;
 
-    @FXML
-    private Label txtFechaDesde;
+	@FXML
+	private Label txtFechaDesde;
 
-    @FXML
-    private Label txtFechaHasta;
+	@FXML
+	private Label txtFechaHasta;
 
-    ApplicationContext applicationContext;
-    
-    @Autowired
-    ControladorInicioSesionRest controlador;
-    
-    @Autowired
-    ControladorFechasPagoPendiente controladorFechas;
-    
-    @Autowired 
-    RestauranteMgr restauranteMgr;
+	ApplicationContext applicationContext;
 
-    @FXML
-    void volver(ActionEvent event) throws IOException {
-    	Stage stage;
+	@Autowired
+	ControladorInicioSesionRest controlador;
+
+	@Autowired
+	ControladorFechasPagoPendiente controladorFechas;
+
+	@Autowired
+	RestauranteMgr restauranteMgr;
+
+	@FXML
+	void volver(ActionEvent event) throws IOException {
+		Stage stage;
 		Parent root = null;
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
@@ -67,25 +67,25 @@ public class ControladorVerTotalAPagar implements ApplicationContextAware {
 		}
 		stage.setScene(new Scene(root));
 		stage.show();
-    }
+	}
 
-    @FXML
-    void initialize() {
-        assert btnVolver != null : "fx:id=\"btnVolver\" was not injected: check your FXML file 'VerTotalAPagar.fxml'.";
-        assert txtCantidad != null : "fx:id=\"txtCantidad\" was not injected: check your FXML file 'VerTotalAPagar.fxml'.";
-        assert txtFechaDesde != null : "fx:id=\"txtFechaDesde\" was not injected: check your FXML file 'VerTotalAPagar.fxml'.";
-        assert txtFechaHasta != null : "fx:id=\"txtFechaHasta\" was not injected: check your FXML file 'VerTotalAPagar.fxml'.";
+	@FXML
+	void initialize() {
+		assert btnVolver != null : "fx:id=\"btnVolver\" was not injected: check your FXML file 'VerTotalAPagar.fxml'.";
+		assert txtCantidad != null : "fx:id=\"txtCantidad\" was not injected: check your FXML file 'VerTotalAPagar.fxml'.";
+		assert txtFechaDesde != null : "fx:id=\"txtFechaDesde\" was not injected: check your FXML file 'VerTotalAPagar.fxml'.";
+		assert txtFechaHasta != null : "fx:id=\"txtFechaHasta\" was not injected: check your FXML file 'VerTotalAPagar.fxml'.";
 
-        Restaurante rest=restauranteMgr.find(controlador.getRutRestaurante());
-        
-//        txtCantidad.setText(rest.);
-        txtFechaDesde.setText(controladorFechas.getFechaInicio());
-        txtFechaHasta.setText(controladorFechas.getFechaFin());
-    }
+		Restaurante rest = restauranteMgr.find(controlador.getRutRestaurante());
+
+		txtCantidad.setText(rest.getRUT());
+		txtFechaDesde.setText(controladorFechas.getFechaInicio());
+		txtFechaHasta.setText(controladorFechas.getFechaFin());
+	}
 
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-		this.applicationContext=applicationContext;
+		this.applicationContext = applicationContext;
 	}
 
 }
