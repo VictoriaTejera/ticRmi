@@ -9,7 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-
+import java.time.LocalDate;
 import java.util.LinkedList;
 
 import java.util.List;
@@ -199,11 +199,11 @@ public class TestRestauranteRepository {
 		Usuario usu=  new Usuario("usu", "123", 9888);
 		usuMgr.save(usu);
 	    reservaMgr.save(usu.getCelular(), r8.getRUT(), 2);
-	    resMgr.cantidadAPagar(r8.getRUT());
+	  /  resMgr.cantidadAPagar(r8.getRUT(), LocalDate.parse(text, formatter)15/8/18, (Date)14/7/18);
 	    
 	    
 	   
    }
 
 }
->>>>>>> branch 'master' of https://github.com/VictoriaTejera/TIC.git
+
