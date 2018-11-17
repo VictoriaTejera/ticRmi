@@ -58,14 +58,16 @@ public class MainRestaurante extends Application{
 		
 		root1 = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
 		scene1 = new Scene(root1);
+		scene1.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		
 		fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(MainRestaurante.getContext()::getBean);
 		
 		root2 = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("ActualizarDatosRest.fxml"));
 		scene2 = new Scene(root2);
-		
-//		fxmlLoader = new FXMLLoader();
+		scene2.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+
+		//		fxmlLoader = new FXMLLoader();
 //		fxmlLoader.setControllerFactory(MainRestaurante.getContext()::getBean);
 		
 //		root4 = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("VerReservasPendientes.fxml"));
@@ -77,7 +79,7 @@ public class MainRestaurante extends Application{
 //		root3 = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("WarningDatosGuardadosExitosamente.fxml"));
 //		scene3 = new Scene(root3);		
 		
-		scene.getStylesheets().add(ControladorInicio.class.getResource("application.css").toExternalForm());
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}

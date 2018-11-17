@@ -19,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import um.edu.uy.interfaz.administrador.AdminControladorRegistro;
+import um.edu.uy.interfaz.cliente.ControladorInicio;
 import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
 
@@ -65,8 +66,10 @@ public class ControladorVerTotalAPagar implements ApplicationContextAware {
 			stage = (Stage) btnVolver.getScene().getWindow();
 			root = fxmlLoader.load(AdminControladorRegistro.class.getResourceAsStream("MenuPrincipalRest.fxml"));
 		}
-		stage.setScene(new Scene(root));
-		stage.show();
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
+    	stage.show();
     }
 
     @FXML

@@ -70,10 +70,12 @@ public class RestauranteAUX {
 	    		controller=(ControladorListarRestaurantes)MainCliente.getContext().getBean("ControladorListarRestaurantes");
 	    		controller.setRestaurante(restaurante);
 	    		Parent root=fxmlLoader.getRoot();
-	    		Stage stage = new Stage();
-	    		stage.setScene(new Scene(root));
-	    		stage.show();
-	    	}
+	    		Scene scene = new Scene(root);
+	    		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+	    		Stage stage = null;
+				stage .setScene(scene);
+	        	stage.show();
+}
 	    });
 	}
 	

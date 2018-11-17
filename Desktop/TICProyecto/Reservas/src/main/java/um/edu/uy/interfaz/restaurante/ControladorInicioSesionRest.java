@@ -19,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import um.edu.uy.interfaz.cliente.ControladorInicio;
 import um.edu.uy.persistance.ReservaMgr;
 import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Reserva;
@@ -71,9 +72,11 @@ public class ControladorInicioSesionRest implements ApplicationContextAware {
 				showAlert("Lo sentimos, ", "El usuario o contraseña son incorrectos. Vuelva a intentarlo");
 			}
 		}
-		stage.setScene(new Scene(root));
-		stage.show();
-	}
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
+    	stage.show();
+}
 	
 	String getRutRestaurante() {
 		return restauranteMgr.getRut(restaurante.getNombre(), restaurante.getPassword()); 

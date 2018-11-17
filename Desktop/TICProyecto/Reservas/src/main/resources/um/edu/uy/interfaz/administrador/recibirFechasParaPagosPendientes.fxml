@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="350.0000999999975" prefWidth="341.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.administrador.AdminControladorPagosPendientes">
+<AnchorPane prefHeight="350.0000999999975" prefWidth="341.0000999999975" styleClass="anchor" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.administrador.AdminControladorPagosPendientes">
   <!-- TODO Add Nodes -->
   <children>
     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="37.0" prefHeight="79.0" prefWidth="287.0" text="Ingrese el rango de fechas entre las que " textAlignment="CENTER" textOverrun="ELLIPSIS" underline="true">
