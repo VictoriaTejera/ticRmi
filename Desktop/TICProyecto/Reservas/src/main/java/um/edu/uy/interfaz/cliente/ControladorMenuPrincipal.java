@@ -54,9 +54,11 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
 			root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("ListarRestaurantes.fxml"));
 			stage = (Stage) btnListarRestaurantes.getScene().getWindow();
 		}
-		stage.setScene(new Scene(root));
-		stage.show();
-    }
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
+    	stage.show();
+}
     
     @FXML
     void reservasRealizadas(ActionEvent event) throws IOException {
@@ -69,13 +71,12 @@ public class ControladorMenuPrincipal implements ApplicationContextAware {
     		root = fxmlLoader.load(ControladorRegistro.class.getResourceAsStream("MisReservas.fxml"));
     		stage = (Stage) btnReservasRealizadas.getScene().getWindow();
 		}
-    	stage.setScene(new Scene(root));
-		stage.show();
+    	Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
+    	stage.show();
 
-//		Scene scene = new Scene(root );
-//		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
-//		stage.setScene(scene);
-//		stage.show();
+
     }
     
     @FXML

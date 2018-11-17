@@ -81,13 +81,11 @@ public class ControladorReservasPendientes implements ApplicationContextAware {
 			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("MenuPrincipalRest.fxml"));
 			stage = (Stage) btnVolver.getScene().getWindow();
 		}
-	        Scene scene = new Scene(root );
+			
+			Scene scene = new Scene(root);
 			scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 			stage.setScene(scene);
-			stage.show();
-			
-		stage.setScene(scene);
-		stage.show();
+	    	stage.show();
 	}
 
 	@FXML

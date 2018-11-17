@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import um.edu.uy.interfaz.cliente.ControladorInicio;
 import um.edu.uy.interfaz.cliente.clasesAuxiliares.RestauranteAUX;
 import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
@@ -73,9 +74,11 @@ public class AdminControladorRegistro implements ApplicationContextAware {
 				showAlert("Lo sentimos, ", "El restaurante ya ha sido creado.");
 			}
 		}
-		stage.setScene(new Scene(root));
-		stage.show();
-	}
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
+    	stage.show();
+}
 
 	@FXML
 	void initialize() {

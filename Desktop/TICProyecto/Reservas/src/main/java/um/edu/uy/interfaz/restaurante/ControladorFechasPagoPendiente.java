@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import um.edu.uy.interfaz.cliente.ControladorInicio;
 
 @Component
 public class ControladorFechasPagoPendiente implements ApplicationContextAware  {
@@ -59,8 +60,10 @@ public class ControladorFechasPagoPendiente implements ApplicationContextAware  
 			stage = (Stage) btnVerPagosPendientes.getScene().getWindow();
 			root = fxmlLoader.load(ControladorMenuRest.class.getResourceAsStream("VerTotalAPagar.fxml"));
 		}
-		stage.setScene(new Scene(root));
-		stage.show();
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
+    	stage.show();
     }
 
     @FXML

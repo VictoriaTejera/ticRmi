@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import um.edu.uy.interfaz.cliente.ControladorInicio;
 
 @Component
 public class AdminControladorInicio  implements ApplicationContextAware {
@@ -45,8 +46,10 @@ public class AdminControladorInicio  implements ApplicationContextAware {
 			stage = (Stage) btnRegistrarRestaurante.getScene().getWindow();
 			root = fxmlLoader.load(AdminControladorRegistro.class.getResourceAsStream("RegistrarRestaurante.fxml"));
 		}
-		stage.setScene(new Scene(root));
-		stage.show();
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
+    	stage.show();
     }
     
     @FXML
@@ -60,8 +63,10 @@ public class AdminControladorInicio  implements ApplicationContextAware {
 			stage = (Stage) btnRegistrarRestaurante.getScene().getWindow();
 			root = fxmlLoader.load(AdminControladorRegistro.class.getResourceAsStream("recibirFechasParaPagosPendientes.fxml"));
 		}
-		stage.setScene(new Scene(root));
-		stage.show();
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
+    	stage.show();
     }
 
     @FXML

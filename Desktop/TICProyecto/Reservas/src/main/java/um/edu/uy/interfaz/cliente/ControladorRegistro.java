@@ -76,13 +76,11 @@ public class ControladorRegistro implements ApplicationContextAware {
 			root = fxmlLoader.load(ControladorInicioSesion.class.getResourceAsStream("inicio.fxml"));
 			stage = (Stage) btnVolver.getScene().getWindow();
 		}
-		stage.setScene(new Scene(root));
-		stage.show();
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		stage.setScene(scene);
-		stage.show();
-	}
+    	stage.show();
+}
 
 	@FXML
 	void initialize() {

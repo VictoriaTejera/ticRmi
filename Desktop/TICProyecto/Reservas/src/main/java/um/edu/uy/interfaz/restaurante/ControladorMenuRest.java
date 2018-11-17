@@ -17,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import um.edu.uy.interfaz.cliente.ControladorInicio;
 
 @Component
 public class ControladorMenuRest implements ApplicationContextAware{
@@ -55,9 +56,11 @@ public class ControladorMenuRest implements ApplicationContextAware{
 			controller.handleBarrioCbox(event);
 			//controller.handleTipoComidaCbox(event);
 		}
-		stage.setScene(new Scene(root));
-		stage.show();
-	}
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
+    	stage.show();
+}
     
     @FXML
     void verReservasPendientes(ActionEvent event) throws IOException {
@@ -72,8 +75,10 @@ public class ControladorMenuRest implements ApplicationContextAware{
 
 			root = fxmlLoader.load(ControladorReservasPendientes.class.getResourceAsStream("VerReservasPendientes.fxml"));
 		}
-		stage.setScene(new Scene(root));
-		stage.show();
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
+    	stage.show();
     }
     
     @FXML 
@@ -88,8 +93,10 @@ public class ControladorMenuRest implements ApplicationContextAware{
 			stage = (Stage) btnTotalAPagar.getScene().getWindow();
 			root = fxmlLoader.load(ControladorReservasPendientes.class.getResourceAsStream("recibirFechasParaPagosPendientes.fxml"));
 		}
-		stage.setScene(new Scene(root));
-		stage.show();
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
+    	stage.show();
     }
     
     @FXML

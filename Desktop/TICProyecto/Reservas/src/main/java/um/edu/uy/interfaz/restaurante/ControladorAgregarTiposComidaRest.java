@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
+import um.edu.uy.interfaz.cliente.ControladorInicio;
 import um.edu.uy.persistance.ComidaMgr;
 import um.edu.uy.persistance.RestauranteMgr;
 
@@ -102,9 +103,10 @@ public class ControladorAgregarTiposComidaRest implements ApplicationContextAwar
 			controllerAgregarTiposComida.handleTipoComidaCbox3(event);
 		}
 		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		stage.setScene(scene);
-		stage.show();
-    }
+    	stage.show();
+}
 
     @FXML
     void volverAAgregarDatos(ActionEvent event) throws IOException {
@@ -128,8 +130,9 @@ public class ControladorAgregarTiposComidaRest implements ApplicationContextAwar
 			root = fxmlLoader.load(ControladorInicioSesionRest.class.getResourceAsStream("MenuPrincipalRest.fxml"));
 		}
 		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		stage.setScene(scene);
-		stage.show();
+    	stage.show();
     }
 
     @FXML

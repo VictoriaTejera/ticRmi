@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import um.edu.uy.interfaz.administrador.AdminControladorRegistro;
+import um.edu.uy.interfaz.cliente.ControladorInicio;
 
 @SpringBootApplication
 public class MainAdministrador extends Application {
@@ -49,14 +50,15 @@ public class MainAdministrador extends Application {
 
 		root1 = fxmlLoader1.load(AdminControladorRegistro.class.getResourceAsStream("RegistrarRestaurante.fxml"));
 		scene1 = new Scene(root1);
+		scene1.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		
 		fxmlLoader2 = new FXMLLoader();
 		fxmlLoader2.setControllerFactory(MainAdministrador.getContext()::getBean);
 
 		root2 = fxmlLoader2.load(AdminControladorRegistro.class.getResourceAsStream("final.fxml"));
 		scene2 = new Scene(root2);
-		
-		scene.getStylesheets().add(AdminControladorRegistro.class.getResource("application.css").toExternalForm());
+		scene2.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		scene.getStylesheets().add(AdminControladorRegistro.class.getResource("style.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}

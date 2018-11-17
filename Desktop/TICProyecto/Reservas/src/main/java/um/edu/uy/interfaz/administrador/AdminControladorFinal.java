@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import um.edu.uy.interfaz.cliente.ControladorInicio;
 
 @Component
 public class AdminControladorFinal implements ApplicationContextAware {
@@ -51,9 +52,11 @@ public class AdminControladorFinal implements ApplicationContextAware {
 	        stage.close();
 		}
 
-		stage.setScene(new Scene(root));
-		stage.show();
-	}
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
+    	stage.show();
+}
 
 	@FXML
 	void initialize() {

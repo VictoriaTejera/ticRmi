@@ -207,8 +207,11 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 		fxmlLoader.setControllerFactory(applicationContext::getBean);
 		root = fxmlLoader.load(ControladorListarRestaurantes.class.getResourceAsStream("DetallesRestaurante.fxml"));
 		// stage = (Stage) event.getSource().getScene().getWindow();
-		stage.setScene(new Scene(root));
-		stage.show();
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
+    	stage.show();
+
 	}
 
 	@FXML
@@ -223,11 +226,9 @@ public class ControladorListarRestaurantes implements ApplicationContextAware {
 			stage = (Stage) btnVolverAlMenu.getScene().getWindow();
 		}
 		Scene scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
 		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		stage.setScene(scene);
-		stage.show();
+    	stage.show();
 
 	}
 

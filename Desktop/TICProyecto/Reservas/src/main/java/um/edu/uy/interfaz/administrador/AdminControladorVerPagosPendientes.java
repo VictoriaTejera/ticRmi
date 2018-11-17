@@ -25,6 +25,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import um.edu.uy.interfaz.cliente.ControladorInicio;
 import um.edu.uy.interfaz.cliente.clasesAuxiliares.RestauranteAUX;
 import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.entidades.Restaurante;
@@ -113,8 +114,10 @@ public class AdminControladorVerPagosPendientes implements ApplicationContextAwa
 			stage = (Stage) btnVolverAlMenu.getScene().getWindow();
 			root = fxmlLoader.load(AdminControladorRegistro.class.getResourceAsStream("inicio.fxml"));
 		}
-		stage.setScene(new Scene(root));
-		stage.show();
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
+		stage.setScene(scene);
+    	stage.show();
 	}
 
 	@FXML

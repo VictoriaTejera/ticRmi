@@ -53,10 +53,10 @@ public class ControladorReservarDirecto {
 			}
 		}
 		 Parent root = null;
-	        Scene scene = new Scene(root );
+			Scene scene = new Scene(root);
 			scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 			stage.setScene(scene);
-			stage.show();
+	    	stage.show();
 			
 	}
 

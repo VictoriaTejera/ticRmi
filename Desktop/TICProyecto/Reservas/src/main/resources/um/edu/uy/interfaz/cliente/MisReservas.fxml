@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="429.0" prefWidth="461.9998779296875" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorMisReservas">
+<AnchorPane prefHeight="429.0" prefWidth="461.9998779296875" styleClass="anchor" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="um.edu.uy.interfaz.cliente.ControladorMisReservas">
   <!-- TODO Add Nodes -->
   <children>
     <VBox layoutX="7.0" layoutY="0.0" prefHeight="376.0" prefWidth="74.0">
