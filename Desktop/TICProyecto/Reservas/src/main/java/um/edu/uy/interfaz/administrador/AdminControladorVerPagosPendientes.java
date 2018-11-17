@@ -2,6 +2,8 @@ package um.edu.uy.interfaz.administrador;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.BeansException;
@@ -82,13 +84,10 @@ public class AdminControladorVerPagosPendientes implements ApplicationContextAwa
 		columnaCantidad.setCellValueFactory(
 				new Callback<TableColumn.CellDataFeatures<Restaurante, String>, ObservableValue<String>>() {
 					public ObservableValue<String> call(TableColumn.CellDataFeatures<Restaurante, String> r) {
-						prop.setValue(Long.toString(resMgr.cantidadAPagar(r.getValue().getRUT())));
+						prop.setValue(Long.toString(resMgr.cantidadAPagar(r.getValue().getRUT(),  LocalDate.parse(controller.getFechaInicio()), LocalDate.parse(controller.getFechaFin()))));
 						return prop;
 					}
 				});
-		
-		controller.getFechaInicio();
-		controller.getFechaFin();
 		
 		ObservableList<Restaurante> restaurantes = FXCollections.observableArrayList();
 
