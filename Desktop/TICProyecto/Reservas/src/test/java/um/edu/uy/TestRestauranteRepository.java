@@ -206,3 +206,4 @@ public class TestRestauranteRepository {
    }
 
 }
+>>>>>>> branch 'master' of https://github.com/VictoriaTejera/TIC.git

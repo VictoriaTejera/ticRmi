@@ -7,6 +7,7 @@ import um.edu.uy.persistance.entidades.Reserva;
 import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Modifying;
@@ -69,4 +70,11 @@ public interface RestauranteRepository extends CrudRepository<Restaurante, Strin
 	
 	@Query("SELECT r.imagen FROM Restaurante r WHERE r.rut= :rut")
 	byte[] obtenerImagen(@Param ("rut") String rut);
+	
+	@Query("SELECT rv FROM Reserva rv WHERE rv.restaurante= :rut AND rv.terminada=0 AND rv.fecha BETWEEN :fecha1 AND :fecha2")
+	List<Reserva> obtenerReservasTerminadasRangoDeFechas(@Param("rut") String rut, @Param("fecha1") Date fecha1, @Param("fecha2") Date fecha2);
+	
+//	@Query("SELECT distinct r FROM Restaurant r INNER JOIN r.comidas c WHERE c.id IN (?1) " +
+//            "AND r.barrio IN (?2) ORDER BY r.rating desc ")
+//    List<Restaurante> findByTipoComidaAndBarrio(List<Integer> idListaTiposComidas, List<Barrio> listaBarrio);
 }
