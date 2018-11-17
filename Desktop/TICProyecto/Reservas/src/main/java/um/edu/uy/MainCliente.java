@@ -17,12 +17,12 @@ import um.edu.uy.interfaz.cliente.ControladorRegistro;
 
 @SpringBootApplication
 public class MainCliente extends Application {
-	Button btnRegistrarse, btnIniciarSesion, btnConfirmarInicioSesion, btnListarRestaurantes, btnConfirmarRegistro, btnReservar, btnReservasRealizadas;
-	Scene scene, scene2, scene1, scene3, scene4, scene5, scene6;
+	Button btnRegistrarse, btnIniciarSesion, btnConfirmarInicioSesion, btnListarRestaurantes, btnConfirmarRegistro, btnReservar, btnReservasRealizadas,btnPuntuarRest;
+	Scene scene, scene2, scene1, scene3, scene4, scene5, scene6,scene7;
 	Stage thestage;
 	private static ConfigurableApplicationContext context;
-	private FXMLLoader fxmlLoader, fxmlLoader1, fxmlLoader2, fxmlLoader3, fxmlLoader4, fxmlLoader5, fxmlLoader6;
-	private Parent root, root1, root2, root3, root4, root5, root6;
+	private FXMLLoader fxmlLoader, fxmlLoader1, fxmlLoader2, fxmlLoader3, fxmlLoader4, fxmlLoader5, fxmlLoader6,fxmlLoader7;
+	private Parent root, root1, root2, root3, root4, root5, root6, root7;
 
 	@Override
 	public void init() throws Exception {
@@ -39,6 +39,7 @@ public class MainCliente extends Application {
 		btnListarRestaurantes = new Button();
 		btnReservar = new Button();
 		btnReservasRealizadas = new Button();
+		btnPuntuarRest = new Button();
 
 		btnRegistrarse.setOnAction(e -> ButtonClicked(e));
 		btnIniciarSesion.setOnAction(e -> ButtonClicked(e));
@@ -47,6 +48,7 @@ public class MainCliente extends Application {
 		btnListarRestaurantes.setOnAction(e -> ButtonClicked(e));
 		btnReservar.setOnAction(e -> ButtonClicked(e));
 		btnReservasRealizadas.setOnAction(e -> ButtonClicked(e));
+		btnPuntuarRest.setOnAction(e -> ButtonClicked(e));
 
 		fxmlLoader = new FXMLLoader();
 		fxmlLoader.setControllerFactory(MainCliente.getContext()::getBean);
@@ -93,6 +95,12 @@ public class MainCliente extends Application {
 		root6 = fxmlLoader6.load(ControladorRegistro.class.getResourceAsStream("MisReservas.fxml"));
 		scene6 = new Scene(root6);
 
+		fxmlLoader7 = new FXMLLoader();
+		fxmlLoader7.setControllerFactory(MainCliente.getContext()::getBean);
+	
+		root7 = fxmlLoader7.load(ControladorRegistro.class.getResourceAsStream("PuntuarRestaurantes.fxml"));
+		scene7 = new Scene(root7);
+
 		scene.getStylesheets().add(ControladorInicio.class.getResource("style.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -117,6 +125,8 @@ public class MainCliente extends Application {
 			thestage.setScene(scene5);
 		if (e.getSource() == btnReservasRealizadas)
 			thestage.setScene(scene6);
+		if (e.getSource() == btnPuntuarRest)
+			thestage.setScene(scene7);
 	}
 
 	public void stop() {
