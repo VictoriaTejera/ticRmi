@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import um.edu.uy.persistance.ReservaMgr;
 import um.edu.uy.persistance.RestauranteMgr;
 import um.edu.uy.persistance.UsuarioMgr;
+import um.edu.uy.persistance.entidades.Mesa;
 import um.edu.uy.persistance.entidades.Reserva;
 import um.edu.uy.persistance.entidades.Restaurante;
 import um.edu.uy.persistance.entidades.Usuario;
@@ -50,20 +51,17 @@ public class TestReserva {
 	public void testConfirmarReserva() {
 		Usuario u5=new Usuario("nombre2", "con2", 1234);
 		usuarioMgr.save(u5);
-
 		Restaurante r5=new Restaurante("12366", "J", 1234, "12345");
 		restauranteMgr.save(r5);
+		int cantMesas= restauranteMgr.obtenerMesasNoReservadas(r5.getRUT()).size();
+		
+
+		reservaMgr.save(u5.getCelular(), r5.getRUT(), 5);
+		
+		assertEquals(restauranteMgr.obtenerMesasNoReservadas(r5.getRUT()).size(), cantMesas-2);
+		
 
 		
-//		Restaurante r5=new Restaurante("Ruffi", "1233");
-//		restauranteMgr.save(r5);
-
-
-		Reserva r1= new Reserva(u5, r5, 7);
-
-		//reserMgr.save(r1);
-
-		//reservaMgr.save(r1);
 	}
 	
 	
